@@ -1,11 +1,27 @@
-const path = require('path')
-const resolve = dir => {
-  return path.join(__dirname, dir)
-}
+
+const webpack = require('webpack')
 module.exports = {
-  publicPath: './',
-  chainWebpack: config => {
-    config.resolve.alias
-      .set('_c', resolve('src/components')) // key,value自行定义，比如.set('@@', resolve('src/components'))
-  },
+    configureWebpack: {
+        plugins: [
+            new webpack.ProvidePlugin({
+                $: "jquery",
+                jQuery: "jquery",
+                "windows.jQuery": "jquery"
+            })
+        ]
+    },
+    devServer: {
+        "port": 8080,
+        "open": true,
+        proxy: {
+            "/archivesManage": {
+                target: "http://192.168.2.100:8090/archivesManage",
+                ws: true,
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/archivesManage': ''
+                }
+            },
+        },
+    },
 }
