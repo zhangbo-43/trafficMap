@@ -4,16 +4,16 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'demo',
-    component: () => import('../views/map/demo.vue')
-  },
   // {
   //   path: '/',
-  //   name: 'Dendrogrsm',
-  //   component: () => import('../views/map/Dendrogrsm.vue')
+  //   name: 'demo',
+  //   component: () => import('../views/map/demo.vue')
   // },
+  {
+    path: '/',
+    name: 'Dendrogrsm',
+    component: () => import('../views/map/Dendrogrsm.vue')
+  },
   // {
   //   path: '/',
   //   name: 'index',
