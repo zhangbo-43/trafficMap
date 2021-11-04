@@ -13,6 +13,10 @@ import 'vue-awesome/icons/chart-pie.js';
 import 'vue-awesome/icons/chart-line.js';
 import 'vue-awesome/icons/align-left.js';
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
 //引入echart
 //4.x 引用方式
 import echarts from 'echarts';
@@ -21,11 +25,6 @@ import echarts from 'echarts';
 //import * as echarts from 'echarts'
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false;
-//
-import request from '@/http/requestApi';
-Vue.prototype.request = request;
-import postRequest from '@/http/api';
-Vue.prototype.post = postRequest;
 // 全局注册
 Vue.component('icon', Icon);
 Vue.use(dataV);
