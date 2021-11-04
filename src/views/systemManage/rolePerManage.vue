@@ -1,0 +1,13 @@
+<template>
+<div>角色权限管理</div>
+</template>
+
+<script>
+export default {
+  name: "rolePerManage"
+}
+</script>
+
+<style scoped>
+
+</style>

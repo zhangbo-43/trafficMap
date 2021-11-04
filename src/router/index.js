@@ -12,8 +12,58 @@ const routes = [
   {
     path: '/mainPanel',
     name: 'mainPanel',
-    // redirect: '/subCenterScreen',
-    component: () => import('../views/mainPanel.vue')
+    redirect: '/subCenterScreen',
+    component: () => import('../views/mainPanel.vue'),
+    children: [
+      // 全网监控大屏
+      {
+        path: '/wholeNetworkScreen',
+        name: 'wholeNetworkScreen',
+        component: () => import('../views/largeScreen/wholeNetworkScreen.vue')
+      },
+      // //分中心监控大屏
+      {
+        path: '/subCenterScreen',
+        name: 'subCenterScreen',
+        component: () => import('../views/largeScreen/subCenterScreen.vue')
+      },
+      // //瞬时区间配置
+      {
+        path: '/instantaneousConfig',
+        name: 'instantaneousConfig',
+        component: () => import('../views/manageConfig/instantaneousConfig.vue')
+      },
+      // //异常数据区间配置
+      {
+        path: '/abnormalDataConfig',
+        name: 'abnormalDataConfig',
+        component: () => import('../views/manageConfig/abnormalDataConfig.vue')
+      },
+      // //数据刷新配置
+      {
+        path: '/dataRefresh',
+        name: 'dataRefresh',
+        component: () => import('../views/manageConfig/dataRefresh.vue')
+      },
+      // //角色权限管理
+      {
+        path: '/rolePerManage',
+        name: 'rolePerManage',
+        component: () => import('../views/systemManage/rolePerManage.vue')
+      },
+      // //菜单信息管理
+      {
+        path: '/menuInfoManage',
+        name: 'menuInfoManage',
+        component: () => import('../views/systemManage/menuInfoManage.vue')
+      },
+      // //人员信息管理
+      {
+        path: '/personInfoManage',
+        name: 'personInfoManage',
+        component: () => import('../views/systemManage/personInfoManage.vue')
+      },
+    ]
   },
 {
     path: '/',

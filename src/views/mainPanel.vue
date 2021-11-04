@@ -22,7 +22,7 @@
           <!--            <el-radio-button :label="false">展开</el-radio-button>-->
           <!--            <el-radio-button :label="true">收起</el-radio-button>-->
           <!--          </el-radio-group>-->
-          <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+          <el-menu :default-active="$route.name" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" router
                    :collapse="isCollapse" background-color="rgb(0, 40, 77)" text-color="#fff" unique-opened>
             <el-submenu index="1">
               <template slot="title">
@@ -30,8 +30,8 @@
                 <span slot="title">看板大屏</span>
               </template>
               <el-menu-item-group>
-                <el-menu-item index="1-1">全网监控大屏</el-menu-item>
-                <el-menu-item index="1-2">分中心监控大屏</el-menu-item>
+                <el-menu-item index="wholeNetworkScreen">全网监控大屏</el-menu-item>
+                <el-menu-item index="subCenterScreen">分中心监控大屏</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
             <el-submenu index="2">
@@ -40,9 +40,9 @@
                 <span slot="title">管理配置</span>
               </template>
               <el-menu-item-group>
-                <el-menu-item index="2-1">瞬时区间配置</el-menu-item>
-                <el-menu-item index="2-2">异常数据区间配置</el-menu-item>
-                <el-menu-item index="3-2">数据刷新配置</el-menu-item>
+                <el-menu-item index="instantaneousConfig">瞬时区间配置</el-menu-item>
+                <el-menu-item index="abnormalDataConfig">异常数据区间配置</el-menu-item>
+                <el-menu-item index="dataRefresh">数据刷新配置</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
             <el-submenu index="3">
@@ -51,9 +51,9 @@
                 <span slot="title">系统管理</span>
               </template>
               <el-menu-item-group>
-                <el-menu-item index="3-1">角色权限配置</el-menu-item>
-                <el-menu-item index="3-2">菜单信息管理</el-menu-item>
-                <el-menu-item index="3-2">人员管理</el-menu-item>
+                <el-menu-item index="rolePerManage">角色权限管理</el-menu-item>
+                <el-menu-item index="menuInfoManage">菜单信息管理</el-menu-item>
+                <el-menu-item index="personInfoManage">人员信息管理</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
           </el-menu>
@@ -81,7 +81,7 @@ export default {
   name: "mainPanel",
   data() {
     return {
-      isCollapse: false
+      isCollapse: false,
     }
   },
   methods: {
