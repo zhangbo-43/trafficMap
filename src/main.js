@@ -25,10 +25,14 @@ import echarts from 'echarts';
 //import * as echarts from 'echarts'
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false;
+//axios请求
+import requestApi from '@/http/requestApi';
+import request from '@/http/api';
+Vue.prototype.requestApi = requestApi;
+Vue.prototype.request = request;
 // 全局注册
 Vue.component('icon', Icon);
 Vue.use(dataV);
-
 new Vue({
   router,
   store,
