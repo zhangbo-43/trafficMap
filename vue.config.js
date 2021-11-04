@@ -14,12 +14,12 @@ module.exports = {
         "port": 8080,
         "open": true,
         proxy: {
-            "/archivesManage": {
-                target: "http://192.168.2.100:8090/archivesManage",
+            "/api": {
+                target: "http://qimmati.zztczg.cn/api",
                 ws: true,
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/archivesManage': ''
+                    '^/api': ''
                 }
             },
         },
