@@ -89,6 +89,7 @@ export default {
   },
   props: ["configTableData"],
   methods: {
+    // 设置弹窗
     configInterval: function () {
       if (this.configTableData.name == "数据刷新配置") {
         this.dialogVisible = true;
@@ -100,6 +101,13 @@ export default {
             /^([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-3][0-5][0-9][0-9]|3600)$/,
           inputErrorMessage: "请输入1~3600之间的正整数",
         }).then(({ value }) => {
+          this.confirmData(value) 
+        });
+      }
+    },
+
+    // 确认要修改的数据  
+    confirmData(value){
           value = Number(value);
           this.$confirm("否调整瞬时区间为" + value + "秒", "提示", {
             confirmButtonText: "确定",
@@ -119,14 +127,16 @@ export default {
                 message: "设置失败+失败原因",
               });
             });
-        });
-      }
     },
+
+    // 获取当前时间
     timeFn() {
       let dateDay = formatTime(new Date(), "HH: mm: ss");
       let dateYear = formatTime(new Date(), "yyyy-MM-dd");
       return dateYear + "\xa0" + dateDay;
     },
+
+    // 保存设置的数据并渲染到页面中
     setTableData(interval, setPerson = "张三") {
       this.timeFn();
       this.tableData.unshift({
@@ -135,9 +145,11 @@ export default {
         setTime: this.timeFn(),
       });
     },
+    
+    // 选择数据区间
     selectInterval() {
       this.dialogVisible = false;
-      this.setTableData(this.selectData, "王五");
+      this.confirmData(this.selectData)
     },
   },
 };
