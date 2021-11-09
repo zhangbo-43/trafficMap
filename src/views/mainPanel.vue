@@ -58,7 +58,7 @@
             </el-submenu>
           </el-menu>
         </el-aside>
-        <el-main class="mainContent">
+        <el-main>
             <router-view></router-view>
         </el-main>
       </el-container>
@@ -87,34 +87,4 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/scss/common.scss';
-
-.el-header {
-  img {
-    height: 100%;
-    vertical-align: middle
-  }
-
-  .title {
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 100%;
-  }
-
-  .option {
-  display: inline-block;
-  float: right;
-    padding: 20px 0 20px 0;
-
-  .username {
-    cursor: pointer;
-    font-size: 18px;
-    color: #fff;
-  }
-
-  }
-}
-
-.mainContent {
-  padding: 20px;
-}
 </style>
