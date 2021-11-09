@@ -23,7 +23,7 @@
           <!--            <el-radio-button :label="true">收起</el-radio-button>-->
           <!--          </el-radio-group>-->
           <el-menu :default-active="$route.name" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" router
-                   :collapse="isCollapse" background-color="rgb(0, 40, 77)" text-color="#fff" unique-opened>
+                   :collapse="isCollapse" background-color="#070C49" text-color="#fff" unique-opened>
             <el-submenu index="1">
               <template slot="title">
                 <i class="el-icon-aim"></i>

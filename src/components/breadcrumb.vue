@@ -23,7 +23,7 @@ export default {
 <style lang="scss" scoped>
 .el-breadcrumb {
   vertical-align: center;
-  background:#ccc;
+  background:#fff;
   padding: 15px;
   box-sizing: border-box;
   font-size: 16px;
