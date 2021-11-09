@@ -93,17 +93,17 @@
 
 <script>
 import drawMixin from "../utils/drawMixin";
-import { formatTime } from '../utils/index.js'
-import centerLeft1 from './centerLeft1'
-import centerLeft2 from './centerLeft2'
-import centerRight1 from './centerRight1'
-import centerRight2 from './centerRight2'
-import center from './center'
-import bottomLeft from './bottomLeft'
-import bottomRight from './bottomRight'
+import { formatTime } from "../utils/index.js";
+import centerLeft1 from "./centerLeft1";
+import centerLeft2 from "./centerLeft2";
+import centerRight1 from "./centerRight1";
+import centerRight2 from "./centerRight2";
+import center from "./center";
+import bottomLeft from "./bottomLeft";
+import bottomRight from "./bottomRight";
 
 export default {
-  mixins: [ drawMixin ],
+  mixins: [drawMixin],
   data() {
     return {
       timing: null,
@@ -111,8 +111,8 @@ export default {
       dateDay: null,
       dateYear: null,
       dateWeek: null,
-      weekday: ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
-    }
+      weekday: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+    };
   },
   components: {
     centerLeft1,
@@ -121,32 +121,32 @@ export default {
     centerRight2,
     center,
     bottomLeft,
-    bottomRight
+    bottomRight,
   },
   mounted() {
-    this.timeFn()
-    this.cancelLoading()
+    this.timeFn();
+    this.cancelLoading();
   },
   unMounted() {
-    clearInterval(this.timing)
+    clearInterval(this.timing);
   },
   methods: {
     timeFn() {
       this.timing = setInterval(() => {
-        this.dateDay = formatTime(new Date(), 'HH: mm: ss')
-        this.dateYear = formatTime(new Date(), 'yyyy-MM-dd')
-        this.dateWeek = this.weekday[new Date().getDay()]
-      }, 1000)
+        this.dateDay = formatTime(new Date(), "HH: mm: ss");
+        this.dateYear = formatTime(new Date(), "yyyy-MM-dd");
+        this.dateWeek = this.weekday[new Date().getDay()];
+      }, 1000);
     },
     cancelLoading() {
       setTimeout(() => {
-        this.loading = false
-      }, 500)
-    }
-  }
-}
+        this.loading = false;
+      }, 500);
+    },
+  },
+};
 </script>
 
 <style lang="scss">
-@import '../assets/scss/index.scss';
+@import "../assets/scss/index.scss";
 </style>
