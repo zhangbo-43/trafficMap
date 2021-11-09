@@ -202,10 +202,6 @@ export default {
       display: flex;
       justify-content: flex-end;
     }
-    .header-row-class-name {
-      background: #030f94;
-      opacity: 0.1;
-    }
   }
 }
 </style>
