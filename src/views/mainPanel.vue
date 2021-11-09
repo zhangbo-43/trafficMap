@@ -59,17 +59,7 @@
           </el-menu>
         </el-aside>
         <el-main class="mainContent">
-          <div class="d-flex jc-center">
-            <dv-decoration-8 style="width:300px;height:50px;"/>
-            <div class="title-box">
-              <span class="title-text">云南话务地图看板大屏</span>
-              <dv-decoration-6 class="dv-dec-6" style="width:300px;height:30px;"/>
-            </div>
-            <dv-decoration-8 :reverse="true" style="width:300px;height:50px;"/>
-          </div>
-          <div>
             <router-view></router-view>
-          </div>
         </el-main>
       </el-container>
     </el-container>
@@ -126,25 +116,5 @@ export default {
 
 .mainContent {
   padding: 20px;
-
-  .title-box {
-    width: 500px;
-    position: relative;
-    text-align: center;
-
-    .title-text {
-      font-size: 18px;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%);
-    }
-
-    .dv-dec-6 {
-      position: absolute;
-      bottom: -20px;
-      left: 20%;
-    }
-  }
 }
 </style>
