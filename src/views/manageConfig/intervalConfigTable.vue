@@ -1,46 +1,60 @@
 <template>
-  <el-container>
-    <el-header>
+  <el-container class="container-config">
+    <el-header class="header-title">
       <span>{{ configTableData.name }}</span>
     </el-header>
-    <el-main>
-      <el-row>
-        <el-col :span="7"
-          ><div class="grid-content bg-purple">
-            {{ configTableData.effect }}
-          </div></el-col
-        >
-        <el-col :span="13"
-          ><div class="grid-content bg-purple-light">
-            {{ configTableData.annotation }}
-          </div></el-col
-        >
-        <el-col :span="4"
-          ><el-button
+    <el-main class="main-annotation">
+      <p>{{ configTableData.annotation }}</p>
+    </el-main>
+    <el-footer>
+      <div class="footer-table">
+        <div class="config-button">
+          <el-button
             type="primary"
             size="small"
             plain
             @click="configInterval"
             >{{ configTableData.buttonName }}</el-button
           >
-        </el-col>
-      </el-row>
-    </el-main>
-    <el-footer>
-      <el-table :data="tableData" style="width: 100%">
-        <el-table-column
-          prop="interval"
-          :label="configTableData.column.interval"
+        </div>
+        <el-table
+          :data="tableData"
+          style="width: 100%"
+          :header-cell-style="{
+            background: 'rgba(3,15,148,0.1)',
+            color: '#4C5463',
+            fontWeight: 500,
+          }"
+          :row-style="{ fontSize: 16, fontWeight: 300, fontFamily: PingFangSC }"
         >
-        </el-table-column>
-        <el-table-column
-          prop="setPerson"
-          :label="configTableData.column.setPerson"
-        >
-        </el-table-column>
-        <el-table-column prop="setTime" :label="configTableData.column.setTime">
-        </el-table-column>
-      </el-table>
+          <el-table-column
+            prop="interval"
+            :label="configTableData.column.interval"
+          >
+          </el-table-column>
+          <el-table-column
+            prop="setPerson"
+            :label="configTableData.column.setPerson"
+          >
+          </el-table-column>
+          <el-table-column
+            prop="setTime"
+            :label="configTableData.column.setTime"
+          >
+          </el-table-column>
+        </el-table>
+        <div class="block">
+          <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page.sync="currentPage3"
+            :page-size="10"
+            layout="prev, pager, next, jumper"
+            :total="100"
+          >
+          </el-pagination>
+        </div>
+      </div>
     </el-footer>
 
     <!-- 数据刷新配置的弹窗 -->
@@ -51,7 +65,7 @@
             <p>设置数据刷新频次:</p>
           </div></el-col
         >
-        <el-col :span="5" 
+        <el-col :span="5"
           ><div class="grid-content bg-purple">
             <select v-model="selectData">
               <option value="5">5秒</option>
@@ -72,7 +86,6 @@
 
 <script>
 import { formatTime } from "../../utils/index.js";
-// import Selectinput from "./selectInput.vue";
 export default {
   data() {
     return {
@@ -101,32 +114,32 @@ export default {
             /^([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-3][0-5][0-9][0-9]|3600)$/,
           inputErrorMessage: "请输入1~3600之间的正整数",
         }).then(({ value }) => {
-          this.confirmData(value) 
+          this.confirmData(value);
         });
       }
     },
 
-    // 确认要修改的数据  
-    confirmData(value){
-          value = Number(value);
-          this.$confirm("否调整瞬时区间为" + value + "秒", "提示", {
-            confirmButtonText: "确定",
-            cancelButtonText: "取消",
-            type: "warning",
-          })
-            .then(() => {
-              this.setTableData(value, "李四");
-              this.$message({
-                type: "success",
-                message: "设置成功，次日生效",
-              });
-            })
-            .catch(() => {
-              this.$message({
-                type: "info",
-                message: "设置失败+失败原因",
-              });
-            });
+    // 确认要修改的数据
+    confirmData(value) {
+      value = Number(value);
+      this.$confirm("否调整瞬时区间为" + value + "秒", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+      })
+        .then(() => {
+          this.setTableData(value, "李四");
+          this.$message({
+            type: "success",
+            message: "设置成功，次日生效",
+          });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "设置失败+失败原因",
+          });
+        });
     },
 
     // 获取当前时间
@@ -145,36 +158,53 @@ export default {
         setTime: this.timeFn(),
       });
     },
-    
+
     // 选择数据区间
     selectInterval() {
       this.dialogVisible = false;
-      this.confirmData(this.selectData)
+      this.confirmData(this.selectData);
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.el-container {
-  margin-top: 5%;
-  .el-header {
+.container-config {
+  .header-title {
+    background-color: #fff;
     display: flex;
     align-items: center;
+
     span {
-      font-size: 20px;
+      font-size: 22px;
+      color: #121212;
+      font-weight: bolder;
     }
   }
-  .el-main {
-    .el-row {
-      .el-col {
-        display: flex;
-        button {
-          position: absolute;
-          flex: right;
-          justify-self: flex-end;
-        }
-      }
+
+  .main-annotation {
+    padding: 20px 30px;
+    margin: 20px 20px 10px 20px;
+    // height: 60px;
+    background-color: #fff;
+    p {
+      color: #f59e07;
+      font-size: 17px;
+    }
+  }
+
+  .footer-table {
+    background-color: #fff;
+    padding: 20px 30px;
+
+    .config-button {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .header-row-class-name {
+      background: #030f94;
+      opacity: 0.1;
     }
   }
 }
