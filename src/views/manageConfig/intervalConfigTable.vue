@@ -18,8 +18,8 @@
           >
         </div>
         <el-table
-          max-height="440"
-          :data="tableData"
+          max-height="438px"
+          :data="showTableData"
           style="width: 100%"
           :header-cell-style="{
             background: 'rgba(3,15,148,0.1)',
@@ -53,14 +53,13 @@
           >
           </el-table-column>
         </el-table>
-        <div class="block">
+        <div class="select-page">
           <el-pagination
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-            :current-page.sync="currentPage3"
+            :current-page.sync="currentPage"
             :page-size="10"
             layout="prev, pager, next, jumper"
-            :total="100"
+            :total="tableData.length"
+            @current-change="handleCurrentChange"
           >
           </el-pagination>
         </div>
@@ -68,8 +67,8 @@
     </el-footer>
 
     <!-- 数据刷新配置的弹窗 -->
-    <el-dialog center :visible.sync="dialogVisible" width="25%">
-      <el-row>
+    <el-dialog center :show-close="false" :visible.sync="dialogVisible" width="25%">
+      <el-row class="select-updata">
         <el-col :span="10"
           ><div class="grid-content bg-purple">
             <p>设置数据刷新频次:</p>
@@ -102,19 +101,31 @@ export default {
       dateDay: null,
       dateYear: null,
       dialogVisible: false,
+      currentPage: 1,
       tableData: [
+        { interval: 1, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 2, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 3, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 4, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 5, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 6, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 7, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 8, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 9, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
         { interval: 10, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
-        { interval: 50, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 11, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 12, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 13, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 14, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 15, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 16, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 17, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 18, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 19, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
         { interval: 20, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
-        { interval: 10, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
-        { interval: 50, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
-        { interval: 20, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
-        { interval: 10, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
-        { interval: 20, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
-        { interval: 20, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
-        { interval: 20, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
-        { interval: 20, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 21, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
       ],
+      showTableData: [],
       selectData: "5",
     };
   },
@@ -175,6 +186,9 @@ export default {
         setPerson: setPerson,
         setTime: this.timeFn(),
       });
+      this.currentPage = 1
+      this.handleCurrentChange()
+
     },
 
     // 选择数据区间
@@ -182,7 +196,16 @@ export default {
       this.dialogVisible = false;
       this.confirmData(this.selectData);
     },
+
+    // 选择第N页
+    handleCurrentChange() {
+      let show = (this.currentPage -1) * 10 
+      this.showTableData = this.tableData.slice(show, show + 10);
+    },
   },
+  mounted(){
+    this.handleCurrentChange()
+  }
 };
 </script>
 
@@ -213,18 +236,24 @@ export default {
 
   .footer-table {
     background-color: #fff;
-    padding: 20px 30px;
+    padding: 20px 30px 10px 30px;
 
     .config-button {
       margin-bottom: 10px;
       display: flex;
       justify-content: flex-end;
     }
-    .cell {
+  }
+  .select-page {
+    padding-top: 5px;
+    .el-pagination {
       display: flex;
-      justify-content: center;
-      text-align: center;
+      justify-content: flex-end;
     }
+  }
+  .select-updata{
+    display: flex;
+    justify-content: center;
   }
 }
 </style>
