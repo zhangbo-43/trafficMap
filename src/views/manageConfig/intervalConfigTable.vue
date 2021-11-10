@@ -68,7 +68,7 @@
 
     <!-- 数据刷新配置的弹窗 -->
     <el-dialog center :show-close="false" :visible.sync="dialogVisible" width="25%">
-      <el-row>
+      <el-row class="select-updata">
         <el-col :span="10"
           ><div class="grid-content bg-purple">
             <p>设置数据刷新频次:</p>
@@ -186,7 +186,9 @@ export default {
         setPerson: setPerson,
         setTime: this.timeFn(),
       });
+      this.currentPage = 1
       this.handleCurrentChange()
+
     },
 
     // 选择数据区间
@@ -248,6 +250,10 @@ export default {
       display: flex;
       justify-content: flex-end;
     }
+  }
+  .select-updata{
+    display: flex;
+    justify-content: center;
   }
 }
 </style>
