@@ -1,11 +1,8 @@
 <template>
 <div>
-  <el-row>
   <el-breadcrumb separator="/">
-    <el-breadcrumb-item style="font-weight:700">系统管理</el-breadcrumb-item>
-    <el-breadcrumb-item>{{menuName}}</el-breadcrumb-item>
+    <el-breadcrumb-item style="font-weight:700">{{menuName}}</el-breadcrumb-item>
   </el-breadcrumb>
-  </el-row>
 </div>
 </template>
 
