@@ -18,14 +18,24 @@
           >
         </div>
         <el-table
+          max-height="440"
           :data="tableData"
           style="width: 100%"
           :header-cell-style="{
             background: 'rgba(3,15,148,0.1)',
             color: '#4C5463',
             fontWeight: 500,
+            padding: '10px 90px',
           }"
-          :row-style="{ fontSize: 16, fontWeight: 300, fontFamily: PingFangSC }"
+          :row-style="{
+            fontSize: 16,
+            fontWeight: 300,
+            fontFamily: 'PingFang SC',
+            height: 10,
+          }"
+          :cell-style="{
+            padding: '8px 90px',
+          }"
         >
           <el-table-column
             prop="interval"
@@ -95,6 +105,14 @@ export default {
       tableData: [
         { interval: 10, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
         { interval: 50, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 20, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 10, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 50, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 20, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 10, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 20, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 20, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
+        { interval: 20, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
         { interval: 20, setPerson: "张三", setTime: "2021-11-05   16: 18: 33" },
       ],
       selectData: "5",
@@ -183,7 +201,7 @@ export default {
   }
 
   .main-annotation {
-    padding: 20px 30px;
+    padding: 15px 30px;
     margin: 20px 20px 10px 20px;
     // height: 60px;
     background-color: #fff;
@@ -201,6 +219,11 @@ export default {
       margin-bottom: 10px;
       display: flex;
       justify-content: flex-end;
+    }
+    .cell {
+      display: flex;
+      justify-content: center;
+      text-align: center;
     }
   }
 }
