@@ -1,7 +1,7 @@
 <template>
   <div id="mainPanel">
     <el-container>
-      <el-header>
+      <el-header v-show="!isFullScreen">
         <img src="../assets/images/logo.png" alt="" />
         <span class="title">话务地图看板大屏</span>
         <div class="option">
@@ -16,7 +16,7 @@
         </div>
       </el-header>
       <el-container>
-        <el-aside width="200px">
+        <el-aside width="200px" v-show="!isFullScreen">
           <!--          el-icon-s-fold   el-icon-s-unfold-->
           <!--          <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">-->
           <!--            <el-radio-button :label="false">展开</el-radio-button>-->
@@ -86,12 +86,20 @@
 </template>
 
 <script>
+import Bus from "@/utils/eventBus.js";
 export default {
   name: "mainPanel",
   data() {
     return {
       isCollapse: false,
+      isFullScreen: false, // 是否全屏 默认否
     };
+  },
+  mounted() {
+    Bus.$on("fullScreen", (message) => {
+      console.log(message);
+      this.isFullScreen = message;
+    });
   },
   methods: {
     handleOpen(key, keyPath) {
@@ -135,5 +143,8 @@ export default {
 .mainContent {
   padding: 0px;
   background-color: rgb(242, 243, 255);
+}
+#mainPanel {
+  height: 100%;
 }
 </style>
