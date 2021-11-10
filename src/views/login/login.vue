@@ -1,5 +1,6 @@
 <template>
   <div class="loginContent">
+    <img src="../../assets/images/login.jpg" alt="">
    <div class="loginBox">
      <h2 class="title">话务地图管理平台</h2>
      <div class="content-form">

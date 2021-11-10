@@ -1,6 +1,13 @@
 .loginContent {
   position: relative;
   height: 100vh;
+  background-color: rgb(6, 12, 31);
+  img {
+    position: absolute;
+    top: 5vh;
+    left: 10vh;
+    width: 50%;
+  }
   .loginBox {
     position: absolute;
     top: 30vh;

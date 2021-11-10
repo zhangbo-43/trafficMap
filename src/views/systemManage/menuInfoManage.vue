@@ -3,6 +3,8 @@
     <el-header class="header-title">
       <span>菜单权限管理</span>
     </el-header>
+    <!--    服务量趋势图页面-->
+    <service-chart :chartVisible="chartVisible" @closeDialog="handleClose"></service-chart>
     <el-row class="table">
       <el-card class="box-card">
         <div>菜单节点信息</div>
@@ -79,8 +81,12 @@
 </template>
 
 <script>
+import serviceChart from '../../components/trendChart/serviceChart'
 export default {
   name: "menuInfoManage",
+  components: {
+    serviceChart
+  },
   data() {
     return {
       data: [{
@@ -106,7 +112,8 @@ export default {
         menuName:"",
         openWay: "",
         menuPath:""
-      }
+      },
+      chartVisible: true
     }
   },
   methods: {
@@ -132,6 +139,10 @@ export default {
       if (confirmResult !== "confirm") {
         return this.$message.info("已取消删除");
       }
+    },
+    handleClose(status) {
+      this.chartVisible = status
+      console.log(status)
     }
   }
 }
