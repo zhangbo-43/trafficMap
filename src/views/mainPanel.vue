@@ -29,7 +29,7 @@
             @close="handleClose"
             router
             :collapse="isCollapse"
-            background-color="rgb(0, 40, 77)"
+            background-color="#070C49"
             text-color="#fff"
             unique-opened
           >
@@ -144,7 +144,8 @@ export default {
   padding: 0px;
   background-color: rgb(242, 243, 255);
 }
-#mainPanel {
+#mainPanel,
+.el-container.is-vertical {
   height: 100%;
 }
 </style>
