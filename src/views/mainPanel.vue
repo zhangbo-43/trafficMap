@@ -29,7 +29,7 @@
             @close="handleClose"
             router
             :collapse="isCollapse"
-            background-color="rgb(0, 40, 77)"
+            background-color="#070C49"
             text-color="#fff"
             unique-opened
           >
@@ -113,38 +113,61 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/common.scss";
-
-.el-header {
-  img {
-    height: 100%;
-    vertical-align: middle;
-  }
-
-  .title {
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 100%;
-  }
-
-  .option {
-    display: inline-block;
-    float: right;
-    padding: 20px 0 20px 0;
-
-    .username {
-      cursor: pointer;
-      font-size: 18px;
-      color: #fff;
-    }
-  }
-}
-
-.mainContent {
-  padding: 0px;
-  background-color: rgb(242, 243, 255);
-}
 #mainPanel {
   height: 100%;
+  color: #fff;
+  .el-header {
+    padding: 0;
+    background: #070C49;
+    img {
+      height: 100%;
+      vertical-align: middle
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 100%;
+    }
+
+    .option {
+      display: inline-block;
+      float: right;
+      padding: 20px 0 20px 0;
+
+      .username {
+        cursor: pointer;
+        font-size: 18px;
+        color: #fff;
+      }
+
+    }
+  }
+  .el-aside {
+    .el-menu {
+      height: 100vh;
+      border: none;
+    }
+    .el-menu-item.is-active {
+      color: #fff;
+      background-color: #030E94!important;
+    }
+
+    .el-menu-vertical-demo:not(.el-menu--collapse) {
+      width: 200px;
+      min-height: 400px;
+    }
+    ::v-deep .el-submenu__title:hover{
+      background-color: rgb(3, 19, 33) !important;
+    }
+    //子级的类名
+    .el-menu-item:hover {
+      background-color: rgb(3, 19, 33) !important;
+    }
+  }
+  .mainContent {
+    padding: 0px;
+    background-color: rgb(242, 243, 255);
+  }
 }
 </style>

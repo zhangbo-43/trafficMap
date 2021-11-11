@@ -5,9 +5,14 @@
       :title=echartTitle
       :visible.sync="chartVisible"
       width="35%" :before-close="handleClose">
-    <div class="timeSelect">
-      <time-select></time-select>
-    </div>
+    <el-row class="timeSelect">
+      <el-col :span="12">
+        <span class="notice">注：虚线为选择日期的趋势线</span>
+      </el-col>
+      <el-col :span="12" style="text-align: right">
+        <time-select></time-select>
+      </el-col>
+    </el-row>
     <Echart
         :options="options"
         id="windowChart"
@@ -181,6 +186,10 @@ export default {
   .timeSelect {
     cursor: pointer;
     z-index: 9999;
+    .notice {
+      font-size: 17px;
+      font-weight: 700;
+    }
     //position: absolute;
     //top: 14%;
     //right: 15%;

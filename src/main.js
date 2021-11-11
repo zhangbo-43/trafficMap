@@ -5,6 +5,7 @@ import store from './store';
 import dataV from '@jiaminghi/data-view';
 // 引入全局css
 import './assets/scss/style.scss';
+import './assets/scss/common.scss'
 // 按需引入vue-awesome图标
 import Icon from 'vue-awesome/components/Icon';
 import 'vue-awesome/icons/chart-bar.js';
