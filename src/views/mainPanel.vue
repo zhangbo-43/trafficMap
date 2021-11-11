@@ -3,7 +3,6 @@
     <el-container>
       <el-header v-show="!isFullScreen">
         <img src="../assets/images/logo.png" alt="" />
-        <span class="title">话务地图看板大屏</span>
         <div class="option">
           <el-dropdown>
             <span class="el-dropdown-link username">
@@ -117,23 +116,16 @@ export default {
   height: 100%;
   color: #fff;
   .el-header {
-    padding: 0;
+    line-height: 60px;
     background: #070C49;
     img {
-      height: 100%;
+      height: 65%;
       vertical-align: middle
-    }
-
-    .title {
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 100%;
     }
 
     .option {
       display: inline-block;
       float: right;
-      padding: 20px 0 20px 0;
 
       .username {
         cursor: pointer;

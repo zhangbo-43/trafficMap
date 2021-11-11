@@ -17,7 +17,6 @@ import 'vue-awesome/icons/align-left.js';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
-
 //引入echart
 //4.x 引用方式
 import echarts from 'echarts';
