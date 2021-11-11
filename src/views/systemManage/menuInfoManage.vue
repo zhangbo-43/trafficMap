@@ -4,14 +4,16 @@
       <span>菜单权限管理</span>
     </el-header>
     <!--    服务量趋势图页面-->
-    <service-chart :chartVisible="chartVisible" @closeDialog="handleClose"></service-chart>
+    <service-chart :chartVisible="chartVisible" @closeDialog="handleClose" :optionData="optionData"></service-chart>
     <el-row class="table">
       <el-card class="box-card">
         <div>菜单节点信息</div>
         <el-divider></el-divider>
         <div class="title">
-          <el-button type="primary" size="small">添加顶级节点</el-button>
-          <el-button class="el-button--reset" size="small">刷新树</el-button>
+          <el-button type="primary">添加顶级节点</el-button>
+          <el-button class="el-button--reset">刷新树</el-button>
+          <el-button type="primary" @click="chart('nodeTrend')">节点服务量趋势图</el-button>
+          <el-button type="primary" @click="chart('skillTrend')">技能队列服务排队趋势图</el-button>
         </div>
         <el-tree
             :data="data"
@@ -113,7 +115,8 @@ export default {
         openWay: "",
         menuPath:""
       },
-      chartVisible: true
+      chartVisible: false,
+      optionData: {}
     }
   },
   methods: {
@@ -143,6 +146,266 @@ export default {
     handleClose(status) {
       this.chartVisible = status
       console.log(status)
+    },
+    chart(params) {
+      this.chartVisible = true
+      if(params == 'nodeTrend') {
+        this.optionData = {
+          echartTitle : "节点服务量趋势图",
+          options: {
+            tooltip: {
+              trigger: 'axis',
+              axisPointer: {
+                type: 'cross'
+              }
+            },
+            color: ["rgb(101, 158, 178)","rgb(167, 3, 30)"],
+            legend: {},
+            toolbox: {
+              show: true,
+            },
+            xAxis: {
+              type: 'category',
+              boundaryGap: false,
+              data: ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00', '24:00', ]
+            },
+            // xAxis: {
+            //   type:"time",
+            //   axisLabel: {
+            //     formatter: function (val) {
+            //       var date= new Date(val)
+            //       var texts=[date.getHours(),date.getMinutes()]
+            //       return texts.join(":")
+            //     }
+            //   }
+            // },
+            yAxis: {
+              type: 'value',
+              axisLine : {
+                show: false,
+              },
+              splitLine : {
+                show: true,
+                lineStyle: {
+                  type: 'solid',
+                  color: '#191D39'
+                }
+              },
+              // axisLabel: {
+              //   formatter: '{value} W'
+              // },
+              axisPointer: {
+                snap: true
+              }
+            },
+            // visualMap: {
+            //   show: false,
+            //   dimension: 0,
+            //   pieces: [
+            //     {
+            //       lte: 6,
+            //       color: 'green'
+            //     },
+            //     {
+            //       gt: 6,
+            //       lte: 8,
+            //       color: 'red'
+            //     },
+            //     {
+            //       gt: 8,
+            //       lte: 14,
+            //       color: 'green'
+            //     },
+            //     {
+            //       gt: 14,
+            //       lte: 17,
+            //       color: 'red'
+            //     },
+            //     {
+            //       gt: 17,
+            //       color: 'green'
+            //     }
+            //   ]
+            // },
+            series: [
+              {
+                name: '节点服务量',
+                type: 'line',
+                // lineStyle: {
+                //   normal: {
+                //     color: "rgb(101, 158, 178)"
+                //   }
+                // },
+                symbol: "circle",
+                smooth: true,
+                // prettier-ignore
+                data: [300, 280, 250, 260, 270, 300, 550, 500, 400, 390, 380, 390, 400, 500, 600, 750, 800, 700, 600, 400],
+                // markArea: {
+                //   itemStyle: {
+                //     color: 'rgba(255, 173, 177, 0.4)'
+                //   },
+                //   data: [
+                //     [
+                //       {
+                //         name: 'Morning Peak',
+                //         xAxis: '07:30'
+                //       },
+                //       {
+                //         xAxis: '10:00'
+                //       }
+                //     ],
+                //     [
+                //       {
+                //         name: 'Evening Peak',
+                //         xAxis: '17:30'
+                //       },
+                //       {
+                //         xAxis: '21:15'
+                //       }
+                //     ]
+                //   ]
+                // }
+              },
+              {
+                name: '节点异常挂断量',
+                type: 'line',
+                smooth: true,
+                symbol: "circle",
+                // itemStyle: {
+                //   normal: {
+                //     lineStyle: {
+                //       type: "dashed",
+                //       normal: {
+                //         color: "rgb(167, 3, 30)"
+                //       }
+                //     }
+                //   }
+                // },
+                data: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 350, 390, 400, 500, 600, 750, 800, 389, 290, 500],
+              },
+            ]
+          }
+        }
+      } else {
+        this.optionData = {
+          echartTitle : "技能队列服务排队趋势图",
+          options: {
+            tooltip: {
+              trigger: 'axis',
+              axisPointer: {
+                type: 'cross'
+              }
+            },
+            color: ["rgb(229, 193, 4)","rgb(200, 142, 10)","rgb(214, 117, 131)","rgb(193, 1, 28)","rgb(103, 160, 180)"],
+            legend: {},
+            toolbox: {
+              show: true,
+            },
+            xAxis: {
+              type: 'category',
+              boundaryGap: false,
+              data: ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00', '24:00', ]
+            },
+            yAxis: {
+              type: 'value',
+              axisLine : {
+                show: false,
+              },
+              splitLine : {
+                show: true,
+                lineStyle: {
+                  type: 'solid',
+                  color: '#191D39'
+                }
+              },
+              axisPointer: {
+                snap: true
+              }
+            },
+            series: [
+              {
+                name: '15s内排队量',
+                type: 'line',
+                // lineStyle: {
+                //   normal: {
+                //     color: "rgb(229, 193, 4)"
+                //   }
+                // },
+                symbol: "circle",
+                smooth: true,
+                // prettier-ignore
+                data: [100,200,300,400,500,600,700,120,220,320,420,520,620,720],
+              },
+              {
+                name: '大于15s排队量',
+                type: 'line',
+                smooth: true,
+                symbol: "circle",
+                // itemStyle: {
+                //   normal: {
+                //     lineStyle: {
+                //       // type: "dashed",
+                //       normal: {
+                //         color: "rgb(200, 142, 10)"
+                //       }
+                //     }
+                //   }
+                // },
+                data: [120,220,320,420,520,620,720,140,160,180,200,220,240,260],
+              },
+              {
+                name: '大于30s排队量',
+                type: 'line',
+                smooth: true,
+                symbol: "circle",
+                // itemStyle: {
+                //   normal: {
+                //     lineStyle: {
+                //       // type: "dashed",
+                //       normal: {
+                //         color: "rgb(214, 117, 131)"
+                //       }
+                //     }
+                //   }
+                // },
+                data: [140,160,180,200,220,240,260,180,220,260,300,340,380,420],
+              },{
+                name: '大于60s排队量',
+                type: 'line',
+                smooth: true,
+                symbol: "circle",
+                // itemStyle: {
+                //   normal: {
+                //     lineStyle: {
+                //       // type: "dashed",
+                //       normal: {
+                //         color: "rgb(2193, 1, 28)"
+                //       }
+                //     }
+                //   }
+                // },
+                data: [180,220,260,300,340,380,420,240,280,320,360,400,440,480],
+              },{
+                name: '服务量趋势图',
+                type: 'line',
+                smooth: true,
+                symbol: "circle",
+                // itemStyle: {
+                //   normal: {
+                //     lineStyle: {
+                //       // type: "dashed",
+                //       normal: {
+                //         color: "rgb(103, 160, 180)"
+                //       }
+                //     }
+                //   }
+                // },
+                data: [240,280,320,360,400,440,480,140,160,180,200,220,240,260,180],
+              },
+            ]
+          }
+        }
+      }
     }
   }
 }

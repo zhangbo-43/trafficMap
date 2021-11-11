@@ -5,6 +5,7 @@ import store from './store';
 import dataV from '@jiaminghi/data-view';
 // 引入全局css
 import './assets/scss/style.scss';
+import './assets/scss/common.scss'
 // 按需引入vue-awesome图标
 import Icon from 'vue-awesome/components/Icon';
 import 'vue-awesome/icons/chart-bar.js';
@@ -16,7 +17,6 @@ import 'vue-awesome/icons/align-left.js';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
-
 //引入echart
 //4.x 引用方式
 import echarts from 'echarts';

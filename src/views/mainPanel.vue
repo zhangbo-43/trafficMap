@@ -3,7 +3,6 @@
     <el-container>
       <el-header v-show="!isFullScreen">
         <img src="../assets/images/logo.png" alt="" />
-        <span class="title">话务地图看板大屏</span>
         <div class="option">
           <el-dropdown>
             <span class="el-dropdown-link username">
@@ -113,39 +112,54 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/common.scss";
+#mainPanel {
+  height: 100%;
+  color: #fff;
+  .el-header {
+    line-height: 60px;
+    background: #070C49;
+    img {
+      height: 65%;
+      vertical-align: middle
+    }
 
-.el-header {
-  img {
-    height: 100%;
-    vertical-align: middle;
-  }
+    .option {
+      display: inline-block;
+      float: right;
 
-  .title {
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 100%;
-  }
+      .username {
+        cursor: pointer;
+        font-size: 18px;
+        color: #fff;
+      }
 
-  .option {
-    display: inline-block;
-    float: right;
-    padding: 20px 0 20px 0;
-
-    .username {
-      cursor: pointer;
-      font-size: 18px;
-      color: #fff;
     }
   }
-}
+  .el-aside {
+    .el-menu {
+      height: 100vh;
+      border: none;
+    }
+    .el-menu-item.is-active {
+      color: #fff;
+      background-color: #030E94!important;
+    }
 
-.mainContent {
-  padding: 0px;
-  background-color: rgb(242, 243, 255);
-}
-#mainPanel,
-.el-container.is-vertical {
-  height: 100%;
+    .el-menu-vertical-demo:not(.el-menu--collapse) {
+      width: 200px;
+      min-height: 400px;
+    }
+    ::v-deep .el-submenu__title:hover{
+      background-color: rgb(3, 19, 33) !important;
+    }
+    //子级的类名
+    .el-menu-item:hover {
+      background-color: rgb(3, 19, 33) !important;
+    }
+  }
+  .mainContent {
+    padding: 0px;
+    background-color: rgb(242, 243, 255);
+  }
 }
 </style>
