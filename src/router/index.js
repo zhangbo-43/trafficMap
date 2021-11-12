@@ -5,9 +5,18 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/index',
     name: 'index',
     component: () => import('../views/index.vue')
+  },
+  {
+    path: '/',
+    redirect: '/login',
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/login/login.vue')
   },
   {
     path: '/mainPanel',
@@ -65,7 +74,7 @@ const routes = [
       },
     ]
   },
-{
+  {
     path: '/',
     name: 'demo',
     component: () => import('../views/map/demo.vue')
