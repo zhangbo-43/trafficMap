@@ -3,11 +3,12 @@
     <el-header class="header-title">
       <span>{{ configTableData.name }}</span>
     </el-header>
-    <el-main class="main-annotation">
-      <p>{{ configTableData.annotation }}</p>
-    </el-main>
-    <el-footer>
-      <div class="footer-table">
+    <el-main class="main-table">
+      <div class="annotation">
+        <p>{{ configTableData.annotation }}</p>
+      </div>
+
+      <div class="table">
         <div class="config-button">
           <el-button
             type="primary"
@@ -64,10 +65,16 @@
           </el-pagination>
         </div>
       </div>
-    </el-footer>
+    </el-main>
+    <!-- <el-footer class="footer-table"> </el-footer> -->
 
     <!-- 数据刷新配置的弹窗 -->
-    <el-dialog center :show-close="false" :visible.sync="dialogVisible" width="25%">
+    <el-dialog
+      center
+      :show-close="false"
+      :visible.sync="dialogVisible"
+      width="25%"
+    >
       <el-row class="select-updata">
         <el-col :span="10"
           ><div class="grid-content bg-purple">
@@ -186,9 +193,8 @@ export default {
         setPerson: setPerson,
         setTime: this.timeFn(),
       });
-      this.currentPage = 1
-      this.handleCurrentChange()
-
+      this.currentPage = 1;
+      this.handleCurrentChange();
     },
 
     // 选择数据区间
@@ -199,22 +205,30 @@ export default {
 
     // 选择第N页
     handleCurrentChange() {
-      let show = (this.currentPage -1) * 10 
+      let show = (this.currentPage - 1) * 10;
       this.showTableData = this.tableData.slice(show, show + 10);
     },
   },
-  mounted(){
-    this.handleCurrentChange()
-  }
+  mounted() {
+    this.handleCurrentChange();
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .container-config {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 50px;
+  overflow: hidden;
+  margin-bottom: 40px;
+
   .header-title {
     background-color: #fff;
     display: flex;
     align-items: center;
+    flex: 0 0 60px;
+    line-height: 60px;
 
     span {
       font-size: 22px;
@@ -223,20 +237,40 @@ export default {
     }
   }
 
-  .main-annotation {
-    padding: 15px 30px;
+  .main-table {
+    flex: 1;
+    padding: 0;
     margin: 20px 20px 10px 20px;
-    // height: 60px;
-    background-color: #fff;
-    p {
-      color: #f59e07;
-      font-size: 17px;
+    background-color: rgb(242, 243, 255);
+    .annotation {
+      padding: 0 30px;
+      line-height: 60px;
+      margin-bottom: 10px;
+      background: #fff;
+      p {
+        color: #f59e07;
+        font-size: 17px;
+      }
+    }
+    .table {
+      background: #fff;
+      padding: 10px 30px;
+      padding-bottom: 10px;
+      .config-button {
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: flex-end;
+      }
     }
   }
 
   .footer-table {
+    flex: 1;
     background-color: #fff;
     padding: 20px 30px 10px 30px;
+    margin: 0 20px;
+    margin-bottom: 40px;
+    overflow: hidden;
 
     .config-button {
       margin-bottom: 10px;
@@ -251,7 +285,7 @@ export default {
       justify-content: flex-end;
     }
   }
-  .select-updata{
+  .select-updata {
     display: flex;
     justify-content: center;
   }
