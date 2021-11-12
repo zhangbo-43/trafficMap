@@ -59,14 +59,14 @@
               <label for="">话务总量</label>
               <span>30,658,240</span>
             </div>
-            <div class="traffic-percent">
+            <!-- <div class="traffic-percent">
               <label for="">BICC占比: </label>
               <span>20%</span>
               <label for="">，RTC占比: </label>
               <span>40%</span>
               <label for=""> ，RTC占比: </label>
               <span>80%</span>
-            </div>
+            </div> -->
           </div>
           <!-- 话务总量头部结束  -->
           <!--看板大屏主图部分  -->
