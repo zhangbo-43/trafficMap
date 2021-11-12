@@ -16,7 +16,6 @@
         >
       </div>
       <el-table
-        max-height="495px"
         :data="showTableData"
         style="width: 100%"
         :header-cell-style="{
@@ -145,7 +144,7 @@
 
     <!-- 修改按钮弹窗 -->
     <el-dialog title="修改信息" :visible.sync="dialogRevise" width="25%">
-      <div>
+      <div v-if="this.config.name == '人员信息管理'">
         <el-form
           :model="reviseData"
           :rules="rules"
@@ -188,6 +187,7 @@
           </el-form-item>
         </el-form>
       </div>
+      <div v-else-if="this.config.name == '角色权限管理'">1111</div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogRevise = false">取 消</el-button>
         <el-button type="primary" @click="handleRevisePerson">提 交</el-button>
@@ -215,7 +215,7 @@ export default {
         Organization: "",
         type: "一类员工",
 
-        state: "",
+        state: "正常",
         password: "",
       },
 
@@ -234,22 +234,22 @@ export default {
         type: "一类员工",
 
         state: "",
-        password: "",
+        password: "正常",
       },
       rules: {
         name: [
-          { required: true, message: "请输入姓名", trigger: "change" },
+          { required: true, message: "请输入姓名", trigger: "blur" },
           {
             validator: (rule, value, callback) => {
               if (!this.verify.name.test(value)) {
-                callback(new Error("姓名长度在 2 到 6 个字符"));
+                callback(new Error("姓名为中文且长度在 2 到 6 个字符"));
               }
             },
             trigger: "blur",
           },
         ],
         phoneNum: [
-          { required: true, message: "请输入手机号", trigger: "change" },
+          { required: true, message: "请输入手机号", trigger: "blur" },
           {
             type: "number",
             trigger: "blur",
@@ -264,7 +264,7 @@ export default {
           },
         ],
         ID: [
-          { required: true, message: "请输入身份证号", trigger: "change" },
+          { required: true, message: "请输入身份证号", trigger: "blur" },
           {
             validator: (rule, value, callback) => {
               if (!this.verify.ID.test(value)) {
@@ -280,20 +280,10 @@ export default {
   props: ["config"],
 
   methods: {
-    // 新增人员按钮事件
+    // 新增人员按钮点击操作
     addPersonClick() {
-      this.newperson = {
-        name: "",
-        phoneNum: "",
-        ID: "",
-        Organization: "",
-        type: "一类员工",
-
-        state: "",
-        password: "",
-      };
-
       this.dialogVisible = true;
+      this.$refs.newperson.resetFields();
     },
 
     // 新增人员弹窗提交操作
@@ -328,16 +318,17 @@ export default {
       this.reviseIndex = index;
       this.reviseRow = row;
       this.dialogRevise = true;
-      this.reviseData = {
-        name: "",
-        phoneNum: "",
-        ID: "",
-        Organization: "",
-        type: "一类员工",
+      this.$refs.reviseData.resetFields();
+      // this.reviseData = {
+      //   name: "",
+      //   phoneNum: "",
+      //   ID: "",
+      //   Organization: "",
+      //   type: "一类员工",
 
-        state: "",
-        password: "",
-      };
+      //   state: "",
+      //   password: "",
+      // };
     },
 
     // 删除操作
@@ -411,42 +402,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header-title {
-  background-color: #fff;
-  display: flex;
-  align-items: center;
+.container-config {
+  // height: 100%;
+  width: 100%;
+  padding-bottom: 50px;
+  // overflow: hidden;
+  margin-bottom: 40px;
 
-  span {
-    font-size: 22px;
-    color: #121212;
-    font-weight: bolder;
-  }
-}
-.main-table {
-  background-color: #fff;
-  margin-top: 20px;
-  padding: 20px 30px 10px 30px;
-
-  .table-title {
-    margin-bottom: 10px;
+  .header-title {
+    background-color: #fff;
     display: flex;
-    justify-content: space-between;
-    .table-name {
+    align-items: center;
+    span {
+      font-size: 22px;
       color: #121212;
-      display: flex;
-      align-items: center;
+      font-weight: bolder;
     }
   }
-}
-.select-page {
-  padding-top: 5px;
-  .el-pagination {
-    display: flex;
-    justify-content: flex-end;
+
+  .main-table {
+    background-color: #fff;
+    margin: 20px;
+    margin-bottom: 30px;
+    padding: 20px 30px 10px 30px;
+    flex: 1;
+
+    .table-title {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      .table-name {
+        color: #121212;
+        display: flex;
+        align-items: center;
+      }
+    }
   }
-}
-.dialog-footer {
-  display: flex;
-  justify-content: center;
+  .select-page {
+    padding-top: 5px;
+    .el-pagination {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  .dialog-footer {
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>

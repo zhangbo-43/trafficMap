@@ -114,6 +114,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.el-container.is-vertical {
+  height: 100%;
+}
 #mainPanel {
   height: 100%;
   color: #fff;
@@ -138,7 +141,6 @@ export default {
         font-size: 18px;
         color: #fff;
       }
-
     }
   }
   .el-aside {
@@ -148,14 +150,14 @@ export default {
     }
     .el-menu-item.is-active {
       color: #fff;
-      background-color: #030E94!important;
+      background-color: #030e94 !important;
     }
 
     .el-menu-vertical-demo:not(.el-menu--collapse) {
       width: 200px;
       min-height: 400px;
     }
-    ::v-deep .el-submenu__title:hover{
+    ::v-deep .el-submenu__title:hover {
       background-color: rgb(3, 19, 33) !important;
     }
     //子级的类名
