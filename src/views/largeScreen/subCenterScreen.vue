@@ -1,98 +1,399 @@
 <template>
-  <div class="mainScreen">
-    <div class="centerChart">
-
-    </div>
-    <div class="bottomChart">
-      <skill-chart></skill-chart>
+  <div class="whole-Screen">
+    <dv-loading v-if="loading">Loading...</dv-loading>
+    <div class="whole-Screen-body">
+      <!-- 看板大屏头部开始 -->
+      <div class="title-top">
+        <div class="title-times">
+          <div class="title">云南话务地图看板大屏</div>
+          <div class="times">
+            <span class="text"
+              >{{ dateYear }} {{ dateWeek }} {{ dateDay }}</span
+            >
+            <span>数据时间: 12:00</span>
+          </div>
+        </div>
+        <div class="right-box clearfix">
+          <!-- <div class="province-box">
+            <span class="text-cut-1"> 云南省</span>
+            <i class="el-icon-caret-bottom el-icon--right"></i>
+          </div> -->
+          <el-select
+            v-model="provinceVal"
+            :popper-append-to-body="false"
+            placeholder="请选择"
+            popper-class="select-info"
+          >
+            <el-option
+              v-for="item in provinceList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            >
+            </el-option>
+          </el-select>
+          <img
+            v-show="!fullscreen"
+            class="fullscreen-btn"
+            src="../../assets/images/fullscreen.png"
+            @click="fullScreen"
+          />
+          <img
+            v-show="fullscreen"
+            class="fullscreen-btn"
+            src="../../assets/images/unfullscreen.png"
+            @click="unFullScreen"
+          />
+        </div>
+      </div>
+      <!-- 看板大屏头部结束 -->
+      <!-- 看板大屏数据展示主体部分 -->
+      <div class="map-main-content">
+        <!-- 热线话务历史趋势 -->
+        <div class="map-left-top">热线话务历史趋势部分</div>
+        <!-- 热线话务历史趋势结束 -->
+        <div class="map-main">
+          <!-- 话务总量头部  -->
+          <div class="total-traffic">
+            <div class="traffic">
+              <label for="">话务总量</label>
+              <span>30,658,240</span>
+            </div>
+            <div class="traffic-percent">
+              <label for="">BICC占比: </label>
+              <span>20%</span>
+              <label for="">，RTC占比: </label>
+              <span>40%</span>
+              <label for=""> ，RTC占比: </label>
+              <span>80%</span>
+            </div>
+          </div>
+          <!-- 话务总量头部结束  -->
+          <!--看板大屏主图部分  -->
+          <div class="map-line-content">这里是地图主体核心部分</div>
+          <!--看板大屏主图部分结束  -->
+        </div>
+        <!-- 异常挂断情况 -->
+        <div class="map-right-top">异常挂断情况</div>
+        <!-- 异常挂断情况结束 -->
+      </div>
+      <!-- 看板大屏数据展示主体部分结束 -->
     </div>
   </div>
 </template>
 
 <script>
-//引入d3
-import * as d3 from 'd3';
-import skillChart from "../../components/skillQueue/skillChart";
-
+import drawMixin from "../../utils/drawMixin";
+import { formatTime } from "../../utils/index.js";
+import Bus from "@/utils/eventBus.js";
 export default {
-  name: "subCenterScreen",
-  components: {
-    skillChart
-  },
+  name: "wholeNetworkScreen",
+  mixins: [drawMixin],
   data() {
-    return {}
+    return {
+      timing: null,
+      loading: true,
+      dateDay: null,
+      dateYear: null,
+      dateWeek: null,
+      weekday: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+      provinceList: [
+        {
+          value: "1",
+          label: "云南省",
+        },
+        {
+          value: "2",
+          label: "北京市",
+        },
+        {
+          value: "3",
+          label: "河南省",
+        },
+        {
+          value: "4",
+          label: "河北省",
+        },
+        {
+          value: "5",
+          label: "天津市",
+        },
+        {
+          value: "6",
+          label: "内蒙古自治区",
+        },
+        {
+          value: "7",
+          label: "河北省",
+        },
+        {
+          value: "8",
+          label: "天津市",
+        },
+        {
+          value: "9",
+          label: "内蒙古自治区",
+        },
+      ],
+      provinceVal: "云南省",
+      fullscreen: false,
+    };
+  },
+  components: {},
+  mounted() {
+    this.timeFn();
+    this.cancelLoading();
+    //监听键盘按键事件
+    let self = this;
+    this.$nextTick(function () {});
+    document.addEventListener("keyup", function (e) {
+      console.log(e);
+      if (e.keyCode == 27) {
+        self.unFullScreen();
+      }
+    });
+  },
+  unMounted() {
+    clearInterval(this.timing);
   },
   methods: {
-    drawSkillChart() {
-      const width = 1640
-      const height = 500
-      // const margin = { top: 120, right: 200, bottom: 100, left: 200}
-      // const innerWidth = width - margin.left - margin.right
-      // const innerHeight = height - margin.top - margin.bottom
-      const svg = d3.select(".centerChart")
-          .append("svg")
-          .attr("width", width)
-          .attr("height", height)
-      const g = svg.append("g").attr("id", "mainGroup")
-          // .attr("transform", `translate(${margin.left}, ${margin.top})`)
-      console.log(g)
-      const naiveData = [
-        {month: "2021-11-09", apples: 1, bananas: 2, cherries: 3, dates: 4},
-        {month: "2021-11-10", apples: 5, bananas: 6, cherries: 7, dates: 8},
-        {month: "2021-11-11", apples: 9, bananas: 10, cherries: 11, dates: 12},
-        {month: "2021-11-12", apples: 13, bananas: 14, cherries: 15, dates: 16}
-      ];
-      const naiveKeys = ["apples", "bananas", "cherries", "dates"];
-      var naiveStack = d3.stack()
-          .keys(naiveKeys)
-          .order(d3.stackOrderNone)(naiveData)
-      const xValue = (datum) => {
-        return datum.month
-      };
-      const yScale = d3.scaleLinear()
-          .domain([0, d3.max(naiveStack, d => d3.max(d, subd => subd[1]))])
-          .range([innerHeight, 0]).nice()
-
-      const xScale = d3.scaleBand()
-          .domain(naiveData.map(d => xValue(d)))
-          .range([0, innerWidth])
-          .padding(0.5)
-      // naiveAxes()
-      const color = d3.scaleOrdinal()
-          .domain(naiveKeys)
-          .range(d3.schemeSet3)
-
-      g.selectAll('.datagroup').data(naiveStack).join('g')
-          .attr('class', 'datagroup')
-          .attr('fill', d => color(d.key))
-          .selectAll('.datarect').data(d => d).join('rect')
-          .attr('class', 'datarect')
-          .attr('y', d => yScale(d[1]))
-          .attr('x', d => xScale(xValue(d.data)))
-          .attr('height', d => yScale(d[0]) - yScale(d[1]))
-          .attr('width', xScale.bandwidth());
-
-      // d3.selectAll('.tick text').attr('font-size', '2em');
-      // d3.selectAll('#xaxis text').attr('y', '10')
-    }
+    timeFn() {
+      this.timing = setInterval(() => {
+        this.dateDay = formatTime(new Date(), "HH: mm: ss");
+        this.dateYear = formatTime(new Date(), "yyyy-MM-dd");
+        this.dateWeek = this.weekday[new Date().getDay()];
+      }, 1000);
+    },
+    cancelLoading() {
+      setTimeout(() => {
+        this.loading = false;
+      }, 500);
+    },
+    //全屏
+    fullScreen() {
+      let element = document.documentElement;
+      if (element.requestFullscreen) {
+        element.requestFullscreen();
+      } else if (element.webkitRequestFullScreen) {
+        element.webkitRequestFullScreen();
+      } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+      } else if (element.msRequestFullscreen) {
+        // IE11
+        element.msRequestFullscreen();
+      }
+      this.fullscreen = true;
+      Bus.$emit("fullScreen", this.fullscreen);
+    },
+    unFullScreen() {
+      // var document = document.documentElement;
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitCancelFullScreen) {
+        document.webkitCancelFullScreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+      this.fullscreen = false;
+      Bus.$emit("fullScreen", this.fullscreen);
+    },
   },
-  mounted() {
-    this.drawSkillChart()
-  }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-.mainScreen {
+.whole-Screen {
   width: 100%;
   height: 100%;
   background-image: url("../../assets/images/pageBg.png");
   background-size: cover;
   background-position: center center;
-  padding: 20px;
-
-  .centerChart {
-    height: 55vh;
+}
+.whole-Screen-body {
+  height: 100%;
+}
+.title-top {
+  position: relative;
+  .title-times {
+    background: url("../../assets/images/title_bg.png") no-repeat center center;
+    background-size: 100% auto;
+    text-align: center;
+    color: #73f1ff;
+    width: 70%;
+    margin: 0 auto;
+    height: 90px;
+    .title {
+      font-size: 20px;
+      padding-top: 20px;
+    }
+    .times {
+      font-size: 12px;
+      font-weight: normal;
+      margin-top: 6px;
+      span {
+        margin-right: 10px;
+      }
+    }
+    .title {
+    }
   }
+  .right-box {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    .province-box {
+      width: 78px;
+      height: 36px;
+      background: url("../../assets/images/province_bg.png") no-repeat center;
+      background-size: 100% auto;
+      border-radius: 4px;
+      text-align: center;
+      line-height: 36px;
+      font-size: 14px;
+      padding: 0 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      float: left;
+      margin-right: 10px;
+      span {
+        width: 60px;
+        color: #3eb6f5;
+        display: inline-block;
+        font-size: 12px;
+      }
+      .el-icon-caret-bottom {
+        position: relative;
+      }
+      .el-icon-caret-bottom:before {
+        color: #3eb6f5;
+        top: 50%;
+      }
+    }
+    .fullscreen-btn {
+      width: 24px;
+      float: right;
+      margin-top: 6px;
+    }
+    .el-select {
+      margin-right: 10px;
+    }
+  }
+}
+.map-main-content {
+  position: relative;
+  .map-left-top {
+    border: 1px solid #001aff;
+    width: 300px;
+    height: 180px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+  .map-right-top {
+    border: 1px solid #001aff;
+    width: 300px;
+    height: 180px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+}
+.total-traffic {
+  text-align: center;
+  .traffic {
+    padding-top: 6px;
+    margin-bottom: 10px;
+    label {
+      font-size: 18px;
+      color: #ffffff;
+      opacity: 0.6;
+      margin-right: 6px;
+    }
+    span {
+      color: #06ebdf;
+      font-size: 30px;
+      border-bottom: 2px solid #3a3c56;
+    }
+  }
+  .traffic-percent {
+    label {
+      font-size: 12px;
+      color: #ffffff;
+      opacity: 0.6;
+      margin-right: 6px;
+    }
+    span {
+      color: #06ebdf;
+      font-size: 12px;
+    }
+  }
+}
+.map-line-content {
+  text-align: center;
+  padding: 10px;
+}
+.right-box {
+  ::v-deep .el-input--suffix .el-input__inner {
+    width: 78px;
+    height: 36px;
+    border: none;
+    background: url("../../assets/images/province_bg.png") no-repeat center;
+    background-size: 100% auto;
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 0 8px;
+    color: #3eb6f5;
+  }
+  ::v-deep .el-icon-arrow-up:before {
+    content: "\e790";
+  }
+  ::v-deep.el-input__icon {
+    line-height: 36px;
+  }
+  ::v-deep .el-input--suffix .el-input__inner::-webkit-input-placeholder {
+    color: #3eb6f5;
+    font-size: 12px;
+  }
+  ::v-deep .el-select .el-input .el-select__caret {
+    color: #3eb6f5;
+  }
+}
+::v-deep .select-info {
+  background-color: #00284d !important;
+  box-shadow: none !important;
+  border: none !important;
+  float: left;
+  margin-right: 10px;
+  >>> .el-scrollbar__wrap {
+    background: #00284d;
+  }
+  >>> .el-select-dropdown__list {
+    background: #00284d;
+  }
+  .el-select-dropdown__item {
+    background: #00284d;
+    color: #fff;
+    font-size: 12px;
+    padding: 0 14px;
+  }
+  .el-select-dropdown__item:hover {
+    // background: #070c49;
+    color: #ccc;
+  }
+  .el-select-dropdown__item.selected {
+    color: #409eff;
+  }
+}
+::v-deep .el-popper[x-placement^="bottom"] .popper__arrow {
+  border-bottom-color: #00284d !important;
+}
+::v-deep .el-popper[x-placement^="bottom"] .popper__arrow::after {
+  border-bottom-color: #00284d !important;
+}
+::v-deep.el-select-dropdown__list {
+  padding: 0 !important;
 }
 </style>
