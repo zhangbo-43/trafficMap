@@ -3,6 +3,8 @@
     <el-container>
       <el-header v-show="!isFullScreen">
         <img src="../assets/images/logo.png" alt="" />
+        <el-divider direction="vertical"></el-divider>
+        <span class="title">话务地图</span>
         <div class="option">
           <el-dropdown>
             <span class="el-dropdown-link username">
@@ -119,8 +121,12 @@ export default {
     line-height: 60px;
     background: #070C49;
     img {
-      height: 65%;
+      height: 50%;
+      margin-right: 10px;
       vertical-align: middle
+    }
+    .title {
+      font-size: 18px;
     }
 
     .option {
