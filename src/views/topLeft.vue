@@ -3,6 +3,9 @@
       <div class="top-left-title">
           <span class="">热线话务历史趋势</span>
       </div>
+      <div class="timeSelect">
+        <time-select></time-select>
+      </div>
       <div>
         <TopLeftChart />
       </div>
@@ -11,9 +14,11 @@
 
 <script>
 import TopLeftChart from "@/components/echart/top/topLeftChart";
+import timeSelect from '@/components/timeRange.vue'
 export default {
   components: {
-    TopLeftChart
+    TopLeftChart,
+    timeSelect
   }
 };
 </script>
@@ -32,6 +37,13 @@ $box-width: 100%;
     top: -10px;
     left:32px;
     color: #41BEFF;
+  }
+  .timeSelect {
+    cursor: pointer;
+    z-index: 99;
+    position: absolute;
+    top: 29px;
+    right:23px;
   }
 }
  

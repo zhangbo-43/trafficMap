@@ -1,74 +1,79 @@
 <template>
   <el-container class="container-config" :style="style">
+    <!-- <el-container class="container-config"> -->
     <el-header class="header-title">
       <span>{{ config.name }}</span>
     </el-header>
     <el-main class="main-table">
       <!-- <Table :showTableData.sync="showTableData" :tableColumn.sync="config.tableColumn"></Table> -->
-      <div class="table-title">
-        <span class="table-name">{{ config.tableTitle }}</span>
-        <el-button
-          type="primary"
-          size="small"
-          plain
-          @click="addPersonClick"
-          v-if="config.buttonName"
-          >{{ config.buttonName }}</el-button
+      <div class="table">
+        <div class="table-title">
+          <span class="table-name">{{ config.tableTitle }}</span>
+          <el-button
+            type="primary"
+            size="small"
+            plain
+            @click="addPersonClick"
+            v-if="config.buttonName"
+            >{{ config.buttonName }}</el-button
+          >
+        </div>
+        <el-table
+          :data="showTableData"
+          style="width: 100%"
+          :header-cell-style="{
+            background: 'rgba(3,15,148,0.1)',
+            color: '#4C5463',
+            fontWeight: 500,
+            padding: '10px 0px',
+            textAlign: 'center',
+          }"
+          :row-style="{
+            fontWeight: 300,
+            fontFamily: 'PingFang SC',
+            height: 10,
+          }"
+          :cell-style="{
+            padding: '8px 0px',
+            fontSize: 12,
+            textAlign: 'center',
+          }"
         >
-      </div>
-      <el-table
-        :data="showTableData"
-        style="width: 100%"
-        :header-cell-style="{
-          background: 'rgba(3,15,148,0.1)',
-          color: '#4C5463',
-          fontWeight: 500,
-          padding: '10px 0px',
-          textAlign: 'center',
-        }"
-        :row-style="{
-          fontWeight: 300,
-          fontFamily: 'PingFang SC',
-          height: 10,
-        }"
-        :cell-style="{
-          padding: '8px 0px',
-          fontSize: 12,
-          textAlign: 'center',
-        }"
-      >
-        <el-table-column
-          v-for="(item, index) in columns"
-          :key="index"
-          :prop="item"
-          :label="config.tableColumn[item]"
-        >
-        </el-table-column>
-        <el-table-column label="操作">
-          <template slot-scope="scope">
-            <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
-              >修改</el-button
-            >
-            <el-button
-              size="mini"
-              type="danger"
-              @click="handleDelete(scope.$index, scope.row)"
-              v-if="config.name === '人员信息管理'"
-              >删除</el-button
-            >
-          </template>
-        </el-table-column>
-      </el-table>
-      <div class="select-page">
-        <el-pagination
-          :current-page.sync="currentPage"
-          :page-size.sync="pageSize"
-          layout="total, prev, pager, next, jumper,sizes"
-          :total="this.config.tableData.length"
-          @current-change="handleCurrentChange"
-          @size-change="handleCurrentChange"
-        >
-        </el-pagination>
+          <el-table-column
+            v-for="(item, index) in columns"
+            :key="index"
+            :prop="item"
+            :label="config.tableColumn[item]"
+          >
+          </el-table-column>
+          <el-table-column label="操作">
+            <template slot-scope="scope">
+              <el-button
+                size="mini"
+                @click="handleEdit(scope.$index, scope.row)"
+                >修改</el-button
+              >
+              <el-button
+                size="mini"
+                type="danger"
+                @click="handleDelete(scope.$index, scope.row)"
+                v-if="config.name === '人员信息管理'"
+                >删除</el-button
+              >
+            </template>
+          </el-table-column>
+        </el-table>
+        <div class="select-page">
+          <el-pagination
+            :current-page.sync="currentPage"
+            :page-size.sync="pageSize"
+            layout="total, prev, pager, next, jumper,sizes"
+            :total="this.config.tableData.length"
+            @current-change="handleCurrentChange"
+            @size-change="handleCurrentChange"
+          >
+          </el-pagination>
+        </div>
       </div>
     </el-main>
 
@@ -228,7 +233,6 @@
 
 <script>
 import { formatTime } from "../../utils/index.js";
-// import Table from "./components/table.vue"
 export default {
   data() {
     return {
@@ -319,7 +323,7 @@ export default {
   },
   props: ["config"],
   components: {
-    // Table
+    
   },
   methods: {
     // 在更改页面显示条数时更改页面高度
@@ -500,11 +504,18 @@ export default {
   }
 
   .main-table {
-    flex: 1;
-    background-color: #fff;
-    margin: 20px;
-    margin-bottom: 30px;
-    padding: 20px 30px 10px 30px;
+    padding: 20px;
+    // height: 75vh;
+    // overflow: auto;
+    //
+    // margin: 20px;
+    // margin-bottom: 30px;
+    // padding: 20px 30px 10px 30px;
+    .table {
+      padding: 15px;
+      background-color: #fff;
+      
+    }
 
     .table-title {
       margin-bottom: 10px;
