@@ -6,7 +6,7 @@
     <!--    服务量趋势图页面-->
     <service-chart :chartVisible="chartVisible" @closeDialog="handleClose" :optionData="optionData"></service-chart>
     <el-row class="table">
-      <el-card class="box-card">
+      <el-main class="box-card">
         <div>菜单节点信息</div>
         <el-divider></el-divider>
         <div class="title">
@@ -52,7 +52,7 @@
     </el-dropdown>
       </span>
         </el-tree>
-      </el-card>
+      </el-main>
     </el-row>
 
 <!--    弹出框-->
@@ -388,6 +388,8 @@ export default {
 
     .box-card {
       height: 83vh;
+      background-color: #fff;
+      color: #333;
 
       .title {
         margin-bottom: 10px;
