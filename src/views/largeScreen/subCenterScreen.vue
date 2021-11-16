@@ -50,9 +50,14 @@
       <!-- 看板大屏数据展示主体部分 -->
       <div class="map-main-content">
         <!-- 热线话务历史趋势 -->
-        <div class="map-left-top">热线话务历史趋势部分</div>
+        <div class="map-left-top">
+            <dv-border-box-7 :color="['#070D43', '#2773FF']">
+              <topLeft />
+            </dv-border-box-7>
+        </div>
         <!-- 热线话务历史趋势结束 -->
         <div class="map-main">
+          <div style="position: absolute;left: 10px;top: 310px;"><mainSelect /></div>
           <!-- 话务总量头部  -->
           <div class="total-traffic">
             <div class="traffic">
@@ -74,7 +79,10 @@
           <!--看板大屏主图部分结束  -->
         </div>
         <!-- 异常挂断情况 -->
-        <div class="map-right-top">异常挂断情况</div>
+        <div class="map-right-top">
+           <dv-border-box-7 :color="['#070D43', '#2773FF']">
+              <topRight />
+           </dv-border-box-7></div>
         <!-- 异常挂断情况结束 -->
       </div>
       <!-- 看板大屏数据展示主体部分结束 -->
@@ -86,6 +94,9 @@
 import drawMixin from "../../utils/drawMixin";
 import { formatTime } from "../../utils/index.js";
 import Bus from "@/utils/eventBus.js";
+import topLeft from '../topLeft';
+import topRight from '../topRight';
+import mainSelect from '../mainSelect';
 export default {
   name: "wholeNetworkScreen",
   mixins: [drawMixin],
@@ -139,7 +150,7 @@ export default {
       fullscreen: false,
     };
   },
-  components: {},
+  components: {topLeft,topRight,mainSelect},
   mounted() {
     this.timeFn();
     this.cancelLoading();
@@ -285,17 +296,17 @@ export default {
 .map-main-content {
   position: relative;
   .map-left-top {
-    border: 1px solid #001aff;
-    width: 300px;
-    height: 180px;
+    // border: 1px solid #001aff;
+    width: 540px;
+    height: 300px;
     position: absolute;
     left: 10px;
     top: 10px;
   }
   .map-right-top {
-    border: 1px solid #001aff;
-    width: 300px;
-    height: 180px;
+    // border: 1px solid #001aff;
+    width: 540px;
+    height: 300px;
     position: absolute;
     right: 10px;
     top: 10px;

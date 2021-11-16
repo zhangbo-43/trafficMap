@@ -4,7 +4,7 @@
     <Echart
       :options="options"
       id="bottomLeftChart"
-      height="260px"
+      height="242px"
       width="100%"
     ></Echart>
   </div>
@@ -79,11 +79,21 @@ export default {
               type: 'category',
               boundaryGap: false,
               data: newData.category,
+              axisLine: {
+                lineStyle: {
+                  color: "rgba(100, 100, 100, 0.5)"
+                }
+              }
             }
           ],
           yAxis: [
             {
-              type: 'value'
+              type: 'value',
+              axisLine: {
+                lineStyle: {
+                  color: "rgba(100, 100, 100, 0)"
+                }
+              },
             }
           ],
           series: [

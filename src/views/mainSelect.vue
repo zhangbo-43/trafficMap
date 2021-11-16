@@ -64,6 +64,24 @@ export default {
         },{
           value: 'd4',
           label: '玉溪'
+        },{
+          value: 'd5',
+          label: '曲靖'
+        },{
+          value: 'd6',
+          label: '丽江'
+        },{
+          value: 'd7',
+          label: '玉溪'
+        },{
+          value: 'd8',
+          label: '曲靖'
+        },{
+          value: 'd9',
+          label: '丽江'
+        },{
+          value: 'd10',
+          label: '玉溪'
         }],
         cities: '',
         options4: [{
@@ -83,7 +101,8 @@ export default {
 $box-height: 100%;
 $box-width: 100%;
 #mainSelect{
-  padding: 29px 23px;
+  // padding: 29px 23px;
+  padding: 29px 0;
   height: $box-height;
   width: $box-width;
   position: relative;
