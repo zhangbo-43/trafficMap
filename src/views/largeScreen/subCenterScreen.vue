@@ -158,7 +158,7 @@ export default {
     let self = this;
     this.$nextTick(function () {});
     document.addEventListener("keyup", function (e) {
-      console.log(e);
+      // console.log(e);
       if (e.keyCode == 27) {
         self.unFullScreen();
       }

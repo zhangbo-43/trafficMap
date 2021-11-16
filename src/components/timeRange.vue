@@ -55,7 +55,23 @@ export default {
   }
 }
 </script>
-
+<style>
+.el-picker-panel {
+  background-color: #15244D;
+  color: #fff;
+  border: none;
+  line-height: initial;
+}
+.el-picker-panel__icon-btn {
+  color: #fff;
+}
+.el-date-picker__header-label {
+  color: #fff;
+}
+.el-date-table th {
+  color: #fff;
+}
+</style>
 <style lang="scss" scoped>
 .el-date-editor.el-input, .el-date-editor.el-input__inner {
   width: 100px;

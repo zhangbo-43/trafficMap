@@ -1,9 +1,10 @@
 <template>
-  <el-container class="container-config">
+  <el-container class="container-config" :style="style">
     <el-header class="header-title">
       <span>{{ config.name }}</span>
     </el-header>
     <el-main class="main-table">
+      <!-- <Table :showTableData.sync="showTableData" :tableColumn.sync="config.tableColumn"></Table> -->
       <div class="table-title">
         <span class="table-name">{{ config.tableTitle }}</span>
         <el-button
@@ -16,7 +17,6 @@
         >
       </div>
       <el-table
-        max-height="495px"
         :data="showTableData"
         style="width: 100%"
         :header-cell-style="{
@@ -143,9 +143,9 @@
       </span>
     </el-dialog>
 
-    <!-- 修改按钮弹窗 -->
+    <!-- 修改信息弹窗 -->
     <el-dialog title="修改信息" :visible.sync="dialogRevise" width="25%">
-      <div>
+      <div v-if="this.config.name == '人员信息管理'">
         <el-form
           :model="reviseData"
           :rules="rules"
@@ -188,6 +188,36 @@
           </el-form-item>
         </el-form>
       </div>
+      <div v-else-if="this.config.name == '角色权限管理'">
+        <el-form
+          :model="roleper"
+          ref="reviseData"
+          label-width="100px"
+          class="demo-ruleForm"
+          size="mini"
+        >
+          <el-form-item label="角色编号" prop="id">
+            <el-select v-model="roleper.id" placeholder="请选择角色编号">
+              <el-option label="1" value="1"></el-option>
+              <el-option label="2" value="2"></el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="角色名称" prop="name">
+            <el-input
+              v-model="roleper.name"
+              placeholder="请输入角色名称"
+            ></el-input>
+          </el-form-item>
+
+          <el-form-item label="角色权限">
+            <el-checkbox-group v-model="roleper.menuPer">
+              <el-checkbox label="全网监控大屏" name="type"></el-checkbox>
+              <el-checkbox label="分中心大屏" name="type"></el-checkbox>
+              <el-checkbox label="瞬时区间配置" name="type"></el-checkbox>
+            </el-checkbox-group>
+          </el-form-item>
+        </el-form>
+      </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogRevise = false">取 消</el-button>
         <el-button type="primary" @click="handleRevisePerson">提 交</el-button>
@@ -197,6 +227,8 @@
 </template>
 
 <script>
+import { formatTime } from "../../utils/index.js";
+// import Table from "./components/table.vue"
 export default {
   data() {
     return {
@@ -208,6 +240,12 @@ export default {
       dialogRevise: false,
       reviseIndex: null,
       reviseRow: null,
+      roleper: {
+        id: "",
+        name: "",
+        menuPer: [],
+        setTime: "",
+      },
       reviseData: {
         name: "",
         phoneNum: "",
@@ -215,8 +253,9 @@ export default {
         Organization: "",
         type: "一类员工",
 
-        state: "",
+        state: "正常",
         password: "",
+        setTime: "",
       },
 
       // 验证规则
@@ -232,24 +271,24 @@ export default {
         ID: "",
         Organization: "",
         type: "一类员工",
-
+        setTime: "",
         state: "",
-        password: "",
+        password: "正常",
       },
       rules: {
         name: [
-          { required: true, message: "请输入姓名", trigger: "change" },
+          { required: true, message: "请输入姓名", trigger: "blur" },
           {
             validator: (rule, value, callback) => {
               if (!this.verify.name.test(value)) {
-                callback(new Error("姓名长度在 2 到 6 个字符"));
+                callback(new Error("姓名为中文且长度在 2 到 6 个字符"));
               }
             },
             trigger: "blur",
           },
         ],
         phoneNum: [
-          { required: true, message: "请输入手机号", trigger: "change" },
+          { required: true, message: "请输入手机号", trigger: "blur" },
           {
             type: "number",
             trigger: "blur",
@@ -264,7 +303,7 @@ export default {
           },
         ],
         ID: [
-          { required: true, message: "请输入身份证号", trigger: "change" },
+          { required: true, message: "请输入身份证号", trigger: "blur" },
           {
             validator: (rule, value, callback) => {
               if (!this.verify.ID.test(value)) {
@@ -275,25 +314,30 @@ export default {
           },
         ],
       },
+      style: {},
     };
   },
   props: ["config"],
-
+  components: {
+    // Table
+  },
   methods: {
-    // 新增人员按钮事件
+    // 在更改页面显示条数时更改页面高度
+    getHeight() {
+      let height = window.innerHeight;
+      if (this.showTableData.length > 10) {
+        height = window.innerHeight + 36 * (this.showTableData.length - 10);
+      } else {
+        window.innerHeight;
+      }
+      height = (height / window.innerHeight) * 100 + "%";
+      this.style.height = height;
+    },
+
+    // 新增人员按钮点击操作
     addPersonClick() {
-      this.newperson = {
-        name: "",
-        phoneNum: "",
-        ID: "",
-        Organization: "",
-        type: "一类员工",
-
-        state: "",
-        password: "",
-      };
-
       this.dialogVisible = true;
+      this.$refs.newperson.resetFields();
     },
 
     // 新增人员弹窗提交操作
@@ -304,6 +348,7 @@ export default {
           this.verify.tel.test(this.newperson.phoneNum)) &&
         this.verify.ID.test(this.newperson.ID)
       ) {
+        this.newperson.setTime = this.timeFn();
         this.config.tableData.unshift(this.newperson);
         this.dialogVisible = false;
         this.handleCurrentChange();
@@ -328,16 +373,7 @@ export default {
       this.reviseIndex = index;
       this.reviseRow = row;
       this.dialogRevise = true;
-      this.reviseData = {
-        name: "",
-        phoneNum: "",
-        ID: "",
-        Organization: "",
-        type: "一类员工",
-
-        state: "",
-        password: "",
-      };
+      this.$refs.reviseData.resetFields();
     },
 
     // 删除操作
@@ -347,37 +383,68 @@ export default {
         1
       );
       this.handleCurrentChange();
-      // if(this.showTableData.length == 0){
-      //   this.currentPage -= 1
-      // }
-
       console.log(index, row);
     },
 
     // 修改弹窗提交操作
     handleRevisePerson() {
-      if (
-        this.verify.name.test(this.reviseData.name) &&
-        (this.verify.phone.test(this.reviseData.phoneNum) ||
-          this.verify.tel.test(this.reviseData.phoneNum)) &&
-        this.verify.ID.test(this.reviseData.ID)
-      ) {
+      if (this.config.name === "人员信息管理") {
+        if (
+          this.verify.name.test(this.reviseData.name) &&
+          (this.verify.phone.test(this.reviseData.phoneNum) ||
+            this.verify.tel.test(this.reviseData.phoneNum)) &&
+          this.verify.ID.test(this.reviseData.ID)
+        ) {
+          this.reviseData.setTime = this.timeFn();
+          this.$confirm("此操作将修改人员信息, 是否继续?", "提示", {
+            confirmButtonText: "确定",
+            cancelButtonText: "取消",
+            type: "warning",
+          })
+            .then(() => {
+              Object.assign(
+                this.config.tableData[
+                  (this.currentPage - 1) * this.pageSize + this.reviseIndex
+                ],
+                this.reviseData
+              );
+
+              this.dialogRevise = false;
+              this.handleCurrentChange();
+
+              this.$message({
+                type: "success",
+                message: "修改成功!",
+              });
+            })
+            .catch(() => {
+              this.$message({
+                type: "info",
+                message: "已取消修改",
+              });
+            });
+        } else {
+          this.$alert("人员信息错误，请返回修改", "信息错误", {
+            confirmButtonText: "确定",
+          });
+        }
+      } else if (this.config.name === "角色权限管理") {
         this.$confirm("此操作将修改人员信息, 是否继续?", "提示", {
           confirmButtonText: "确定",
           cancelButtonText: "取消",
           type: "warning",
         })
           .then(() => {
+            this.roleper.setTime = this.timeFn();
             Object.assign(
               this.config.tableData[
                 (this.currentPage - 1) * this.pageSize + this.reviseIndex
               ],
-              this.reviseData
+              this.roleper
             );
 
             this.dialogRevise = false;
             this.handleCurrentChange();
-
             this.$message({
               type: "success",
               message: "修改成功!",
@@ -389,11 +456,14 @@ export default {
               message: "已取消修改",
             });
           });
-      } else {
-        this.$alert("新增人员信息错误，请返回修改", "信息错误", {
-          confirmButtonText: "确定",
-        });
       }
+    },
+
+    // 获取当前时间
+    timeFn() {
+      let dateDay = formatTime(new Date(), "HH: mm: ss");
+      let dateYear = formatTime(new Date(), "yyyy-MM-dd");
+      return dateYear + "\xa0" + dateDay;
     },
   },
 
@@ -406,47 +476,58 @@ export default {
     currentPage() {
       this.handleCurrentChange();
     },
+    showTableData() {
+      this.getHeight();
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.header-title {
-  background-color: #fff;
-  display: flex;
-  align-items: center;
+.container-config {
+  width: 100%;
+  padding-bottom: 50px;
 
-  span {
-    font-size: 22px;
-    color: #121212;
-    font-weight: bolder;
-  }
-}
-.main-table {
-  background-color: #fff;
-  margin-top: 20px;
-  padding: 20px 30px 10px 30px;
-
-  .table-title {
-    margin-bottom: 10px;
+  .header-title {
+    background-color: #fff;
     display: flex;
-    justify-content: space-between;
-    .table-name {
+    align-items: center;
+    span {
+      font-size: 22px;
       color: #121212;
-      display: flex;
-      align-items: center;
+      font-weight: bolder;
     }
   }
-}
-.select-page {
-  padding-top: 5px;
-  .el-pagination {
-    display: flex;
-    justify-content: flex-end;
+
+  .main-table {
+    flex: 1;
+    background-color: #fff;
+    margin: 20px;
+    margin-bottom: 30px;
+    padding: 20px 30px 10px 30px;
+
+    .table-title {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      .table-name {
+        color: #121212;
+        display: flex;
+        align-items: center;
+      }
+    }
+    .select-page {
+      padding-top: 5px;
+      .el-pagination {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
   }
-}
-.dialog-footer {
-  display: flex;
-  justify-content: center;
+
+  .dialog-footer {
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>

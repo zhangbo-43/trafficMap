@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <Intervalconfigtable
-      :configTableData="configTableData"
-    ></Intervalconfigtable>
-  </div>
+  <Intervalconfigtable :configTableData="configTableData"></Intervalconfigtable>
 </template>
 
 <script>
@@ -22,7 +18,7 @@ export default {
           setPerson: "设置人",
           setTime: "设置时间",
         },
-        alertTitle:'调整瞬时数据区间（单位：秒）'
+        alertTitle: "调整瞬时数据区间（单位：秒）",
       },
     };
   },

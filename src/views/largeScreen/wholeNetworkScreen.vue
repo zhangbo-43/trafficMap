@@ -1,8 +1,11 @@
 <template>
-  <div class="whole-Screen">全网监控大屏</div>
+  <div class="whole-Screen">
+    <skill-chart></skill-chart>
+  </div>
 </template>
 
 <script>
+import skillChart from '../../components/skillQueue/skillChart.vue'
 import drawMixin from "../../utils/drawMixin";
 export default {
   name: "wholeNetworkScreen",
@@ -10,7 +13,9 @@ export default {
   data() {
     return {};
   },
-  components: {},
+  components: {
+    skillChart
+  },
   mounted() {},
   unMounted() {},
   methods: {},

@@ -6,7 +6,7 @@
     <!--    服务量趋势图页面-->
     <service-chart :chartVisible="chartVisible" @closeDialog="handleClose" :optionData="optionData"></service-chart>
     <el-row class="table">
-      <el-card class="box-card">
+      <el-main class="box-card">
         <div>菜单节点信息</div>
         <el-divider></el-divider>
         <div class="title">
@@ -52,7 +52,7 @@
     </el-dropdown>
       </span>
         </el-tree>
-      </el-card>
+      </el-main>
     </el-row>
 
 <!--    弹出框-->
@@ -236,6 +236,7 @@ export default {
                 //     color: "rgb(101, 158, 178)"
                 //   }
                 // },
+                showSymbol: false,
                 symbol: "circle",
                 smooth: true,
                 // prettier-ignore
@@ -270,6 +271,7 @@ export default {
                 name: '节点异常挂断量',
                 type: 'line',
                 smooth: true,
+                showSymbol: false,
                 symbol: "circle",
                 // itemStyle: {
                 //   normal: {
@@ -296,7 +298,7 @@ export default {
                 type: 'cross'
               }
             },
-            color: ["rgb(229, 193, 4)","rgb(200, 142, 10)","rgb(214, 117, 131)","rgb(193, 1, 28)","rgb(103, 160, 180)"],
+            color: ["rgb(101, 158, 178)","rgb(167, 3, 30)"],
             legend: {},
             toolbox: {
               show: true,
@@ -324,71 +326,10 @@ export default {
             },
             series: [
               {
-                name: '15s内排队量',
-                type: 'line',
-                // lineStyle: {
-                //   normal: {
-                //     color: "rgb(229, 193, 4)"
-                //   }
-                // },
-                symbol: "circle",
-                smooth: true,
-                // prettier-ignore
-                data: [100,200,300,400,500,600,700,120,220,320,420,520,620,720],
-              },
-              {
-                name: '大于15s排队量',
+                name: '排队量趋势图',
                 type: 'line',
                 smooth: true,
-                symbol: "circle",
-                // itemStyle: {
-                //   normal: {
-                //     lineStyle: {
-                //       // type: "dashed",
-                //       normal: {
-                //         color: "rgb(200, 142, 10)"
-                //       }
-                //     }
-                //   }
-                // },
-                data: [120,220,320,420,520,620,720,140,160,180,200,220,240,260],
-              },
-              {
-                name: '大于30s排队量',
-                type: 'line',
-                smooth: true,
-                symbol: "circle",
-                // itemStyle: {
-                //   normal: {
-                //     lineStyle: {
-                //       // type: "dashed",
-                //       normal: {
-                //         color: "rgb(214, 117, 131)"
-                //       }
-                //     }
-                //   }
-                // },
-                data: [140,160,180,200,220,240,260,180,220,260,300,340,380,420],
-              },{
-                name: '大于60s排队量',
-                type: 'line',
-                smooth: true,
-                symbol: "circle",
-                // itemStyle: {
-                //   normal: {
-                //     lineStyle: {
-                //       // type: "dashed",
-                //       normal: {
-                //         color: "rgb(2193, 1, 28)"
-                //       }
-                //     }
-                //   }
-                // },
-                data: [180,220,260,300,340,380,420,240,280,320,360,400,440,480],
-              },{
-                name: '服务量趋势图',
-                type: 'line',
-                smooth: true,
+                showSymbol: false,
                 symbol: "circle",
                 // itemStyle: {
                 //   normal: {
@@ -400,6 +341,24 @@ export default {
                 //     }
                 //   }
                 // },
+                data: [120,220,320,420,520,620,720,140,160,180,200,220,240,260],
+              },
+             {
+                name: '服务量趋势图',
+                type: 'line',
+                smooth: true,
+               showSymbol: false,
+                symbol: "circle",
+                itemStyle: {
+                  normal: {
+                    lineStyle: {
+                      type: "dashed",
+                      normal: {
+                        color: "rgb(103, 160, 180)"
+                      }
+                    }
+                  }
+                },
                 data: [240,280,320,360,400,440,480,140,160,180,200,220,240,260,180],
               },
             ]
@@ -429,6 +388,8 @@ export default {
 
     .box-card {
       height: 83vh;
+      background-color: #fff;
+      color: #333;
 
       .title {
         margin-bottom: 10px;
