@@ -1,0 +1,121 @@
+{
+  "id": "2925059",
+  "name": "话务地图",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "25707054",
+      "name": "箭头",
+      "font_class": "jiantou",
+      "unicode": "e6a3",
+      "unicode_decimal": 59043
+    },
+    {
+      "icon_id": "25706073",
+      "name": "双左箭头svg",
+      "font_class": "shuangzuojiantousvg",
+      "unicode": "e6a2",
+      "unicode_decimal": 59042
+    },
+    {
+      "icon_id": "25705869",
+      "name": "箭头右",
+      "font_class": "jiantouyou",
+      "unicode": "e69f",
+      "unicode_decimal": 59039
+    },
+    {
+      "icon_id": "25705870",
+      "name": "箭头左",
+      "font_class": "jiantouzuo",
+      "unicode": "e6a0",
+      "unicode_decimal": 59040
+    },
+    {
+      "icon_id": "25705871",
+      "name": "箭头 下",
+      "font_class": "a-jiantouxia",
+      "unicode": "e6a1",
+      "unicode_decimal": 59041
+    },
+    {
+      "icon_id": "25705813",
+      "name": "排队中",
+      "font_class": "paiduizhong",
+      "unicode": "e69e",
+      "unicode_decimal": 59038
+    },
+    {
+      "icon_id": "778499",
+      "name": "用户名",
+      "font_class": "yonghuming",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "876771",
+      "name": "导入",
+      "font_class": "daoru",
+      "unicode": "e663",
+      "unicode_decimal": 58979
+    },
+    {
+      "icon_id": "1214900",
+      "name": "BBD排序1",
+      "font_class": "weibiaoti1",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "2945780",
+      "name": "角色类型配置配置",
+      "font_class": "jiaoseleixingpeizhipeizhi",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "5831333",
+      "name": "全屏",
+      "font_class": "quanping",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "25698190",
+      "name": "接口异常",
+      "font_class": "jiekouyichang",
+      "unicode": "e69c",
+      "unicode_decimal": 59036
+    },
+    {
+      "icon_id": "25698218",
+      "name": "断开异常",
+      "font_class": "duankaiyichang",
+      "unicode": "e69d",
+      "unicode_decimal": 59037
+    },
+    {
+      "icon_id": "15367",
+      "name": "下三角形",
+      "font_class": "xiasanjiaoxing",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "1372632",
+      "name": "（选中）品牌趋势",
+      "font_class": "xuanzhongpinpaiqushi",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "2674878",
+      "name": "箭头 上",
+      "font_class": "jiantoushang",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    }
+  ]
+}
