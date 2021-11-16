@@ -19,7 +19,6 @@
           >
         </div>
         <el-table
-          max-height="438px"
           :data="showTableData"
           style="width: 100%"
           :header-cell-style="{
@@ -221,7 +220,6 @@ export default {
   height: 100%;
   padding-bottom: 50px;
   overflow: hidden;
-  margin-bottom: 40px;
 
   .header-title {
     background-color: #fff;
@@ -239,9 +237,10 @@ export default {
 
   .main-table {
     flex: 1;
-    padding: 0;
-    margin: 20px 20px 10px 20px;
+    padding-bottom: 30px;
     background-color: rgb(242, 243, 255);
+    display: flex;
+    flex-direction: column;
     .annotation {
       padding: 0 30px;
       line-height: 60px;
@@ -253,6 +252,7 @@ export default {
       }
     }
     .table {
+      flex: 1;
       background: #fff;
       padding: 10px 30px;
       padding-bottom: 10px;
@@ -261,21 +261,6 @@ export default {
         display: flex;
         justify-content: flex-end;
       }
-    }
-  }
-
-  .footer-table {
-    flex: 1;
-    background-color: #fff;
-    padding: 20px 30px 10px 30px;
-    margin: 0 20px;
-    margin-bottom: 40px;
-    overflow: hidden;
-
-    .config-button {
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: flex-end;
     }
   }
   .select-page {
