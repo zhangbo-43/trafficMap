@@ -25,7 +25,12 @@
         </div>
 
         <div class="select-date">
-          <el-select v-model="selectDate" placeholder="请选择" size="mini">
+          <el-select
+            v-model="selectDate"
+            class="select"
+            placeholder="请选择"
+            size="mini"
+          >
             <!-- <el-option
               v-for="item in options"
               :key="item.value"
@@ -39,19 +44,23 @@
       </div>
       <el-table
         :data="showTableData"
+        highlight-current-row
         style="width: 100%"
         max-height="400px"
+        border
         :header-cell-style="{
-          background: 'rgba(3,15,148,0.1)',
-          color: '#4C5463',
-          fontWeight: 500,
+          background: '#16388D',
+          color: 'rgba(255,255,255,0.5)',
+          fontWeight: 300,
           padding: '10px 0px',
           textAlign: 'center',
         }"
         :row-style="{
+          color: 'rgba(255,255,255,0.5)',
           fontWeight: 300,
           fontFamily: 'PingFang SC',
           height: 10,
+          background: 'rgba(0,0,0,0)',
         }"
         :cell-style="{
           padding: '4px 0px',
@@ -115,7 +124,6 @@ export default {
 
     // 切换要显示的表格
     handleTableChange(e, show) {
-
       document
         .getElementsByClassName("show-tab-btn")[0]
         .classList.remove("show-tab-btn");
@@ -177,17 +185,109 @@ export default {
           background-color: #2773ff;
         }
       }
+
       .select-date {
         flex: 1;
         height: 20px;
         padding-left: 30%;
+        .el-select {
+          background-color: #060736 !important;
+          .el-input--suffix .el-input__inner {
+            // width: 70%;
+            background-color: #060736 !important;
+          }
+        }
       }
     }
+
+    // 表格背景设置
+    .el-table,
+    .el-table__expanded-cell {
+      background-color: rgba(0, 0, 0, 0);
+      .el-table__row:hover > td {
+        background-color: #151c77 !important;
+      }
+
+      //表格内部下边框设置
+      th.el-table__cell.is-leaf {
+        border: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      }
+      td.el-table__cell,
+      th.el-table__cell.is-leaf {
+        border: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      }
+
+      // 表格滚动条设置
+      th.el-table__cell.gutter {
+        background-color: rgb(163, 163, 163) !important;
+        // border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      }
+      .el-table__body-wrapper::-webkit-scrollbar {
+        height: 3px; // 纵向滚动条 必写
+        background-color: rgb(163, 163, 163);
+      }
+      .el-table__body-wrapper::-webkit-scrollbar-thumb {
+        background-color: rgb(125, 125, 125);
+        border-radius: 3px;
+      }
+    }
+    // 表格边框设置
+    .el-table--border,
+    .el-table--group {
+      border: 0;
+    }
+    .el-table__header-wrapper th:nth-last-of-type(2) {
+      border-right: none;
+    }
+    .el-table--border td:nth-last-of-type(1) {
+      border-right: none;
+    }
+    .el-table--border::after,
+    .el-table--group::after {
+      width: 0;
+    }
+
+    // 分页设置
     .select-page {
       padding-top: 10px;
       display: flex;
       justify-content: flex-end;
+      .el-pagination{
+        color: rgba(255, 255, 255, 0.5);
+        .btn-prev,.btn-next{
+          background-color: rgba(0, 0, 0, 0);
+            i{
+              color: rgba(255, 255, 255, 0.5);
+            }
+            :hover{
+              color: #409EFF;
+            }
+        }
+      }
+      .el-pager li{
+        background-color: rgba(0, 0, 0, 0);
+      }
+      .el-input__inner{
+        background-color: rgba(0, 0, 0, 0);
+        color: rgba(255, 255, 255, 0.5);
+      }
+      
     }
+  }
+}
+
+// 下拉框选项设置
+.el-select-dropdown {
+  .el-scrollbar {
+    background-color: #060736 !important;
+  }
+  border: 0;
+  .el-select-dropdown__item {
+  }
+  .hover {
+    background-color: #262879 !important;
   }
 }
 </style>
