@@ -9,14 +9,19 @@
           </el-radio-group>
         </el-col>
       </el-row>
-      <div id="svgWrap"></div>
+      <el-row>
+        <div id="svgWrap">
+          <span class="iconfont icon-shuangzuojiantousvg selectL"></span>
+          <span class="iconfont icon-shuangyoujiantousvg selectR"></span>
+        </div>
+      </el-row>
     </div>
   </div>
 </template>
 
 <script>
 import * as d3 from 'd3'
-
+// import * as d3Tip from 'd3-tip'
 export default {
   name: "skillChart",
   data() {
@@ -32,7 +37,7 @@ export default {
       // }
 
       const testData = [
-        {label: '三星1', value: 100},
+        {label: '三星级1用户级技能队列', value: 100},
         {label: '三星2', value: 200},
         {label: '三星3', value: 300},
         {label: '三星4', value: 400},
@@ -68,7 +73,7 @@ export default {
       // .call(zoom)
 
       const g = svg.append("g").attr("id", "svgWrap")
-          .attr('transform', 'translate(20,-20)');
+          .attr('transform', 'translate(20,-40)');
 
       //设置x轴
       const xScale = d3.scaleBand()
@@ -77,11 +82,46 @@ export default {
           .domain(testData.map(function (d) {
             return d.label
           }))
+      //tickFormat自定义刻度值
       const xAxis = d3.axisBottom(xScale)
-      // let bottomDistance = chartConfig.chartHeight - 50
+          //刻度与数值之间的间隙
+          .tickPadding(10)
+          .tickFormat(function (d) {
+            // console.log(d)
+            return d
+          })
+      // var str = ['111','222']
       g.append("g")
           .attr('transform', 'translate(0,' + chartConfig.chartHeight + ')')
+          .attr("class", "axis")
           .call(xAxis)
+          .selectAll("text")
+          .attr("font-size", "16px")
+          .attr("fill", "#00A698")
+          .attr("width",100)
+      // .text((d) => {
+      //   console.log(d.label)
+      //   return d.label
+      // })
+      // .append("tspan")
+      // .data(str)
+
+
+      // .append("text")
+      // .attr("x", config.boxWidth/2)
+      // .attr('dy', 16)
+      // .attr("text-anchor", 'middle')
+      // .text(function (d) {
+      //   return (d.name.length > 10) ? d.name.substr(0, 10) : d.name;
+      // })
+      // .style({
+      //   'fill': '#3377ff',
+      //   'font-size': 14,
+      // })
+
+      // svg.xAxis.tickFormat(function(d) {
+      //   return d.label
+      // })
 
       // 设置y轴
       const yScale = d3.scaleLinear()
@@ -91,7 +131,44 @@ export default {
           })])
       // const yAxis = d3.axisLeft(yScale)
       // g.append("g").call(yAxis)
+      // const barWidth = (chartConfig.chartWidth / testData.length) * 0.9 // 用于绘制每条柱
+      // const stepArray = d3.ticks(0, d3.max(testData, d => d.value), 10) // 用于生成背景柱
+      // const colors = ['#ccc', '#ddd'] // 用于生成背景柱
 
+      // let tip = d3Tip() // 设置tip
+      //     .attr('class', 'd3-tip')
+      //     .offset([-10, 0])
+      //     .html(function(d) {
+      //       return (
+      //           '<strong>星期' +
+      //           d.letter +
+      //           "<br>空置率:</strong> <span style='color:#ffeb3b'>" +
+      //           (d.frequency * 100).toFixed(2) +
+      //           '%</span>'
+      //       )
+      //     })
+      //
+      // chart.call(tip)
+      // let tip = d3Tip() // 设置tip
+      //     .attr('class', 'd3-tip')
+      //     .offset([-10, 0])
+      //     .html(function(d) {
+      //       return (
+      //           '<strong>技能队列名称' +
+      //           d.label +
+      //           "<br>数量:</strong> <span style='color:#ffeb3b'>" +
+      //           d.value +
+      //           '</span>'
+      //       )
+      //       // return (
+      //       //     '<strong>技能队列名称' +
+      //       //     d.label +
+      //       //     "<br>空置率:</strong> <span style='color:#ffeb3b'>" +
+      //       //     (d.frequency * 100).toFixed(2) +
+      //       //     '%</span>'
+      //       // )
+      //     })
+      // svg.call(tip)
       g.selectAll('.bar') // 画柱图
           .data(testData)
           .enter()
@@ -102,6 +179,16 @@ export default {
             return xScale(d.label)
           })
           .attr('y', chartConfig.chartHeight) // 控制动画由下而上
+          // .on('click', (d) => {
+          //   console.log(d)
+          //   alert('点击的是柱子');
+          // })
+          // .on('mouseover', (d) => {
+          //   console.log(d)
+          // })
+          // .on('mouseout', () => {
+          //   console.log('222')
+          // })
           .attr('width', xScale.bandwidth())
           .attr('height', 0) // 控制动画由下而上
           .transition()
@@ -112,6 +199,8 @@ export default {
           .attr('height', function (d) {
             return chartConfig.chartHeight - yScale(d.value)
           })
+
+
     }
   },
   mounted() {
@@ -122,7 +211,7 @@ export default {
 
 <style lang="scss" scoped>
 .skillBox {
-  height: 40vh;
+  height: 45vh;
   width: 100%;
   border: 1px solid red;
 
@@ -141,10 +230,33 @@ export default {
       color: #fff;
     }
 
+
     #svgWrap {
-      width: 80%;
-      height: 30vh;
+      position: relative;
+      width: 90%;
+      height: 35vh;
       margin: 0 auto;
+      margin-top: 20px;
+
+      .selectL {
+        position: absolute;
+        top: 30%;
+        left: -3%;
+        font-size: 29px;
+        color: #70ECFA;
+        display: inline-block;
+        vertical-align: center;
+      }
+
+      .selectR {
+        position: absolute;
+        top: 30%;
+        right: -3%;
+        font-size: 29px;
+        color: #70ECFA;
+        display: inline-block;
+        vertical-align: center;
+      }
     }
   }
 }
