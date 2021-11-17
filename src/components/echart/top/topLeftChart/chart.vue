@@ -79,6 +79,9 @@ export default {
               type: 'category',
               boundaryGap: false,
               data: newData.category,
+              axisLabel:{
+               color:'#999'
+              },
               axisLine: {
                 lineStyle: {
                   color: "rgba(100, 100, 100, 0.5)"
@@ -89,6 +92,9 @@ export default {
           yAxis: [
             {
               type: 'value',
+              axisLabel:{
+               color:'#999'
+              },
               axisLine: {
                 lineStyle: {
                   color: "rgba(100, 100, 100, 0)"
