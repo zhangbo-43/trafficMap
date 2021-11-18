@@ -297,6 +297,8 @@ export default {
   position: relative;
   .map-left-top {
     // border: 1px solid #001aff;
+    // width: calc((100%-200px)/3.5);
+    // height: calc(25vh+58px);
     width: 540px;
     height: 300px;
     position: absolute;

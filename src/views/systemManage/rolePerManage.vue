@@ -1,6 +1,6 @@
 <template>
   <!-- <Infomanage :config.sync="config"></Infomanage> -->
-  <div>
+  <div class="components">
     <el-button type="text" @click="showDialogtable = true"
       >点击打开 Dialog</el-button
     >
@@ -9,17 +9,20 @@
       :data="dialogTableData"
       @closeDialogtable="() => (this.showDialogtable = false)"
     ></Dialogtable>
+    <Searchsetflexible></Searchsetflexible>
   </div>
 </template>
 
 <script>
 // import Infomanage from "./infoManage.vue";
 import Dialogtable from "./components/dialogtable.vue";
+import Searchsetflexible from "./components/searchSetFlexible.vue";
 export default {
   name: "rolePerManage",
   components: {
     // Infomanage,
     Dialogtable,
+    Searchsetflexible,
   },
   data() {
     return {
@@ -227,10 +230,6 @@ export default {
               interfaceName: "星际查询接口",
               num: 30,
               url: "www.baidu.com",
-            },{
-              interfaceName: "星际查询接口",
-              num: 30,
-              url: "www.baidu.com",
             },
             {
               interfaceName: "星际查询接口",
@@ -286,7 +285,13 @@ export default {
               interfaceName: "星际查询接口",
               num: 30,
               url: "www.baidu.com",
-            },{
+            },
+            {
+              interfaceName: "星际查询接口",
+              num: 30,
+              url: "www.baidu.com",
+            },
+            {
               interfaceName: "星际查询接口",
               num: 30,
               url: "www.baidu.com",
@@ -332,5 +337,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.components {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 </style>
