@@ -1,7 +1,7 @@
 <template>
   <div class="skillBox" ref="skillRef">
     <div class="importChart">
-        <div id="mainSvg"></div>
+      <div id="mainSvg"></div>
     </div>
     <div class="mainChart">
       <el-row>
@@ -74,138 +74,6 @@ export default {
     return {
       chartType: "排队量",
       textWith: 0,
-      rootData: {
-        "downward": {
-          "direction": "downward",
-          "name": "集成电路",
-          "children": [
-            {
-              "name": "异方性导电胶膜",
-              "amount": "100",
-              "ratio": "55%",
-              "hasHumanholding": true,
-              "hasChildren": true,
-              "isExpand": false,
-              "children": [
-                {
-                  "name": "异方性导电胶",
-                  "hasHumanholding": false,
-                  "hasChildren": true,
-                  "amount": "100",
-                  "ratio": "55%",
-                  "children": []
-                },
-                {
-                  "name": "异方性导电",
-                  "hasHumanholding": false,
-                  "hasChildren": true,
-                  "amount": "100",
-                  "ratio": "55%",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "name": "异方性导电1",
-              "amount": "100",
-              "ratio": "55%",
-              "hasHumanholding": true,
-              "hasChildren": true,
-              "isExpand": false,
-              "children": [
-                {
-                  "name": "异方性导电2",
-                  "hasHumanholding": false,
-                  "hasChildren": true,
-                  "amount": "100",
-                  "ratio": "55%",
-                  "children": []
-                },
-                {
-                  "name": "异方性导电3",
-                  "hasHumanholding": false,
-                  "hasChildren": true,
-                  "amount": "100",
-                  "ratio": "55%",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "name": "异方性导电胶膜1",
-              "amount": "100",
-              "ratio": "55%",
-              "hasHumanholding": true,
-              "hasChildren": true,
-              "isExpand": false,
-              "children": [
-                {
-                  "name": "异方性导电12",
-                  "hasHumanholding": false,
-                  "hasChildren": true,
-                  "amount": "100",
-                  "ratio": "55%",
-                  "children": []
-                },
-                {
-                  "name": "异方性导电13",
-                  "hasHumanholding": false,
-                  "hasChildren": true,
-                  "amount": "100",
-                  "ratio": "55%",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "name": "异方性导电胶16",
-              "hasHumanholding": false,
-              "hasChildren": true,
-              "amount": "100",
-              "ratio": "55%",
-              "children": []
-            },
-            {
-              "name": "异方性导电19",
-              "hasHumanholding": false,
-              "hasChildren": true,
-              "isExpand": false,
-              "amount": "100",
-              "ratio": "55%",
-              "children": [
-                {
-                  "name": "异方性导电20",
-                  "hasHumanholding": false,
-                  "amount": "100",
-                  "ratio": "55%",
-                  "children": []
-                },
-                {
-                  "name": "异方性1",
-                  "hasHumanholding": false,
-                  "amount": "100",
-                  "ratio": "55%",
-                  "children": []
-                },
-                {
-                  "name": "异方性导电5",
-                  "hasHumanholding": false,
-                  "amount": "100",
-                  "ratio": "55%",
-                  "children": []
-                },
-                {
-                  "name": "sdafad",
-                  "hasHumanholding": false,
-                  "amount": "100",
-                  "ratio": "55%",
-                  "children": []
-                }
-              ]
-            }
-          ]
-        },
-      },
       testData: [
         {label: '三星级哈哈哈', value: 100},
         {label: '三星级哈哈哈哈哈用户级技能队列2', value: 200},
@@ -227,7 +95,65 @@ export default {
         {label: '三星级哈哈哈哈哈用户级技能队列18', value: 940},
         {label: '三星级哈哈哈哈哈用户级技能队列19', value: 940},
         {label: '三星级哈哈哈哈哈用户级技能队列20', value: 1040},
-      ]
+      ],
+      rootData: [
+        {
+          name: '前置流程',
+          status: true,
+          value: 60,
+          // children: [
+          //   {
+          //     name: "语音IVR",
+          //     value: 354,
+          //     status: true,
+          //     children: [
+          //       {title: 'T1', name: "服务量", value: 31, status: true,},
+          //       {title: 'T1', name: "服务量", value: 31, status: true,},
+          //       {
+          //         title: 'T2', name: "服务量", value: 6, status: false,
+          //         children: [
+          //           {title: 'T51', name: "服务量", value: 5, status: true,},
+          //           {title: 'T52', name: "服务量", value: 14, status: true,},
+          //           {title: 'T53', name: "服务量", value: 21, status: true,},
+          //           {title: 'T54', name: "服务量", value: 48, status: false,}
+          //         ]
+          //       },
+          //       {title: 'T3', name: "服务量", value: 145, status: true,},
+          //       {title: 'T4', name: "服务量", value: 81, status: true,},
+          //       {
+          //         title: 'T5',
+          //         name: "服务量",
+          //         value: 234,
+          //         status: false,
+          //         children: [
+          //           {title: 'T51', name: "服务量", value: 5, status: true,},
+          //           {title: 'T52', name: "服务量", value: 14, status: true,},
+          //           {title: 'T53', name: "服务量", value: 21, status: true,},
+          //           {title: 'T54', name: "服务量", value: 48, status: true,}
+          //         ]
+          //       },
+          //       {title: 'T6', name: "语音导航312", value: 81, status: true,},
+          //       {title: 'T8', name: "服务量", value: 312, status: true,},
+          //       {title: 'T0', name: "服务量", value: 32, status: false,}
+          //     ]
+          //   },
+          // ]
+        },
+        {
+          name: '前置流程',
+          status: true,
+          value: 60,
+          // children: [
+          //   {
+          //     name: "视频IVVR",
+          //     value: 312,
+          //     status: false,
+          //   }
+          // ]
+        }
+      ],
+      hasChildNodeArr: [],
+      chartConfig: ""
     }
   },
   methods: {
@@ -236,19 +162,12 @@ export default {
       chartConfig.chartWidth = d3.select('#svgWrap')._groups[0][0].clientWidth;
       this.textWith = chartConfig.chartWidth / 20
       chartConfig.chartHeight = d3.select('#svgWrap')._groups[0][0].clientHeight;
-
-      // let zoom = d3.behavior.zoom().scaleExtent([0.5, 2]).on('zoom', redraw);
       let svg = d3.select('#svgWrap')
           .append('svg')
           .attr('width', chartConfig.chartWidth)
           .attr('height', chartConfig.chartHeight)
-      // .call(zoom)
-
       const g = svg.append("g").attr("id", "svgWrap")
-          // .attr('transform', `translate(20,${chartConfig.chartHeight})`);
-
           .attr('transform', 'translate(20,-10)');
-
       //设置x轴
       const xScale = d3.scaleBand()
           .range([0, chartConfig.chartWidth])
@@ -264,12 +183,10 @@ export default {
             // console.log(d)
             return d
           })
-      // var str = ['111','222']
       g.append("g")
           .attr('transform', 'translate(0,' + chartConfig.chartHeight + ')')
           .call(xAxis)
           .selectAll("text")
-          // .append("tspan")
           .attr("class", "axis")
           .attr("style", "display:none")
           .attr("font-size", "16px")
@@ -280,46 +197,7 @@ export default {
           .domain([0, d3.max(this.testData, (d) => {
             return d.value
           })])
-      // const yAxis = d3.axisLeft(yScale)
-      // g.append("g").call(yAxis)
-      // const barWidth = (chartConfig.chartWidth / this.testData.length) * 0.9 // 用于绘制每条柱
-      // const stepArray = d3.ticks(0, d3.max(this.testData, d => d.value), 10) // 用于生成背景柱
-      // const colors = ['#ccc', '#ddd'] // 用于生成背景柱
 
-      // let tip = d3Tip() // 设置tip
-      //     .attr('class', 'd3-tip')
-      //     .offset([-10, 0])
-      //     .html(function(d) {
-      //       return (
-      //           '<strong>星期' +
-      //           d.letter +
-      //           "<br>空置率:</strong> <span style='color:#ffeb3b'>" +
-      //           (d.frequency * 100).toFixed(2) +
-      //           '%</span>'
-      //       )
-      //     })
-      //
-      // chart.call(tip)
-      // let tip = d3Tip() // 设置tip
-      //     .attr('class', 'd3-tip')
-      //     .offset([-10, 0])
-      //     .html(function(d) {
-      //       return (
-      //           '<strong>技能队列名称' +
-      //           d.label +
-      //           "<br>数量:</strong> <span style='color:#ffeb3b'>" +
-      //           d.value +
-      //           '</span>'
-      //       )
-      //       // return (
-      //       //     '<strong>技能队列名称' +
-      //       //     d.label +
-      //       //     "<br>空置率:</strong> <span style='color:#ffeb3b'>" +
-      //       //     (d.frequency * 100).toFixed(2) +
-      //       //     '%</span>'
-      //       // )
-      //     })
-      // svg.call(tip)
       g.selectAll('.bar') // 画柱图
           .data(this.testData)
           .enter()
@@ -334,12 +212,6 @@ export default {
             console.log(d)
             alert('点击的是柱子');
           })
-          // .on('mouseover', (d) => {
-          //   console.log(d)
-          // })
-          // .on('mouseout', () => {
-          //   console.log('222')
-          // })
           .attr('width', xScale.bandwidth())
           .attr('height', 0) // 控制动画由下而上
           .transition()
@@ -352,37 +224,89 @@ export default {
           })
     },
     drawMainChart() {
-      let treeConfig = {margin: {top: 10, right: 5, bottom: 0, left: 30}}
-      treeConfig.chartWidth = d3.select('#mainSvg')._groups[0][0].clientWidth;
-      treeConfig.chartHeight = d3.select('#mainSvg')._groups[0][0].clientHeight;
-      // treeConfig.centralHeight = treeConfig.chartHeight / 2;
-      treeConfig.centralHeight = 0;
-      treeConfig.centralWidth = treeConfig.chartWidth / 2;
-      treeConfig.linkLength = 230;//连线长度
-      treeConfig.duration = 500; //动画时间
-      treeConfig.lineHeight = 60;
-      treeConfig.boxWidth = 120;
-      treeConfig.boxHeight = 40;
-      console.log(treeConfig)
-
-      let svg = d3.select('#mainSvg')
-          .append('svg')
-          .attr('width', treeConfig.chartWidth)
-          .attr('height', treeConfig.chartHeight)
-      console.log(svg)
-
-      let data = this.rootData
-      data.x0 = 0
+      //初始化svg图表配置
+      this.getConfig()
+      //初始化节点坐标
+      // this.initPosition(this.rootData)
+      //判断当前节点下面有无子节点
+      this.collapse(this.rootData)
+      console.log(this.rootData)
 
 
-      // let treeG = svg.append("g")
 
+      var mainSvg = d3.select("#mainSvg")
+          .append("svg")
+          .attr("width", this.chartConfig.chartWidth)
+          .attr("height", this.chartConfig.chartHeight);
+      console.log(mainSvg)
+
+      let start = {x: 50, y: 50}
+      let end = {x: 300, y: 100}
+      this.drawLine(mainSvg, start, end)
+
+    },
+    //初始化图表配置
+    getConfig() {
+      let config = {margin: {top: 10, right: 5, bottom: 0, left: 30}}
+      config.chartWidth = d3.select('#mainSvg')._groups[0][0].clientWidth;
+      config.chartHeight = d3.select('#mainSvg')._groups[0][0].clientHeight;
+      config.centralHeight = 0;
+      config.centralWidth = config.chartWidth / 2;
+      config.linkLength = 230;//连线长度
+      config.duration = 500; //动画时间
+      config.lineHeight = 100;
+      config.boxWidth = 120;
+      config.boxHeight = 40;
+      this.chartConfig = config
+    },
+    //初始化每个节点坐标
+    // initPosition() {
+    //   let originPosition = [this.chartConfig.chartWidth / 2, 0]
+    //   console.log(originPosition)
+    //   // arr.map((item,index) => {
+    //   //
+    //   // })
+    // },
+    //画贝塞尔曲线
+    drawLine(svgBox, sourcePosition, endPosition) {
+      let dx = 10, dy = 50
+      // cpx1:它是贝塞尔曲线控制点的x1坐标。
+      // cpy1:它是贝塞尔曲线控制点的y1坐标。
+      // cpx2:它是贝塞尔曲线控制点的x2坐标。
+      // cpy2:它是贝塞尔曲线控制点的y2坐标。
+      // x:它是端点的x坐标。
+      // y:它是端点的y坐标。
+      var path = d3.path();
+      let cpx1 = sourcePosition.x - dx;
+      let cpy1 = sourcePosition.y + dy;
+      let cpx2 = endPosition.x + dx;
+      let cpy2 = endPosition.y - dy;
+      path.moveTo(sourcePosition.x, sourcePosition.y);
+      path.bezierCurveTo(cpx1, cpy1, cpx2, cpy2, endPosition.x, endPosition.y);
+      // path.quadraticCurveTo(cpx2, cpy2, 500, 100);
+      // path.bezierCurveTo(cpx2, cpy2, 500, 100);
+      svgBox.append('path')
+          .attr('d', path.toString())
+          .style('fill', 'none')
+          .style('stroke', 'red')
+          .style('stroke-width', '2');
+    },
+    //判断当前节点下有无子节点
+    collapse(arr) {
+      arr.forEach((item) => {
+        if (item.children && item.children.length != 0) {
+          item.spread = true;
+          this.hasChildNodeArr.push(item);   //将有子集的 d 记录到hasChildNodeArr 控制加号显示
+          this.collapse(item.children)  //递归将所有子集的 记录到hasChildNodeArr
+        }
+      })
 
     }
+
   },
   mounted() {
     this.drawChart()
-    this.drawMainChart()
+    // this.drawMainChart()
   }
 }
 </script>
@@ -394,8 +318,9 @@ export default {
 
   .importChart {
     width: 100%;
-    height:80vh;
+    height: 80vh;
     border: 1px solid red;
+
     #mainSvg {
       width: 100%;
       height: 100%;
