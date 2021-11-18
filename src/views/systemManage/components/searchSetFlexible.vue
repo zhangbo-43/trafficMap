@@ -14,6 +14,7 @@
           @select="handleSelect"
           size="mini"
           :popper-append-to-body="false"
+          clearable
         >
         <el-button slot="append">搜索</el-button>
         </el-autocomplete>
