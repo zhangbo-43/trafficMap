@@ -13,6 +13,8 @@ import 'vue-awesome/icons/chart-area.js';
 import 'vue-awesome/icons/chart-pie.js';
 import 'vue-awesome/icons/chart-line.js';
 import 'vue-awesome/icons/align-left.js';
+//引入字体库
+import '../src/assets/scss/font.scss'
 //引入iconfont图标库
 import './assets/fonts/iconfont.css'
 

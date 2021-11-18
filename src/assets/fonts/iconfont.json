@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "25778718",
+      "name": "导入",
+      "font_class": "daoru1",
+      "unicode": "e6aa",
+      "unicode_decimal": 59050
+    },
+    {
       "icon_id": "25706102",
       "name": "双右箭头svg",
       "font_class": "shuangyoujiantousvg",

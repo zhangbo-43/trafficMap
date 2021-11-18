@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2925059 */
-  src: url('iconfont.woff2?t=1637055170578') format('woff2'),
-       url('iconfont.woff?t=1637055170578') format('woff'),
-       url('iconfont.ttf?t=1637055170578') format('truetype');
+  src: url('iconfont.woff2?t=1637132285049') format('woff2'),
+       url('iconfont.woff?t=1637132285049') format('woff'),
+       url('iconfont.ttf?t=1637132285049') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-daoru1:before {
+  content: "\e6aa";
 }
 
 .icon-shuangyoujiantousvg:before {
