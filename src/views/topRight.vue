@@ -20,7 +20,7 @@
 
 <script>
 import TopRightChart from "@/components/echart/top/topRightChart";
-import timeSelect from '@/components/timeRange.vue'
+import timeSelect from '@/components/timePoint.vue'
 export default {
   components: {
     TopRightChart,

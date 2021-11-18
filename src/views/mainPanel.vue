@@ -1,4 +1,5 @@
 <template>
+<div id="index" ref="appRef">
   <div id="mainPanel">
     <el-container>
       <el-header v-show="!isFullScreen">
@@ -84,6 +85,7 @@
       </el-container>
     </el-container>
   </div>
+  </div> 
 </template>
 
 <script>
@@ -117,6 +119,17 @@ export default {
 .el-container.is-vertical {
   height: 100%;
 }
+#index {
+  color: #d3d6dd;
+  width: 1920px;
+  height: 1080px;
+  // position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: left top;
+  overflow: hidden;
+  transform:scale(0.8, 0.8);
 #mainPanel {
   height: 100%;
   color: #fff;
@@ -154,6 +167,7 @@ export default {
     }
 
     .el-menu-vertical-demo:not(.el-menu--collapse) {
+      height:100%;
       width: 200px;
       min-height: 400px;
     }
@@ -169,5 +183,6 @@ export default {
     padding: 0px;
     background-color: rgb(242, 243, 255);
   }
+}
 }
 </style>
