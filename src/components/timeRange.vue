@@ -56,6 +56,15 @@ export default {
 }
 </script>
 <style>
+tr {
+  height: 10px;
+}
+.el-date-picker__header {
+  margin: 5px;
+}
+ .el-picker-panel__content {
+   position: relative;
+ }
 .el-picker-panel {
   background-color: #15244D;
   color: #fff;

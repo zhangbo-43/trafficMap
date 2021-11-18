@@ -62,7 +62,7 @@
           <div class="total-traffic">
             <div class="traffic">
               <label for="">话务总量</label>
-              <span>30,658,240</span>
+              <span class="allCount">30,658,240</span>
             </div>
             <!-- <div class="traffic-percent">
               <label for="">BICC占比: </label>
@@ -326,6 +326,7 @@ export default {
       margin-right: 6px;
     }
     span {
+      font-family: 'allcount';
       color: #06ebdf;
       font-size: 30px;
       border-bottom: 2px solid #3a3c56;
