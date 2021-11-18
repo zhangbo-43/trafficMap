@@ -6,26 +6,19 @@
     </span>
     <div class="flex-box">
       <div class="select">
-        <el-select
-          v-model="value"
-          multiple
-          filterable
-          remote
-          reserve-keyword
-          placeholder="请输入关键词"
-          :remote-method="remoteMethod"
-          :loading="loading"
+        <el-autocomplete
+          class="inline-input"
+          v-model="state1"
+          :fetch-suggestions="querySearch"
+          placeholder="请输入技能名称或ID"
+          @select="handleSelect"
           size="mini"
+          :popper-append-to-body="false"
+          clearable
         >
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          >
-          </el-option>
-        </el-select>
-        <span>搜索</span>
+        <el-button slot="append">搜索</el-button>
+        </el-autocomplete>
+        <!-- <span>搜索</span> -->
       </div>
       <span><i class="el-icon-sort"></i></span>
       <span @click="showDialogtable = true">
@@ -50,9 +43,6 @@ import Settable from "./dialogtable.vue";
 export default {
   data() {
     return {
-      options: [],
-      value: [],
-      list: [],
       loading: false,
       states: [
         "Alabama",
@@ -278,28 +268,43 @@ export default {
         },
       },
       showData: [],
+      restaurants: [],
+      state1: '',
     };
   },
-  mounted() {
-    this.list = this.states.map((item) => {
-      return { value: `value:${item}`, label: `label:${item}` };
-    });
-  },
   methods: {
-    remoteMethod(query) {
-      if (query !== "") {
-        this.loading = true;
-        setTimeout(() => {
-          this.loading = false;
-          this.options = this.list.filter((item) => {
-            return item.label.toLowerCase().indexOf(query.toLowerCase()) > -1;
-          });
-        }, 200);
-      } else {
-        this.options = [];
+      querySearch(queryString, cb) {
+        var restaurants = this.restaurants;
+        var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
+        // 调用 callback 返回建议列表的数据
+        cb(results);
+      },
+      createFilter(queryString) {
+        return (restaurant) => {
+          return (restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+        };
+      },
+      loadAll() {
+        return [
+          { "value": "1三全鲜食（北新泾店）", "address": "长宁区新渔路144号" },
+          { "value": "1Hot honey 首尔炸鸡（仙霞路）", "address": "上海市长宁区淞虹路661号" },
+          { "value": "2新旺角茶餐厅", "address": "上海市普陀区真北路988号创邑金沙谷6号楼113" },
+          { "value": "3泷千家(天山西路店)", "address": "天山西路438号" },
+          { "value": "3胖仙女纸杯蛋糕（上海凌空店）", "address": "上海市长宁区金钟路968号1幢18号楼一层商铺18-101" },
+          { "value": "3贡茶", "address": "上海市长宁区金钟路633号" },
+          { "value": "3豪大大香鸡排超级奶爸", "address": "上海市嘉定区曹安公路曹安路1685号" },
+          { "value": "3茶芝兰（奶茶，手抓饼）", "address": "上海市普陀区同普路1435号" },
+          { "value": "3十二泷町", "address": "上海市北翟路1444弄81号B幢-107" },
+          { "value": "1星移浓缩咖啡", "address": "上海市嘉定区新郁路817号" },
+          { "value": "1阿姨奶茶/豪大大", "address": "嘉定区曹安路1611号" },
+          { "value": "1新麦甜四季甜品炸鸡", "address": "嘉定区曹安公路2383弄55号" },
+          { "value": "1南拳妈妈龙虾盖浇饭", "address": "普陀区金沙江路1699号鑫乐惠美食广场A13" }
+        ];
+      },
+      handleSelect(item) {
+        console.log(item);
       }
     },
-  },
   components: {
     Settable,
   },
@@ -307,10 +312,40 @@ export default {
     // showData(){
     //   console.log(this.showData)
     // }
-  }
+  },
+    mounted() {
+      this.restaurants = this.loadAll();
+    }
 };
 </script>
-
+<style>
+.flexible .flex-box .select input{
+ padding:1px;
+ padding-left: 3px;
+ color:#FEFEFE;
+ border: none;
+ background-color: unset;
+}
+.flexible .flex-box .select  .el-input-group__append{
+padding: 0 3px;
+background-color: rgb(78,158,197);
+color: #FFFFFF;
+border:none;
+border-radius: unset;
+}
+.flexible .flex-box .select .el-autocomplete-suggestion{
+  background-color: #16388d;
+  border: 1px solid #4E9EC5;
+}
+.flexible .flex-box .el-autocomplete-suggestion li{
+  color:#FEFEFE;
+  padding-left: 3px;
+}
+.flexible .flex-box .el-autocomplete-suggestion li:hover {
+    background-color: #486C8C;
+    color: #37DC94;
+}
+</style>
 <style lang="scss" scoped>
 .flexible {
   height: 5vh;
@@ -343,18 +378,20 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-      .el-select {
-        width: 75%;
+      .el-autocomplete {
+        width: 100%;
+        border: 1px solid #4E9EC5;
+        border-radius: 3px;
       }
-      span {
-        width: 25%;
-        font-size: 12px;
-        text-align: center;
-      }
+      // span {
+      //   width: 25%;
+      //   font-size: 12px;
+      //   text-align: center;
+      // }
     }
     span {
-      padding: 1px 3px;
-      background-color: rgb(78, 158, 197);
+      padding: 5px 3px;
+      background-color: rgb(78,158,197);
       :active {
         color: #16388d;
       }

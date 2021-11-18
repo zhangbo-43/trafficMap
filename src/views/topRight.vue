@@ -5,8 +5,8 @@
       </div>
      <el-row class="time-frame">
       <el-col :span="24">
-        <span class="set-time active">30分钟</span>
-        <span class="set-time">60分钟</span>
+        <span class="set-time active"  @click="handleTimeChange($event, 'time30')">30分钟</span>
+        <span class="set-time"  @click="handleTimeChange($event, 'time60')">60分钟</span>
       </el-col>
     </el-row>
       <div class="timeSelect">
@@ -25,7 +25,23 @@ export default {
   components: {
     TopRightChart,
     timeSelect
-  }
+  },
+  methods: { 
+      // 切换要显示的时间
+    handleTimeChange(e, show) {
+      document.getElementsByClassName("active")[0].classList.remove("active");
+      let target = e.target;
+      // if (!e.target.children.length) {
+      //   target = e.target.parentNode;
+      // }
+      target.classList.add("active");
+      if (show == "time30") {
+         console.log('time30')
+      } else if (show == "time60") {
+        console.log('time60')
+      }
+    },
+   }
 };
 </script>
 
