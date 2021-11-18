@@ -28,12 +28,25 @@
         <span>搜索</span>
       </div>
       <span><i class="el-icon-sort"></i></span>
-      <span> <i class="el-icon-setting"></i></span>
+      <span @click="showDialogtable = true">
+        <i class="el-icon-setting"></i
+      ></span>
     </div>
+    <Settable
+      :dialogVisible="showDialogtable"
+      :data="dialogTableData"
+      @closeDialogtable="
+        (returnData) => {
+          this.showDialogtable = false;
+          this.showData = returnData;
+        }
+      "
+    ></Settable>
   </div>
 </template>
 
 <script>
+import Settable from "./dialogtable.vue";
 export default {
   data() {
     return {
@@ -46,53 +59,225 @@ export default {
         "Alaska",
         "Arizona",
         "Arkansas",
-        "California",
-        "Colorado",
-        "Connecticut",
-        "Delaware",
-        "Florida",
-        "Georgia",
-        "Hawaii",
-        "Idaho",
-        "Illinois",
-        "Indiana",
-        "Iowa",
-        "Kansas",
-        "Kentucky",
-        "Louisiana",
-        "Maine",
-        "Maryland",
-        "Massachusetts",
-        "Michigan",
-        "Minnesota",
-        "Mississippi",
-        "Missouri",
-        "Montana",
-        "Nebraska",
-        "Nevada",
-        "New Hampshire",
-        "New Jersey",
-        "New Mexico",
-        "New York",
-        "North Carolina",
-        "North Dakota",
-        "Ohio",
-        "Oklahoma",
-        "Oregon",
-        "Pennsylvania",
-        "Rhode Island",
-        "South Carolina",
-        "South Dakota",
-        "Tennessee",
-        "Texas",
-        "Utah",
-        "Vermont",
-        "Virginia",
-        "Washington",
-        "West Virginia",
-        "Wisconsin",
-        "Wyoming",
+        
       ],
+      showDialogtable: false,
+      dialogTableData: {
+        dialongTitle: "大屏技能队列首屏显示设置",
+        tableTitle: false,
+        defCol: "setTabCol",
+        defData: "setTabData",
+        tableColumn: {
+          setTabCol: {
+            name: "技能队列名称",
+            ID: "队列ID",
+            phoType: "话务类型",
+            skillListType: "技能队列类型",
+            passageType: "通道类型",
+          },
+        },
+        tableData: {
+          setTabData: [
+            {
+              name: "五星",
+              ID: "1632",
+              phoType: "应急",
+              skillListType: "普通",
+              passageType: "语音",
+            },
+            {
+              name: "五星砖",
+              ID: "1888",
+              phoType: "普通",
+              skillListType: "专席",
+              passageType: "视频",
+            },
+            {
+              name: "五星金",
+              ID: "1555",
+              phoType: "应急",
+              skillListType: "普通",
+              passageType: "视频",
+            },
+            {
+              name: "三星土",
+              ID: "6666",
+              phoType: "应急",
+              skillListType: "专席",
+              passageType: "语音",
+            },
+            {
+              name: "五星",
+              ID: "1632",
+              phoType: "应急",
+              skillListType: "普通",
+              passageType: "语音",
+            },
+            {
+              name: "五星砖",
+              ID: "1888",
+              phoType: "普通",
+              skillListType: "专席",
+              passageType: "视频",
+            },
+            {
+              name: "五星金",
+              ID: "1555",
+              phoType: "应急",
+              skillListType: "普通",
+              passageType: "视频",
+            },
+            {
+              name: "三星土",
+              ID: "6666",
+              phoType: "应急",
+              skillListType: "专席",
+              passageType: "语音",
+            },
+            {
+              name: "五星",
+              ID: "1632",
+              phoType: "应急",
+              skillListType: "普通",
+              passageType: "语音",
+            },
+            {
+              name: "五星砖",
+              ID: "1888",
+              phoType: "普通",
+              skillListType: "专席",
+              passageType: "视频",
+            },
+            {
+              name: "五星金",
+              ID: "1555",
+              phoType: "应急",
+              skillListType: "普通",
+              passageType: "视频",
+            },
+            {
+              name: "三星土",
+              ID: "6666",
+              phoType: "应急",
+              skillListType: "专席",
+              passageType: "语音",
+            },
+            {
+              name: "五星",
+              ID: "1632",
+              phoType: "应急",
+              skillListType: "普通",
+              passageType: "语音",
+            },
+            {
+              name: "五星砖",
+              ID: "1888",
+              phoType: "普通",
+              skillListType: "专席",
+              passageType: "视频",
+            },
+            {
+              name: "五星金",
+              ID: "1555",
+              phoType: "应急",
+              skillListType: "普通",
+              passageType: "视频",
+            },
+            {
+              name: "三星土",
+              ID: "6666",
+              phoType: "应急",
+              skillListType: "专席",
+              passageType: "语音",
+            },
+            {
+              name: "五星",
+              ID: "1632",
+              phoType: "应急",
+              skillListType: "普通",
+              passageType: "语音",
+            },
+            {
+              name: "五星砖",
+              ID: "1888",
+              phoType: "普通",
+              skillListType: "专席",
+              passageType: "视频",
+            },
+            {
+              name: "五星金",
+              ID: "1555",
+              phoType: "应急",
+              skillListType: "普通",
+              passageType: "视频",
+            },
+            {
+              name: "三星土",
+              ID: "6666",
+              phoType: "应急",
+              skillListType: "专席",
+              passageType: "语音",
+            },
+            {
+              name: "五星",
+              ID: "1632",
+              phoType: "应急",
+              skillListType: "普通",
+              passageType: "语音",
+            },
+            {
+              name: "五星砖",
+              ID: "1888",
+              phoType: "普通",
+              skillListType: "专席",
+              passageType: "视频",
+            },
+            {
+              name: "五星金",
+              ID: "1555",
+              phoType: "应急",
+              skillListType: "普通",
+              passageType: "视频",
+            },
+            {
+              name: "三星土",
+              ID: "6666",
+              phoType: "应急",
+              skillListType: "专席",
+              passageType: "语音",
+            },
+            {
+              name: "五星",
+              ID: "1632",
+              phoType: "应急",
+              skillListType: "普通",
+              passageType: "语音",
+            },
+            {
+              name: "五星砖",
+              ID: "1888",
+              phoType: "普通",
+              skillListType: "专席",
+              passageType: "视频",
+            },
+            {
+              name: "五星金",
+              ID: "1555",
+              phoType: "应急",
+              skillListType: "普通",
+              passageType: "视频",
+            },
+            {
+              name: "三星土",
+              ID: "6666",
+              phoType: "应急",
+              skillListType: "专席",
+              passageType: "语音",
+            },
+          ],
+        },
+      },
+      showData: [],
     };
   },
   mounted() {
@@ -115,6 +300,14 @@ export default {
       }
     },
   },
+  components: {
+    Settable,
+  },
+  watch:{
+    // showData(){
+    //   console.log(this.showData)
+    // }
+  }
 };
 </script>
 
@@ -161,7 +354,10 @@ export default {
     }
     span {
       padding: 1px 3px;
-      background-color: rgb(78,158,197);
+      background-color: rgb(78, 158, 197);
+      :active {
+        color: #16388d;
+      }
     }
   }
 }
