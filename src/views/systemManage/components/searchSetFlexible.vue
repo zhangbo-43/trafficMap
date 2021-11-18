@@ -27,6 +27,8 @@
         </el-select>
         <span>搜索</span>
       </div>
+      <span><i class="el-icon-sort"></i></span>
+      <span> <i class="el-icon-setting"></i></span>
     </div>
   </div>
 </template>
@@ -119,11 +121,10 @@ export default {
 <style lang="scss" scoped>
 .flexible {
   height: 5vh;
-  width: 13vw;
+  width: 15vw;
   display: flex;
   align-items: center;
   left: 100%;
-  // right: 0;
   top: 30vh;
   position: sticky;
 
@@ -141,20 +142,27 @@ export default {
     flex: 1;
     height: 100%;
     margin-left: -2vh;
-    .select{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    .select {
       width: 70%;
       display: flex;
       align-items: center;
       justify-content: center;
-      .el-select{
-        width: 80%;
+      .el-select {
+        width: 75%;
       }
-      span{
-        width: 20%;
+      span {
+        width: 25%;
         font-size: 12px;
+        text-align: center;
       }
     }
-
+    span {
+      padding: 1px 3px;
+      background-color: rgb(78,158,197);
+    }
   }
 }
 </style>>
