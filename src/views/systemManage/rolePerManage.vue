@@ -186,6 +186,8 @@ export default {
       dialogTableData: {
         dialongTitle: "异常接口明细",
         tableTitle: true,
+        defCol:'intTabCol',
+        defData:'intTabData',
         tableColumn: {
           intTabCol: {
             interfaceName: "异常接口名称",

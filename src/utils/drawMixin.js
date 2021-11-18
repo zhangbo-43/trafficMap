@@ -20,18 +20,18 @@ export default {
       drawTiming: null
     }
   },
-  mounted () {
+  mounted() {
     this.calcRate()
     window.addEventListener('resize', this.resize)
   },
-  unMounted () {
+  unMounted() {
     window.removeEventListener('resize', this.resize)
   },
   methods: {
-    calcRate () {
+    calcRate() {
       const appRef = this.$refs["appRef"]
       console.log(appRef)
-      if (!appRef) return 
+      if (!appRef) return
       // 当前宽高比
       const currentRate = parseFloat((window.innerWidth / window.innerHeight).toFixed(5))
       if (appRef) {
@@ -48,7 +48,7 @@ export default {
         }
       }
     },
-    resize () {
+    resize() {
       clearTimeout(this.drawTiming)
       this.drawTiming = setTimeout(() => {
         this.calcRate()

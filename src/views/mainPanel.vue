@@ -1,5 +1,5 @@
 <template>
-<div id="index" ref="appRef">
+  <!-- <div id="index" ref="appRef"> -->
   <div id="mainPanel">
     <el-container>
       <el-header v-show="!isFullScreen">
@@ -85,13 +85,15 @@
       </el-container>
     </el-container>
   </div>
-  </div> 
+  <!-- </div> -->
 </template>
 
 <script>
 import Bus from "@/utils/eventBus.js";
+// import drawMixin from "@/utils/drawMixin";
 export default {
   name: "mainPanel",
+  // mixins: [drawMixin],
   data() {
     return {
       isCollapse: false,
@@ -119,6 +121,7 @@ export default {
 .el-container.is-vertical {
   height: 100%;
 }
+// 1600*900
 #index {
   color: #d3d6dd;
   width: 1920px;
@@ -129,17 +132,18 @@ export default {
   transform: translate(-50%, -50%);
   transform-origin: left top;
   overflow: hidden;
-  transform:scale(0.8, 0.8);
+  transform: scale(1, 1);
+}
 #mainPanel {
   height: 100%;
   color: #fff;
   .el-header {
     line-height: 60px;
-    background: #070C49;
+    background: #070c49;
     img {
       height: 50%;
       margin-right: 10px;
-      vertical-align: middle
+      vertical-align: middle;
     }
     .title {
       font-size: 18px;
@@ -167,7 +171,7 @@ export default {
     }
 
     .el-menu-vertical-demo:not(.el-menu--collapse) {
-      height:100%;
+      height: 100%;
       width: 200px;
       min-height: 400px;
     }
@@ -183,6 +187,5 @@ export default {
     padding: 0px;
     background-color: rgb(242, 243, 255);
   }
-}
 }
 </style>
