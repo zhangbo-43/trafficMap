@@ -5,6 +5,7 @@
     width="35%"
     :before-close="handleClose"
     custom-class="dialong-table"
+    :modal="false"
   >
     <div class="table">
       <div class="table-title" v-if="data.tableTitle">
@@ -276,15 +277,15 @@ export default {
       }
     }
   }
-  // 下拉框选项设置
-  .el-select-dropdown {
-    border: 0;
-    .el-scrollbar {
-      background-color: #060736 !important;
-    }
-    .hover {
-      background-color: #262879 !important;
-    }
+}
+// 下拉框选项设置
+.el-select-dropdown {
+  border: 0;
+  .el-scrollbar {
+    background-color: #060736 !important;
+  }
+  .hover {
+    background-color: #262879 !important;
   }
 }
 </style>
