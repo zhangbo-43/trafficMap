@@ -158,7 +158,7 @@ export default {
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss" scope>
 .dialong-table {
   overflow: hidden;
   background-color: #070b47;
@@ -254,40 +254,37 @@ export default {
       padding-top: 10px;
       display: flex;
       justify-content: flex-end;
-      .el-pagination{
+      .el-pagination {
         color: rgba(255, 255, 255, 0.5);
-        .btn-prev,.btn-next{
+        .btn-prev,
+        .btn-next {
           background-color: rgba(0, 0, 0, 0);
-            i{
-              color: rgba(255, 255, 255, 0.5);
-            }
-            :hover{
-              color: #409EFF;
-            }
+          i {
+            color: rgba(255, 255, 255, 0.5);
+          }
+          :hover {
+            color: #409eff;
+          }
         }
       }
-      .el-pager li{
+      .el-pager li {
         background-color: rgba(0, 0, 0, 0);
       }
-      .el-input__inner{
+      .el-input__inner {
         background-color: rgba(0, 0, 0, 0);
         color: rgba(255, 255, 255, 0.5);
       }
-      
     }
   }
-}
-
-// 下拉框选项设置
-.el-select-dropdown {
-  .el-scrollbar {
-    background-color: #060736 !important;
-  }
-  border: 0;
-  .el-select-dropdown__item {
-  }
-  .hover {
-    background-color: #262879 !important;
+  // 下拉框选项设置
+  .el-select-dropdown {
+    border: 0;
+    .el-scrollbar {
+      background-color: #060736 !important;
+    }
+    .hover {
+      background-color: #262879 !important;
+    }
   }
 }
 </style>
