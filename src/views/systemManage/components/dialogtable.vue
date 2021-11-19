@@ -2,8 +2,8 @@
   <el-dialog
     :title="data.dialongTitle"
     :visible.sync="dialogVisible"
-    width="32%"
-    :before-close="handleClose"
+    width="35%"
+    :before-close="() => whetherReturn(false)"
     custom-class="dialong-table"
     :modal="false"
   >
@@ -27,7 +27,7 @@
 
         <div class="select-date">
           <el-select
-            v-model="selectDate"
+            v-model="date"
             class="select"
             placeholder="请选择"
             size="mini"
@@ -49,7 +49,8 @@
         style="width: 100%"
         max-height="400px"
         border
-        ref="multipleTable"
+        ref="table"
+        :row-key="getRowKey"
         @selection-change="handleSelectionChange"
         :header-cell-style="{
           background: '#16388D',
@@ -78,11 +79,19 @@
           :label="tableColumn[item]"
         >
         </el-table-column>
-        <el-table-column
+        <!-- <el-table-column
           label="选择"
           type="selection"
           v-if="data.defCol == 'setTabCol'"
-          width="35"
+          width="100"
+          :reserve-selection="true"
+        >
+          >
+        </el-table-column> -->
+        <el-table-column
+          type="selection"
+          :reserve-selection="true"
+          v-if="data.defCol == 'setTabCol'"
         >
         </el-table-column>
       </el-table>
@@ -99,8 +108,10 @@
       </div>
     </div>
     <span slot="footer" class="dialog-footer" v-if="data.defCol == 'setTabCol'">
-      <el-button @click="handleClose">取 消</el-button>
-      <el-button type="primary" @click="handleClose(returnData)">确 定</el-button>
+      <el-button size="mini" @click="whetherReturn(false)">取 消</el-button>
+      <el-button size="mini" type="primary" @click="whetherReturn(true)"
+        >确 定</el-button
+      >
     </span>
   </el-dialog>
 </template>
@@ -109,31 +120,46 @@
 export default {
   data() {
     return {
-      selectDate: "",
+      date: "",
       tableData: [],
       showTableData: [],
       tableColumn: [],
       columns: [],
       currentPage: 1,
       pageSize: 10,
-      returnData:[]
+      multipleSelection: [],
+      returnData: [],
+      idKey: "ID",
     };
   },
   props: {
     dialogVisible: Boolean,
     data: {},
+    selectData: [],
   },
   methods: {
+    // 是否返回当前选择行，如果不返回则返回上一次的选择
+    whetherReturn(Whether) {
+      if (Whether) {
+        this.returnData = this.multipleSelection;
+        this.handleClose(this.returnData);
+      } else {
+        this.multipleSelection = this.returnData;
+        this.handleClose(this.returnData);
+        this.toggleSelection();
+        this.toggleSelection(this.returnData);
+      }
+    },
+
     //  关闭弹窗
     handleClose(returnData) {
-      this.$emit("closeDialogtable",returnData);
+      this.$emit("closeDialogtable", returnData);
     },
 
     // 切换页面
     handleCurrentChange() {
       let show = (this.currentPage - 1) * this.pageSize;
       this.showTableData = this.tableData.slice(show, show + this.pageSize);
-      // this.toggleSelection(this.returnData[this.currentPage])
     },
 
     // 切换要显示的表格
@@ -158,20 +184,25 @@ export default {
       this.handleCurrentChange();
     },
 
-
-
-    // 选择改变时
+    // 选择要选的表格项，不传数据时清空表格
     toggleSelection(rows) {
       if (rows) {
         rows.forEach((row) => {
-          this.$refs.multipleTable.toggleRowSelection(row);
+          this.$refs.table.toggleRowSelection(row);
         });
       } else {
-        this.$refs.multipleTable.clearSelection();
+        this.$refs.table.clearSelection();
       }
     },
+
+    // 获取表格每一行的id以便记录多选的数据
+    getRowKey(row) {
+      return row.ID;
+    },
+
+    // 选择改变时
     handleSelectionChange(val) {
-      this.returnData = val
+      this.multipleSelection = val;
     },
   },
   mounted() {
@@ -202,7 +233,7 @@ export default {
     }
   }
   .el-dialog__body {
-    padding-top: 10px;
+    padding: 10px 20px;
     .table {
       .table-title {
         display: flex;
@@ -283,6 +314,11 @@ export default {
         width: 0;
       }
 
+      .el-table__body tr.current-row > td.el-table__cell {
+        //  background-color: #151c77 !important;
+        background-color: #151c77 !important;
+      }
+
       // 分页设置
       .select-page {
         padding-top: 10px;
@@ -311,7 +347,7 @@ export default {
       }
     }
   }
-  .el-dialog__footer{
+  .el-dialog__footer {
     padding-top: 0;
   }
 }
