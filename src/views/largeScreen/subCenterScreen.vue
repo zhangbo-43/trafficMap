@@ -75,7 +75,19 @@
           </div>
           <!-- 话务总量头部结束  -->
           <!--看板大屏主图部分  -->
-          <div class="map-line-content">这里是地图主体核心部分</div>
+          <div class="map-line-content">
+            <svg id="traffice" version="1.1" xmlns="http://www.w3.org/2000/svg" width="500" height="500">
+              <g class="topolog">
+                  <traffice></traffice>
+              </g>
+              <g class="quantity">
+
+              </g>
+              <g class="lines">
+
+              </g>
+            </svg>
+          </div>
           <!--看板大屏主图部分结束  -->
         </div>
         <!-- 异常挂断情况 -->
@@ -91,12 +103,15 @@
 </template>
 
 <script>
+
 import drawMixin from "../../utils/drawMixin";
 import { formatTime } from "../../utils/index.js";
 import Bus from "@/utils/eventBus.js";
 import topLeft from '../topLeft';
 import topRight from '../topRight';
 import mainSelect from '../mainSelect';
+import traffice from "./traffice";
+
 export default {
   name: "wholeNetworkScreen",
   mixins: [drawMixin],
@@ -150,7 +165,7 @@ export default {
       fullscreen: false,
     };
   },
-  components: {topLeft,topRight,mainSelect},
+  components: {topLeft,topRight,mainSelect ,traffice},
   mounted() {
     this.timeFn();
     this.cancelLoading();
