@@ -11,8 +11,8 @@
       <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1" :x=item.x :y=item.y :width=item.width :height=item.width :href="imgUrl" ></image>
 <!--    :style="{transform:translate(0,item.y)}"  :style="{transform:translate(100,100)}"-->
       <text fill="#fff" :x=item.x  :y=item.y text-anchor="start" dx="0" dy="70">{{item.name}}</text>
-      <text  fill="rgba(6, 202, 195)" :x=item.x  :y=item.y text-anchor="start">{{item.value}}</text>
-      <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1"  :x=item.bottomX  :y=item.bottomY width="10" height="10" :href="arrowUrl"></image>
+      <text  fill="rgba(6, 202, 195)" :x=item.valueX  :y=item.valueY text-anchor="start">{{item.value}}</text>
+      <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1"  :x=item.bottomX  :y=item.bottomY width="15" height="15" :href="arrowUrl"></image>
     </g>
 
 <!--    <g>-->

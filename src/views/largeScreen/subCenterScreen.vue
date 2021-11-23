@@ -1,73 +1,75 @@
 <template>
-  <div id="index" ref="appRef">
-    <div class="whole-Screen">
-      <dv-loading v-if="loading">Loading...</dv-loading>
-      <div class="whole-Screen-body">
-        <!-- 看板大屏头部开始 -->
-        <div class="title-top">
-          <div class="title-times">
-            <div class="title">云南话务地图看板大屏</div>
-            <div class="times">
-              <span class="text"
-                >{{ dateYear }} {{ dateWeek }} {{ dateDay }}</span
-              >
-              <span>数据时间: 12:00</span>
-            </div>
+<div id="index" ref="appRef">
+  <div class="whole-Screen">
+    <dv-loading v-if="loading">Loading...</dv-loading>
+    <div class="whole-Screen-body">
+      <!-- 看板大屏头部开始 -->
+      <div class="title-top">
+        <div class="title-times">
+          <div class="title">云南话务地图看板大屏</div>
+          <div class="times">
+            <span class="text"
+              >{{ dateYear }} {{ dateWeek }} {{ dateDay }}</span
+            >
+            <span>数据时间: 12:00</span>
           </div>
-          <div class="right-box clearfix">
-            <!-- <div class="province-box">
+        </div>
+        <div class="right-box clearfix">
+          <!-- <div class="province-box">
             <span class="text-cut-1"> 云南省</span>
             <i class="el-icon-caret-bottom el-icon--right"></i>
           </div> -->
-            <el-select
-              v-model="provinceVal"
-              :popper-append-to-body="false"
-              placeholder="请选择"
-              popper-class="select-info"
+          <el-select
+            v-model="provinceVal"
+            :popper-append-to-body="false"
+            placeholder="请选择"
+            popper-class="select-info"
+          >
+            <el-option
+              v-for="item in provinceList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
             >
-              <el-option
-                v-for="item in provinceList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              >
-              </el-option>
-            </el-select>
-            <img
-              v-show="!fullscreen"
-              class="fullscreen-btn"
-              src="../../assets/images/fullscreen.png"
-              @click="fullScreen"
-            />
-            <img
-              v-show="fullscreen"
-              class="fullscreen-btn"
-              src="../../assets/images/unfullscreen.png"
-              @click="unFullScreen"
-            />
-          </div>
+            </el-option>
+          </el-select>
+          <img
+            v-show="!fullscreen"
+            class="fullscreen-btn"
+            src="../../assets/images/fullscreen.png"
+            @click="fullScreen"
+          />
+          <img
+            v-show="fullscreen"
+            class="fullscreen-btn"
+            src="../../assets/images/unfullscreen.png"
+            @click="unFullScreen"
+          />
         </div>
-        <!-- 看板大屏头部结束 -->
-        <!-- 看板大屏数据展示主体部分 -->
-        <div class="map-main-content">
-          <!-- 热线话务历史趋势 -->
-          <div class="map-left-top">
-            <dv-border-box-7 :color="['#070D43', '#2773FF']">
-              <topLeft />
-            </dv-border-box-7>
+      </div>
+      <!-- 看板大屏头部结束 -->
+      <!-- 看板大屏数据展示主体部分 -->
+      <div class="map-main-content">
+        <!-- 热线话务历史趋势 -->
+        <div class="map-left-top">
+          <dv-border-box-7 :color="['#070D43', '#2773FF']">
+            <topLeft />
+          </dv-border-box-7>
+        </div>
+        <!-- 热线话务历史趋势结束 -->
+        <div class="map-main">
+          <div style="position: absolute; left: 10px; top: 310px">
+            <mainSelect />
           </div>
-          <!-- 热线话务历史趋势结束 -->
-          <div class="map-main">
-            <div style="position: absolute; left: 10px; top: 310px">
-              <mainSelect />
+          <!-- 话务总量头部  -->
+          <div class="total-traffic">
+            <div class="traffic">
+              <label for="">话务总量</label>
+              <span class="allCount">30,658,240</span>
+              <label for="" class="second">新增话务</label>
+              <em class="allCount">30,658,240</em>
             </div>
-            <!-- 话务总量头部  -->
-            <div class="total-traffic">
-              <div class="traffic">
-                <label for="">话务总量</label>
-                <span class="allCount">30,658,240</span>
-              </div>
-              <!-- <div class="traffic-percent">
+            <!-- <div class="traffic-percent">
               <label for="">BICC占比: </label>
               <span>20%</span>
               <label for="">，RTC占比: </label>
@@ -75,40 +77,40 @@
               <label for=""> ，RTC占比: </label>
               <span>80%</span>
             </div> -->
-            </div>
-            <!-- 话务总量头部结束  -->
-            <!--看板大屏主图部分  -->
-            <div class="map-line-content">
-              <svg
-                id="traffice"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                width="1920"
-                height="1080"
-              >
-                <g class="topolog">
-                  <traffice datasource="[]"></traffice>
-                  <skillChart></skillChart>
-                  <Progress datasource="[]"></Progress>
-                </g>
-                <g class="quantity"></g>
-                <g class="lines"></g>
-              </svg>
-            </div>
-            <!--看板大屏主图部分结束  -->
           </div>
-          <!-- 异常挂断情况 -->
-          <div class="map-right-top">
-            <dv-border-box-7 :color="['#070D43', '#2773FF']">
-              <topRight />
-            </dv-border-box-7>
+          <!-- 话务总量头部结束  -->
+          <!--看板大屏主图部分  -->
+          <div class="map-line-content">
+            <svg
+              id="traffice"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="1920"
+              height="500"
+            >
+              <g class="topolog">
+                <traffice datasource="[]"></traffice>
+                <skillChart></skillChart>
+                <Progress datasource="[]"></Progress>
+              </g>
+              <g class="quantity"></g>
+              <g class="lines"></g>
+            </svg>
           </div>
-          <!-- 异常挂断情况结束 -->
+          <!--看板大屏主图部分结束  -->
         </div>
-        <!-- 看板大屏数据展示主体部分结束 -->
+        <!-- 异常挂断情况 -->
+        <div class="map-right-top">
+          <dv-border-box-7 :color="['#070D43', '#2773FF']">
+            <topRight />
+          </dv-border-box-7>
+        </div>
+        <!-- 异常挂断情况结束 -->
       </div>
+      <!-- 看板大屏数据展示主体部分结束 -->
     </div>
   </div>
+ </div>
 </template>
 
 <script>
@@ -180,7 +182,7 @@ export default {
   },
   components: { topLeft, topRight, mainSelect, traffice, Progress, skillChart },
   mounted() {
-    console.log(this.d3Data.dataset.nodes);
+    console.log(this.d3Data.dataset.nodes)
     this.timeFn();
     this.cancelLoading();
     //监听键盘按键事件
@@ -355,6 +357,7 @@ export default {
   }
 }
 .total-traffic {
+  margin-top: 10px;
   text-align: center;
   .traffic {
     padding-top: 6px;
@@ -365,11 +368,21 @@ export default {
       opacity: 0.6;
       margin-right: 6px;
     }
+    .second {
+      font-size: 14px;
+      padding-left: 10px;
+    }
     span {
       font-family: "allcount";
       color: #06ebdf;
       font-size: 30px;
       border-bottom: 2px solid #3a3c56;
+    }
+    em {
+      font-family: "allcount";
+      color: #06ebdf;
+      font-style: normal;
+      font-size: 18px;
     }
   }
   .traffic-percent {
@@ -387,7 +400,7 @@ export default {
 }
 .map-line-content {
   text-align: center;
-  padding: 10px;
+  //padding: 10px;
 }
 .right-box {
   ::v-deep .el-input--suffix .el-input__inner {
