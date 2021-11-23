@@ -8,7 +8,7 @@ const dataset = {
 		"interfaceVal": 200, //接口异常量
 		"isFold": true, //是否展开节点 默认true 展开
 		"type": 1, //类型
-		x: 760,
+		x: 720,
 		y: 0,
 		id: 1,
 		"children": [
@@ -21,6 +21,8 @@ const dataset = {
 				value: 1500,
 				bottomX: 60,
 				bottomY: 180,
+				width: 50,
+				height:50,
 				"name": "互联网话务",
 				"type": 1, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -31,7 +33,7 @@ const dataset = {
 				"interfaceVal": 200 //接口异常量
 			},
 			{
-				x: 1220,
+				x: 1210,
 				y: 160,
 				x2: 1220,
 				y2: 190,
@@ -39,6 +41,8 @@ const dataset = {
 				value: 900,
 				bottomX: 470,
 				bottomY: 180,
+				width: 50,
+				height:50,
 				"name": "跨网支撑",
 				"type": 2, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -55,6 +59,8 @@ const dataset = {
 				value: 2000,
 				bottomX: 130,
 				bottomY: 240,
+				width: 60,
+				height:60,
 				"name": "语音话务",
 				"type": 3, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -298,6 +304,8 @@ const dataset = {
 				x2: 920,
 				y2: 360,
 				id: 2,
+				width: 70,
+				height:70,
 				// imgUrl: require("../../assets/images/little.svg"),
 				// arrowUrl: require("../../assets/images/arrow.svg"),
 				value: 1200,
@@ -319,6 +327,8 @@ const dataset = {
 				value: 1000,
 				bottomX: 405,
 				bottomY: 240,
+				width: 60,
+				height:60,
 				"name": "视频话务",
 				"type": 4, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -450,26 +460,26 @@ const dataset = {
 	markList: [
 		//  第一层左右两个点
 		{
-			x: 160,
-			y: 130,
+			x: 730,
+			y: 195,
 			id: 12
 		}, {
-			x: 360,
-			y: 130,
+			x: 760,
+			y: 280,
 			id: 13
 		},
 		//  第二层左右两个点
 		{
-			x: 205,
-			y: 174,
+			x: 920,
+			y: 320,
 			id: 14
 		}, {
-			x: 340,
-			y: 172,
+			x: 1080,
+			y: 280,
 			id: 15
 		}, {
-			x: 270,
-			y: 170,
+			x: 1140,
+			y: 195,
 			id: 16
 		},
 	]

@@ -2,15 +2,15 @@
   <g class="centerBox">
     <g>
       <line  v-for="(item) in this.testData[0].children" :key="item.id" x1="920" y1="200" :x2=item.x2 :y2=item.y2 style="stroke:rgb(20, 81, 248);stroke-width:2"/>
-      <circle  v-for="(item) in this.testData[1].markList" :key="item.id" r="4" fill="#fff" :cx=item.x :cy=item.y></circle>
+      <circle  v-for="(item) in this.d3Data.dataset.markList" :key="item.id" r="4" fill="#fff" :cx=item.x :cy=item.y></circle>
     </g>
     <g>
-      <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1" :x=this.testData[0].x :y=this.testData[0].y  width="300" height="300" :href="centerUrl"></image>
+      <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1" :x=this.d3Data.dataset.nodes.x :y=this.d3Data.dataset.nodes.y  width="400" height="400" :href="centerUrl"></image>
     </g>
-    <g v-for="item in this.testData[0].children" :key="item.id">
+    <g v-for="item in this.d3Data.dataset.nodes.children" :key="item.id">
       <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1" :x=item.x :y=item.y :width=item.width :height=item.width :href="imgUrl" ></image>
 <!--    :style="{transform:translate(0,item.y)}"  :style="{transform:translate(100,100)}"-->
-      <text fill="#fff" :x=item.x  :y=item.y text-anchor="start" dx="0" dy="70">{{item.label}}</text>
+      <text fill="#fff" :x=item.x  :y=item.y text-anchor="start" dx="0" dy="70">{{item.name}}</text>
       <text  fill="rgba(6, 202, 195)" :x=item.x  :y=item.y text-anchor="start">{{item.value}}</text>
       <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1"  :x=item.bottomX  :y=item.bottomY width="10" height="10" :href="arrowUrl"></image>
     </g>
@@ -55,17 +55,18 @@
 
 <script>
 // import * as d3 from 'd3'
-
+import d3Data from "../../views/largeScreen/d3Data";
 export default {
   name: "skillChart",
   data() {
     return {
+      d3Data: d3Data,
       pointX: 400,
       pointY: 100,
       height: 100,
       pointUrl: require("../../assets/images/abnormal.svg"),
       imgUrl: require("../../assets/images/little.svg"),
-      centerUrl: require("../../assets/images/person.svg"),
+      centerUrl: require("../../assets/images/person.png"),
       arrowUrl: require("../../assets/images/arrow.svg"),
       slides: [],
         testData: [
@@ -150,7 +151,7 @@ export default {
               //  第二层左右两个点
               {
                 x: 920,
-                y: 300,
+                y: 320,
                 id: 14
               }, {
                 x: 1080,
@@ -177,6 +178,7 @@ export default {
   },
   mounted() {
     // this.getPoint()
+    console.log(this.d3Data)
 
   },
   created() {
