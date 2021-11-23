@@ -8,18 +8,14 @@ const dataset = {
 		"interfaceVal": 200, //接口异常量
 		"isFold": true, //是否展开节点 默认true 展开
 		"type": 1, //类型
-		x: 230,
-		y: 80,
+		x: 760,
+		y: 0,
 		id: 1,
-		// imgUrl: require("../../assets/images/little.svg"),
-		// arrowUrl: require("../../assets/images/arrow.svg"),
 		"children": [
 			//  第一层左侧
 			{
-				x: 40,
-				y: 100,
-				// imgUrl: require("../../assets/images/little.svg"),
-				// arrowUrl: require("../../assets/images/arrow.svg"),
+				x: 580,
+				y: 160,
 				value: 1500,
 				bottomX: 60,
 				bottomY: 180,
@@ -33,11 +29,9 @@ const dataset = {
 				"interfaceVal": 200 //接口异常量
 			},
 			{
-				x: 440,
-				y: 100,
+				x: 1220,
+				y: 160,
 				id: 4,
-				// imgUrl: require("../../assets/images/little.svg"),
-				// arrowUrl: require("../../assets/images/arrow.svg"),
 				value: 900,
 				bottomX: 470,
 				bottomY: 180,
@@ -49,11 +43,9 @@ const dataset = {
 				"interfaceVal": 200 //接口异常量
 			},
 			{
-				x: 110,
-				y: 160,
+				x: 640,
+				y: 270,
 				id: 5,
-				// imgUrl: require("../../assets/images/little.svg"),
-				// arrowUrl: require("../../assets/images/arrow.svg"),
 				value: 2000,
 				bottomX: 130,
 				bottomY: 240,
@@ -283,8 +275,8 @@ const dataset = {
 				]
 			},
 			{
-				x: 240,
-				y: 190,
+				x: 880,
+				y: 350,
 				id: 2,
 				// imgUrl: require("../../assets/images/little.svg"),
 				// arrowUrl: require("../../assets/images/arrow.svg"),
@@ -299,11 +291,9 @@ const dataset = {
 				"interfaceVal": 200 //接口异常量
 			},
 			{
-				x: 380,
-				y: 160,
+				x: 1140,
+				y: 270,
 				id: 6,
-				// imgUrl: require("../../assets/images/little.svg"),
-				// arrowUrl: require("../../assets/images/arrow.svg"),
 				value: 1000,
 				bottomX: 405,
 				bottomY: 240,

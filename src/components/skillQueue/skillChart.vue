@@ -5,14 +5,14 @@
       <circle  v-for="(item) in this.testData[2].markList" :key="item.id" r="4" fill="#fff" :cx=item.x :cy=item.y></circle>
     </g>
     <g>
-      <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1" :x=this.testData[0].x :y=this.testData[0].y :width=this.testData[0].height :height=this.testData[0].height :href="this.testData[0].imgUrl"></image>
+      <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1" :x=this.testData[0].x :y=this.testData[0].y  width="300" height="300" :href="centerUrl"></image>
     </g>
     <g v-for="item in this.testData[0].children" :key="item.id">
-      <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1" :x=item.x :y=item.y :width=item.width :height=item.width :href="item.imgUrl" ></image>
+      <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1" :x=item.x :y=item.y :width=item.width :height=item.width :href="imgUrl" ></image>
 <!--    :style="{transform:translate(0,item.y)}"  :style="{transform:translate(100,100)}"-->
       <text fill="#fff" :x=item.x  :y=item.y text-anchor="start" dx="0" dy="70">{{item.label}}</text>
       <text  fill="rgba(6, 202, 195)" :x=item.x  :y=item.y text-anchor="start">{{item.value}}</text>
-      <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1"  :x=item.bottomX  :y=item.bottomY width="10" height="10" :href="item.arrowUrl"></image>
+      <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1"  :x=item.bottomX  :y=item.bottomY width="10" height="10" :href="arrowUrl"></image>
     </g>
 
 <!--    <g>-->
@@ -64,22 +64,21 @@ export default {
       pointY: 100,
       height: 100,
       pointUrl: require("../../assets/images/abnormal.svg"),
+      imgUrl: require("../../assets/images/little.svg"),
+      centerUrl: require("../../assets/images/person.svg"),
+      arrowUrl: require("../../assets/images/arrow.svg"),
       slides: [],
         testData: [
           {
-            x: 230,
-            y: 80,
+            x: 760,
+            y: 0,
             id: 1,
-            imgUrl: require("../../assets/images/little.svg"),
-            arrowUrl: require("../../assets/images/arrow.svg"),
             children: [
               //  第一层左侧
               {
-                x: 40,
-                y: 100,
+                x: 580,
+                y: 160,
                 id: 3,
-                imgUrl: require("../../assets/images/little.svg"),
-                arrowUrl: require("../../assets/images/arrow.svg"),
                 label: "互联网话务",
                 value: 1500,
                 bottomX:60,
@@ -87,11 +86,9 @@ export default {
               },
               //  第二层左侧
               {
-                x: 110,
-                y: 160,
+                x: 640,
+                y: 270,
                 id: 5,
-                imgUrl: require("../../assets/images/little.svg"),
-                arrowUrl: require("../../assets/images/arrow.svg"),
                 label: "语音话务",
                 value: 2000,
                 bottomX:130,
@@ -99,11 +96,9 @@ export default {
               },
               //  中点
               {
-                x: 240,
-                y: 190,
+                x: 880,
+                y: 350,
                 id: 2,
-                imgUrl: require("../../assets/images/little.svg"),
-                arrowUrl: require("../../assets/images/arrow.svg"),
                 label: "溢出流程",
                 value: 1200,
                 bottomX:270,
@@ -111,11 +106,9 @@ export default {
               },
               //  第二层右侧
               {
-                x: 380,
-                y: 160,
+                x: 1140,
+                y: 270,
                 id: 6,
-                imgUrl: require("../../assets/images/little.svg"),
-                arrowUrl: require("../../assets/images/arrow.svg"),
                 label: "视频话务",
                 value: 1000,
                 bottomX:405,
@@ -123,11 +116,9 @@ export default {
               },
               //  第一层右侧
               {
-                x: 440,
-                y: 100,
+                x: 1220,
+                y: 160,
                 id: 4,
-                imgUrl: require("../../assets/images/little.svg"),
-                arrowUrl: require("../../assets/images/arrow.svg"),
                 label: "跨网支撑",
                 value: 900,
                 bottomX:470,
@@ -137,33 +128,33 @@ export default {
           },
           {lineList: [
               {
-                x1: 270,
-                y1: 130,
-                x2: 50,
-                y2: 130,
+                x1: 920,
+                y1: 200,
+                x2: 580,
+                y2: 190,
                 id: 7,
               }, {
-                x1: 270,
-                y1: 130,
-                x2: 450,
-                y2: 130,
+                x1: 920,
+                y1: 200,
+                x2: 700,
+                y2: 310,
                 id: 8,
               }, {
-                x1: 270,
-                y1: 130,
-                x2: 145,
-                y2: 215,
+                x1: 920,
+                y1: 200,
+                x2: 920,
+                y2: 360,
                 id: 9,
               }, {
-                x1: 270,
-                y1: 130,
-                x2: 410,
-                y2: 215,
+                x1: 920,
+                y1: 200,
+                x2: 1160,
+                y2: 320,
                 id: 10,
               }, {
-                x1: 270,
-                y1: 130,
-                x2: 270,
+                x1: 920,
+                y1: 200,
+                x2: 1220,
                 y2: 190,
                 id: 11,
               },
@@ -171,31 +162,30 @@ export default {
           {markList: [
               //  第一层左右两个点
               {
-                x: 160,
-                y: 130,
+                x: 730,
+                y: 195,
                 id: 12
               }, {
-                x: 360,
-                y: 130,
+                x: 760,
+                y: 280,
                 id: 13
               },
               //  第二层左右两个点
               {
-                x: 205,
-                y: 174,
+                x: 920,
+                y: 300,
                 id: 14
               }, {
-                x: 340,
-                y: 172,
+                x: 1080,
+                y: 280,
                 id: 15
               }, {
-                x: 270,
-                y: 170,
+                x: 1140,
+                y: 195,
                 id: 16
               },
             ]}
           ],
-      imgUrl: require("../../assets/images/little.svg")
     }
   },
   methods: {
