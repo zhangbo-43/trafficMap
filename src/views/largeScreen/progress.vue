@@ -3,13 +3,6 @@
     <g v-for="(item, index) in d3Data.dataset.nodes.children" :key="index">
       <g class="nodes" v-for="(item1, index1) in item.children" :key="index1">
         <!-- 联线 -->
-        <!-- <line
-          :x1="item.bottomX + 8"
-          :y1="item.bottomY + 8"
-          :x2="item1.x"
-          :y2="item1.y - 100"
-          style="stroke: #a09eff; stroke-width: 2"
-        /> -->
         <g>
           <circle r="5" cx="500" cy="400" fill="#fff"></circle>
           <path :d="item1.pathD" stroke="#a09eff" fill="none" />
@@ -57,8 +50,18 @@
               :href="trendImg"
             ></image>
           </g>
+          <image
+            opacity="1"
+            stroke-width="1"
+            stroke-opacity="1"
+            fill-opacity="1"
+            :x="item1.bottomX"
+            :y="item1.bottomY"
+            width="15"
+            height="15"
+            :href="arrowUrl"
+          ></image>
         </g>
-
         <!-- 第二级 -->
         <g
           class="node"
@@ -66,24 +69,12 @@
           height="200"
           v-for="(item2, index2) in item1.children"
           :key="index2"
-          translate="tranform(0,0)"
         >
           <!-- 联线 -->
-          <line
-            :x1="item1.x"
-            :y1="item1.y"
-            :x2="item2.x"
-            :y2="item2.y"
-            style="stroke: #a09eff; stroke-width: 2"
-          />
-          <!-- <g>
+          <g>
             <circle r="5" cx="500" cy="400" fill="red"></circle>
-            <path
-              d="M670 350 C 620 400, 550 350, 500 400"
-              stroke="red"
-              fill="none"
-            />
-          </g> -->
+            <path :d="item2.pathD" stroke="#a09eff" fill="none" />
+          </g>
           <image
             opacity="1"
             stroke-width="1"
@@ -136,8 +127,75 @@
               :href="trendImg"
             ></image>
           </g>
+          <!-- 第三级 -->
+          <g
+            class="node"
+            width="200"
+            height="200"
+            v-for="(item3, index3) in item2.children"
+            :key="index3"
+          >
+            <!-- 联线 -->
+            <g>
+              <circle r="5" cx="500" cy="400" fill="red"></circle>
+              <path :d="item3.pathD" stroke="#a09eff" fill="none" />
+            </g>
+            <image
+              opacity="1"
+              stroke-width="1"
+              stroke-opacity="1"
+              fill-opacity="1"
+              width="100"
+              height="100"
+              :x="item3.imgX"
+              :y="item3.imgY"
+              :href="frontImg"
+            ></image>
+            <g>
+              <text
+                class="pro-text"
+                :x="item3.nameX"
+                :y="item3.nameY"
+                fill="#fff"
+                >{{ item3.name }}</text
+              >
+              <image
+                opacity="1"
+                stroke-width="1"
+                stroke-opacity="1"
+                fill-opacity="1"
+                width="16"
+                height="16"
+                :x="item3.imgX"
+                :y="item3.imgY"
+                :href="InterfaceImg"
+              ></image>
+            </g>
+            <g>
+              <text
+                class="pro-num"
+                :x="item3.totalNodeX"
+                :y="item3.totalNodeY"
+                fill="#fff"
+                font="12"
+                >节点总量 {{ item3.totalVal }}</text
+              >
+              <image
+                opacity="1"
+                stroke-width="1"
+                stroke-opacity="1"
+                fill-opacity="1"
+                :x="item3.trendImgX"
+                :y="item3.trendImgY"
+                width="18"
+                height="18"
+                :href="trendImg"
+              ></image>
+            </g>
+          </g>
+          <!-- 第三级 -->
         </g>
-        <!-- 第二级 -->
+        <!-- 第三级 -->
       </g>
     </g>
   </g>
@@ -154,6 +212,7 @@ export default {
       InterfaceImg: require("../../assets/images/Interface.svg"),
       breakOffImg: require("../../assets/images/break_off.svg"),
       trendImg: require("../../assets/images/trend.svg"),
+      arrowUrl: require("../../assets/images/arrow.svg"),
       height: 500,
       d3Data: d3Data,
     };

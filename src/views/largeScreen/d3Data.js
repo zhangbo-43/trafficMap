@@ -93,8 +93,10 @@ const dataset = {
 						"nameY": 520,
 						"totalNodeX": 620,//节点总量位移
 						"totalNodeY": 540,
-						"trendImgX": 736,//趋势图表位移
+						"trendImgX": 716,//趋势图表位移
 						"trendImgY": 526,
+						bottomX: 660,
+						bottomY: 546,
 						"pathD": "M668 360 L 668 450",
 						"totalVal": 700, //节点总量
 						"abnormalVal": 300, //异常挂断量
@@ -118,8 +120,9 @@ const dataset = {
 								"totalNodeY": 700,
 								"nodeX": 600,//节点量位移
 								"nodeY": 500,
-								"trendImgX": 636,//趋势图表位移
-								"trendImgY": 566,
+								"trendImgX": 510,//趋势图表位移
+								"trendImgY": 690,
+								"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
 								"totalVal": 700, //节点总量
 								"value": 100, //节点量
 								"abnormalVal": 300, //异常挂断量
@@ -131,8 +134,21 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 1,
 										"img": "",
-										"x": 0,
-										"y": 52,
+										"x": 460,
+										"y": 620,
+										bottomX: 660,
+										bottomY: 350,
+										"imgX": 100, //大图标位移
+										"imgY": 760,
+										"nameX": 100,//按键名称位置
+										"nameY": 860,
+										"totalNodeX": 100,//节点总量位移
+										"totalNodeY": 880,
+										"nodeX": 600,//节点量位移
+										"nodeY": 500,
+										"trendImgX": 510,//趋势图表位移
+										"trendImgY": 690,
+										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
@@ -144,8 +160,21 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 1,
 										"img": "",
-										"x": 25,
-										"y": 52,
+										"x": 460,
+										"y": 620,
+										bottomX: 660,
+										bottomY: 350,
+										"imgX": 400, //大图标位移
+										"imgY": 580,
+										"nameX": 420,//节点名称位移
+										"nameY": 680,
+										"totalNodeX": 420,//节点总量位移
+										"totalNodeY": 700,
+										"nodeX": 600,//节点量位移
+										"nodeY": 500,
+										"trendImgX": 510,//趋势图表位移
+										"trendImgY": 690,
+										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
@@ -157,8 +186,21 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 1,
 										"img": "",
-										"x": 25,
-										"y": 52,
+										"x": 460,
+										"y": 620,
+										bottomX: 660,
+										bottomY: 350,
+										"imgX": 400, //大图标位移
+										"imgY": 580,
+										"nameX": 420,//节点名称位移
+										"nameY": 680,
+										"totalNodeX": 420,//节点总量位移
+										"totalNodeY": 700,
+										"nodeX": 600,//节点量位移
+										"nodeY": 500,
+										"trendImgX": 510,//趋势图表位移
+										"trendImgY": 690,
+										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
@@ -171,8 +213,21 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 1,
 										"img": "",
-										"x": 25,
-										"y": 52,
+										"x": 460,
+										"y": 620,
+										bottomX: 660,
+										bottomY: 350,
+										"imgX": 400, //大图标位移
+										"imgY": 580,
+										"nameX": 420,//节点名称位移
+										"nameY": 680,
+										"totalNodeX": 420,//节点总量位移
+										"totalNodeY": 700,
+										"nodeX": 600,//节点量位移
+										"nodeY": 500,
+										"trendImgX": 510,//趋势图表位移
+										"trendImgY": 690,
+										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
 										"totalVal": 700, //节点总量
 										"abnormalVal": 300, //异常挂断量
 										"interfaceVal": 200 //接口异常量
@@ -183,8 +238,21 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 1,
 										"img": "",
-										"x": 25,
-										"y": 52,
+										"x": 460,
+										"y": 620,
+										bottomX: 660,
+										bottomY: 350,
+										"imgX": 400, //大图标位移
+										"imgY": 580,
+										"nameX": 420,//节点名称位移
+										"nameY": 680,
+										"totalNodeX": 420,//节点总量位移
+										"totalNodeY": 700,
+										"nodeX": 600,//节点量位移
+										"nodeY": 500,
+										"trendImgX": 510,//趋势图表位移
+										"trendImgY": 690,
+										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
@@ -196,8 +264,21 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 1,
 										"img": "",
-										"x": 25,
-										"y": 52,
+										"x": 460,
+										"y": 620,
+										bottomX: 660,
+										bottomY: 350,
+										"imgX": 400, //大图标位移
+										"imgY": 580,
+										"nameX": 420,//节点名称位移
+										"nameY": 680,
+										"totalNodeX": 420,//节点总量位移
+										"totalNodeY": 700,
+										"nodeX": 600,//节点量位移
+										"nodeY": 500,
+										"trendImgX": 510,//趋势图表位移
+										"trendImgY": 690,
+										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
@@ -209,8 +290,21 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 1,
 										"img": "",
-										"x": 25,
-										"y": 52,
+										"x": 460,
+										"y": 620,
+										bottomX: 660,
+										bottomY: 350,
+										"imgX": 400, //大图标位移
+										"imgY": 580,
+										"nameX": 420,//节点名称位移
+										"nameY": 680,
+										"totalNodeX": 420,//节点总量位移
+										"totalNodeY": 700,
+										"nodeX": 600,//节点量位移
+										"nodeY": 500,
+										"trendImgX": 510,//趋势图表位移
+										"trendImgY": 690,
+										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
@@ -222,8 +316,21 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 1,
 										"img": "",
-										"x": 25,
-										"y": 52,
+										"x": 460,
+										"y": 620,
+										bottomX: 660,
+										bottomY: 350,
+										"imgX": 400, //大图标位移
+										"imgY": 580,
+										"nameX": 420,//节点名称位移
+										"nameY": 680,
+										"totalNodeX": 420,//节点总量位移
+										"totalNodeY": 700,
+										"nodeX": 600,//节点量位移
+										"nodeY": 500,
+										"trendImgX": 510,//趋势图表位移
+										"trendImgY": 690,
+										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
@@ -235,8 +342,21 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 1,
 										"img": "",
-										"x": 25,
-										"y": 52,
+										"x": 460,
+										"y": 620,
+										bottomX: 660,
+										bottomY: 350,
+										"imgX": 400, //大图标位移
+										"imgY": 580,
+										"nameX": 420,//节点名称位移
+										"nameY": 680,
+										"totalNodeX": 420,//节点总量位移
+										"totalNodeY": 700,
+										"nodeX": 600,//节点量位移
+										"nodeY": 500,
+										"trendImgX": 510,//趋势图表位移
+										"trendImgY": 690,
+										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
@@ -248,8 +368,21 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 1,
 										"img": "",
-										"x": 25,
-										"y": 52,
+										"x": 460,
+										"y": 620,
+										bottomX: 660,
+										bottomY: 350,
+										"imgX": 400, //大图标位移
+										"imgY": 580,
+										"nameX": 420,//节点名称位移
+										"nameY": 680,
+										"totalNodeX": 420,//节点总量位移
+										"totalNodeY": 700,
+										"nodeX": 600,//节点量位移
+										"nodeY": 500,
+										"trendImgX": 510,//趋势图表位移
+										"trendImgY": 690,
+										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
@@ -261,8 +394,21 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 1,
 										"img": "",
-										"x": 25,
-										"y": 52,
+										"x": 460,
+										"y": 620,
+										bottomX: 660,
+										bottomY: 350,
+										"imgX": 400, //大图标位移
+										"imgY": 580,
+										"nameX": 420,//节点名称位移
+										"nameY": 680,
+										"totalNodeX": 420,//节点总量位移
+										"totalNodeY": 700,
+										"nodeX": 600,//节点量位移
+										"nodeY": 500,
+										"trendImgX": 510,//趋势图表位移
+										"trendImgY": 690,
+										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
@@ -274,8 +420,21 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 1,
 										"img": "",
-										"x": 25,
-										"y": 52,
+										"x": 460,
+										"y": 620,
+										bottomX: 660,
+										bottomY: 350,
+										"imgX": 400, //大图标位移
+										"imgY": 580,
+										"nameX": 420,//节点名称位移
+										"nameY": 680,
+										"totalNodeX": 420,//节点总量位移
+										"totalNodeY": 700,
+										"nodeX": 600,//节点量位移
+										"nodeY": 500,
+										"trendImgX": 510,//趋势图表位移
+										"trendImgY": 690,
+										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
@@ -290,16 +449,17 @@ const dataset = {
 								"id": 1,
 								"x": 700,
 								"y": 540,
-								"imgX": 640, //大图标位移
+								"imgX": 620, //大图标位移
 								"imgY": 580,
-								"nameX": 640,//节点名称位移
+								"nameX": 620,//节点名称位移
 								"nameY": 680,
-								"totalNodeX": 640,//节点总量位移
+								"totalNodeX": 620,//节点总量位移
 								"totalNodeY": 700,
 								"nodeX": 640,//节点量位移
 								"nodeY": 460,
-								"trendImgX": 936,//趋势图表位移
-								"trendImgY": 526,
+								"trendImgX": 710,//趋势图表位移
+								"trendImgY": 690,
+								"pathD": "M668 554 V 620 610",//曲线位置
 								"totalVal": 700, //节点总量
 								"value": 100, //节点量
 								"abnormalVal": 300, //异常挂断量
@@ -312,18 +472,19 @@ const dataset = {
 								"isFold": true, //是否展开节点 默认true 展开
 								"id": 1,
 								"img": "",
-								"x": 800,
-								"y": 540,
-								"imgX": 800, //大图标位移
-								"imgY": 540,
-								"nameX": 820,//节点名称位移
-								"nameY": 640,
-								"totalNodeX": 820,//节点总量位移
-								"totalNodeY": 660,
-								"nodeX": 1000,//节点量位移
+								"x": 840,
+								"y": 580,
+								"imgX": 840, //大图标位移
+								"imgY": 580,
+								"nameX": 840,//节点名称位移
+								"nameY": 680,
+								"totalNodeX": 840,//节点总量位移
+								"totalNodeY": 700,
+								"nodeX": 840,//节点量位移
 								"nodeY": 460,
-								"trendImgX": 1036,//趋势图表位移
-								"trendImgY": 526,
+								"trendImgX": 930,//趋势图表位移
+								"trendImgY": 690,
+								"pathD": "M668 554 C 780 606,810 560,890 600",//曲线位置
 								"totalVal": 700, //节点总量
 								"abnormalVal": 300, //异常挂断量
 								"interfaceVal": 200 //接口异常量
