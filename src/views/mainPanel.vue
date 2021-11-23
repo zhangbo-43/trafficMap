@@ -184,6 +184,7 @@ export default {
     }
   }
   .mainContent {
+    position: relative;
     padding: 0px;
     background-color: rgb(242, 243, 255);
   }
