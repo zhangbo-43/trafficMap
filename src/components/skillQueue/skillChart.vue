@@ -1,7 +1,7 @@
 <template>
   <g class="centerBox">
     <g>
-      <line  v-for="(item) in this.testData[0].children" :key="item.id" x1="920" y1="200" :x2=item.x2 :y2=item.y2 style="stroke:rgb(20, 81, 248);stroke-width:2"/>
+      <line  v-for="(item) in this.d3Data.dataset.nodes.children" :key="item.id" x1="920" y1="200" :x2=item.x2 :y2=item.y2 style="stroke:rgb(20, 81, 248);stroke-width:2"/>
       <circle  v-for="(item) in this.d3Data.dataset.markList" :key="item.id" r="4" fill="#fff" :cx=item.x :cy=item.y></circle>
     </g>
     <g>
