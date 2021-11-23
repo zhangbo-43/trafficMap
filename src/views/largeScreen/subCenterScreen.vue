@@ -76,26 +76,30 @@
           <!-- 话务总量头部结束  -->
           <!--看板大屏主图部分  -->
           <div class="map-line-content">
-            <svg id="traffice" version="1.1" xmlns="http://www.w3.org/2000/svg" width="500" height="500">
-              <g class="topolog">
-                  <traffice></traffice>
+            <svg
+              id="traffice"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="1920"
+              height="500"
+            >
+              <g class="topolog" transform="translate(960, 0)">
+                <traffice datasource="[]"></traffice>
                 <skillChart></skillChart>
+                <Progress datasource="[]"></Progress>
               </g>
-              <g class="quantity">
-
-              </g>
-              <g class="lines">
-
-              </g>
+              <g class="quantity"></g>
+              <g class="lines"></g>
             </svg>
           </div>
           <!--看板大屏主图部分结束  -->
         </div>
         <!-- 异常挂断情况 -->
         <div class="map-right-top">
-           <dv-border-box-7 :color="['#070D43', '#2773FF']">
-              <topRight />
-           </dv-border-box-7></div>
+          <dv-border-box-7 :color="['#070D43', '#2773FF']">
+            <topRight />
+          </dv-border-box-7>
+        </div>
         <!-- 异常挂断情况结束 -->
       </div>
       <!-- 看板大屏数据展示主体部分结束 -->
@@ -108,16 +112,18 @@ import skillChart from '../../components/skillQueue/skillChart.vue'
 import drawMixin from "../../utils/drawMixin";
 import { formatTime } from "../../utils/index.js";
 import Bus from "@/utils/eventBus.js";
-import topLeft from '../topLeft';
-import topRight from '../topRight';
-import mainSelect from '../mainSelect';
+import topLeft from "../topLeft";
+import topRight from "../topRight";
+import mainSelect from "../mainSelect";
 import traffice from "./traffice";
+import Progress from "./progress.vue";
 
 export default {
   name: "wholeNetworkScreen",
   mixins: [drawMixin],
   data() {
     return {
+      max: 1,
       timing: null,
       loading: true,
       dateDay: null,
@@ -166,7 +172,7 @@ export default {
       fullscreen: false,
     };
   },
-  components: {topLeft,topRight,mainSelect ,traffice,skillChart},
+  components: { topLeft, topRight, mainSelect, traffice, Progress,skillChart },
   mounted() {
     this.timeFn();
     this.cancelLoading();
@@ -342,7 +348,7 @@ export default {
       margin-right: 6px;
     }
     span {
-      font-family: 'allcount';
+      font-family: "allcount";
       color: #06ebdf;
       font-size: 30px;
       border-bottom: 2px solid #3a3c56;
@@ -425,5 +431,8 @@ export default {
 }
 ::v-deep.el-select-dropdown__list {
   padding: 0 !important;
+}
+#traffice {
+  margin: 0 auto;
 }
 </style>
