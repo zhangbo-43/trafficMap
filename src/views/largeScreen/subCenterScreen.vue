@@ -1,4 +1,5 @@
 <template>
+<div id="index" ref="appRef">
   <div class="whole-Screen">
     <dv-loading v-if="loading">Loading...</dv-loading>
     <div class="whole-Screen-body">
@@ -88,6 +89,7 @@
       <!-- 看板大屏数据展示主体部分结束 -->
     </div>
   </div>
+ </div> 
 </template>
 
 <script>
@@ -215,6 +217,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#index {
+  color: #d3d6dd;
+  // width: 1920px;
+  // height: 1080px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: left top;
+  overflow: hidden;
+}
 .whole-Screen {
   width: 100%;
   height: 100%;
