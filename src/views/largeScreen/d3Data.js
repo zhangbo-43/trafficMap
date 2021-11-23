@@ -9,7 +9,7 @@ const dataset = {
 		"isFold": true, //是否展开节点 默认true 展开
 		"type": 1, //类型
 		x: 720,
-		y: 0,
+		y: -35,
 		id: 1,
 		"children": [
 			//  第一层左侧
@@ -19,8 +19,12 @@ const dataset = {
 				x2: 580,
 				y2: 190,
 				value: 1500,
-				bottomX: 60,
-				bottomY: 180,
+				//箭头坐标
+				bottomX: 600,
+				bottomY: 240,
+				//数值坐标
+				valueX: 585,
+				valueY:150,
 				width: 50,
 				height:50,
 				"name": "互联网话务",
@@ -39,8 +43,11 @@ const dataset = {
 				y2: 190,
 				id: 4,
 				value: 900,
-				bottomX: 470,
-				bottomY: 180,
+				bottomX: 1230,
+				bottomY: 240,
+				//数值坐标
+				valueX: 1215,
+				valueY:150,
 				width: 50,
 				height:50,
 				"name": "跨网支撑",
@@ -57,8 +64,11 @@ const dataset = {
 				y2: 310,
 				id: 5,
 				value: 2000,
-				bottomX: 130,
-				bottomY: 240,
+				bottomX: 660,
+				bottomY: 350,
+				//数值坐标
+				valueX: 650,
+				valueY:260,
 				width: 60,
 				height:60,
 				"name": "语音话务",
@@ -306,11 +316,12 @@ const dataset = {
 				id: 2,
 				width: 70,
 				height:70,
-				// imgUrl: require("../../assets/images/little.svg"),
-				// arrowUrl: require("../../assets/images/arrow.svg"),
 				value: 1200,
-				bottomX: 270,
-				bottomY: 270,
+				bottomX: 910,
+				bottomY: 430,
+				//数值坐标
+				valueX: 930,
+				valueY:345,
 				"name": "溢出流程",
 				"type": 4, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -325,10 +336,13 @@ const dataset = {
 				y2: 320,
 				id: 6,
 				value: 1000,
-				bottomX: 405,
-				bottomY: 240,
+				bottomX: 1165,
+				bottomY: 350,
 				width: 60,
 				height:60,
+				//数值坐标
+				valueX: 1150,
+				valueY:260,
 				"name": "视频话务",
 				"type": 4, //类型
 				"isFold": true, //是否展开节点 默认true 展开

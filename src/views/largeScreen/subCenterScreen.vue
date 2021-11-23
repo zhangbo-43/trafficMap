@@ -66,6 +66,8 @@
             <div class="traffic">
               <label for="">话务总量</label>
               <span class="allCount">30,658,240</span>
+              <label for="" class="second">新增话务</label>
+              <em class="allCount">30,658,240</em>
             </div>
             <!-- <div class="traffic-percent">
               <label for="">BICC占比: </label>
@@ -355,6 +357,7 @@ export default {
   }
 }
 .total-traffic {
+  margin-top: 10px;
   text-align: center;
   .traffic {
     padding-top: 6px;
@@ -365,11 +368,21 @@ export default {
       opacity: 0.6;
       margin-right: 6px;
     }
+    .second {
+      font-size: 14px;
+      padding-left: 10px;
+    }
     span {
       font-family: "allcount";
       color: #06ebdf;
       font-size: 30px;
       border-bottom: 2px solid #3a3c56;
+    }
+    em {
+      font-family: "allcount";
+      color: #06ebdf;
+      font-style: normal;
+      font-size: 18px;
     }
   }
   .traffic-percent {
@@ -387,7 +400,7 @@ export default {
 }
 .map-line-content {
   text-align: center;
-  padding: 10px;
+  //padding: 10px;
 }
 .right-box {
   ::v-deep .el-input--suffix .el-input__inner {
