@@ -258,7 +258,7 @@ export default {
 .whole-Screen {
   width: 100%;
   height: 100%;
-  background-image: url("../../assets/images/pageBg.png");
+  background-image: url("../../assets/images/ztbj.png");
   background-size: cover;
   background-position: center center;
 }
