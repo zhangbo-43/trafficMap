@@ -1,6 +1,11 @@
 <template>
   <div class="whole-Screen">
-    <skill-chart></skill-chart>
+    <svg id="traffice" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <g class="topolog">
+        <skill-chart></skill-chart>
+      </g>
+    </svg>
+
   </div>
 </template>
 
@@ -29,5 +34,11 @@ export default {
   background-image: url("../../assets/images/pageBg.png");
   background-size: cover;
   background-position: center center;
+  #traffice {
+    display: block;
+    width: 800px;
+    height: 80vh;
+    margin: auto;
+  }
 }
 </style>

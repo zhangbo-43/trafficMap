@@ -79,6 +79,7 @@
             <svg id="traffice" version="1.1" xmlns="http://www.w3.org/2000/svg" width="500" height="500">
               <g class="topolog">
                   <traffice></traffice>
+                <skillChart></skillChart>
               </g>
               <g class="quantity">
 
@@ -103,7 +104,7 @@
 </template>
 
 <script>
-
+import skillChart from '../../components/skillQueue/skillChart.vue'
 import drawMixin from "../../utils/drawMixin";
 import { formatTime } from "../../utils/index.js";
 import Bus from "@/utils/eventBus.js";
@@ -165,7 +166,7 @@ export default {
       fullscreen: false,
     };
   },
-  components: {topLeft,topRight,mainSelect ,traffice},
+  components: {topLeft,topRight,mainSelect ,traffice,skillChart},
   mounted() {
     this.timeFn();
     this.cancelLoading();
