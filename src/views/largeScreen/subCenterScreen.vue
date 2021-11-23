@@ -51,13 +51,15 @@
       <div class="map-main-content">
         <!-- 热线话务历史趋势 -->
         <div class="map-left-top">
-            <dv-border-box-7 :color="['#070D43', '#2773FF']">
-              <topLeft />
-            </dv-border-box-7>
+          <dv-border-box-7 :color="['#070D43', '#2773FF']">
+            <topLeft />
+          </dv-border-box-7>
         </div>
         <!-- 热线话务历史趋势结束 -->
         <div class="map-main">
-          <div style="position: absolute;left: 10px;top: 310px;"><mainSelect /></div>
+          <div style="position: absolute; left: 10px; top: 310px">
+            <mainSelect />
+          </div>
           <!-- 话务总量头部  -->
           <div class="total-traffic">
             <div class="traffic">
@@ -83,7 +85,7 @@
               width="1920"
               height="500"
             >
-              <g class="topolog" transform="translate(960, 0)">
+              <g class="topolog">
                 <traffice datasource="[]"></traffice>
                 <skillChart></skillChart>
                 <Progress datasource="[]"></Progress>
@@ -108,7 +110,7 @@
 </template>
 
 <script>
-import skillChart from '../../components/skillQueue/skillChart.vue'
+import skillChart from "../../components/skillQueue/skillChart.vue";
 import drawMixin from "../../utils/drawMixin";
 import { formatTime } from "../../utils/index.js";
 import Bus from "@/utils/eventBus.js";
@@ -172,7 +174,7 @@ export default {
       fullscreen: false,
     };
   },
-  components: { topLeft, topRight, mainSelect, traffice, Progress,skillChart },
+  components: { topLeft, topRight, mainSelect, traffice, Progress, skillChart },
   mounted() {
     this.timeFn();
     this.cancelLoading();
