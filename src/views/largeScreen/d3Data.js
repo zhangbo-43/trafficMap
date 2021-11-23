@@ -24,9 +24,9 @@ const dataset = {
 				bottomY: 240,
 				//数值坐标
 				valueX: 585,
-				valueY:150,
+				valueY: 150,
 				width: 50,
-				height:50,
+				height: 50,
 				"name": "互联网话务",
 				"type": 1, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -47,9 +47,9 @@ const dataset = {
 				bottomY: 240,
 				//数值坐标
 				valueX: 1215,
-				valueY:150,
+				valueY: 150,
 				width: 50,
-				height:50,
+				height: 50,
 				"name": "跨网支撑",
 				"type": 2, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -68,9 +68,9 @@ const dataset = {
 				bottomY: 350,
 				//数值坐标
 				valueX: 650,
-				valueY:260,
+				valueY: 260,
 				width: 60,
-				height:60,
+				height: 60,
 				"name": "语音话务",
 				"type": 3, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -85,16 +85,17 @@ const dataset = {
 						"isFold": true, //是否展开节点 默认true 展开
 						"id": 1,
 						"img": "",
-						"x": 25,
-						"y": 52,
-						"imgX": 600, //大图标位移
+						"x": 690,
+						"y": 550,
+						"imgX": 620, //大图标位移
 						"imgY": 420,
-						"nameX": 700,//节点名称位移
-						"nameY": 700,
-						"totalNodeX": 700,//节点总量位移
-						"totalNodeY": 860,
-						"trendImgX": 700,//趋势图表位移
-						"trendImgY": 800,
+						"nameX": 620,//节点名称位移
+						"nameY": 520,
+						"totalNodeX": 620,//节点总量位移
+						"totalNodeY": 540,
+						"trendImgX": 736,//趋势图表位移
+						"trendImgY": 526,
+						"pathD": "M668 360 L 668 450",
 						"totalVal": 700, //节点总量
 						"abnormalVal": 300, //异常挂断量
 						"interfaceVal": 200, //接口异常量
@@ -105,16 +106,20 @@ const dataset = {
 								"isFold": true, //是否展开节点 默认true 展开
 								"id": 1,
 								"img": "",
-								"x": 25,
-								"y": 52,
-								"imgX": 700, //大图标位移
-								"imgY": 420,
-								"nameX": 700,//节点名称位移
-								"nameY": 460,
-								"totalNodeX": 700,//节点总量位移
-								"totalNodeY": 460,
-								"nodeX": 700,//节点量位移
-								"nodeY": 460,
+								"x": 460,
+								"y": 620,
+								bottomX: 660,
+								bottomY: 350,
+								"imgX": 400, //大图标位移
+								"imgY": 580,
+								"nameX": 420,//节点名称位移
+								"nameY": 680,
+								"totalNodeX": 420,//节点总量位移
+								"totalNodeY": 700,
+								"nodeX": 600,//节点量位移
+								"nodeY": 500,
+								"trendImgX": 636,//趋势图表位移
+								"trendImgY": 566,
 								"totalVal": 700, //节点总量
 								"value": 100, //节点量
 								"abnormalVal": 300, //异常挂断量
@@ -283,9 +288,18 @@ const dataset = {
 								"type": 4, //类型
 								"isFold": true, //是否展开节点 默认true 展开
 								"id": 1,
-								"img": "",
-								"x": 25,
-								"y": 52,
+								"x": 700,
+								"y": 540,
+								"imgX": 640, //大图标位移
+								"imgY": 580,
+								"nameX": 640,//节点名称位移
+								"nameY": 680,
+								"totalNodeX": 640,//节点总量位移
+								"totalNodeY": 700,
+								"nodeX": 640,//节点量位移
+								"nodeY": 460,
+								"trendImgX": 936,//趋势图表位移
+								"trendImgY": 526,
 								"totalVal": 700, //节点总量
 								"value": 100, //节点量
 								"abnormalVal": 300, //异常挂断量
@@ -298,8 +312,18 @@ const dataset = {
 								"isFold": true, //是否展开节点 默认true 展开
 								"id": 1,
 								"img": "",
-								"x": 25,
-								"y": 52,
+								"x": 800,
+								"y": 540,
+								"imgX": 800, //大图标位移
+								"imgY": 540,
+								"nameX": 820,//节点名称位移
+								"nameY": 640,
+								"totalNodeX": 820,//节点总量位移
+								"totalNodeY": 660,
+								"nodeX": 1000,//节点量位移
+								"nodeY": 460,
+								"trendImgX": 1036,//趋势图表位移
+								"trendImgY": 526,
 								"totalVal": 700, //节点总量
 								"abnormalVal": 300, //异常挂断量
 								"interfaceVal": 200 //接口异常量
@@ -315,13 +339,13 @@ const dataset = {
 				y2: 360,
 				id: 2,
 				width: 70,
-				height:70,
+				height: 70,
 				value: 1200,
 				bottomX: 910,
 				bottomY: 430,
 				//数值坐标
 				valueX: 930,
-				valueY:345,
+				valueY: 345,
 				"name": "溢出流程",
 				"type": 4, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -339,10 +363,10 @@ const dataset = {
 				bottomX: 1165,
 				bottomY: 350,
 				width: 60,
-				height:60,
+				height: 60,
 				//数值坐标
 				valueX: 1150,
-				valueY:260,
+				valueY: 260,
 				"name": "视频话务",
 				"type": 4, //类型
 				"isFold": true, //是否展开节点 默认true 展开

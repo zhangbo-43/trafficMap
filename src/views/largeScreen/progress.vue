@@ -2,7 +2,18 @@
   <g class="progress">
     <g v-for="(item, index) in d3Data.dataset.nodes.children" :key="index">
       <g class="nodes" v-for="(item1, index1) in item.children" :key="index1">
-        {{ item1.name }}
+        <!-- 联线 -->
+        <!-- <line
+          :x1="item.bottomX + 8"
+          :y1="item.bottomY + 8"
+          :x2="item1.x"
+          :y2="item1.y - 100"
+          style="stroke: #a09eff; stroke-width: 2"
+        /> -->
+        <g>
+          <circle r="5" cx="500" cy="400" fill="#fff"></circle>
+          <path :d="item1.pathD" stroke="#a09eff" fill="none" />
+        </g>
         <!-- 第一级 -->
         <g class="node" width="200" height="200">
           <image
@@ -21,11 +32,13 @@
             fill="#fff"
             :x="item1.nameX"
             :y="item1.nameY"
+            dx="20"
             >{{ item1.name }}</text
           >
           <g>
             <text
               class="pro-num"
+              dx="20"
               :x="item1.totalNodeX"
               :y="item1.totalNodeY"
               fill="#fff"
@@ -63,6 +76,14 @@
             :y2="item2.y"
             style="stroke: #a09eff; stroke-width: 2"
           />
+          <!-- <g>
+            <circle r="5" cx="500" cy="400" fill="red"></circle>
+            <path
+              d="M670 350 C 620 400, 550 350, 500 400"
+              stroke="red"
+              fill="none"
+            />
+          </g> -->
           <image
             opacity="1"
             stroke-width="1"
