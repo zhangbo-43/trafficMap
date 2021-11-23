@@ -1,8 +1,8 @@
 <template>
   <g class="centerBox">
     <g>
-      <line  v-for="(item) in this.testData[1].lineList" :key="item.id" :x1=item.x1 :y1=item.y1 :x2=item.x2 :y2=item.y2 style="stroke:rgb(20, 81, 248);stroke-width:2"/>
-      <circle  v-for="(item) in this.testData[2].markList" :key="item.id" r="4" fill="#fff" :cx=item.x :cy=item.y></circle>
+      <line  v-for="(item) in this.testData[0].children" :key="item.id" x1="920" y1="200" :x2=item.x2 :y2=item.y2 style="stroke:rgb(20, 81, 248);stroke-width:2"/>
+      <circle  v-for="(item) in this.testData[1].markList" :key="item.id" r="4" fill="#fff" :cx=item.x :cy=item.y></circle>
     </g>
     <g>
       <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1" :x=this.testData[0].x :y=this.testData[0].y  width="300" height="300" :href="centerUrl"></image>
@@ -78,6 +78,8 @@ export default {
               {
                 x: 580,
                 y: 160,
+                x2: 580,
+                y2: 190,
                 id: 3,
                 label: "互联网话务",
                 value: 1500,
@@ -88,6 +90,8 @@ export default {
               {
                 x: 640,
                 y: 270,
+                x2: 700,
+                y2: 310,
                 id: 5,
                 label: "语音话务",
                 value: 2000,
@@ -98,6 +102,8 @@ export default {
               {
                 x: 880,
                 y: 350,
+                x2: 920,
+                y2: 360,
                 id: 2,
                 label: "溢出流程",
                 value: 1200,
@@ -108,6 +114,8 @@ export default {
               {
                 x: 1140,
                 y: 270,
+                x2: 1160,
+                y2: 320,
                 id: 6,
                 label: "视频话务",
                 value: 1000,
@@ -118,6 +126,8 @@ export default {
               {
                 x: 1220,
                 y: 160,
+                x2: 1220,
+                y2: 190,
                 id: 4,
                 label: "跨网支撑",
                 value: 900,
@@ -126,39 +136,6 @@ export default {
               },
             ]
           },
-          {lineList: [
-              {
-                x1: 920,
-                y1: 200,
-                x2: 580,
-                y2: 190,
-                id: 7,
-              }, {
-                x1: 920,
-                y1: 200,
-                x2: 700,
-                y2: 310,
-                id: 8,
-              }, {
-                x1: 920,
-                y1: 200,
-                x2: 920,
-                y2: 360,
-                id: 9,
-              }, {
-                x1: 920,
-                y1: 200,
-                x2: 1160,
-                y2: 320,
-                id: 10,
-              }, {
-                x1: 920,
-                y1: 200,
-                x2: 1220,
-                y2: 190,
-                id: 11,
-              },
-            ]},
           {markList: [
               //  第一层左右两个点
               {

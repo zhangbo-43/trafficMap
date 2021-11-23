@@ -16,6 +16,8 @@ const dataset = {
 			{
 				x: 580,
 				y: 160,
+				x2: 580,
+				y2: 190,
 				value: 1500,
 				bottomX: 60,
 				bottomY: 180,
@@ -31,6 +33,8 @@ const dataset = {
 			{
 				x: 1220,
 				y: 160,
+				x2: 1220,
+				y2: 190,
 				id: 4,
 				value: 900,
 				bottomX: 470,
@@ -45,6 +49,8 @@ const dataset = {
 			{
 				x: 640,
 				y: 270,
+				x2: 700,
+				y2: 310,
 				id: 5,
 				value: 2000,
 				bottomX: 130,
@@ -277,6 +283,8 @@ const dataset = {
 			{
 				x: 880,
 				y: 350,
+				x2: 920,
+				y2: 360,
 				id: 2,
 				// imgUrl: require("../../assets/images/little.svg"),
 				// arrowUrl: require("../../assets/images/arrow.svg"),
@@ -293,6 +301,8 @@ const dataset = {
 			{
 				x: 1140,
 				y: 270,
+				x2: 1160,
+				y2: 320,
 				id: 6,
 				value: 1000,
 				bottomX: 405,
@@ -425,37 +435,6 @@ const dataset = {
 			"value": 200 //节点数量
 		}
 	],
-	lineList: [{
-		x1: 270,
-		y1: 130,
-		x2: 50,
-		y2: 130,
-		id: 7,
-	}, {
-		x1: 270,
-		y1: 130,
-		x2: 450,
-		y2: 130,
-		id: 8,
-	}, {
-		x1: 270,
-		y1: 130,
-		x2: 145,
-		y2: 215,
-		id: 9,
-	}, {
-		x1: 270,
-		y1: 130,
-		x2: 410,
-		y2: 215,
-		id: 10,
-	}, {
-		x1: 270,
-		y1: 130,
-		x2: 270,
-		y2: 190,
-		id: 11,
-	},],
 	markList: [
 		//  第一层左右两个点
 		{

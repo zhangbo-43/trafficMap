@@ -108,10 +108,11 @@
       <!-- 看板大屏数据展示主体部分结束 -->
     </div>
   </div>
- </div> 
+ </div>
 </template>
 
 <script>
+import d3Data from "./d3Data";
 import skillChart from "../../components/skillQueue/skillChart.vue";
 import drawMixin from "../../utils/drawMixin";
 import { formatTime } from "../../utils/index.js";
@@ -127,6 +128,7 @@ export default {
   mixins: [drawMixin],
   data() {
     return {
+      d3Data: d3Data,
       max: 1,
       timing: null,
       loading: true,
@@ -178,6 +180,7 @@ export default {
   },
   components: { topLeft, topRight, mainSelect, traffice, Progress, skillChart },
   mounted() {
+    console.log(this.d3Data.dataset.nodes)
     this.timeFn();
     this.cancelLoading();
     //监听键盘按键事件
