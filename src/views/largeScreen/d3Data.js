@@ -71,6 +71,14 @@ const dataset = {
 						"img": "",
 						"x": 25,
 						"y": 52,
+						"imgX": 600, //大图标位移
+						"imgY": 420,
+						"nameX": 700,//节点名称位移
+						"nameY": 700,
+						"totalNodeX": 700,//节点总量位移
+						"totalNodeY": 860,
+						"trendImgX": 700,//趋势图表位移
+						"trendImgY": 800,
 						"totalVal": 700, //节点总量
 						"abnormalVal": 300, //异常挂断量
 						"interfaceVal": 200, //接口异常量
@@ -83,10 +91,14 @@ const dataset = {
 								"img": "",
 								"x": 25,
 								"y": 52,
-								"imgX": 20,
-								"imgY": 20,
-								"textX": 20,
-								"textY": 20,
+								"imgX": 700, //大图标位移
+								"imgY": 420,
+								"nameX": 700,//节点名称位移
+								"nameY": 460,
+								"totalNodeX": 700,//节点总量位移
+								"totalNodeY": 460,
+								"nodeX": 700,//节点量位移
+								"nodeY": 460,
 								"totalVal": 700, //节点总量
 								"value": 100, //节点量
 								"abnormalVal": 300, //异常挂断量
