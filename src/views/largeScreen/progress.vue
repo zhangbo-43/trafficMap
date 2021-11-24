@@ -4,7 +4,6 @@
       <g class="nodes" v-for="(item1, index1) in item.children" :key="index1">
         <!-- 联线 -->
         <g>
-          <circle r="5" cx="500" cy="400" fill="#fff"></circle>
           <path :d="item1.pathD" stroke="#a09eff" fill="none" />
         </g>
         <!-- 第一级 -->
@@ -145,7 +144,7 @@
               fill="#fff"
               >{{ item2.name }}</text
             >
-            <image
+            <!-- <image
               opacity="1"
               stroke-width="1"
               stroke-opacity="1"
@@ -155,7 +154,7 @@
               :x="item2.imgX"
               :y="item2.imgY"
               :href="InterfaceImg"
-            ></image>
+            ></image> -->
           </g>
           <g>
             <text
@@ -199,8 +198,34 @@
           >
             <!-- 联线 -->
             <g>
-              <path :d="item3.pathD" stroke="red" fill="none" />
+              <path :d="item3.pathD" stroke="#a09eff" fill="none" />
             </g>
+            <circle
+              :cx="item3.spreadX"
+              :cy="item3.spreadY"
+              r="6"
+              stroke="#fff"
+            ></circle>
+            <text
+              dy="4"
+              dx="-4"
+              :x="item3.spreadX"
+              :y="item3.spreadY"
+              fill="#fff"
+              font-size="13"
+              v-if="item3.isFold"
+              >+</text
+            >
+            <text
+              dy="3"
+              dx="-2"
+              :x="item3.spreadX"
+              :y="item3.spreadY"
+              font-size="13"
+              fill="#fff"
+              v-else
+              >-</text
+            >
             <image
               opacity="1"
               stroke-width="1"
@@ -241,17 +266,6 @@
                 font="12"
                 >节点总量 {{ item3.totalVal }}</text
               >
-              <image
-                opacity="1"
-                stroke-width="1"
-                stroke-opacity="1"
-                fill-opacity="1"
-                :x="item3.trendImgX"
-                :y="item3.trendImgY"
-                width="18"
-                height="18"
-                :href="trendImg"
-              ></image>
             </g>
             <g>
               <text
@@ -266,16 +280,16 @@
                 stroke-width="1"
                 stroke-opacity="1"
                 fill-opacity="1"
-                width="16"
-                height="16"
-                :x="item3.imgX"
-                :y="item3.imgY"
-                :href="InterfaceImg"
+                :x="item3.trendImgX"
+                :y="item3.trendImgY"
+                width="18"
+                height="18"
+                :href="trendImg"
               ></image>
               <text
                 class="pro-text"
-                :x="item3.nameX"
-                :y="item3.nameY"
+                :x="item3.breakOffX"
+                :y="item3.breakOffY"
                 fill="#fff"
                 >{{ item3.abnormalVal }}</text
               >
