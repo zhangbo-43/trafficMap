@@ -1,6 +1,6 @@
 <template>
-  <!-- <Infomanage :config.sync="config"></Infomanage> -->
-  <div class="components">
+  <Infomanage :config.sync="config"></Infomanage>
+  <!-- <div class="components">
     <el-button type="text" @click="showDialogtable = true"
       >点击打开 Dialog</el-button
     >
@@ -10,19 +10,19 @@
       @closeDialogtable="() => (this.showDialogtable = false)"
     ></Dialogtable>
     <Searchsetflexible></Searchsetflexible>
-  </div>
+  </div> -->
 </template>
 
 <script>
-// import Infomanage from "./infoManage.vue";
-import Dialogtable from "./components/dialogtable.vue";
-import Searchsetflexible from "./components/searchSetFlexible.vue";
+import Infomanage from "./infoManage.vue";
+// import Dialogtable from "./components/dialogtable.vue";
+// import Searchsetflexible from "./components/searchSetFlexible.vue";
 export default {
   name: "rolePerManage",
   components: {
-    // Infomanage,
-    Dialogtable,
-    Searchsetflexible,
+    Infomanage,
+    // Dialogtable,
+    // Searchsetflexible,
   },
   data() {
     return {
