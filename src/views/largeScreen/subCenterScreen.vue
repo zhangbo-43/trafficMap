@@ -62,28 +62,46 @@
               <mainSelect />
             </div>
             <div style="position: absolute; right: 10px; top: 310px">
-             <div class="zoom-in-out">
-                 <div class="zoom-line">
-                    <span class="zoom-start-value">0</span>
-                    <el-slider
-                      v-model="zoomValue"
-                      :step="10"
-                      :marks="remarks"
-                      >
-                    </el-slider>
-                    <span class="zoom-start-value">100</span>
+              <div class="zoom-in-out">
+                <div class="zoom-line">
+                  <span class="zoom-start-value">0</span>
+                  <el-slider v-model="zoomValue" :step="10" :marks="remarks">
+                  </el-slider>
+                  <span class="zoom-start-value">100</span>
                 </div>
-             </div>
-             <div class="nodes-point">
+              </div>
+              <div class="nodes-point">
                 <div class="node-total">
-                  <span>正常节点<i class="el-icon-phone" style="color:#09F0F5"></i></span>
-                  <span>异常节点<i class="el-icon-phone" style="color:#ED1858"></i></span>
-                  <span>异常挂断<i class="icon iconfont icon-duankaiyichang" style="color:#C77E3E"></i></span>
-                  <span>接口异常<i class="icon iconfont icon-jiekouyichang" style="color:#C33DC7"></i></span>
+                  <span
+                    >正常节点<i class="el-icon-phone" style="color: #09f0f5"></i
+                  ></span>
+                  <span
+                    >异常节点<i class="el-icon-phone" style="color: #ed1858"></i
+                  ></span>
+                  <span
+                    >异常挂断<i
+                      class="icon iconfont icon-duankaiyichang"
+                      style="color: #c77e3e"
+                    ></i
+                  ></span>
+                  <span
+                    >接口异常<i
+                      class="icon iconfont icon-jiekouyichang"
+                      style="color: #c33dc7"
+                    ></i
+                  ></span>
                 </div>
-                <div class="num-total"><span><i class="icon iconfont icon-jiekouyichang" style="color:#C33DC7"></i>接口异常总量：{{Number(1568954).toLocaleString()}}</span></div>
-             </div>
-          </div>
+                <div class="num-total">
+                  <span
+                    ><i
+                      class="icon iconfont icon-jiekouyichang"
+                      style="color: #c33dc7"
+                    ></i
+                    >接口异常总量：{{ Number(1568954).toLocaleString() }}</span
+                  >
+                </div>
+              </div>
+            </div>
             <!-- 话务总量头部  -->
             <div class="total-traffic">
               <div class="traffic">
@@ -112,7 +130,7 @@
                 height="1080"
               >
                 <g class="topolog">
-                  <traffice datasource="[]"></traffice>
+                  <!-- <traffice datasource="[]"></traffice> -->
                   <skillChart></skillChart>
                   <Progress datasource="[]"></Progress>
                 </g>
@@ -145,7 +163,7 @@ import Bus from "@/utils/eventBus.js";
 import topLeft from "../topLeft";
 import topRight from "../topRight";
 import mainSelect from "../mainSelect";
-import traffice from "./traffice";
+// import traffice from "./traffice";
 import Progress from "./progress.vue";
 
 export default {
@@ -153,7 +171,7 @@ export default {
   mixins: [drawMixin],
   data() {
     return {
-      zoomValue:50,
+      zoomValue: 50,
       // marks: {
       //     0: '0',
       //     50: {
@@ -214,36 +232,35 @@ export default {
       fullscreen: false,
     };
   },
-  components: { topLeft, topRight, mainSelect, traffice, Progress, skillChart },
-  computed:{
-   remarks(){
-     let marks = {};
-     for(let i = 0;i<=100;i+=10){
-       if(i%50==0){
-         marks[i] =  {
-           style:{
-             height: '14px',
-             width:  '2px',
-             background:'#001A44',
-             top:'-40px'
-           },
-           label:this.$createElement('div', '')
-         };
-       }
-       else if(i%10==0){
-         marks[i] = {
-           style:{
-             height: '9px',
-             width:  '2px',
-             background:'#001A44',
-             top:'-35px'
-           },
-           label:this.$createElement('div', '')
-         };
-       }
-     }
-     return marks;
-   }
+  components: { topLeft, topRight, mainSelect, Progress, skillChart },
+  computed: {
+    remarks() {
+      let marks = {};
+      for (let i = 0; i <= 100; i += 10) {
+        if (i % 50 == 0) {
+          marks[i] = {
+            style: {
+              height: "14px",
+              width: "2px",
+              background: "#001A44",
+              top: "-40px",
+            },
+            label: this.$createElement("div", ""),
+          };
+        } else if (i % 10 == 0) {
+          marks[i] = {
+            style: {
+              height: "9px",
+              width: "2px",
+              background: "#001A44",
+              top: "-35px",
+            },
+            label: this.$createElement("div", ""),
+          };
+        }
+      }
+      return marks;
+    },
   },
   mounted() {
     console.log(this.d3Data.dataset.nodes);
@@ -412,62 +429,62 @@ export default {
     top: 10px;
   }
   .map-main {
-      .zoom-in-out{
-        padding: 29px 29px 0 0;
-        overflow: hidden;
-        .zoom-line{
-          width:266px;
-          float: right;
-          .el-slider{
-              width:200px;
-              display: inline-grid;
-              margin: 0 12px;
-               ::v-deep .el-slider__runway{
-                  height: 2px;
-                  background: #001A44;
-                  border-radius: 1px;
-              }
-             ::v-deep .el-slider__bar{
-                 display: none;
-              }
-             ::v-deep .el-slider__button{
-                  width: 9px;
-                  height: 9px;
-                  background: #0E2ECC;
-                  border: 2px solid #0071FE;
-                  // opacity: 0.31;
-                  border-radius: 50%;
-             }
-             ::v-deep .el-slider__stop{
-                  display: none;
-             } 
+    .zoom-in-out {
+      padding: 29px 29px 0 0;
+      overflow: hidden;
+      .zoom-line {
+        width: 266px;
+        float: right;
+        .el-slider {
+          width: 200px;
+          display: inline-grid;
+          margin: 0 12px;
+          ::v-deep .el-slider__runway {
+            height: 2px;
+            background: #001a44;
+            border-radius: 1px;
           }
-          .zoom-start-value{
-            font-size: 18px;
-            opacity: 0.5;
+          ::v-deep .el-slider__bar {
+            display: none;
+          }
+          ::v-deep .el-slider__button {
+            width: 9px;
+            height: 9px;
+            background: #0e2ecc;
+            border: 2px solid #0071fe;
+            // opacity: 0.31;
+            border-radius: 50%;
+          }
+          ::v-deep .el-slider__stop {
+            display: none;
           }
         }
-     }
-     .nodes-point{
-       .node-total{
-         margin-bottom: 17px;
-         span{
-           margin-right:15px;
-           i{
-             margin-left: 4px;
-           }
-         }
-       }
-       .num-total{
-         text-align: right;
-          span{
-           margin-right:15px;
-           i{
-             margin-right: 4px;
-           }
-         }
-       }
-     }
+        .zoom-start-value {
+          font-size: 18px;
+          opacity: 0.5;
+        }
+      }
+    }
+    .nodes-point {
+      .node-total {
+        margin-bottom: 17px;
+        span {
+          margin-right: 15px;
+          i {
+            margin-left: 4px;
+          }
+        }
+      }
+      .num-total {
+        text-align: right;
+        span {
+          margin-right: 15px;
+          i {
+            margin-right: 4px;
+          }
+        }
+      }
+    }
   }
   .map-right-top {
     // border: 1px solid #001aff;
