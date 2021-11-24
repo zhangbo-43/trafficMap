@@ -323,9 +323,10 @@
       </g>
     </g>
   </g>
-</template>    
+</template>
 
 <script>
+import * as d3 from 'd3'
 import d3Data from "./d3Data";
 export default {
   props: ["datasource"],
@@ -342,6 +343,21 @@ export default {
     };
   },
   methods: {
+    add(d) {
+      console.log(d)
+        // if (d.children) {
+        //   d._children = d.children;
+        //   d.children = null;
+        //   d.spread = false;
+        //   d3.select(this).text('+')
+        // } else {
+        //   d.children = d._children;
+        //   d._children = null;
+        //   d.spread = true;
+        //   d3.select(this).text('-')
+        // }
+        // update(d, originalData, g);
+    },
     filter(targetId) {
       this.dataList = this.datasource.filer(
         (item) => item.targetId == targetId
@@ -352,6 +368,9 @@ export default {
     },
   },
   mounted() {
+    console.log(d3.selectAll('circle'))
+    d3.selectAll('circle')
+        .on('click', this.add)
     console.log(this.d3Data);
     console.log(this.d3Data.dataset.nodes);
   },

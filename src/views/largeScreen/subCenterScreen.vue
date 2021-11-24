@@ -147,7 +147,7 @@ import topRight from "../topRight";
 import mainSelect from "../mainSelect";
 import traffice from "./traffice";
 import Progress from "./progress.vue";
-
+// import * as d3 from 'd3'
 export default {
   name: "wholeNetworkScreen",
   mixins: [drawMixin],
@@ -246,6 +246,7 @@ export default {
    }
   },
   mounted() {
+    // this.svgZoom()
     console.log(this.d3Data.dataset.nodes);
     this.timeFn();
     this.cancelLoading();
@@ -263,6 +264,19 @@ export default {
     clearInterval(this.timing);
   },
   methods: {
+    // svgZoom() {
+    //   let zoom = d3.behavior.zoom().scaleExtent([0.5, 2]).on('zoom', this.redraw);
+    //   let svg = d3.select('#traffice')
+    //       .call(zoom)
+    //       .on('dblclick.zoom', null);
+    //   svg.attr('transform', 'translate(' + d3.event.translate + ')' +
+    //       ' scale(' + d3.event.scale + ')');
+    // },
+    // redraw() {
+    //   let svg = d3.select('#traffice')
+    //   svg.attr('transform', 'translate(' + d3.event.translate + ')' +
+    //       ' scale(' + d3.event.scale + ')');
+    // },
     timeFn() {
       this.timing = setInterval(() => {
         this.dateDay = formatTime(new Date(), "HH: mm: ss");
@@ -440,7 +454,7 @@ export default {
              }
              ::v-deep .el-slider__stop{
                   display: none;
-             } 
+             }
           }
           .zoom-start-value{
             font-size: 18px;
