@@ -93,7 +93,9 @@
                   <skillChart></skillChart>
                   <Progress datasource="[]"></Progress>
                 </g>
-                <g class="quantity"></g>
+                <g class="quantity">
+                  <Histograms></Histograms>
+                </g>
                 <g class="lines"></g>
               </svg>
             </div>
@@ -124,6 +126,7 @@ import topRight from "../topRight";
 import mainSelect from "../mainSelect";
 import traffice from "./traffice";
 import Progress from "./progress.vue";
+import Histograms from "./histograms.vue";
 
 export default {
   name: "wholeNetworkScreen",
@@ -180,7 +183,15 @@ export default {
       fullscreen: false,
     };
   },
-  components: { topLeft, topRight, mainSelect, traffice, Progress, skillChart },
+  components: {
+    topLeft,
+    topRight,
+    mainSelect,
+    traffice,
+    Progress,
+    skillChart,
+    Histograms,
+  },
   mounted() {
     console.log(this.d3Data.dataset.nodes);
     this.timeFn();
