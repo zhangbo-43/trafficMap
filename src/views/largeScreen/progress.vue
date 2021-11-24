@@ -9,9 +9,32 @@
         </g>
         <!-- 第一级 -->
         <g class="node" width="200" height="200">
-          <circle :cx=item1.spreadX :cy=item1.spreadY r="6" stroke="#fff"></circle>
-          <text dy="4" dx="-4" :x="item1.spreadX" :y="item1.spreadY" fill="#fff" font-size="13" v-if="item1.isSpread">+</text>
-          <text dy="3" dx="-2" :x="item1.spreadX" :y="item1.spreadY" font-size="13" fill="#fff" v-else>-</text>
+          <circle
+            :cx="item1.spreadX"
+            :cy="item1.spreadY"
+            r="6"
+            stroke="#fff"
+          ></circle>
+          <text
+            dy="4"
+            dx="-4"
+            :x="item1.spreadX"
+            :y="item1.spreadY"
+            fill="#fff"
+            font-size="13"
+            v-if="item1.isFold"
+            >+</text
+          >
+          <text
+            dy="3"
+            dx="-2"
+            :x="item1.spreadX"
+            :y="item1.spreadY"
+            font-size="13"
+            fill="#fff"
+            v-else
+            >-</text
+          >
           <image
             opacity="1"
             stroke-width="1"
@@ -75,12 +98,34 @@
         >
           <!-- 联线 -->
           <g>
-            <circle r="5" cx="500" cy="400" fill="red"></circle>
             <path :d="item2.pathD" stroke="#a09eff" fill="none" />
           </g>
-          <circle :cx=item2.spreadX :cy=item2.spreadY r="6" stroke="#fff"></circle>
-          <text dy="4" dx="-4" :x="item2.spreadX" :y="item2.spreadY" fill="#fff" font-size="13" v-if="item2.isSpread">+</text>
-          <text dy="3" dx="-2" :x="item2.spreadX" :y="item2.spreadY" font-size="13" fill="#fff" v-else>-</text>
+          <circle
+            :cx="item2.spreadX"
+            :cy="item2.spreadY"
+            r="6"
+            stroke="#fff"
+          ></circle>
+          <text
+            dy="4"
+            dx="-4"
+            :x="item2.spreadX"
+            :y="item2.spreadY"
+            fill="#fff"
+            font-size="13"
+            v-if="item2.isFold"
+            >+</text
+          >
+          <text
+            dy="3"
+            dx="-2"
+            :x="item2.spreadX"
+            :y="item2.spreadY"
+            font-size="13"
+            fill="#fff"
+            v-else
+            >-</text
+          >
           <image
             opacity="1"
             stroke-width="1"
@@ -133,6 +178,17 @@
               :href="trendImg"
             ></image>
           </g>
+          <image
+            opacity="1"
+            stroke-width="1"
+            stroke-opacity="1"
+            fill-opacity="1"
+            :x="item2.bottomX"
+            :y="item2.bottomY"
+            width="15"
+            height="15"
+            :href="arrowUrl"
+          ></image>
           <!-- 第三级 -->
           <g
             class="node"
@@ -143,8 +199,7 @@
           >
             <!-- 联线 -->
             <g>
-              <circle r="5" cx="500" cy="400" fill="red"></circle>
-              <path :d="item3.pathD" stroke="#a09eff" fill="none" />
+              <path :d="item3.pathD" stroke="red" fill="none" />
             </g>
             <image
               opacity="1"
@@ -172,8 +227,8 @@
                 fill-opacity="1"
                 width="16"
                 height="16"
-                :x="item3.imgX"
-                :y="item3.imgY"
+                :x="item3.InterfaceImgX"
+                :y="item3.InterfaceImgY"
                 :href="InterfaceImg"
               ></image>
             </g>
@@ -222,7 +277,7 @@
                 :x="item3.nameX"
                 :y="item3.nameY"
                 fill="#fff"
-                >{{ item3.name }}</text
+                >{{ item3.abnormalVal }}</text
               >
               <image
                 opacity="1"
@@ -231,11 +286,22 @@
                 fill-opacity="1"
                 width="16"
                 height="16"
-                :x="item3.imgX"
-                :y="item3.imgY"
-                :href="InterfaceImg"
+                :x="item3.breakOffImgX"
+                :y="item3.breakOffImgY"
+                :href="breakOffImg"
               ></image>
             </g>
+            <image
+              opacity="1"
+              stroke-width="1"
+              stroke-opacity="1"
+              fill-opacity="1"
+              :x="item3.bottomX"
+              :y="item3.bottomY"
+              width="15"
+              height="15"
+              :href="arrowUrl"
+            ></image>
           </g>
           <!-- 第三级 -->
         </g>
@@ -243,7 +309,7 @@
       </g>
     </g>
   </g>
-</template>
+</template>    
 
 <script>
 import d3Data from "./d3Data";
