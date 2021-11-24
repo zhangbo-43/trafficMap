@@ -12,7 +12,6 @@ const dataset = {
 		y: -35,
 		id: 1,
 		"children": [
-			//  第一层左侧
 			{
 				x: 580,
 				y: 160,
@@ -27,6 +26,10 @@ const dataset = {
 				valueY: 150,
 				width: 50,
 				height: 50,
+				//标记点
+				pointX: 700,
+				pointY: 185,
+				pointUrl: require("../../assets/images/light1.png"),
 				"name": "互联网话务",
 				"type": 1, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -50,6 +53,9 @@ const dataset = {
 				valueY: 150,
 				width: 50,
 				height: 50,
+				pointX: 1120,
+				pointY: 183,
+				pointUrl: require("../../assets/images/light5.png"),
 				"name": "跨网支撑",
 				"type": 2, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -71,12 +77,19 @@ const dataset = {
 				valueY: 260,
 				width: 60,
 				height: 60,
+				pointX: 760,
+				pointY: 265,
+				pointUrl: require("../../assets/images/light2.png"),
+				//贴片
+				patchX: 827,
+				patchY: 226,
+				patchUrl: require("../../assets/images/patch1.png"),
 				"name": "语音话务",
 				"type": 3, //类型
 				"isFold": true, //是否展开节点 默认true 展开
 				"totalVal": 700, //节点总量
 				"abnormalVal": 300, //异常挂断量
-				"interfaceVal": 200, //接口异常量
+
 				"children": [
 					{
 						"name": "前置流程",
@@ -101,6 +114,7 @@ const dataset = {
 						"totalVal": 700, //节点总量
 						"abnormalVal": 300, //异常挂断量
 						"interfaceVal": 200, //接口异常量
+
 						"children": [
 							{
 								"name": "语音IVR",
@@ -507,6 +521,13 @@ const dataset = {
 				//数值坐标
 				valueX: 930,
 				valueY: 345,
+				pointX: 910,
+				pointY: 300,
+				pointUrl: require("../../assets/images/light3.png"),
+				//贴片
+				patchX: 910,
+				patchY: 238,
+				patchUrl: require("../../assets/images/patch2.png"),
 				"name": "溢出流程",
 				"type": 4, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -528,6 +549,13 @@ const dataset = {
 				//数值坐标
 				valueX: 1150,
 				valueY: 260,
+				pointX: 1060,
+				pointY: 265,
+				pointUrl: require("../../assets/images/light4.png"),
+				//贴片
+				patchX: 985,
+				patchY: 220,
+				patchUrl: require("../../assets/images/patch3.png"),
 				"name": "视频话务",
 				"type": 4, //类型
 				"isFold": true, //是否展开节点 默认true 展开
