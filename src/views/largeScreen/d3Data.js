@@ -8,29 +8,29 @@ const dataset = {
 		"interfaceVal": 200, //接口异常量
 		"isFold": true, //是否展开节点 默认true 展开
 		"type": 1, //类型
-		x: 800,
+		x: 835,
 		y: 0,
 		id: 1,
 		"children": [
 			{
-				x: 580,
+				x: 640,
 				y: 60,
-				x2: 590,
+				x2: 650,
 				y2: 90,
 				value: 1500,
 				//文本坐标
-				textX: 570,
+				textX: 630,
 				textY: 130,
 				//箭头坐标
-				bottomX: 600,
+				bottomX: 660,
 				bottomY: 140,
 				//数值坐标
-				valueX: 585,
+				valueX: 645,
 				valueY: 50,
 				width: 50,
 				height: 50,
 				//标记点
-				pointX: 730,
+				pointX: 790,
 				pointY: 80,
 				pointUrl: require("../../assets/images/light1.png"),
 				"name": "互联网话务",
@@ -70,28 +70,28 @@ const dataset = {
 				"interfaceVal": 200 //接口异常量
 			},
 			{
-				x: 680,
+				x: 740,
 				y: 160,
-				x2: 700,
-				y2: 215,
+				x2: 790,
+				y2: 205,
 				id: 5,
 				value: 2000,
-				bottomX: 700,
+				bottomX: 760,
 				bottomY: 250,
 				//文本坐标
-				textX: 675,
+				textX: 735,
 				textY: 240,
 				//数值坐标
-				valueX: 690,
+				valueX: 750,
 				valueY: 150,
 				width: 60,
 				height: 60,
-				pointX: 790,
-				pointY: 148,
+				pointX: 836,
+				pointY: 157,
 				pointUrl: require("../../assets/images/light2.png"),
 				//贴片
-				patchX: 845,
-				patchY: 115,
+				patchX: 875,
+				patchY: 108,
 				patchUrl: require("../../assets/images/patch1.png"),
 				"name": "语音话务",
 				"type": 3, //类型
@@ -109,19 +109,19 @@ const dataset = {
 						"img": "",
 						"x": 690,
 						"y": 550,
-						"imgX": 655, //大图标位移
+						"imgX": 720, //大图标位移
 						"imgY": 300,
-						"spreadX": 705,//加号减号坐标
+						"spreadX": 770,//加号减号坐标
 						"spreadY": 320,
-						"nameX": 655,//节点名称位移
+						"nameX": 720,//节点名称位移
 						"nameY": 395,
-						"totalNodeX": 640,//节点总量位移
+						"totalNodeX": 705,//节点总量位移
 						"totalNodeY": 415,
-						"trendImgX": 735,//趋势图表位移
+						"trendImgX": 800,//趋势图表位移
 						"trendImgY": 400,
-						bottomX: 690,
+						bottomX: 765,
 						bottomY: 430,
-						"pathD": "M707 250 L 705 320",//曲线位置
+						"pathD": "M767 250 L 769 320",//曲线位置
 						"totalVal": 700, //节点总量
 						"abnormalVal": 300, //异常挂断量
 						"interfaceVal": 200, //接口异常量
@@ -135,21 +135,21 @@ const dataset = {
 								"img": "",
 								"x": 460,
 								"y": 620,
-								bottomX: 446,
-								bottomY: 704,
-								"imgX": 405, //大图标位移
+								bottomX: 506,
+								bottomY: 584,
+								"imgX": 465, //大图标位移
 								"imgY": 460,
-								"spreadX": 455,//加号减号坐标
+								"spreadX": 515,//加号减号坐标
 								"spreadY": 480,
-								"nameX": 430,//节点名称位移
+								"nameX": 485,//节点名称位移
 								"nameY": 555,
-								"totalNodeX": 410,//节点总量位移
+								"totalNodeX": 465,//节点总量位移
 								"totalNodeY": 575,
-								"nodeX": 600,//节点量位移
+								"nodeX": 675,//节点量位移
 								"nodeY": 500,
-								"trendImgX": 500,//趋势图表位移
+								"trendImgX": 555,//趋势图表位移
 								"trendImgY": 560,
-								"pathD": "M695 440 C 710 470 490 430,450 480",//曲线位置
+								"pathD": "M765 440 C 710 470 490 430,515 480",//曲线位置
 								"totalVal": 700, //节点总量
 								"value": 100, //节点量
 								"abnormalVal": 300, //异常挂断量
@@ -163,27 +163,27 @@ const dataset = {
 										"img": "",
 										"x": 460,
 										"y": 620,
-										"bottomX": 140,
-										"bottomY": 890,
-										"imgX": 100, //大图标位移
-										"imgY": 740,
 										"spreadX": 150,//加号减号坐标
-										"spreadY": 760,
+										"spreadY": 700,
+										"imgX": 100, //大图标位移
+										"imgY": 680,
 										"nameX": 100,//按键名称位置
-										"nameY": 840,
-										"InterfaceImgX": 170, //异常挂断位置
-										"InterfaceImgY": 826,
+										"nameY": 780,
+										"InterfaceImgX": 170, //异常接口位置
+										"InterfaceImgY": 766,
 										"totalNodeX": 100,//节点总量位置
-										"totalNodeY": 860,
+										"totalNodeY": 800,
 										"nodeX": 100,//节点量位移
-										"nodeY": 880,
+										"nodeY": 820,
 										"trendImgX": 170,//趋势图表位移
-										"trendImgY": 868,
-										"breakOffImgX": 230, //异常挂断图标位置
-										"breakOffImgY": 870,
+										"trendImgY": 808,
 										"breakOffX": 200, //异常挂断文字位置
-										"breakOffY": 882,
-										"pathD": "M448 710 C460 720,160 710,150 760",//曲线位置
+										"breakOffY": 822,
+										"breakOffImgX": 230, //异常挂断图标位置
+										"breakOffImgY": 810,
+										"bottomX": 140,
+										"bottomY": 830,
+										"pathD": "M512 600 C510 650,140 630,150 700",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
@@ -197,27 +197,27 @@ const dataset = {
 										"img": "",
 										"x": 460,
 										"y": 620,
-										bottomX: 340,
-										bottomY: 890,
-										"imgX": 300, //大图标位移
-										"imgY": 740,
-										"nameX": 300,//按键名称位置
-										"nameY": 840,
 										"spreadX": 350,//加号减号坐标
-										"spreadY": 760,
-										"InterfaceImgX": 370, //异常挂断位置
-										"InterfaceImgY": 826,
+										"spreadY": 700,
+										"imgX": 300, //大图标位移
+										"imgY": 680,
+										"nameX": 300,//按键名称位置
+										"nameY": 780,
+										"InterfaceImgX": 370, //异常接口位置
+										"InterfaceImgY": 766,
 										"totalNodeX": 300,//节点总量位置
-										"totalNodeY": 860,
+										"totalNodeY": 800,
 										"nodeX": 300,//节点量位移
-										"nodeY": 880,
+										"nodeY": 820,
 										"trendImgX": 370,//趋势图表位移
-										"trendImgY": 868,
-										"breakOffImgX": 430, //异常挂断图标位置
-										"breakOffImgY": 870,
+										"trendImgY": 808,
 										"breakOffX": 400, //异常挂断文字位置
-										"breakOffY": 882,
-										"pathD": "M448 710 C460 720,360 710,350 760",//曲线位置
+										"breakOffY": 822,
+										"breakOffImgX": 430, //异常挂断图标位置
+										"breakOffImgY": 810,
+										"bottomX": 340,
+										"bottomY": 830,
+										"pathD": "M512 600 C490 670,360 640,350 700",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
@@ -231,27 +231,27 @@ const dataset = {
 										"img": "",
 										"x": 460,
 										"y": 620,
-										bottomX: 540,
-										bottomY: 890,
-										"imgX": 500, //大图标位移
-										"imgY": 740,
-										"nameX": 500,//按键名称位置
-										"nameY": 840,
 										"spreadX": 550,//加号减号坐标
-										"spreadY": 760,
-										"InterfaceImgX": 570, //异常挂断位置
-										"InterfaceImgY": 826,
+										"spreadY": 700,
+										"imgX": 500, //大图标位移
+										"imgY": 680,
+										"nameX": 500,//按键名称位置
+										"nameY": 780,
+										"InterfaceImgX": 570, //异常接口位置
+										"InterfaceImgY": 766,
 										"totalNodeX": 500,//节点总量位置
-										"totalNodeY": 860,
+										"totalNodeY": 800,
 										"nodeX": 500,//节点量位移
-										"nodeY": 880,
+										"nodeY": 820,
 										"trendImgX": 570,//趋势图表位移
-										"trendImgY": 868,
-										"breakOffImgX": 630, //异常挂断图标位置
-										"breakOffImgY": 870,
+										"trendImgY": 808,
 										"breakOffX": 600, //异常挂断文字位置
-										"breakOffY": 882,
-										"pathD": "M448 710 C460 720,540 710,550 760",//曲线位置
+										"breakOffY": 822,
+										"breakOffImgX": 630, //异常挂断图标位置
+										"breakOffImgY": 810,
+										"bottomX": 540,
+										"bottomY": 830,
+										"pathD": "M512 600 C510 660,550 660,550 700",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
@@ -266,27 +266,27 @@ const dataset = {
 										"img": "",
 										"x": 460,
 										"y": 620,
-										bottomX: 740,
-										bottomY: 890,
-										"imgX": 700, //大图标位移
-										"imgY": 740,
-										"nameX": 700,//按键名称位置
-										"nameY": 840,
 										"spreadX": 750,//加号减号坐标
-										"spreadY": 760,
-										"InterfaceImgX": 770, //异常挂断位置
-										"InterfaceImgY": 826,
+										"spreadY": 700,
+										"imgX": 700, //大图标位移
+										"imgY": 680,
+										"nameX": 700,//按键名称位置
+										"nameY": 780,
+										"InterfaceImgX": 770, //异常接口位置
+										"InterfaceImgY": 766,
 										"totalNodeX": 700,//节点总量位置
-										"totalNodeY": 860,
+										"totalNodeY": 800,
 										"nodeX": 700,//节点量位移
-										"nodeY": 880,
+										"nodeY": 820,
 										"trendImgX": 770,//趋势图表位移
-										"trendImgY": 868,
-										"breakOffImgX": 830, //异常挂断图标位置
-										"breakOffImgY": 870,
+										"trendImgY": 808,
 										"breakOffX": 800, //异常挂断文字位置
-										"breakOffY": 882,
-										"pathD": "M448 710 C460 720,740 710,750 760",//曲线位置
+										"breakOffY": 822,
+										"breakOffImgX": 830, //异常挂断图标位置
+										"breakOffImgY": 810,
+										"bottomX": 740,
+										"bottomY": 830,
+										"pathD": "M512 600 C600 730,740 650,750 700",//曲线位置
 										"totalVal": 700, //节点总量
 										"abnormalVal": 300, //异常挂断量
 										"interfaceVal": 200 //接口异常量
@@ -299,27 +299,27 @@ const dataset = {
 										"img": "",
 										"x": 460,
 										"y": 620,
-										bottomX: 940,
-										bottomY: 890,
-										"imgX": 900, //大图标位移
-										"imgY": 740,
-										"nameX": 900,//按键名称位置
-										"nameY": 840,
 										"spreadX": 950,//加号减号坐标
-										"spreadY": 760,
-										"InterfaceImgX": 970, //异常挂断位置
-										"InterfaceImgY": 826,
+										"spreadY": 700,
+										"imgX": 900, //大图标位移
+										"imgY": 680,
+										"nameX": 900,//按键名称位置
+										"nameY": 780,
+										"InterfaceImgX": 970, //异常接口位置
+										"InterfaceImgY": 766,
 										"totalNodeX": 900,//节点总量位置
-										"totalNodeY": 860,
+										"totalNodeY": 800,
 										"nodeX": 900,//节点量位移
-										"nodeY": 880,
+										"nodeY": 820,
 										"trendImgX": 970,//趋势图表位移
-										"trendImgY": 868,
-										"breakOffImgX": 1030, //异常挂断图标位置
-										"breakOffImgY": 870,
+										"trendImgY": 808,
 										"breakOffX": 1000, //异常挂断文字位置
-										"breakOffY": 882,
-										"pathD": "M448 710 C460 720,940 710,950 760",//曲线位置
+										"breakOffY": 822,
+										"breakOffImgX": 1030, //异常挂断图标位置
+										"breakOffImgY": 810,
+										"bottomX": 940,
+										"bottomY": 830,
+										"pathD": "M512 600 C660 700,940 610,950 700",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
@@ -333,28 +333,28 @@ const dataset = {
 										"img": "",
 										"x": 460,
 										"y": 620,
-										bottomX: 1140,
-										bottomY: 890,
-										"imgX": 1100, //大图标位移
-										"imgY": 740,
-										"nameX": 1100,//按键名称位置
-										"nameY": 840,
 										"spreadX": 1150,//加号减号坐标
-										"spreadY": 760,
-										"InterfaceImgX": 1170, //异常挂断位置
-										"InterfaceImgY": 826,
+										"spreadY": 700,
+										"imgX": 1100, //大图标位移
+										"imgY": 680,
+										"nameX": 1100,//按键名称位置
+										"nameY": 780,
+										"InterfaceImgX": 1170, //异常接口位置
+										"InterfaceImgY": 766,
 										"totalNodeX": 1100,//节点总量位置
-										"totalNodeY": 860,
+										"totalNodeY": 800,
 										"nodeX": 1100,//节点量位移
-										"nodeY": 880,
+										"nodeY": 820,
 										"trendImgX": 1170,//趋势图表位移
-										"trendImgY": 868,
-										"breakOffImgX": 1030, //异常挂断图标位置
-										"breakOffImgY": 870,
-										"breakOffX": 1000, //异常挂断文字位置
-										"breakOffY": 882,
-										"pathD": "M448 710 C460 720,1140 710,1150 760",//线位置
-										"totalVal": 700, //节点总量
+										"trendImgY": 808,
+										"breakOffX": 1200, //异常挂断文字位置
+										"breakOffY": 822,
+										"breakOffImgX": 1230, //异常挂断图标位置
+										"breakOffImgY": 810,
+										"bottomX": 1140,
+										"bottomY": 830,
+										"pathD": "M512 600 C580 670,1170 610,1150 700",//线位置
+										"totalVal": 700, //节点总量M512 600 C510 650,140 630,150 700
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
 										"interfaceVal": 200 //接口异常量
@@ -524,19 +524,19 @@ const dataset = {
 								"id": 1,
 								"x": 700,
 								"y": 540,
-								"imgX": 650, //大图标位移
+								"imgX": 728, //大图标位移
 								"imgY": 460,
-								"spreadX": 697,//加号减号坐标
+								"spreadX": 773,//加号减号坐标
 								"spreadY": 480,
-								"nameX": 675,//节点名称位移
+								"nameX": 748,//节点名称位移
 								"nameY": 555,
-								"totalNodeX": 650,//节点总量位移
+								"totalNodeX": 728,//节点总量位移
 								"totalNodeY": 575,
-								"nodeX": 640,//节点量位移
+								"nodeX": 748,//节点量位移
 								"nodeY": 460,
-								"trendImgX": 740,//趋势图表位移
+								"trendImgX": 815,//趋势图表位移
 								"trendImgY": 560,
-								"pathD": "M697 440 L 697 480",//曲线位置
+								"pathD": "M772 440 L 773 480",//曲线位置
 								"totalVal": 700, //节点总量
 								"value": 100, //节点量
 								"abnormalVal": 300, //异常挂断量
@@ -552,19 +552,19 @@ const dataset = {
 								"img": "",
 								"x": 840,
 								"y": 580,
-								"imgX": 900, //大图标位移
+								"imgX": 965, //大图标位移
 								"imgY": 460,
-								"spreadX": 945,//加号减号坐标
+								"spreadX": 1010,//加号减号坐标
 								"spreadY": 480,
-								"nameX": 915,//节点名称位移
+								"nameX": 980,//节点名称位移
 								"nameY": 555,
-								"totalNodeX": 900,//节点总量位移
+								"totalNodeX": 965,//节点总量位移
 								"totalNodeY": 575,
-								"nodeX": 900,//节点量位移
+								"nodeX": 965,//节点量位移
 								"nodeY": 460,
-								"trendImgX": 990,//趋势图表位移
+								"trendImgX": 1055,//趋势图表位移
 								"trendImgY": 560,
-								"pathD": "M695 440 C 700 470,940 440,945 480",//曲线位置
+								"pathD": "M775 440 C 775 460,1000 440,1015 480",//曲线位置
 								"totalVal": 700, //节点总量
 								"abnormalVal": 300, //异常挂断量
 								"interfaceVal": 200 //接口异常量
@@ -574,27 +574,27 @@ const dataset = {
 				]
 			},
 			{
-				x: 890,
-				y: 190,
-				x2: 920,
+				x: 925,
+				y: 170,
+				x2: 960,
 				y2: 200,
 				id: 2,
 				width: 70,
 				height: 70,
 				value: 1200,
 				//文本坐标
-				textX: 895,
-				textY: 280,
-				bottomX: 920,
-				bottomY: 290,
+				textX: 927,
+				textY: 260,
+				bottomX: 954,
+				bottomY: 270,
 				//数值坐标
-				valueX: 930,
-				valueY: 180,
-				pointX: 909,
-				pointY: 160,
+				valueX: 970,
+				valueY: 170,
+				pointX: 950,
+				pointY: 150,
 				pointUrl: require("../../assets/images/light3.png"),
 				//贴片
-				patchX: 910,
+				patchX: 948,
 				patchY: 135,
 				patchUrl: require("../../assets/images/patch2.png"),
 				"name": "溢出流程",
@@ -621,8 +621,8 @@ const dataset = {
 				//数值坐标
 				valueX: 1130,
 				valueY: 150,
-				pointX: 1040,
-				pointY: 150,
+				pointX: 1050,
+				pointY: 145,
 				pointUrl: require("../../assets/images/light4.png"),
 				//贴片
 				patchX: 975,
@@ -638,29 +638,42 @@ const dataset = {
 					{
 						"name": "前置流程",
 						"value": 1200, //数据量
-						"type": 4, //类型
+						"type": 1, //类型
 						"isFold": true, //是否展开节点 默认true 展开
-						"id": 1,
+						"id": 2,
 						"img": "",
-						"x": 25,
-						"y": 52,
+						"x": 1290,
+						"y": 550,
+						"imgX": 1105, //大图标位移
+						"imgY": 300,
+						"spreadX": 1155,//加号减号坐标
+						"spreadY": 320,
+						"nameX": 1105,//节点名称位移
+						"nameY": 395,
+						"totalNodeX": 1090,//节点总量位移
+						"totalNodeY": 415,
+						"trendImgX": 1185,//趋势图表位移
+						"trendImgY": 400,
+						bottomX: 1150,
+						bottomY: 430,
+						"pathD": "M1153 260 L 1156 320",//曲线位置
 						"totalVal": 700, //节点总量
 						"abnormalVal": 300, //异常挂断量
 						"interfaceVal": 200, //接口异常量
 						"children": [
-							{
-								"name": "视频IVVR",
-								"value": 1200, //数据量
-								"type": 4, //类型
-								"isFold": true, //是否展开节点 默认true 展开
-								"id": 1,
-								"img": "",
-								"x": 25,
-								"y": 52,
-								"totalVal": 700, //节点总量
-								"abnormalVal": 300, //异常挂断量
-								"interfaceVal": 200 //接口异常量
-							}
+							// {
+							// 	"name": "视频IVVR",
+							// 	"value": 1200, //数据量
+							// 	"type": 4, //类型
+							// 	"isFold": true, //是否展开节点 默认true 展开
+							// 	"id": 1,
+							// 	"img": "",
+							// 	"x": 25,
+							// 	"y": 52,
+							// 	"totalVal": 700, //节点总量
+							// 	"abnormalVal": 300, //异常挂断量
+							// 	"interfaceVal": 200 //接口异常量
+							// }
 						]
 					},
 				]

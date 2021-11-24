@@ -116,7 +116,9 @@
                   <skillChart></skillChart>
                   <Progress datasource="[]"></Progress>
                 </g>
-                <g class="quantity"></g>
+                <g class="quantity">
+                  <Histograms></Histograms>
+                </g>
                 <g class="lines"></g>
               </svg>
             </div>
@@ -147,6 +149,8 @@ import topRight from "../topRight";
 import mainSelect from "../mainSelect";
 import traffice from "./traffice";
 import Progress from "./progress.vue";
+import Histograms from "./histograms.vue";
+
 // import * as d3 from 'd3'
 export default {
   name: "wholeNetworkScreen",
@@ -214,36 +218,14 @@ export default {
       fullscreen: false,
     };
   },
-  components: { topLeft, topRight, mainSelect, traffice, Progress, skillChart },
-  computed:{
-   remarks(){
-     let marks = {};
-     for(let i = 0;i<=100;i+=10){
-       if(i%50==0){
-         marks[i] =  {
-           style:{
-             height: '14px',
-             width:  '2px',
-             background:'#001A44',
-             top:'-40px'
-           },
-           label:this.$createElement('div', '')
-         };
-       }
-       else if(i%10==0){
-         marks[i] = {
-           style:{
-             height: '9px',
-             width:  '2px',
-             background:'#001A44',
-             top:'-35px'
-           },
-           label:this.$createElement('div', '')
-         };
-       }
-     }
-     return marks;
-   }
+  components: {
+    topLeft,
+    topRight,
+    mainSelect,
+    traffice,
+    Progress,
+    skillChart,
+    Histograms,
   },
   mounted() {
     // this.svgZoom()
@@ -366,8 +348,6 @@ export default {
       span {
         margin-right: 10px;
       }
-    }
-    .title {
     }
   }
   .right-box {
