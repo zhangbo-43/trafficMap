@@ -9,6 +9,9 @@
         </g>
         <!-- 第一级 -->
         <g class="node" width="200" height="200">
+          <circle :cx=item1.spreadX :cy=item1.spreadY r="6" stroke="#fff"></circle>
+          <text dy="4" dx="-4" :x="item1.spreadX" :y="item1.spreadY" fill="#fff" font-size="13" v-if="item1.isSpread">+</text>
+          <text dy="3" dx="-2" :x="item1.spreadX" :y="item1.spreadY" font-size="13" fill="#fff" v-else>-</text>
           <image
             opacity="1"
             stroke-width="1"
@@ -75,6 +78,9 @@
             <circle r="5" cx="500" cy="400" fill="red"></circle>
             <path :d="item2.pathD" stroke="#a09eff" fill="none" />
           </g>
+          <circle :cx=item2.spreadX :cy=item2.spreadY r="6" stroke="#fff"></circle>
+          <text dy="4" dx="-4" :x="item2.spreadX" :y="item2.spreadY" fill="#fff" font-size="13" v-if="item2.isSpread">+</text>
+          <text dy="3" dx="-2" :x="item2.spreadX" :y="item2.spreadY" font-size="13" fill="#fff" v-else>-</text>
           <image
             opacity="1"
             stroke-width="1"
@@ -237,7 +243,7 @@
       </g>
     </g>
   </g>
-</template>    
+</template>
 
 <script>
 import d3Data from "./d3Data";

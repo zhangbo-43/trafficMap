@@ -89,7 +89,6 @@ const dataset = {
 				"isFold": true, //是否展开节点 默认true 展开
 				"totalVal": 700, //节点总量
 				"abnormalVal": 300, //异常挂断量
-
 				"children": [
 					{
 						"name": "前置流程",
@@ -102,6 +101,9 @@ const dataset = {
 						"y": 550,
 						"imgX": 620, //大图标位移
 						"imgY": 420,
+						isSpread: true,
+						"spreadX" :668,//加号减号坐标
+						"spreadY": 440,
 						"nameX": 620,//节点名称位移
 						"nameY": 520,
 						"totalNodeX": 620,//节点总量位移
@@ -114,7 +116,6 @@ const dataset = {
 						"totalVal": 700, //节点总量
 						"abnormalVal": 300, //异常挂断量
 						"interfaceVal": 200, //接口异常量
-
 						"children": [
 							{
 								"name": "语音IVR",
@@ -128,6 +129,9 @@ const dataset = {
 								bottomY: 350,
 								"imgX": 400, //大图标位移
 								"imgY": 580,
+								isSpread: true,
+								"spreadX" :450,//加号减号坐标
+								"spreadY": 600,
 								"nameX": 420,//节点名称位移
 								"nameY": 680,
 								"totalNodeX": 420,//节点总量位移
@@ -465,6 +469,8 @@ const dataset = {
 								"y": 540,
 								"imgX": 620, //大图标位移
 								"imgY": 580,
+								"spreadX" :668,//加号减号坐标
+								"spreadY": 600,
 								"nameX": 620,//节点名称位移
 								"nameY": 680,
 								"totalNodeX": 620,//节点总量位移
@@ -490,6 +496,8 @@ const dataset = {
 								"y": 580,
 								"imgX": 840, //大图标位移
 								"imgY": 580,
+								"spreadX" :885,//加号减号坐标
+								"spreadY": 600,
 								"nameX": 840,//节点名称位移
 								"nameY": 680,
 								"totalNodeX": 840,//节点总量位移
