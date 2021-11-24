@@ -8,7 +8,7 @@ const dataset = {
 		"interfaceVal": 200, //接口异常量
 		"isFold": true, //是否展开节点 默认true 展开
 		"type": 1, //类型
-		x: 720,
+		x: 710,
 		y: -35,
 		id: 1,
 		"children": [
@@ -27,6 +27,10 @@ const dataset = {
 				valueY: 150,
 				width: 50,
 				height: 50,
+				//标记点
+				pointX: 700,
+				pointY: 185,
+				pointUrl: require("../../assets/images/light1.png"),
 				"name": "互联网话务",
 				"type": 1, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -50,6 +54,9 @@ const dataset = {
 				valueY: 150,
 				width: 50,
 				height: 50,
+				pointX: 1120,
+				pointY: 183,
+				pointUrl: require("../../assets/images/light5.png"),
 				"name": "跨网支撑",
 				"type": 2, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -71,6 +78,13 @@ const dataset = {
 				valueY: 260,
 				width: 60,
 				height: 60,
+				pointX: 760,
+				pointY: 265,
+				pointUrl: require("../../assets/images/light2.png"),
+				//贴片
+				patchX: 827,
+				patchY:226,
+				patchUrl: require("../../assets/images/patch1.png"),
 				"name": "语音话务",
 				"type": 3, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -507,6 +521,13 @@ const dataset = {
 				//数值坐标
 				valueX: 930,
 				valueY: 345,
+				pointX: 910,
+				pointY: 300,
+				pointUrl: require("../../assets/images/light3.png"),
+				//贴片
+				patchX: 910,
+				patchY:238,
+				patchUrl: require("../../assets/images/patch2.png"),
 				"name": "溢出流程",
 				"type": 4, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -528,6 +549,13 @@ const dataset = {
 				//数值坐标
 				valueX: 1150,
 				valueY: 260,
+				pointX: 1060,
+				pointY: 265,
+				pointUrl: require("../../assets/images/light4.png"),
+				//贴片
+				patchX: 985,
+				patchY:220,
+				patchUrl: require("../../assets/images/patch3.png"),
 				"name": "视频话务",
 				"type": 4, //类型
 				"isFold": true, //是否展开节点 默认true 展开
@@ -656,32 +684,6 @@ const dataset = {
 			"value": 200 //节点数量
 		}
 	],
-	markList: [
-		//  第一层左右两个点
-		{
-			x: 730,
-			y: 195,
-			id: 12
-		}, {
-			x: 760,
-			y: 280,
-			id: 13
-		},
-		//  第二层左右两个点
-		{
-			x: 920,
-			y: 320,
-			id: 14
-		}, {
-			x: 1080,
-			y: 280,
-			id: 15
-		}, {
-			x: 1140,
-			y: 195,
-			id: 16
-		},
-	]
 }
 export default {
 	dataset

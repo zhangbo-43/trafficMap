@@ -2,7 +2,8 @@
   <g class="centerBox">
     <g>
       <line  v-for="(item) in this.d3Data.dataset.nodes.children" :key="item.id" x1="920" y1="200" :x2=item.x2 :y2=item.y2 style="stroke:rgb(20, 81, 248);stroke-width:2"/>
-      <circle  v-for="(item) in this.d3Data.dataset.markList" :key="item.id" r="4" fill="#fff" :cx=item.x :cy=item.y></circle>
+<!--      <circle  v-for="(item) in this.d3Data.dataset.markList" :key="item.id" r="4" fill="#fff" :cx=item.x :cy=item.y></circle>-->
+<!--      <image  v-for="(item) in this.d3Data.dataset.markList" :key="item.id" :x="item.x" :y="item.y" :href="item.pointUrl"></image>-->
     </g>
     <g>
       <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1" :x=this.d3Data.dataset.nodes.x :y=this.d3Data.dataset.nodes.y  width="400" height="400" :href="centerUrl"></image>
@@ -13,6 +14,8 @@
       <text fill="#fff" :x=item.x  :y=item.y text-anchor="start" dx="0" dy="70">{{item.name}}</text>
       <text  fill="rgba(6, 202, 195)" :x=item.valueX  :y=item.valueY text-anchor="start">{{item.value}}</text>
       <image  opacity="1" stroke-width="1" stroke-opacity="1" fill-opacity="1"  :x=item.bottomX  :y=item.bottomY width="15" height="15" :href="arrowUrl"></image>
+      <image :x="item.pointX" :y="item.pointY" :href="item.pointUrl"></image>
+      <image :x="item.patchX" :y="item.patchY" width="23" height="23" :href="item.patchUrl"></image>
     </g>
 
 <!--    <g>-->
