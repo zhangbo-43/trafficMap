@@ -192,6 +192,44 @@
                 :href="trendImg"
               ></image>
             </g>
+            <g>
+              <text
+                class="pro-text"
+                :x="item3.nodeX"
+                :y="item3.nodeY"
+                fill="#fff"
+                >节点量{{ item3.value }}</text
+              >
+              <image
+                opacity="1"
+                stroke-width="1"
+                stroke-opacity="1"
+                fill-opacity="1"
+                width="16"
+                height="16"
+                :x="item3.imgX"
+                :y="item3.imgY"
+                :href="InterfaceImg"
+              ></image>
+              <text
+                class="pro-text"
+                :x="item3.nameX"
+                :y="item3.nameY"
+                fill="#fff"
+                >{{ item3.name }}</text
+              >
+              <image
+                opacity="1"
+                stroke-width="1"
+                stroke-opacity="1"
+                fill-opacity="1"
+                width="16"
+                height="16"
+                :x="item3.imgX"
+                :y="item3.imgY"
+                :href="InterfaceImg"
+              ></image>
+            </g>
           </g>
           <!-- 第三级 -->
         </g>
@@ -222,6 +260,9 @@ export default {
       this.dataList = this.datasource.filer(
         (item) => item.targetId == targetId
       );
+    },
+    show(i) {
+      console.log(i);
     },
   },
   mounted() {

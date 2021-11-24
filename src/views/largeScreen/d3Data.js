@@ -139,307 +139,307 @@ const dataset = {
 										bottomX: 660,
 										bottomY: 350,
 										"imgX": 100, //大图标位移
-										"imgY": 760,
+										"imgY": 740,
 										"nameX": 100,//按键名称位置
-										"nameY": 860,
+										"nameY": 840,
 										"totalNodeX": 100,//节点总量位移
-										"totalNodeY": 880,
-										"nodeX": 600,//节点量位移
-										"nodeY": 500,
+										"totalNodeY": 860,
+										"nodeX": 100,//节点量位移
+										"nodeY": 880,
 										"trendImgX": 510,//趋势图表位移
 										"trendImgY": 690,
-										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
+										"pathD": "M400 650 C 650 596,448 560,100 600",//曲线位置
 										"totalVal": 700, //节点总量
 										"value": 100, //节点量
 										"abnormalVal": 300, //异常挂断量
 										"interfaceVal": 200 //接口异常量
 									},
-									{
-										"name": "T12211-30分钟500M",
-										"type": 2, //类型
-										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
-										"img": "",
-										"x": 460,
-										"y": 620,
-										bottomX: 660,
-										bottomY: 350,
-										"imgX": 400, //大图标位移
-										"imgY": 580,
-										"nameX": 420,//节点名称位移
-										"nameY": 680,
-										"totalNodeX": 420,//节点总量位移
-										"totalNodeY": 700,
-										"nodeX": 600,//节点量位移
-										"nodeY": 500,
-										"trendImgX": 510,//趋势图表位移
-										"trendImgY": 690,
-										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
-										"totalVal": 700, //节点总量
-										"value": 100, //节点量
-										"abnormalVal": 300, //异常挂断量
-										"interfaceVal": 200 //接口异常量
-									},
-									{
-										"name": "T2321-4G分享38元...",
-										"type": 3, //类型
-										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
-										"img": "",
-										"x": 460,
-										"y": 620,
-										bottomX: 660,
-										bottomY: 350,
-										"imgX": 400, //大图标位移
-										"imgY": 580,
-										"nameX": 420,//节点名称位移
-										"nameY": 680,
-										"totalNodeX": 420,//节点总量位移
-										"totalNodeY": 700,
-										"nodeX": 600,//节点量位移
-										"nodeY": 500,
-										"trendImgX": 510,//趋势图表位移
-										"trendImgY": 690,
-										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
-										"totalVal": 700, //节点总量
-										"value": 100, //节点量
-										"abnormalVal": 300, //异常挂断量
-										"interfaceVal": 200 //接口异常量
-									},
-									{
-										"name": "T3221-1G流量换60M",
-										"value": 1200, //数据量
-										"type": 4, //类型
-										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
-										"img": "",
-										"x": 460,
-										"y": 620,
-										bottomX: 660,
-										bottomY: 350,
-										"imgX": 400, //大图标位移
-										"imgY": 580,
-										"nameX": 420,//节点名称位移
-										"nameY": 680,
-										"totalNodeX": 420,//节点总量位移
-										"totalNodeY": 700,
-										"nodeX": 600,//节点量位移
-										"nodeY": 500,
-										"trendImgX": 510,//趋势图表位移
-										"trendImgY": 690,
-										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
-										"totalVal": 700, //节点总量
-										"abnormalVal": 300, //异常挂断量
-										"interfaceVal": 200 //接口异常量
-									},
-									{
-										"name": "T43211-流量限时包",
-										"type": 4, //类型
-										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
-										"img": "",
-										"x": 460,
-										"y": 620,
-										bottomX: 660,
-										bottomY: 350,
-										"imgX": 400, //大图标位移
-										"imgY": 580,
-										"nameX": 420,//节点名称位移
-										"nameY": 680,
-										"totalNodeX": 420,//节点总量位移
-										"totalNodeY": 700,
-										"nodeX": 600,//节点量位移
-										"nodeY": 500,
-										"trendImgX": 510,//趋势图表位移
-										"trendImgY": 690,
-										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
-										"totalVal": 700, //节点总量
-										"value": 100, //节点量
-										"abnormalVal": 300, //异常挂断量
-										"interfaceVal": 200 //接口异常量
-									},
-									{
-										"name": "T52211-60分钟换1GB换...",
-										"type": 4, //类型
-										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
-										"img": "",
-										"x": 460,
-										"y": 620,
-										bottomX: 660,
-										bottomY: 350,
-										"imgX": 400, //大图标位移
-										"imgY": 580,
-										"nameX": 420,//节点名称位移
-										"nameY": 680,
-										"totalNodeX": 420,//节点总量位移
-										"totalNodeY": 700,
-										"nodeX": 600,//节点量位移
-										"nodeY": 500,
-										"trendImgX": 510,//趋势图表位移
-										"trendImgY": 690,
-										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
-										"totalVal": 700, //节点总量
-										"value": 100, //节点量
-										"abnormalVal": 300, //异常挂断量
-										"interfaceVal": 200 //接口异常量
-									},
-									{
-										"name": "T43211-流量限时包",
-										"type": 4, //类型
-										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
-										"img": "",
-										"x": 460,
-										"y": 620,
-										bottomX: 660,
-										bottomY: 350,
-										"imgX": 400, //大图标位移
-										"imgY": 580,
-										"nameX": 420,//节点名称位移
-										"nameY": 680,
-										"totalNodeX": 420,//节点总量位移
-										"totalNodeY": 700,
-										"nodeX": 600,//节点量位移
-										"nodeY": 500,
-										"trendImgX": 510,//趋势图表位移
-										"trendImgY": 690,
-										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
-										"totalVal": 700, //节点总量
-										"value": 100, //节点量
-										"abnormalVal": 300, //异常挂断量
-										"interfaceVal": 200 //接口异常量
-									},
-									{
-										"name": "T52211-60分钟换1GB换...",
-										"type": 4, //类型
-										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
-										"img": "",
-										"x": 460,
-										"y": 620,
-										bottomX: 660,
-										bottomY: 350,
-										"imgX": 400, //大图标位移
-										"imgY": 580,
-										"nameX": 420,//节点名称位移
-										"nameY": 680,
-										"totalNodeX": 420,//节点总量位移
-										"totalNodeY": 700,
-										"nodeX": 600,//节点量位移
-										"nodeY": 500,
-										"trendImgX": 510,//趋势图表位移
-										"trendImgY": 690,
-										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
-										"totalVal": 700, //节点总量
-										"value": 100, //节点量
-										"abnormalVal": 300, //异常挂断量
-										"interfaceVal": 200 //接口异常量
-									},
-									{
-										"name": "T65321-充值与返还...",
-										"type": 4, //类型
-										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
-										"img": "",
-										"x": 460,
-										"y": 620,
-										bottomX: 660,
-										bottomY: 350,
-										"imgX": 400, //大图标位移
-										"imgY": 580,
-										"nameX": 420,//节点名称位移
-										"nameY": 680,
-										"totalNodeX": 420,//节点总量位移
-										"totalNodeY": 700,
-										"nodeX": 600,//节点量位移
-										"nodeY": 500,
-										"trendImgX": 510,//趋势图表位移
-										"trendImgY": 690,
-										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
-										"totalVal": 700, //节点总量
-										"value": 100, //节点量
-										"abnormalVal": 300, //异常挂断量
-										"interfaceVal": 200 //接口异常量
-									},
-									{
-										"name": "T79766-流量限时加...",
-										"type": 4, //类型
-										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
-										"img": "",
-										"x": 460,
-										"y": 620,
-										bottomX: 660,
-										bottomY: 350,
-										"imgX": 400, //大图标位移
-										"imgY": 580,
-										"nameX": 420,//节点名称位移
-										"nameY": 680,
-										"totalNodeX": 420,//节点总量位移
-										"totalNodeY": 700,
-										"nodeX": 600,//节点量位移
-										"nodeY": 500,
-										"trendImgX": 510,//趋势图表位移
-										"trendImgY": 690,
-										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
-										"totalVal": 700, //节点总量
-										"value": 100, //节点量
-										"abnormalVal": 300, //异常挂断量
-										"interfaceVal": 200 //接口异常量
-									},
-									{
-										"name": "T3213-9.9元3天流...",
-										"type": 4, //类型
-										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
-										"img": "",
-										"x": 460,
-										"y": 620,
-										bottomX: 660,
-										bottomY: 350,
-										"imgX": 400, //大图标位移
-										"imgY": 580,
-										"nameX": 420,//节点名称位移
-										"nameY": 680,
-										"totalNodeX": 420,//节点总量位移
-										"totalNodeY": 700,
-										"nodeX": 600,//节点量位移
-										"nodeY": 500,
-										"trendImgX": 510,//趋势图表位移
-										"trendImgY": 690,
-										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
-										"totalVal": 700, //节点总量
-										"value": 100, //节点量
-										"abnormalVal": 300, //异常挂断量
-										"interfaceVal": 200 //接口异常量
-									},
-									{
-										"name": "T3312-5G158套餐",
-										"type": 4, //类型
-										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
-										"img": "",
-										"x": 460,
-										"y": 620,
-										bottomX: 660,
-										bottomY: 350,
-										"imgX": 400, //大图标位移
-										"imgY": 580,
-										"nameX": 420,//节点名称位移
-										"nameY": 680,
-										"totalNodeX": 420,//节点总量位移
-										"totalNodeY": 700,
-										"nodeX": 600,//节点量位移
-										"nodeY": 500,
-										"trendImgX": 510,//趋势图表位移
-										"trendImgY": 690,
-										"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
-										"totalVal": 700, //节点总量
-										"value": 100, //节点量
-										"abnormalVal": 300, //异常挂断量
-										"interfaceVal": 200 //接口异常量
-									},
+									// {
+									// 	"name": "T12211-30分钟500M",
+									// 	"type": 2, //类型
+									// 	"isFold": true, //是否展开节点 默认true 展开
+									// 	"id": 1,
+									// 	"img": "",
+									// 	"x": 460,
+									// 	"y": 620,
+									// 	bottomX: 660,
+									// 	bottomY: 350,
+									// 	"imgX": 400, //大图标位移
+									// 	"imgY": 580,
+									// 	"nameX": 420,//节点名称位移
+									// 	"nameY": 680,
+									// 	"totalNodeX": 420,//节点总量位移
+									// 	"totalNodeY": 700,
+									// 	"nodeX": 600,//节点量位移
+									// 	"nodeY": 500,
+									// 	"trendImgX": 510,//趋势图表位移
+									// 	"trendImgY": 690,
+									// 	"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
+									// 	"totalVal": 700, //节点总量
+									// 	"value": 100, //节点量
+									// 	"abnormalVal": 300, //异常挂断量
+									// 	"interfaceVal": 200 //接口异常量
+									// },
+									// {
+									// 	"name": "T2321-4G分享38元...",
+									// 	"type": 3, //类型
+									// 	"isFold": true, //是否展开节点 默认true 展开
+									// 	"id": 1,
+									// 	"img": "",
+									// 	"x": 460,
+									// 	"y": 620,
+									// 	bottomX: 660,
+									// 	bottomY: 350,
+									// 	"imgX": 400, //大图标位移
+									// 	"imgY": 580,
+									// 	"nameX": 420,//节点名称位移
+									// 	"nameY": 680,
+									// 	"totalNodeX": 420,//节点总量位移
+									// 	"totalNodeY": 700,
+									// 	"nodeX": 600,//节点量位移
+									// 	"nodeY": 500,
+									// 	"trendImgX": 510,//趋势图表位移
+									// 	"trendImgY": 690,
+									// 	"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
+									// 	"totalVal": 700, //节点总量
+									// 	"value": 100, //节点量
+									// 	"abnormalVal": 300, //异常挂断量
+									// 	"interfaceVal": 200 //接口异常量
+									// },
+									// {
+									// 	"name": "T3221-1G流量换60M",
+									// 	"value": 1200, //数据量
+									// 	"type": 4, //类型
+									// 	"isFold": true, //是否展开节点 默认true 展开
+									// 	"id": 1,
+									// 	"img": "",
+									// 	"x": 460,
+									// 	"y": 620,
+									// 	bottomX: 660,
+									// 	bottomY: 350,
+									// 	"imgX": 400, //大图标位移
+									// 	"imgY": 580,
+									// 	"nameX": 420,//节点名称位移
+									// 	"nameY": 680,
+									// 	"totalNodeX": 420,//节点总量位移
+									// 	"totalNodeY": 700,
+									// 	"nodeX": 600,//节点量位移
+									// 	"nodeY": 500,
+									// 	"trendImgX": 510,//趋势图表位移
+									// 	"trendImgY": 690,
+									// 	"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
+									// 	"totalVal": 700, //节点总量
+									// 	"abnormalVal": 300, //异常挂断量
+									// 	"interfaceVal": 200 //接口异常量
+									// },
+									// {
+									// 	"name": "T43211-流量限时包",
+									// 	"type": 4, //类型
+									// 	"isFold": true, //是否展开节点 默认true 展开
+									// 	"id": 1,
+									// 	"img": "",
+									// 	"x": 460,
+									// 	"y": 620,
+									// 	bottomX: 660,
+									// 	bottomY: 350,
+									// 	"imgX": 400, //大图标位移
+									// 	"imgY": 580,
+									// 	"nameX": 420,//节点名称位移
+									// 	"nameY": 680,
+									// 	"totalNodeX": 420,//节点总量位移
+									// 	"totalNodeY": 700,
+									// 	"nodeX": 600,//节点量位移
+									// 	"nodeY": 500,
+									// 	"trendImgX": 510,//趋势图表位移
+									// 	"trendImgY": 690,
+									// 	"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
+									// 	"totalVal": 700, //节点总量
+									// 	"value": 100, //节点量
+									// 	"abnormalVal": 300, //异常挂断量
+									// 	"interfaceVal": 200 //接口异常量
+									// },
+									// {
+									// 	"name": "T52211-60分钟换1GB换...",
+									// 	"type": 4, //类型
+									// 	"isFold": true, //是否展开节点 默认true 展开
+									// 	"id": 1,
+									// 	"img": "",
+									// 	"x": 460,
+									// 	"y": 620,
+									// 	bottomX: 660,
+									// 	bottomY: 350,
+									// 	"imgX": 400, //大图标位移
+									// 	"imgY": 580,
+									// 	"nameX": 420,//节点名称位移
+									// 	"nameY": 680,
+									// 	"totalNodeX": 420,//节点总量位移
+									// 	"totalNodeY": 700,
+									// 	"nodeX": 600,//节点量位移
+									// 	"nodeY": 500,
+									// 	"trendImgX": 510,//趋势图表位移
+									// 	"trendImgY": 690,
+									// 	"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
+									// 	"totalVal": 700, //节点总量
+									// 	"value": 100, //节点量
+									// 	"abnormalVal": 300, //异常挂断量
+									// 	"interfaceVal": 200 //接口异常量
+									// },
+									// {
+									// 	"name": "T43211-流量限时包",
+									// 	"type": 4, //类型
+									// 	"isFold": true, //是否展开节点 默认true 展开
+									// 	"id": 1,
+									// 	"img": "",
+									// 	"x": 460,
+									// 	"y": 620,
+									// 	bottomX: 660,
+									// 	bottomY: 350,
+									// 	"imgX": 400, //大图标位移
+									// 	"imgY": 580,
+									// 	"nameX": 420,//节点名称位移
+									// 	"nameY": 680,
+									// 	"totalNodeX": 420,//节点总量位移
+									// 	"totalNodeY": 700,
+									// 	"nodeX": 600,//节点量位移
+									// 	"nodeY": 500,
+									// 	"trendImgX": 510,//趋势图表位移
+									// 	"trendImgY": 690,
+									// 	"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
+									// 	"totalVal": 700, //节点总量
+									// 	"value": 100, //节点量
+									// 	"abnormalVal": 300, //异常挂断量
+									// 	"interfaceVal": 200 //接口异常量
+									// },
+									// {
+									// 	"name": "T52211-60分钟换1GB换...",
+									// 	"type": 4, //类型
+									// 	"isFold": true, //是否展开节点 默认true 展开
+									// 	"id": 1,
+									// 	"img": "",
+									// 	"x": 460,
+									// 	"y": 620,
+									// 	bottomX: 660,
+									// 	bottomY: 350,
+									// 	"imgX": 400, //大图标位移
+									// 	"imgY": 580,
+									// 	"nameX": 420,//节点名称位移
+									// 	"nameY": 680,
+									// 	"totalNodeX": 420,//节点总量位移
+									// 	"totalNodeY": 700,
+									// 	"nodeX": 600,//节点量位移
+									// 	"nodeY": 500,
+									// 	"trendImgX": 510,//趋势图表位移
+									// 	"trendImgY": 690,
+									// 	"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
+									// 	"totalVal": 700, //节点总量
+									// 	"value": 100, //节点量
+									// 	"abnormalVal": 300, //异常挂断量
+									// 	"interfaceVal": 200 //接口异常量
+									// },
+									// {
+									// 	"name": "T65321-充值与返还...",
+									// 	"type": 4, //类型
+									// 	"isFold": true, //是否展开节点 默认true 展开
+									// 	"id": 1,
+									// 	"img": "",
+									// 	"x": 460,
+									// 	"y": 620,
+									// 	bottomX: 660,
+									// 	bottomY: 350,
+									// 	"imgX": 400, //大图标位移
+									// 	"imgY": 580,
+									// 	"nameX": 420,//节点名称位移
+									// 	"nameY": 680,
+									// 	"totalNodeX": 420,//节点总量位移
+									// 	"totalNodeY": 700,
+									// 	"nodeX": 600,//节点量位移
+									// 	"nodeY": 500,
+									// 	"trendImgX": 510,//趋势图表位移
+									// 	"trendImgY": 690,
+									// 	"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
+									// 	"totalVal": 700, //节点总量
+									// 	"value": 100, //节点量
+									// 	"abnormalVal": 300, //异常挂断量
+									// 	"interfaceVal": 200 //接口异常量
+									// },
+									// {
+									// 	"name": "T79766-流量限时加...",
+									// 	"type": 4, //类型
+									// 	"isFold": true, //是否展开节点 默认true 展开
+									// 	"id": 1,
+									// 	"img": "",
+									// 	"x": 460,
+									// 	"y": 620,
+									// 	bottomX: 660,
+									// 	bottomY: 350,
+									// 	"imgX": 400, //大图标位移
+									// 	"imgY": 580,
+									// 	"nameX": 420,//节点名称位移
+									// 	"nameY": 680,
+									// 	"totalNodeX": 420,//节点总量位移
+									// 	"totalNodeY": 700,
+									// 	"nodeX": 600,//节点量位移
+									// 	"nodeY": 500,
+									// 	"trendImgX": 510,//趋势图表位移
+									// 	"trendImgY": 690,
+									// 	"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
+									// 	"totalVal": 700, //节点总量
+									// 	"value": 100, //节点量
+									// 	"abnormalVal": 300, //异常挂断量
+									// 	"interfaceVal": 200 //接口异常量
+									// },
+									// {
+									// 	"name": "T3213-9.9元3天流...",
+									// 	"type": 4, //类型
+									// 	"isFold": true, //是否展开节点 默认true 展开
+									// 	"id": 1,
+									// 	"img": "",
+									// 	"x": 460,
+									// 	"y": 620,
+									// 	bottomX: 660,
+									// 	bottomY: 350,
+									// 	"imgX": 400, //大图标位移
+									// 	"imgY": 580,
+									// 	"nameX": 420,//节点名称位移
+									// 	"nameY": 680,
+									// 	"totalNodeX": 420,//节点总量位移
+									// 	"totalNodeY": 700,
+									// 	"nodeX": 600,//节点量位移
+									// 	"nodeY": 500,
+									// 	"trendImgX": 510,//趋势图表位移
+									// 	"trendImgY": 690,
+									// 	"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
+									// 	"totalVal": 700, //节点总量
+									// 	"value": 100, //节点量
+									// 	"abnormalVal": 300, //异常挂断量
+									// 	"interfaceVal": 200 //接口异常量
+									// },
+									// {
+									// 	"name": "T3312-5G158套餐",
+									// 	"type": 4, //类型
+									// 	"isFold": true, //是否展开节点 默认true 展开
+									// 	"id": 1,
+									// 	"img": "",
+									// 	"x": 460,
+									// 	"y": 620,
+									// 	bottomX: 660,
+									// 	bottomY: 350,
+									// 	"imgX": 400, //大图标位移
+									// 	"imgY": 580,
+									// 	"nameX": 420,//节点名称位移
+									// 	"nameY": 680,
+									// 	"totalNodeX": 420,//节点总量位移
+									// 	"totalNodeY": 700,
+									// 	"nodeX": 600,//节点量位移
+									// 	"nodeY": 500,
+									// 	"trendImgX": 510,//趋势图表位移
+									// 	"trendImgY": 690,
+									// 	"pathD": "M668 554 C 650 596,448 560,448 600",//曲线位置
+									// 	"totalVal": 700, //节点总量
+									// 	"value": 100, //节点量
+									// 	"abnormalVal": 300, //异常挂断量
+									// 	"interfaceVal": 200 //接口异常量
+									// },
 								]
 							},
 							{
