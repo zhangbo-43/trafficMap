@@ -236,7 +236,7 @@ export default {
     Progress,
     skillChart,
     Histograms,
-    serviceChart
+    serviceChart,
     searchsetflexible,
   },
   mounted() {
