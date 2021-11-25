@@ -168,7 +168,7 @@ const dataset = {
 										"imgX": 100, //大图标位移
 										"imgY": 680,
 										"nameX": 100,//按键名称位置
-										"nameY": 780,
+										"nameY": 764,
 										"InterfaceImgX": 170, //异常接口位置
 										"InterfaceImgY": 766,
 										"totalNodeX": 100,//节点总量位置
@@ -193,7 +193,7 @@ const dataset = {
 										"name": "T12211-30分钟500M",
 										"type": 2, //类型
 										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
+										"id": 2,
 										"img": "",
 										"x": 460,
 										"y": 620,
@@ -202,7 +202,7 @@ const dataset = {
 										"imgX": 300, //大图标位移
 										"imgY": 680,
 										"nameX": 300,//按键名称位置
-										"nameY": 780,
+										"nameY": 764,
 										"InterfaceImgX": 370, //异常接口位置
 										"InterfaceImgY": 766,
 										"totalNodeX": 300,//节点总量位置
@@ -224,10 +224,10 @@ const dataset = {
 										"interfaceVal": 200 //接口异常量
 									},
 									{
-										"name": "T2321-4G分享38元...",
-										"type": 3, //类型
+										"name": "T2321-4G分享38元",
+										"type": 2, //类型
 										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
+										"id": 3,
 										"img": "",
 										"x": 460,
 										"y": 620,
@@ -236,7 +236,7 @@ const dataset = {
 										"imgX": 500, //大图标位移
 										"imgY": 680,
 										"nameX": 500,//按键名称位置
-										"nameY": 780,
+										"nameY": 764,
 										"InterfaceImgX": 570, //异常接口位置
 										"InterfaceImgY": 766,
 										"totalNodeX": 500,//节点总量位置
@@ -260,9 +260,9 @@ const dataset = {
 									{
 										"name": "T3221-1G流量换60M",
 										"value": 1200, //数据量
-										"type": 4, //类型
+										"type": 3, //类型
 										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
+										"id": 4,
 										"img": "",
 										"x": 460,
 										"y": 620,
@@ -271,7 +271,7 @@ const dataset = {
 										"imgX": 700, //大图标位移
 										"imgY": 680,
 										"nameX": 700,//按键名称位置
-										"nameY": 780,
+										"nameY": 764,
 										"InterfaceImgX": 770, //异常接口位置
 										"InterfaceImgY": 766,
 										"totalNodeX": 700,//节点总量位置
@@ -293,9 +293,9 @@ const dataset = {
 									},
 									{
 										"name": "T43211-流量限时包",
-										"type": 4, //类型
+										"type": 2, //类型
 										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
+										"id": 5,
 										"img": "",
 										"x": 460,
 										"y": 620,
@@ -304,7 +304,7 @@ const dataset = {
 										"imgX": 900, //大图标位移
 										"imgY": 680,
 										"nameX": 900,//按键名称位置
-										"nameY": 780,
+										"nameY": 764,
 										"InterfaceImgX": 970, //异常接口位置
 										"InterfaceImgY": 766,
 										"totalNodeX": 900,//节点总量位置
@@ -326,8 +326,8 @@ const dataset = {
 										"interfaceVal": 200 //接口异常量
 									},
 									{
-										"name": "T52211-60分钟换1GB换...",
-										"type": 4, //类型
+										"name": "T52211-60分钟换1GB换",
+										"type": 3, //类型
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 1,
 										"img": "",
@@ -338,7 +338,7 @@ const dataset = {
 										"imgX": 1100, //大图标位移
 										"imgY": 680,
 										"nameX": 1100,//按键名称位置
-										"nameY": 780,
+										"nameY": 764,
 										"InterfaceImgX": 1170, //异常接口位置
 										"InterfaceImgY": 766,
 										"totalNodeX": 1100,//节点总量位置
@@ -519,7 +519,7 @@ const dataset = {
 							},
 							{
 								"name": "语音导航",
-								"type": 4, //类型
+								"type": 2, //类型
 								"isFold": false, //是否展开节点 默认true 展开
 								"id": 1,
 								"x": 700,
@@ -546,7 +546,7 @@ const dataset = {
 
 								"name": "导航转IVR",
 								"value": 1200, //数据量
-								"type": 4, //类型
+								"type": 3, //类型
 								"isFold": false, //是否展开节点 默认true 展开
 								"id": 1,
 								"img": "",
@@ -661,19 +661,31 @@ const dataset = {
 						"abnormalVal": 300, //异常挂断量
 						"interfaceVal": 200, //接口异常量
 						"children": [
-							// {
-							// 	"name": "视频IVVR",
-							// 	"value": 1200, //数据量
-							// 	"type": 4, //类型
-							// 	"isFold": true, //是否展开节点 默认true 展开
-							// 	"id": 1,
-							// 	"img": "",
-							// 	"x": 25,
-							// 	"y": 52,
-							// 	"totalVal": 700, //节点总量
-							// 	"abnormalVal": 300, //异常挂断量
-							// 	"interfaceVal": 200 //接口异常量
-							// }
+							{
+								"name": "视频IVVR",
+								"value": 1200, //数据量
+								"type": 4, //类型
+								"isFold": true, //是否展开节点 默认true 展开
+								"id": 1,
+								"x": 840,
+								"y": 580,
+								"imgX": 1365, //大图标位移
+								"imgY": 460,
+								"spreadX": 1414,//加号减号坐标
+								"spreadY": 476,
+								"nameX": 1380,//节点名称位移
+								"nameY": 555,
+								"totalNodeX": 1365,//节点总量位移
+								"totalNodeY": 575,
+								"nodeX": 1365,//节点量位移
+								"nodeY": 460,
+								"trendImgX": 1455,//趋势图表位移
+								"trendImgY": 560,
+								"pathD": "M1154 440 C 1175 460,1400 440,1414 476",//曲线位置
+								"totalVal": 700, //节点总量
+								"abnormalVal": 300, //异常挂断量
+								"interfaceVal": 200 //接口异常量
+							}
 						]
 					},
 				]
