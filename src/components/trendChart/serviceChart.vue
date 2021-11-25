@@ -2,6 +2,7 @@
 <div class="mainContent">
   <el-dialog
       class="echartDialog"
+      :modal="false"
       modal-append-to-body
       :title=optionData.echartTitle
       :visible.sync="chartVisible"
