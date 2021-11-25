@@ -161,6 +161,7 @@ export default {
   mixins: [drawMixin],
   data() {
     return {
+      remarks: {},
       zoomValue:50,
       // marks: {
       //     0: '0',
