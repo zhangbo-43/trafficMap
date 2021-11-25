@@ -644,9 +644,9 @@ const dataset = {
 						"img": "",
 						"x": 1290,
 						"y": 550,
-						"imgX": 1105, //大图标位移
+						"imgX": 1103, //大图标位移
 						"imgY": 300,
-						"spreadX": 1155,//加号减号坐标
+						"spreadX": 1154,//加号减号坐标
 						"spreadY": 320,
 						"nameX": 1105,//节点名称位移
 						"nameY": 395,
@@ -656,7 +656,7 @@ const dataset = {
 						"trendImgY": 400,
 						bottomX: 1150,
 						bottomY: 430,
-						"pathD": "M1153 260 L 1156 320",//曲线位置
+						"pathD": "M1153 260 L 1154 320",//曲线位置
 						"totalVal": 700, //节点总量
 						"abnormalVal": 300, //异常挂断量
 						"interfaceVal": 200, //接口异常量
