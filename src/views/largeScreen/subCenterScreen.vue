@@ -61,6 +61,9 @@
             <div style="position: absolute; left: 10px; top: 310px">
               <mainSelect />
             </div>
+           <div style="position: absolute; right: 0; top: 620px">
+              <searchsetflexible />
+            </div>
             <div style="position: absolute; right: 10px; top: 310px">
              <div class="zoom-in-out">
                  <div class="zoom-line">
@@ -153,6 +156,8 @@ import traffice from "./traffice";
 import Progress from "./progress.vue";
 import Histograms from "./histograms.vue";
 import serviceChart from "../../components/trendChart/serviceChart";
+import searchsetflexible from "../../components/searchSetFlexible.vue";
+
 // import * as d3 from 'd3'
 export default {
   name: "wholeNetworkScreen",
@@ -232,6 +237,7 @@ export default {
     skillChart,
     Histograms,
     serviceChart
+    searchsetflexible,
   },
   mounted() {
     // this.svgZoom()

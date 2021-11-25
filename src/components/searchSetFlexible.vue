@@ -1,10 +1,10 @@
 <template>
   <div class="flexible">
-    <span class="control-flex">
-      <i class="el-icon-arrow-left"></i>
-      <i class="el-icon-arrow-right"></i>
+    <span class="control-flex" @click="showSetSearch=!showSetSearch">
+      <i class="el-icon-arrow-left" v-show="!showSetSearch"></i>
+      <i class="el-icon-arrow-right" v-show="showSetSearch"></i>
     </span>
-    <div class="flex-box">
+    <div class="flex-box" v-show="showSetSearch">
       <div class="select">
         <el-autocomplete
           class="inline-input"
@@ -39,6 +39,7 @@ export default {
   data() {
     return {
       showDialogtable: false,
+      showSetSearch: false,
       dialogTableData: {
         dialongTitle: "大屏技能队列首屏显示设置",
         tableTitle: false,
@@ -312,7 +313,7 @@ export default {
 <style lang="scss" scoped>
 .flexible {
   height: 5vh;
-  width: 15vw;
+  // width: 15vw;
   display: flex;
   align-items: center;
   left: 100%;
@@ -322,17 +323,20 @@ export default {
   .control-flex {
     background: #049afb;
     height: 5vh;
-    width: 5vh;
-    border-radius: 100%;
+    width: 2.5vh;
+    border-radius: 2.5vh 0 0 2.5vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    i{
+      color:#fff;
+    }
   }
   .flex-box {
     background-color: #16388d;
     flex: 1;
     height: 100%;
-    margin-left: -2vh;
+    // margin-left: -2vh;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
