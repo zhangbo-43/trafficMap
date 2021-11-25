@@ -40,8 +40,8 @@
       <use href="#pillar" x="1200" y="400" fill="blue" />
 
         <!-- 柱子下面的文字，横坐标为柱子横坐标减20，纵坐标为柱子纵坐标加200 -->
-      <foreignObject x="1180" y="600" width="80" height="100" fill="null">
-        <body xmlns="http://www.w3.org/1999/xhtml">
+      <foreignObject x="1180" y="600" width="80" height="120" fill="null">
+        <body class="txt-body" xmlns="http://www.w3.org/1999/xhtml">
           <p class="pillar-text">
             <span class="pillar-name">三星级用户技能队列</span>
             <span><span class="icon iconfont icon-daoru1"></span> 213 </span>
@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style scope lang="scss">
-body {
+.txt-body {
   background-color: rgba(0, 0, 0, 0);
   margin: 0;
   padding: 0;

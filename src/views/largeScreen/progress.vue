@@ -8,32 +8,6 @@
         </g>
         <!-- 第一级 -->
         <g class="node" width="200" height="200">
-          <circle
-            :cx="item1.spreadX"
-            :cy="item1.spreadY"
-            r="6"
-            stroke="#fff"
-          ></circle>
-          <text
-            dy="4"
-            dx="-4"
-            :x="item1.spreadX"
-            :y="item1.spreadY"
-            fill="#fff"
-            font-size="13"
-            v-if="item1.isFold"
-            >+</text
-          >
-          <text
-            dy="3"
-            dx="-2"
-            :x="item1.spreadX"
-            :y="item1.spreadY"
-            font-size="13"
-            fill="#fff"
-            v-else
-            >-</text
-          >
           <image
             opacity="1"
             stroke-width="1"
@@ -45,6 +19,36 @@
             :x="item1.imgX"
             :y="item1.imgY"
           ></image>
+          <circle
+              :cx="item1.spreadX"
+              :cy="item1.spreadY"
+              r="6"
+              stroke="#fff"
+          ></circle>
+          <text
+              dy="4"
+              dx="-4"
+              :x="item1.spreadX"
+              :y="item1.spreadY"
+              fill="#fff"
+              font-size="13"
+              v-if="item1.isFold"
+              style="display:block;cursor: pointer"
+              @click="nodeOpen(item1)"
+          >+</text
+          >
+          <text
+              dy="3"
+              dx="-2"
+              :x="item1.spreadX"
+              :y="item1.spreadY"
+              font-size="13"
+              fill="#fff"
+              v-else
+              style="display:block;cursor: pointer"
+              @click="nodeOpen(item1)"
+          >-</text
+          >
           <text
             class="pro-text"
             fill="#fff"
@@ -105,26 +109,6 @@
             r="6"
             stroke="#fff"
           ></circle>
-          <text
-            dy="4"
-            dx="-4"
-            :x="item2.spreadX"
-            :y="item2.spreadY"
-            fill="#fff"
-            font-size="13"
-            v-if="item2.isFold"
-            >+</text
-          >
-          <text
-            dy="3"
-            dx="-2"
-            :x="item2.spreadX"
-            :y="item2.spreadY"
-            font-size="13"
-            fill="#fff"
-            v-else
-            >-</text
-          >
           <image
             opacity="1"
             stroke-width="1"
@@ -136,6 +120,30 @@
             :y="item2.imgY"
             :href="frontImg"
           ></image>
+          <text
+              dy="4"
+              dx="-4"
+              :x="item2.spreadX"
+              :y="item2.spreadY"
+              fill="#fff"
+              font-size="13"
+              v-if="item2.isFold"
+              style="display:block;cursor: pointer"
+              @click="nodeOpen(item2)"
+          >+</text
+          >
+          <text
+              dy="3"
+              dx="-2"
+              :x="item2.spreadX"
+              :y="item2.spreadY"
+              font-size="13"
+              fill="#fff"
+              v-else
+              style="display:block;cursor: pointer"
+              @click="nodeOpen(item2)"
+          >-</text
+          >
           <g>
             <text
               class="pro-text"
@@ -323,9 +331,10 @@
       </g>
     </g>
   </g>
-</template>    
+</template>
 
 <script>
+import * as d3 from 'd3'
 import d3Data from "./d3Data";
 export default {
   props: ["datasource"],
@@ -342,6 +351,33 @@ export default {
     };
   },
   methods: {
+    nodeOpen(params) {
+      console.log(params)
+      if(params.children) {
+        params._children = params.children;
+        params.children = null;
+        params.isFold = false;
+      } else {
+        params.children = params._children;
+        params._children = null;
+        params.isFold = true;
+      }
+    },
+    add(d) {
+      console.log(d)
+        // if (d.children) {
+        //   d._children = d.children;
+        //   d.children = null;
+        //   d.spread = false;
+        //   d3.select(this).text('+')
+        // } else {
+        //   d.children = d._children;
+        //   d._children = null;
+        //   d.spread = true;
+        //   d3.select(this).text('-')
+        // }
+        // update(d, originalData, g);
+    },
     filter(targetId) {
       this.dataList = this.datasource.filer(
         (item) => item.targetId == targetId
@@ -352,6 +388,9 @@ export default {
     },
   },
   mounted() {
+    console.log(d3.selectAll('circle'))
+    d3.selectAll('circle')
+        .on('click', this.add)
     console.log(this.d3Data);
     console.log(this.d3Data.dataset.nodes);
   },
