@@ -313,6 +313,8 @@
                     :x="item3.breakOffImgX"
                     :y="item3.breakOffImgY"
                     :href="breakOffImg"
+                    style="display: block"
+                    @click="abnormal"
                 ></image>
               </g>
               <image
@@ -367,6 +369,9 @@ export default {
     },
     chart(params) {
       this.$emit("openDialog", params)
+    },
+    abnormal() {
+      this.$emit("openTable", true)
     },
     add(d) {
       console.log(d)
