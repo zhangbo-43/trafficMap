@@ -33,7 +33,7 @@
               fill="#fff"
               font-size="13"
               v-if="item1.isFold"
-              style="display:block"
+              style="display:block;cursor: pointer"
               @click="nodeOpen(item1)"
           >+</text
           >
@@ -45,7 +45,7 @@
               font-size="13"
               fill="#fff"
               v-else
-              style="display:block"
+              style="display:block;cursor: pointer"
               @click="nodeOpen(item1)"
           >-</text
           >
@@ -128,7 +128,7 @@
               fill="#fff"
               font-size="13"
               v-if="item2.isFold"
-              style="display:block"
+              style="display:block;cursor: pointer"
               @click="nodeOpen(item2)"
           >+</text
           >
@@ -140,7 +140,7 @@
               font-size="13"
               fill="#fff"
               v-else
-              style="display:block"
+              style="display:block;cursor: pointer"
               @click="nodeOpen(item2)"
           >-</text
           >
