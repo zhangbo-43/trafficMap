@@ -117,7 +117,7 @@
                 <g class="topolog">
                   <traffice datasource="[]"></traffice>
                   <skillChart></skillChart>
-                  <Progress datasource="[]" @openDialog="openDialog"></Progress>
+                  <Progress datasource="[]" @openDialog="openDialog" @openTable="openTable"></Progress>
                 </g>
                 <g class="quantity">
                   <Histograms></Histograms>
@@ -140,6 +140,8 @@
     </div>
     <!--    服务量趋势图页面-->
     <service-chart :chartVisible="chartVisible" @closeDialog="handleClose" :optionData="optionData" ></service-chart>
+<!--    异常接口弹窗-->
+    <abNormal-dia :data="dialogTableData" :dialogVisible="dialogVisible" @closeDialogtable="closeDialogtable"></abNormal-dia>
   </div>
 </template>
 
@@ -157,7 +159,7 @@ import Progress from "./progress.vue";
 import Histograms from "./histograms.vue";
 import serviceChart from "../../components/trendChart/serviceChart";
 import searchsetflexible from "../../components/searchSetFlexible.vue";
-
+import abNormalDia from '../../components/dialogtable.vue'
 // import * as d3 from 'd3'
 export default {
   name: "wholeNetworkScreen",
@@ -225,7 +227,30 @@ export default {
       provinceVal: "云南省",
       fullscreen: false,
       chartVisible: false,
-      optionData: {}
+      optionData: {},
+      dialogVisible:false,
+      dialogTableData: {
+        dialongTitle: "异常接口明细",
+        tableTitle: true,
+        defCol: "setTabCol",
+        defData: "setTabData",
+        tableColumn: {
+          intTabCol: {
+            name: "异常接口名称",
+            count:"异常次数",
+            offer:"接口提供方",
+            CSFCode:"CSF编码"
+          },csfCol: {
+            name: "异常接口名称",
+            count:"异常次数",
+            offer:"接口提供方",
+            CSFCode:"CSF编码"
+          }
+          },
+        tableData: {
+
+        },
+      },
     };
   },
   components: {
@@ -238,6 +263,7 @@ export default {
     Histograms,
     serviceChart,
     searchsetflexible,
+    abNormalDia
   },
   mounted() {
     // this.svgZoom()
@@ -258,6 +284,12 @@ export default {
     clearInterval(this.timing);
   },
   methods: {
+    //关闭设置弹窗
+    closeDialogtable(data) {
+      this.multipleSelection = data;
+      this.dialogTableData = false;
+      console.log(data)
+    },
     openDialog(params) {
       this.chartVisible = true
       if(params == 'nodeTrend') {
@@ -476,6 +508,9 @@ export default {
           }
         }
       }
+    },
+    openTable() {
+      this.dialogVisible = true
     },
     // svgZoom() {
     //   let zoom = d3.behavior.zoom().scaleExtent([0.5, 2]).on('zoom', this.redraw);
