@@ -48,7 +48,6 @@
         highlight-current-row
         style="width: 100%"
         max-height="400px"
-        border
         ref="table"
         :row-key="getRowKey"
         @selection-change="handleSelectionChange"
@@ -63,7 +62,7 @@
           color: 'rgba(255,255,255,0.5)',
           fontWeight: 300,
           fontFamily: 'PingFang SC',
-          height: 10,
+          height: 60,
           background: 'rgba(0,0,0,0)',
         }"
         :cell-style="{
@@ -206,8 +205,10 @@ export default {
     },
   },
   mounted() {
+    console.log(this.data)
     this.tableColumn = this.data.tableColumn[this.data.defCol];
     this.columns = Object.keys(this.tableColumn);
+    console.log(this.columns)
     this.tableData = this.data.tableData[this.data.defData];
     this.handleCurrentChange();
   },
