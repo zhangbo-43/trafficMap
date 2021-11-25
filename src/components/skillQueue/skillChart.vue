@@ -1,72 +1,55 @@
 <template>
   <g class="centerBox">
-    <g>
-      <line
-        v-for="item in this.d3Data.dataset.nodes.children"
-        :key="item.id"
-        x1="962"
-        y1="90"
-        :x2="item.x2"
-        :y2="item.y2"
-        style="stroke: rgb(20, 81, 248); stroke-width: 2"
+    <g class="lines" v-for="item in this.d3Data.dataset.nodes.children"
+       :key="item.id">
+      <line class="line" :x1="centerX(d3Data.dataset.nodes.x)"
+        :y1="centerY(d3Data.dataset.nodes.y)"
+        :x2="lineEndX(item.x,item.size)"
+        :y2="lineEndY(item.y,item.size)"
       />
-    </g>
-    <g>
+      <image :x="item.pointX" :y="item.pointY" :href="item.pointUrl"></image>
       <image
-        opacity="1"
-        stroke-width="1"
-        stroke-opacity="1"
-        fill-opacity="1"
+          :x="item.patchX"
+          :y="item.patchY"
+          width="23"
+          height="23"
+          :href="item.patchUrl"
+      ></image>
+    </g>
+    <g class="center">
+      <image class="centerImg"
         :x="this.d3Data.dataset.nodes.x"
         :y="this.d3Data.dataset.nodes.y"
-        width="242"
-        height="194"
         :href="centerUrl"
       ></image>
     </g>
-    <g v-for="item in this.d3Data.dataset.nodes.children" :key="item.id">
-      <image
-        opacity="1"
-        stroke-width="1"
-        stroke-opacity="1"
-        fill-opacity="1"
-        :x="item.x"
-        :y="item.y"
-        :width="item.width"
-        :height="item.width"
-        :href="imgUrl"
-        style="display: block"
-        @click="click(item)"
-      ></image>
-      <text fill="#fff" :x="item.textX" :y="item.textY" text-anchor="start">{{
-        item.name
-      }}</text>
-      <text
-        fill="rgba(6, 202, 195)"
-        :x="item.valueX"
-        :y="item.valueY"
-        text-anchor="start"
+<!--    各个节点坐标-->
+    <g class="nodes">
+      <g v-for="item in this.d3Data.dataset.nodes.children" :key="item.id">
+        <image
+            :x="item.x"
+            :y="item.y"
+            :width="sizeWidth(item.size)"
+            :height="sizeWidth(item.size)"
+            :href="imgUrl"
+            style="display: block"
+            @click="click(item)"
+        ></image>
+        <text class="text_nodes" :x="nameX(item.x,item.size)" :y="nameY(item.y,item.size)" >{{
+            item.name
+          }}</text>
+        <text class="number_nodes"
+            :x="valueX(item.x,item.size)"
+            :y="valueY(item.y,item.size)"
         >{{ item.value }}</text
-      >
-      <image
-        opacity="1"
-        stroke-width="1"
-        stroke-opacity="1"
-        fill-opacity="1"
-        :x="item.bottomX"
-        :y="item.bottomY"
-        width="15"
-        height="15"
-        :href="arrowUrl"
-      ></image>
-      <image :x="item.pointX" :y="item.pointY" :href="item.pointUrl"></image>
-      <image
-        :x="item.patchX"
-        :y="item.patchY"
-        width="23"
-        height="23"
-        :href="item.patchUrl"
-      ></image>
+        >
+        <image class="arrow_nodes"
+            :x="arrowX(item.x,item.size)"
+            :y="arrowY(item.y,item.size)"
+            :href="arrowUrl"
+        ></image>
+
+      </g>
     </g>
   </g>
 </template>
@@ -90,6 +73,69 @@ export default {
 
     };
   },
+  computed: {
+    //中点坐标
+    centerX:function() {
+      return function(x) {
+        return x + 125
+      }
+    },
+    centerY:function() {
+      return function(y) {
+        return y + 95
+      }
+    },
+    //节点图片的宽度
+    sizeWidth: function () {
+      return function(size) {
+        return (!size || size === "default") ? 60 : size === "large" ? 70 : 50
+      }
+    },
+    //数值坐标
+    valueY: function() {
+      return function(y,size) {
+        return y - ((!size || size === "default") ? 10 : size === "large" ? 0 : 10)
+      }
+    },
+    valueX: function() {
+      return function(x,size) {
+        return x + ((!size || size === "large") ? 50 : 8)
+      }
+    },
+    //节点名称坐标
+    nameX:function() {
+      return function(x,size) {
+        return x - ((!size || size === "default") ? 0 : size === "large" ? 0 : 6)
+      }
+    },
+    nameY: function() {
+      return function(y,size) {
+        return y + 20 + ((!size || size === "default") ? 60 : size === "large" ? 70 : 50)
+      }
+    },
+    //底部箭头坐标
+    arrowX:function() {
+      return function(x,size) {
+        return x - 5 + ((!size || size === "default") ? 30 : size === "large" ? 35 : 25)
+      }
+    },
+    arrowY:function() {
+      return function(y,size) {
+        return y + 25 + ((!size || size === "default") ? 60 : size === "large" ? 70 : 50)
+      }
+    },
+    //连线终点坐标
+    lineEndX:function() {
+      return function(x,size) {
+        return x  + ((!size || size === "default") ? 30 : size === "large" ? 35 : 25)
+      }
+    },
+    lineEndY:function() {
+      return function(y,size) {
+        return y + 10 + ((!size || size === "default") ? 45 : size === "large" ? 35 : 25)
+      }
+    }
+  },
   methods: {
     click(data) {
       console.log(data)
@@ -99,49 +145,27 @@ export default {
     // this.getPoint()
     console.log(this.d3Data);
   },
-  created() {
-    this.d3Data.dataset.nodes.width = 80;
-    this.d3Data.dataset.nodes.height = 80;
-    if (this.d3Data.dataset.nodes.children.length == 1) {
-      this.d3Data.dataset.nodes.children[0].width = 70;
-      this.d3Data.dataset.nodes.children[0].height = 70;
-    } else if (this.d3Data.dataset.nodes.children.length == 2) {
-      this.d3Data.dataset.nodes.children[0].width = 50;
-      this.d3Data.dataset.nodes.children[0].height = 50;
-      this.d3Data.dataset.nodes.children[1].width == 50;
-      this.d3Data.dataset.nodes.children[1].height == 50;
-    } else if (this.d3Data.dataset.nodes.children.length == 3) {
-      this.d3Data.dataset.nodes.children[0].width = 50;
-      this.d3Data.dataset.nodes.children[0].height = 50;
-      this.d3Data.dataset.nodes.children[1].width = 70;
-      this.d3Data.dataset.nodes.children[1].height = 70;
-      this.d3Data.dataset.nodes.children[2].width = 50;
-      this.d3Data.dataset.nodes.children[2].height = 50;
-    } else if (this.d3Data.dataset.nodes.children.length == 4) {
-      this.d3Data.dataset.nodes.children[0].width = 50;
-      this.d3Data.dataset.nodes.children[0].height = 50;
-      this.d3Data.dataset.nodes.children[1].width = 60;
-      this.d3Data.dataset.nodes.children[1].height = 60;
-      this.d3Data.dataset.nodes.children[2].width = 60;
-      this.d3Data.dataset.nodes.children[2].height = 60;
-      this.d3Data.dataset.nodes.children[3].width = 50;
-      this.d3Data.dataset.nodes.children[3].height = 50;
-    } else {
-      this.d3Data.dataset.nodes.children[0].width = 50;
-      this.d3Data.dataset.nodes.children[0].height = 50;
-      this.d3Data.dataset.nodes.children[1].width = 60;
-      this.d3Data.dataset.nodes.children[1].height = 60;
-      this.d3Data.dataset.nodes.children[1].width = 60;
-      this.d3Data.dataset.nodes.children[1].height = 60;
-      this.d3Data.dataset.nodes.children[2].width = 70;
-      this.d3Data.dataset.nodes.children[2].height = 70;
-      this.d3Data.dataset.nodes.children[3].width = 60;
-      this.d3Data.dataset.nodes.children[3].height = 60;
-      this.d3Data.dataset.nodes.children[4].width = 50;
-      this.d3Data.dataset.nodes.children[4].height = 50
-    }
-  },
 };
 </script>
 <style lang="scss" scoped>
+.centerImg {
+  width: 242px;
+  height:194px;
+}
+.line {
+  stroke: rgb(20, 81, 248);
+  stroke-width: 2
+}
+.text_nodes {
+  fill: #fff;
+  text-anchor: start;
+}
+.number_nodes {
+  fill: rgba(6, 202, 195);
+  text-anchor: start;
+}
+.arrow_nodes {
+  width: 15px;
+  height: 15px;
+}
 </style>

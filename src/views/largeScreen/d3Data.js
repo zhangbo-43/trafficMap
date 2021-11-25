@@ -13,22 +13,12 @@ const dataset = {
 		id: 1,
 		"children": [
 			{
+				//节点坐标
 				x: 640,
 				y: 60,
-				x2: 650,
-				y2: 90,
+				//节点图片大小
+				size:"small",//large  default small
 				value: 1500,
-				//文本坐标
-				textX: 630,
-				textY: 130,
-				//箭头坐标
-				bottomX: 660,
-				bottomY: 140,
-				//数值坐标
-				valueX: 645,
-				valueY: 50,
-				width: 50,
-				height: 50,
 				//标记点
 				pointX: 790,
 				pointY: 80,
@@ -45,20 +35,10 @@ const dataset = {
 			{
 				x: 1210,
 				y: 60,
-				x2: 1220,
-				y2: 90,
+				//节点图片大小
+				size:"small",//large  default small
 				id: 4,
 				value: 900,
-				//文本坐标
-				textX: 1205,
-				textY: 130,
-				bottomX: 1230,
-				bottomY: 140,
-				//数值坐标
-				valueX: 1220,
-				valueY: 50,
-				width: 50,
-				height: 50,
 				pointX: 1100,
 				pointY: 80,
 				pointUrl: require("../../assets/images/light5.png"),
@@ -72,20 +52,10 @@ const dataset = {
 			{
 				x: 740,
 				y: 160,
-				x2: 790,
-				y2: 205,
+				//节点图片大小
+				size:"default",//large  default small
 				id: 5,
 				value: 2000,
-				bottomX: 760,
-				bottomY: 250,
-				//文本坐标
-				textX: 735,
-				textY: 240,
-				//数值坐标
-				valueX: 750,
-				valueY: 150,
-				width: 60,
-				height: 60,
 				pointX: 836,
 				pointY: 157,
 				pointUrl: require("../../assets/images/light2.png"),
@@ -576,20 +546,12 @@ const dataset = {
 			{
 				x: 925,
 				y: 170,
-				x2: 960,
-				y2: 200,
+				//节点图片大小
+				size:"large",//large  default small
 				id: 2,
 				width: 70,
 				height: 70,
 				value: 1200,
-				//文本坐标
-				textX: 927,
-				textY: 260,
-				bottomX: 954,
-				bottomY: 270,
-				//数值坐标
-				valueX: 970,
-				valueY: 170,
 				pointX: 950,
 				pointY: 150,
 				pointUrl: require("../../assets/images/light3.png"),
@@ -607,20 +569,10 @@ const dataset = {
 			{
 				x: 1120,
 				y: 160,
-				x2: 1150,
-				y2: 215,
+				//节点图片大小
+				size:"default",//large  default small
 				id: 6,
 				value: 1000,
-				bottomX: 1145,
-				bottomY: 250,
-				width: 60,
-				height: 60,
-				//文本坐标
-				textX: 1120,
-				textY: 240,
-				//数值坐标
-				valueX: 1130,
-				valueY: 150,
 				pointX: 1050,
 				pointY: 145,
 				pointUrl: require("../../assets/images/light4.png"),
