@@ -8,32 +8,6 @@
         </g>
         <!-- 第一级 -->
         <g class="node" width="200" height="200">
-          <circle
-            :cx="item1.spreadX"
-            :cy="item1.spreadY"
-            r="6"
-            stroke="#fff"
-          ></circle>
-          <text
-            dy="4"
-            dx="-4"
-            :x="item1.spreadX"
-            :y="item1.spreadY"
-            fill="#fff"
-            font-size="13"
-            v-if="item1.isFold"
-            >+</text
-          >
-          <text
-            dy="3"
-            dx="-2"
-            :x="item1.spreadX"
-            :y="item1.spreadY"
-            font-size="13"
-            fill="#fff"
-            v-else
-            >-</text
-          >
           <image
             opacity="1"
             stroke-width="1"
@@ -45,6 +19,36 @@
             :x="item1.imgX"
             :y="item1.imgY"
           ></image>
+          <circle
+              :cx="item1.spreadX"
+              :cy="item1.spreadY"
+              r="6"
+              stroke="#fff"
+          ></circle>
+          <text
+              dy="4"
+              dx="-4"
+              :x="item1.spreadX"
+              :y="item1.spreadY"
+              fill="#fff"
+              font-size="13"
+              v-if="item1.isFold"
+              style="display:block"
+              @click="nodeOpen(item1)"
+          >+</text
+          >
+          <text
+              dy="3"
+              dx="-2"
+              :x="item1.spreadX"
+              :y="item1.spreadY"
+              font-size="13"
+              fill="#fff"
+              v-else
+              style="display:block"
+              @click="nodeOpen(item1)"
+          >-</text
+          >
           <text
             class="pro-text"
             fill="#fff"
@@ -105,26 +109,6 @@
             r="6"
             stroke="#fff"
           ></circle>
-          <text
-            dy="4"
-            dx="-4"
-            :x="item2.spreadX"
-            :y="item2.spreadY"
-            fill="#fff"
-            font-size="13"
-            v-if="item2.isFold"
-            >+</text
-          >
-          <text
-            dy="3"
-            dx="-2"
-            :x="item2.spreadX"
-            :y="item2.spreadY"
-            font-size="13"
-            fill="#fff"
-            v-else
-            >-</text
-          >
           <image
             opacity="1"
             stroke-width="1"
@@ -136,6 +120,30 @@
             :y="item2.imgY"
             :href="frontImg"
           ></image>
+          <text
+              dy="4"
+              dx="-4"
+              :x="item2.spreadX"
+              :y="item2.spreadY"
+              fill="#fff"
+              font-size="13"
+              v-if="item2.isFold"
+              style="display:block"
+              @click="nodeOpen(item2)"
+          >+</text
+          >
+          <text
+              dy="3"
+              dx="-2"
+              :x="item2.spreadX"
+              :y="item2.spreadY"
+              font-size="13"
+              fill="#fff"
+              v-else
+              style="display:block"
+              @click="nodeOpen(item2)"
+          >-</text
+          >
           <g>
             <text
               class="pro-text"
@@ -343,6 +351,18 @@ export default {
     };
   },
   methods: {
+    nodeOpen(params) {
+      console.log(params)
+      if(params.children) {
+        params._children = params.children;
+        params.children = null;
+        params.isFold = false;
+      } else {
+        params.children = params._children;
+        params._children = null;
+        params.isFold = true;
+      }
+    },
     add(d) {
       console.log(d)
         // if (d.children) {
