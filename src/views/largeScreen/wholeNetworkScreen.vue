@@ -1,25 +1,18 @@
 <template>
   <div class="whole-Screen">
     <svg id="traffice" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <g class="topolog">
-        <skill-chart></skill-chart>
-      </g>
     </svg>
 
   </div>
 </template>
 
 <script>
-import skillChart from '../../components/skillQueue/skillChart.vue'
 import drawMixin from "../../utils/drawMixin";
 export default {
   name: "wholeNetworkScreen",
   mixins: [drawMixin],
   data() {
     return {};
-  },
-  components: {
-    skillChart
   },
   mounted() {},
   unMounted() {},
