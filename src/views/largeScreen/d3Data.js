@@ -90,8 +90,8 @@ const dataset = {
 				pointY: 157,
 				pointUrl: require("../../assets/images/light2.png"),
 				//贴片
-				patchX: 875,
-				patchY: 108,
+				patchX: 885,
+				patchY: 119,
 				patchUrl: require("../../assets/images/patch1.png"),
 				"name": "语音话务",
 				"type": 3, //类型
@@ -625,7 +625,7 @@ const dataset = {
 				pointY: 145,
 				pointUrl: require("../../assets/images/light4.png"),
 				//贴片
-				patchX: 975,
+				patchX: 1008,
 				patchY: 116,
 				patchUrl: require("../../assets/images/patch3.png"),
 				"name": "视频话务",
