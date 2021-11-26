@@ -198,7 +198,7 @@ export default {
         var pathMY2 = y2 + 0;
         var pathCX1 = pathMX1 - (pathMX1 - pathMX2) * 0.1;
         var pathCY1 = pathMY1 + (pathMY2 - pathMY1) * 0.1 + 50;
-        var pathCX2 = pathMX1 - (pathMX1 - pathMX2) * 0.95;
+        var pathCX2 = pathMX1 - (pathMX1 - pathMX2) * 0.9;
         var pathCY2 = pathMY1 + (pathMY2 - pathMY1) * 0.9 - 50;
         console.log(pathCX2)
         var pathD = "M" + pathMX1 + " " + pathMY1 + " " + "C" + pathCX1 + " " + pathCY1 + " " + pathCX2 + " " + pathCY2 + "," + pathMX2 + " " + pathMY2
