@@ -13,62 +13,28 @@ const dataset = {
 		id: 1,
 		"children": [
 			{
-				//节点坐标
+				id: "2232",
 				x: 640,
 				y: 60,
-				//节点图片大小
-				size:"small",//large  default small
+				size: "default",  //default large mini
 				value: 1500,
-				//标记点
-				pointX: 790,
-				pointY: 80,
-				pointUrl: require("../../assets/images/light1.png"),
-				"name": "互联网话务",
-				"type": 1, //类型
-				"isFold": true, //是否展开节点 默认true 展开
-				"id": 1,
-				"img": "",
-				"totalVal": 700, //节点总量
-				"abnormalVal": 300, //异常挂断量
-				"interfaceVal": 200 //接口异常量
+				name: "互联网话务"
 			},
 			{
+				id: "2323",
 				x: 1210,
 				y: 60,
-				//节点图片大小
-				size:"small",//large  default small
-				id: 4,
+				size: "default",  //default large mini
 				value: 900,
-				pointX: 1100,
-				pointY: 80,
-				pointUrl: require("../../assets/images/light5.png"),
-				"name": "跨网支撑",
-				"type": 2, //类型
-				"isFold": true, //是否展开节点 默认true 展开
-				"img": "",
-				"abnormalVal": 300, //异常挂断量
-				"interfaceVal": 200 //接口异常量
+				name: "跨网支撑"
 			},
 			{
+				id: "2845",
 				x: 740,
 				y: 160,
-				//节点图片大小
-				size:"default",//large  default small
-				id: 5,
+				size: "default",  //default large mini
 				value: 2000,
-				pointX: 836,
-				pointY: 157,
-				pointUrl: require("../../assets/images/light2.png"),
-				//贴片
-				patchX: 885,
-				patchY: 119,
-				patchUrl: require("../../assets/images/patch1.png"),
-				"name": "语音话务",
-				"type": 3, //类型
-				"isFold": true, //是否展开节点 默认true 展开
-				"totalVal": 700, //节点总量
-				"abnormalVal": 300, //异常挂断量
-
+				name: "语音话务",
 				"children": [
 					{
 						"name": "前置流程",
@@ -544,48 +510,20 @@ const dataset = {
 				]
 			},
 			{
+				id: "5254",
 				x: 925,
 				y: 170,
-				//节点图片大小
-				size:"large",//large  default small
-				id: 2,
-				width: 70,
-				height: 70,
+				size: "default",  //default large mini
 				value: 1200,
-				pointX: 950,
-				pointY: 150,
-				pointUrl: require("../../assets/images/light3.png"),
-				//贴片
-				patchX: 948,
-				patchY: 135,
-				patchUrl: require("../../assets/images/patch2.png"),
-				"name": "溢出流程",
-				"type": 4, //类型
-				"isFold": true, //是否展开节点 默认true 展开
-				"totalVal": 700, //节点总量
-				"abnormalVal": 300, //异常挂断量
-				"interfaceVal": 200 //接口异常量
+				name: "溢出流程"
 			},
 			{
+				id: "8745",
 				x: 1120,
 				y: 160,
-				//节点图片大小
-				size:"default",//large  default small
-				id: 6,
+				size: "default",  //default large mini
 				value: 1000,
-				pointX: 1050,
-				pointY: 145,
-				pointUrl: require("../../assets/images/light4.png"),
-				//贴片
-				patchX: 1008,
-				patchY: 116,
-				patchUrl: require("../../assets/images/patch3.png"),
-				"name": "视频话务",
-				"type": 4, //类型
-				"isFold": true, //是否展开节点 默认true 展开
-				"totalVal": 700, //节点总量
-				"abnormalVal": 300, //异常挂断量
-				"interfaceVal": 200, //接口异常量
+				name: "视频话务",
 				"children": [
 					{
 						"name": "前置流程",
