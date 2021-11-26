@@ -3,66 +3,68 @@
     <g class="lines">
       <g class="line" v-for="item in this.d3Data.dataset.nodes.children" :key="item.id">
         <line
-        :x1="startX"
-        :y1="startY"
-        :x2="endX(item.x, item.size)"
-        :y2="endY(item.y, item.size)"
-      />
-      <image class="cursor"
-        :x="cursor(startX)"
-        :y="cursor(startY)"
-        width="20"
-        height="20"
-        :href="light"
-      ></image>
+            :x1="startX"
+            :y1="startY"
+            :x2="endX(item.x, item.size)"
+            :y2="endY(item.y, item.size)"
+        />
+        <image class="cursor"
+               :x="cursor(startX)"
+               :y="cursor(startY)"
+               width="30"
+               height="30"
+               :href="light"
+        ></image>
       </g>
     </g>
     <g class="center">
-      <image
-        :x="centerX"
-        :y="centerY"
-        :width="centerWidth"
-        :height="centerHeight"
-        :href="centerUrl"
-      ></image>
+<!--      <image-->
+<!--          :x="centerX"-->
+<!--          :y="centerY"-->
+<!--          :width="centerWidth"-->
+<!--          :height="centerHeight"-->
+<!--          :href="centerUrl"-->
+<!--      ></image>-->
     </g>
     <g class="nodes">
       <g
-        class="node"
-        v-for="item in this.d3Data.dataset.nodes.children"
-        :key="item.id"
+          class="node"
+          v-for="item in this.d3Data.dataset.nodes.children"
+          :key="item.id"
       >
         <image
-          class="node-image"
-          :x="positionX(item.x, item.size)"
-          :y="positionY(item.y, item.size)"
-          :width="size(item.size)"
-          :height="size(item.size)"
-          :href="imgUrl"
-          @click="click(item)"
+            class="node-image"
+            :x="positionX(item.x, item.size)"
+            :y="positionY(item.y, item.size)"
+            :width="size(item.size)"
+            :height="size(item.size)"
+            :href="imgUrl"
+            @click="click(item)"
         ></image>
         <text
-          class="node-text"
-          text-anchor="middle"
-          dominant-baseline="middle"
-          :x="textX(item.x, item.size)"
-          :y="textY(item.y, item.size)"
-          >{{ item.name }}</text
+            class="node-text"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            :x="textX(item.x, item.size)"
+            :y="textY(item.y, item.size)"
+        >{{ item.name }}
+        </text
         >
         <text
-          class="node-count"
-          text-anchor="middle"
-          dominant-baseline="middle"
-          :x="countX(item.x, item.size)"
-          :y="countY(item.y, item.size)"
-          >{{ item.value }}</text
+            class="node-count"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            :x="countX(item.x, item.size)"
+            :y="countY(item.y, item.size)"
+        >{{ item.value }}
+        </text
         >
         <image
-          :x="arrowX(item.x, item.size)"
-          :y="arrowY(item.y, item.size)"
-          width="15"
-          height="15"
-          :href="arrowUrl"
+            :x="arrowX(item.x, item.size)"
+            :y="arrowY(item.y, item.size)"
+            width="15"
+            height="15"
+            :href="arrowUrl"
         ></image>
       </g>
     </g>
@@ -70,75 +72,75 @@
 </template>
 
 <script>
-
+import * as d3 from 'd3'
 import d3Data from "../../views/largeScreen/d3Data";
 
 export default {
   computed: {
-    cursor:function(){
-        return function (x) {
+    cursor: function () {
+      return function (x) {
         return x - 10;
-      }; 
+      };
     },
     startX: function () {
       return this.centerX + this.centerWidth / 2;
     },
     startY: function () {
-      return this.centerY + this.centerHeight / 2;
+      return this.centerY + this.centerHeight / 2 + 10;
     },
     endX: function () {
       return function (x, size) {
-        return x + (size === "default" ? 50 : 30);
+        return x + ((!size || size === "default") ? 40 : size === "large" ? 50 : 30)
       };
     },
     endY: function () {
       return function (y, size) {
-        return y + (size === "default" ? 50 : 30);
+        return y + 20 + ((!size || size === "default") ? 53 : size === "large" ? 35 : 40)
       };
     },
     positionX: function () {
       return function (x, size) {
-        return x + (size === "default" ? 20 : 30);
+        return x + ((!size || size === "default") ? 20 : size === "large" ? 15 : 25)
       };
     },
     positionY: function () {
       return function (y, size) {
-        return y + (size === "default" ? 20 : 30);
+        return y + ((!size || size === "default") ? 20 : size === "large" ? 15 : 25)
       };
     },
     size: function () {
       return function (size) {
-        return size === "default" ? 60 : 100;
+        return (!size || size === "default") ? 60 : size === "large" ? 70 : 50
       };
     },
     textX: function () {
       return function (x, size) {
-        return x + (size === "default" ? 50 : 100);
+        return x + ((!size || size === "default") ? 50 : size === "large" ? 50 : 50)
       };
     },
     textY: function () {
       return function (y, size) {
-        return y + (size === "default" ? 95 : 100);
+        return y + ((!size || size === "default") ? 95 : size === "large" ? 100 : 87)
       };
     },
     countX: function () {
       return function (x, size) {
-        return x + (size === "default" ? 50 : 100);
+        return x + ((!size || size === "default") ? 50 : size === "large" ? 70 : 50)
       };
     },
     countY: function () {
       return function (y, size) {
-        return y + (size === "default" ? 5 : 100);
+        return y + ((!size || size === "default") ? 10 : size === "large" ? 5 : 10)
       };
     },
     arrowX: function () {
       return function (x, size) {
-        return x + (size === "default" ? 42 : 100);
+        return x + ((!size || size === "default") ? 45 : size === "large" ? 45 : 45)
       };
     },
     arrowY: function () {
       return function (y, size) {
-        return y + (size === "default" ? 105 : 100);
+        return y + ((!size || size === "default") ? 105 : size === "large" ? 110 : 100);
       };
     },
   },
@@ -159,26 +161,72 @@ export default {
   },
   methods: {
     click(data) {
-      console.log(data);
+      alert("1111")
+      console.log(this.arrowX(data.x));
+      console.log(this.arrowY(data.y));
     },
   },
   mounted() {
- 
+      var cursorSvg = d3.select(".cursor")
+          .attr("x",this.startX)
+          .attr("y",this.startY)
+    let run = () => {
+      cursorSvg.transition()
+          .duration(1500)
+          .attr("x", this.endX(this.d3Data.dataset.nodes.children[0].x, this.d3Data.dataset.nodes.children[0].size))
+          .attr("y", this.endY(this.d3Data.dataset.nodes.children[0].y, this.d3Data.dataset.nodes.children[0].size))
+      .on("end",run)
+    }
+    run()
+
+
+
+
+
+    // cursorSvg.attr('cx', this.startX)
+    //     .attr('cy', this.startY)
+    //     .transition()
+    //     .duration(5000)
+    //     .attr('cx', 920)
+    //     .transition()
+    //     .duration(2000)
+    //     .attr('cx', 40)
+
+
+    //将颜色从绿色变为红色
+    //将半径从45变成25
+    //过渡方式采用bounce（在终点处弹跳几次）
+//启动过渡
+
+
+        // .attr("x", function(d){
+        //   return this.endX(d.x, d.size)
+        // })
+        // .attr("y", function(d){
+        //   return this.endY(d.y, d.size)
+        // })
   },
   created() {
-    
+
   },
 };
 </script>
 <style lang="scss" scoped>
+.centerBox {
+  cursor: pointer;
+}
 .node-text {
   font-size: 18px;
   fill: white;
 }
-.line line{
+.node-image {
+  display: block;
+}
+.line line {
   stroke: rgb(20, 81, 248);
   stroke-width: 2px;
 }
+
 .node-count {
   fill: rgba(6, 202, 195);
 }

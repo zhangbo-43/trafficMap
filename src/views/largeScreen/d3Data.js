@@ -14,24 +14,24 @@ const dataset = {
 		"children": [
 			{
 				id: "2232",
-				x: 640,
-				y: 60,
-				size: "default",  //default large mini
+				x: 600,
+				y: 50,
+				size: "mini",  //default large mini
 				value: 1500,
 				name: "互联网话务"
 			},
 			{
 				id: "2323",
 				x: 1210,
-				y: 60,
-				size: "default",  //default large mini
+				y: 50,
+				size: "mini",  //default large mini
 				value: 900,
 				name: "跨网支撑"
 			},
 			{
 				id: "2845",
-				x: 740,
-				y: 160,
+				x: 710,
+				y: 150,
 				size: "default",  //default large mini
 				value: 2000,
 				name: "语音话务",
@@ -41,7 +41,7 @@ const dataset = {
 						"value": 1200, //数据量
 						"type": 1, //类型
 						"isFold": true, //是否展开节点 默认true 展开
-						"id": 1,
+						"id": 666,
 						"img": "",
 						"x": 690,
 						"y": 550,
@@ -67,7 +67,7 @@ const dataset = {
 								"name": "语音IVR",
 								"type": 1, //类型
 								"isFold": true, //是否展开节点 默认true 展开
-								"id": 1,
+								"id": 888,
 								"img": "",
 								"x": 460,
 								"y": 620,
@@ -95,7 +95,7 @@ const dataset = {
 										"name": "T0-转人工",
 										"type": 1, //类型
 										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
+										"id": 999,
 										"img": "",
 										"x": 460,
 										"y": 620,
@@ -265,7 +265,7 @@ const dataset = {
 										"name": "T52211-60分钟换1GB换",
 										"type": 3, //类型
 										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
+										"id": 123,
 										"img": "",
 										"x": 460,
 										"y": 620,
@@ -457,7 +457,7 @@ const dataset = {
 								"name": "语音导航",
 								"type": 2, //类型
 								"isFold": false, //是否展开节点 默认true 展开
-								"id": 1,
+								"id":134,
 								"x": 700,
 								"y": 540,
 								"imgX": 728, //大图标位移
@@ -484,7 +484,7 @@ const dataset = {
 								"value": 1200, //数据量
 								"type": 3, //类型
 								"isFold": false, //是否展开节点 默认true 展开
-								"id": 1,
+								"id": 256,
 								"img": "",
 								"x": 840,
 								"y": 580,
@@ -511,16 +511,16 @@ const dataset = {
 			},
 			{
 				id: "5254",
-				x: 925,
+				x: 910,
 				y: 170,
-				size: "default",  //default large mini
+				size: "large",  //default large mini
 				value: 1200,
 				name: "溢出流程"
 			},
 			{
 				id: "8745",
-				x: 1120,
-				y: 160,
+				x: 1100,
+				y: 150,
 				size: "default",  //default large mini
 				value: 1000,
 				name: "视频话务",
@@ -530,7 +530,7 @@ const dataset = {
 						"value": 1200, //数据量
 						"type": 1, //类型
 						"isFold": true, //是否展开节点 默认true 展开
-						"id": 2,
+						"id": 388,
 						"img": "",
 						"x": 1290,
 						"y": 550,
@@ -556,7 +556,7 @@ const dataset = {
 								"value": 1200, //数据量
 								"type": 4, //类型
 								"isFold": true, //是否展开节点 默认true 展开
-								"id": 1,
+								"id": 367,
 								"x": 840,
 								"y": 580,
 								"imgX": 1365, //大图标位移
@@ -586,7 +586,7 @@ const dataset = {
 	"quantity": [
 		{
 			"name": "三星级用户级技能队",
-			"id": 1,
+			"id":455,
 			"x": 1500,
 			"y": 520,
 			"totalVal": 1200, //总量
@@ -597,7 +597,7 @@ const dataset = {
 		},
 		{
 			"name": "四星级用户级技能队",
-			"id": 2,
+			"id": 457,
 			"x": 1600,
 			"y": 520,
 			"totalVal": 1200, //总量
@@ -608,7 +608,7 @@ const dataset = {
 		},
 		{
 			"name": "八星级用户级技能队",
-			"id": 1,
+			"id": 327,
 			"x": 1700,
 			"y": 520,
 			"totalVal": 1200, //总量
@@ -619,7 +619,7 @@ const dataset = {
 		},
 		{
 			"name": "十星级用户级技能队",
-			"id": 2,
+			"id": 568,
 			"x": 1800,
 			"y": 520,
 			"totalVal": 1200, //总量
