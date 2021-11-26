@@ -50,7 +50,6 @@ export default {
 
 <style lang="scss" scoped>
 .mainContent {
-  //position: relative;
   .timeSelect {
     cursor: pointer;
     z-index: 9999;
@@ -64,6 +63,7 @@ export default {
 }
 ::v-deep .el-dialog {
   background-color: #070B47;
+  box-shadow: inset 0px 0px 15px #2773ff;
 }
 ::v-deep .el-dialog__header {
   border-bottom: 1px solid #2773FF;

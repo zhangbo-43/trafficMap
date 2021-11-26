@@ -148,21 +148,14 @@
         <!-- 第三级 -->
       </g>
     </g>
-    <!--    服务量趋势图页面-->
-    <service-chart :chartVisible="chartVisible" @closeDialog="handleClose"
-      :optionData="optionData"></service-chart>
   </g>
 </template>
 
 <script>
-import serviceChart from "../../components/trendChart/serviceChart";
 import * as d3 from "d3";
 import d3Data from "./d3Data";
 export default {
   props: ["datasource"],
-  components: {
-    serviceChart,
-  },
   data() {
     return {
       dataList: [],
