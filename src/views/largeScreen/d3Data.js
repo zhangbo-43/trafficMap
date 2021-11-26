@@ -13,15 +13,15 @@ const dataset = {
 		id: 1,
 		"children": [
 			{
-				id: "2232",
+				id: "21",
 				x: 600,
 				y: 50,
 				size: "mini",  //default large mini
 				value: 1500,
-				name: "互联网话务"
+				name: "互联网话务",
 			},
 			{
-				id: "2323",
+				id: "22",
 				x: 1210,
 				y: 50,
 				size: "mini",  //default large mini
@@ -29,7 +29,7 @@ const dataset = {
 				name: "跨网支撑"
 			},
 			{
-				id: "2845",
+				id: "23",
 				x: 710,
 				y: 150,
 				size: "default",  //default large mini
@@ -41,7 +41,7 @@ const dataset = {
 						"value": 1200, //数据量
 						"type": 1, //类型
 						"isFold": true, //是否展开节点 默认true 展开
-						"id": 1,
+						"id": 31,
 						"img": "",
 						"x": 740,
 						"y": 300,
@@ -67,7 +67,7 @@ const dataset = {
 								"name": "语音IVR",
 								"type": 1, //类型
 								"isFold": true, //是否展开节点 默认true 展开
-								"id": 1,
+								"id": 41,
 								"img": "",
 								"x": 460,
 								"y": 480,
@@ -95,7 +95,7 @@ const dataset = {
 										"name": "T0-转人工",
 										"type": 1, //类型
 										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
+										"id": 51,
 										"img": "",
 										"x": 100,
 										"y": 700,
@@ -129,7 +129,7 @@ const dataset = {
 										"name": "T12211-30分钟500M",
 										"type": 2, //类型
 										"isFold": true, //是否展开节点 默认true 展开
-										"id": 2,
+										"id": 52,
 										"img": "",
 										"x": 300,
 										"y": 700,
@@ -163,7 +163,7 @@ const dataset = {
 										"name": "T2321-4G分享38元",
 										"type": 2, //类型
 										"isFold": true, //是否展开节点 默认true 展开
-										"id": 3,
+										"id": 53,
 										"img": "",
 										"x": 500,
 										"y": 700,
@@ -198,7 +198,7 @@ const dataset = {
 										"value": 1200, //数据量
 										"type": 3, //类型
 										"isFold": true, //是否展开节点 默认true 展开
-										"id": 4,
+										"id": 54,
 										"img": "",
 										"x": 700,
 										"y": 700,
@@ -231,7 +231,7 @@ const dataset = {
 										"name": "T43211-流量限时包",
 										"type": 2, //类型
 										"isFold": true, //是否展开节点 默认true 展开
-										"id": 5,
+										"id": 55,
 										"img": "",
 										"x": 900,
 										"y": 700,
@@ -265,7 +265,7 @@ const dataset = {
 										"name": "T52211-60分钟换1GB换",
 										"type": 3, //类型
 										"isFold": true, //是否展开节点 默认true 展开
-										"id": 1,
+										"id": 56,
 										"img": "",
 										"x": 1100,
 										"y": 700,
@@ -457,7 +457,7 @@ const dataset = {
 								"name": "语音导航",
 								"type": 2, //类型
 								"isFold": false, //是否展开节点 默认true 展开
-								"id": 1,
+								"id": 42,
 								"x": 725,
 								"y": 480,
 								"imgX": 728, //大图标位移
@@ -484,7 +484,7 @@ const dataset = {
 								"value": 1200, //数据量
 								"type": 3, //类型
 								"isFold": false, //是否展开节点 默认true 展开
-								"id": 1,
+								"id": 43,
 								"img": "",
 								"x": 960,
 								"y": 480,
@@ -510,7 +510,7 @@ const dataset = {
 				]
 			},
 			{
-				id: "5254",
+				id: "24",
 				x: 910,
 				y: 170,
 				size: "large",  //default large mini
@@ -518,7 +518,7 @@ const dataset = {
 				name: "溢出流程"
 			},
 			{
-				id: "8745",
+				id: "25",
 				x: 1100,
 				y: 150,
 				size: "default",  //default large mini
@@ -530,7 +530,7 @@ const dataset = {
 						"value": 1200, //数据量
 						"type": 1, //类型
 						"isFold": true, //是否展开节点 默认true 展开
-						"id": 2,
+						"id": 32,
 						"img": "",
 						"x": 1100,
 						"y": 300,
@@ -556,7 +556,7 @@ const dataset = {
 								"value": 1200, //数据量
 								"type": 4, //类型
 								"isFold": true, //是否展开节点 默认true 展开
-								"id": 1,
+								"id": 44,
 								"x": 1360,
 								"y": 480,
 								"imgX": 1365, //大图标位移
@@ -769,190 +769,7 @@ const dataset = {
 				"inService": 33 //服务中
 			},
 		],
-		'queuingData':[
-
-			{
-				"name": "三星级用户级技能队",
-				"id": 1,
-				"totalVal": 1200, //总量
-				"value": 700, //数据量
-				"checkInVal": 108, //签入坐席
-				"inLineVal": 203, //排队中
-				"inService": 300 //服务中
-			},
-			{
-				"name": "四星级用户级技能队",
-				"id": 2,
-				"totalVal": 1200, //总量
-				"value": 800, //数据量
-				"checkInVal": 333, //签入坐席
-				"inLineVal": 555, //排队中
-				"inService": 888 //服务中
-			},
-			{
-				"name": "八星级用户级技能队",
-				"id": 3,
-				"totalVal": 1200, //总量
-				"value": 300, //数据量
-				"checkInVal": 100, //签入坐席
-				"inLineVal": 332, //排队中
-				"inService": 355 //服务中
-			},
-			{
-				"name": "十星级用户级技能队",
-				"id": 4,
-				"totalVal": 1200, //总量
-				"value": 488, //数据量
-				"checkInVal": 444, //签入坐席
-				"inLineVal": 888, //排队中
-				"inService": 33 //服务中
-			},
-			{
-				"name": "三星级用户级技能队",
-				"id": 5,
-				"totalVal": 1200, //总量
-				"value": 700, //数据量
-				"checkInVal": 108, //签入坐席
-				"inLineVal": 203, //排队中
-				"inService": 300 //服务中
-			},
-			{
-				"name": "四星级用户级技能队",
-				"id": 6,
-				"totalVal": 1200, //总量
-				"value": 800, //数据量
-				"checkInVal": 333, //签入坐席
-				"inLineVal": 555, //排队中
-				"inService": 888 //服务中
-			},
-			{
-				"name": "八星级用户级技能队",
-				"id": 7,
-				"totalVal": 1200, //总量
-				"value": 300, //数据量
-				"checkInVal": 100, //签入坐席
-				"inLineVal": 332, //排队中
-				"inService": 355 //服务中
-			},
-			{
-				"name": "十星级用户级技能队",
-				"id": 8,
-				"totalVal": 1200, //总量
-				"value": 488, //数据量
-				"checkInVal": 444, //签入坐席
-				"inLineVal": 888, //排队中
-				"inService": 33 //服务中
-			},
-			{
-				"name": "三星级用户级技能队",
-				"id": 9,
-				"totalVal": 1200, //总量
-				"value": 700, //数据量
-				"checkInVal": 108, //签入坐席
-				"inLineVal": 203, //排队中
-				"inService": 300 //服务中
-			},
-			{
-				"name": "四星级用户级技能队",
-				"id": 10,
-				"totalVal": 1200, //总量
-				"value": 800, //数据量
-				"checkInVal": 333, //签入坐席
-				"inLineVal": 555, //排队中
-				"inService": 888 //服务中
-			},
-			{
-				"name": "八星级用户级技能队",
-				"id": 11,
-				"totalVal": 1200, //总量
-				"value": 300, //数据量
-				"checkInVal": 100, //签入坐席
-				"inLineVal": 332, //排队中
-				"inService": 355 //服务中
-			},
-			{
-				"name": "十星级用户级技能队",
-				"id": 12,
-				"totalVal": 1200, //总量
-				"value": 488, //数据量
-				"checkInVal": 444, //签入坐席
-				"inLineVal": 888, //排队中
-				"inService": 33 //服务中
-			},
-			{
-				"name": "三星级用户级技能队",
-				"id": 13,
-				"totalVal": 1200, //总量
-				"value": 700, //数据量
-				"checkInVal": 108, //签入坐席
-				"inLineVal": 203, //排队中
-				"inService": 300 //服务中
-			},
-			{
-				"name": "四星级用户级技能队",
-				"id": 14,
-				"totalVal": 1200, //总量
-				"value": 800, //数据量
-				"checkInVal": 333, //签入坐席
-				"inLineVal": 555, //排队中
-				"inService": 888 //服务中
-			},
-			{
-				"name": "八星级用户级技能队",
-				"id": 15,
-				"totalVal": 1200, //总量
-				"value": 300, //数据量
-				"checkInVal": 100, //签入坐席
-				"inLineVal": 332, //排队中
-				"inService": 355 //服务中
-			},
-			{
-				"name": "十星级用户级技能队",
-				"id": 16,
-				"totalVal": 1200, //总量
-				"value": 488, //数据量
-				"checkInVal": 444, //签入坐席
-				"inLineVal": 888, //排队中
-				"inService": 33 //服务中
-			},
-			{
-				"name": "三星级用户级技能队",
-				"id": 17,
-				"totalVal": 1200, //总量
-				"value": 700, //数据量
-				"checkInVal": 108, //签入坐席
-				"inLineVal": 203, //排队中
-				"inService": 300 //服务中
-			},
-			{
-				"name": "四星级用户级技能队",
-				"id": 18,
-				"totalVal": 1200, //总量
-				"value": 800, //数据量
-				"checkInVal": 333, //签入坐席
-				"inLineVal": 555, //排队中
-				"inService": 888 //服务中
-			},
-			{
-				"name": "八星级用户级技能队",
-				"id": 19,
-				"totalVal": 1200, //总量
-				"value": 300, //数据量
-				"checkInVal": 100, //签入坐席
-				"inLineVal": 332, //排队中
-				"inService": 355 //服务中
-			},
-			{
-				"name": "十星级用户级技能队",
-				"id": 20,
-				"totalVal": 1200, //总量
-				"value": 488, //数据量
-				"checkInVal": 444, //签入坐席
-				"inLineVal": 888, //排队中
-				"inService": 33 //服务中
-			},
-		],,
-		'servicedata': [
+		'queuingData': [
 
 			{
 				"name": "三星级用户级技能队",
@@ -1135,75 +952,190 @@ const dataset = {
 				"inService": 33 //服务中
 			},
 		],
-	},
-	"lines": [
-		{
-			"id": 22,
-			"sourceid": 1,
-			"targetid": 2,
-			"x1": 58,
-			"y1": 65,
-			"x2": 45,
-			"y2": 86,
-			"value": 200 //节点数量
-		},
-		{
-			"id": 23,
-			"sourceid": 1,
-			"targetid": 2,
-			"x1": 58,
-			"y1": 65,
-			"x2": 45,
-			"y2": 86,
-			"value": 200 //节点数量
-		},
-		{
-			"id": 24,
-			"sourceid": 1,
-			"targetid": 2,
-			"x1": 58,
-			"y1": 65,
-			"x2": 45,
-			"y2": 86,
-			"value": 200 //节点数量
-		},
-		{
-			"id": 25,
-			"sourceid": 1,
-			"targetid": 2,
-			"x1": 58,
-			"y1": 65,
-			"x2": 45,
-			"y2": 86,
-			"value": 200 //节点数量
-		}
-	],
-	markList: [
-		//  第一层左右两个点
-		{
-			x: 730,
-			y: 195,
-			id: 12
-		}, {
-			x: 760,
-			y: 280,
-			id: 13
-		},
-		//  第二层左右两个点
-		{
-			x: 920,
-			y: 320,
-			id: 14
-		}, {
-			x: 1080,
-			y: 280,
-			id: 15
-		}, {
-			x: 1140,
-			y: 195,
-			id: 16
-		},
-	]
+		'servicedata': [
+
+			{
+				"name": "三星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 700, //数据量
+				"checkInVal": 108, //签入坐席
+				"inLineVal": 203, //排队中
+				"inService": 300 //服务中
+			},
+			{
+				"name": "四星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 800, //数据量
+				"checkInVal": 333, //签入坐席
+				"inLineVal": 555, //排队中
+				"inService": 888 //服务中
+			},
+			{
+				"name": "八星级用户级技能队",
+				"id": 3,
+				"totalVal": 1200, //总量
+				"value": 300, //数据量
+				"checkInVal": 100, //签入坐席
+				"inLineVal": 332, //排队中
+				"inService": 355 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 4,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+			{
+				"name": "三星级用户级技能队",
+				"id": 5,
+				"totalVal": 1200, //总量
+				"value": 700, //数据量
+				"checkInVal": 108, //签入坐席
+				"inLineVal": 203, //排队中
+				"inService": 300 //服务中
+			},
+			{
+				"name": "四星级用户级技能队",
+				"id": 6,
+				"totalVal": 1200, //总量
+				"value": 800, //数据量
+				"checkInVal": 333, //签入坐席
+				"inLineVal": 555, //排队中
+				"inService": 888 //服务中
+			},
+			{
+				"name": "八星级用户级技能队",
+				"id": 7,
+				"totalVal": 1200, //总量
+				"value": 300, //数据量
+				"checkInVal": 100, //签入坐席
+				"inLineVal": 332, //排队中
+				"inService": 355 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 8,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+			{
+				"name": "三星级用户级技能队",
+				"id": 9,
+				"totalVal": 1200, //总量
+				"value": 700, //数据量
+				"checkInVal": 108, //签入坐席
+				"inLineVal": 203, //排队中
+				"inService": 300 //服务中
+			},
+			{
+				"name": "四星级用户级技能队",
+				"id": 10,
+				"totalVal": 1200, //总量
+				"value": 800, //数据量
+				"checkInVal": 333, //签入坐席
+				"inLineVal": 555, //排队中
+				"inService": 888 //服务中
+			},
+			{
+				"name": "八星级用户级技能队",
+				"id": 11,
+				"totalVal": 1200, //总量
+				"value": 300, //数据量
+				"checkInVal": 100, //签入坐席
+				"inLineVal": 332, //排队中
+				"inService": 355 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 12,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+			{
+				"name": "三星级用户级技能队",
+				"id": 13,
+				"totalVal": 1200, //总量
+				"value": 700, //数据量
+				"checkInVal": 108, //签入坐席
+				"inLineVal": 203, //排队中
+				"inService": 300 //服务中
+			},
+			{
+				"name": "四星级用户级技能队",
+				"id": 14,
+				"totalVal": 1200, //总量
+				"value": 800, //数据量
+				"checkInVal": 333, //签入坐席
+				"inLineVal": 555, //排队中
+				"inService": 888 //服务中
+			},
+			{
+				"name": "八星级用户级技能队",
+				"id": 15,
+				"totalVal": 1200, //总量
+				"value": 300, //数据量
+				"checkInVal": 100, //签入坐席
+				"inLineVal": 332, //排队中
+				"inService": 355 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 16,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+			{
+				"name": "三星级用户级技能队",
+				"id": 17,
+				"totalVal": 1200, //总量
+				"value": 700, //数据量
+				"checkInVal": 108, //签入坐席
+				"inLineVal": 203, //排队中
+				"inService": 300 //服务中
+			},
+			{
+				"name": "四星级用户级技能队",
+				"id": 18,
+				"totalVal": 1200, //总量
+				"value": 800, //数据量
+				"checkInVal": 333, //签入坐席
+				"inLineVal": 555, //排队中
+				"inService": 888 //服务中
+			},
+			{
+				"name": "八星级用户级技能队",
+				"id": 19,
+				"totalVal": 1200, //总量
+				"value": 300, //数据量
+				"checkInVal": 100, //签入坐席
+				"inLineVal": 332, //排队中
+				"inService": 355 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 20,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+		]
+	}
 }
 export default {
 	dataset
