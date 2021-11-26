@@ -693,52 +693,194 @@ const dataset = {
 		]
 	}
 	,
-	"quantity": [
-		{
-			"name": "三星级用户级技能队",
-			"id": 1,
-			"x": 1500,
-			"y": 520,
-			"totalVal": 1200, //总量
-			"value": 700, //数据量
-			"checkInVal": 108, //签入坐席
-			"inLineVal": 203, //排队中
-			"inService": 300 //服务中
-		},
-		{
-			"name": "四星级用户级技能队",
-			"id": 2,
-			"x": 1600,
-			"y": 520,
-			"totalVal": 1200, //总量
-			"value": 800, //数据量
-			"checkInVal": 333, //签入坐席
-			"inLineVal": 555, //排队中
-			"inService": 888 //服务中
-		},
-		{
-			"name": "八星级用户级技能队",
-			"id": 1,
-			"x": 1700,
-			"y": 520,
-			"totalVal": 1200, //总量
-			"value": 300, //数据量
-			"checkInVal": 100, //签入坐席
-			"inLineVal": 332, //排队中
-			"inService": 355 //服务中
-		},
-		{
-			"name": "十星级用户级技能队",
-			"id": 2,
-			"x": 1800,
-			"y": 520,
-			"totalVal": 1200, //总量
-			"value": 488, //数据量
-			"checkInVal": 444, //签入坐席
-			"inLineVal": 888, //排队中
-			"inService": 33 //服务中
-		}
-	],
+	"quantity": {
+		'x':0,
+		'y':530,
+
+		'data':[
+			{
+				"name": "三星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 700, //数据量
+				"checkInVal": 108, //签入坐席
+				"inLineVal": 203, //排队中
+				"inService": 300 //服务中
+			},
+			{
+				"name": "四星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 800, //数据量
+				"checkInVal": 333, //签入坐席
+				"inLineVal": 555, //排队中
+				"inService": 888 //服务中
+			},
+			{
+				"name": "八星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 300, //数据量
+				"checkInVal": 100, //签入坐席
+				"inLineVal": 332, //排队中
+				"inService": 355 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+			{
+				"name": "三星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 700, //数据量
+				"checkInVal": 108, //签入坐席
+				"inLineVal": 203, //排队中
+				"inService": 300 //服务中
+			},
+			{
+				"name": "四星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 800, //数据量
+				"checkInVal": 333, //签入坐席
+				"inLineVal": 555, //排队中
+				"inService": 888 //服务中
+			},
+			{
+				"name": "八星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 300, //数据量
+				"checkInVal": 100, //签入坐席
+				"inLineVal": 332, //排队中
+				"inService": 355 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+			{
+				"name": "三星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 700, //数据量
+				"checkInVal": 108, //签入坐席
+				"inLineVal": 203, //排队中
+				"inService": 300 //服务中
+			},
+			{
+				"name": "四星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 800, //数据量
+				"checkInVal": 333, //签入坐席
+				"inLineVal": 555, //排队中
+				"inService": 888 //服务中
+			},
+			{
+				"name": "八星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 300, //数据量
+				"checkInVal": 100, //签入坐席
+				"inLineVal": 332, //排队中
+				"inService": 355 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+			{
+				"name": "三星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 700, //数据量
+				"checkInVal": 108, //签入坐席
+				"inLineVal": 203, //排队中
+				"inService": 300 //服务中
+			},
+			{
+				"name": "四星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 800, //数据量
+				"checkInVal": 333, //签入坐席
+				"inLineVal": 555, //排队中
+				"inService": 888 //服务中
+			},
+			{
+				"name": "八星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 300, //数据量
+				"checkInVal": 100, //签入坐席
+				"inLineVal": 332, //排队中
+				"inService": 355 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+			{
+				"name": "三星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 700, //数据量
+				"checkInVal": 108, //签入坐席
+				"inLineVal": 203, //排队中
+				"inService": 300 //服务中
+			},
+			{
+				"name": "四星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 800, //数据量
+				"checkInVal": 333, //签入坐席
+				"inLineVal": 555, //排队中
+				"inService": 888 //服务中
+			},
+			{
+				"name": "八星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 300, //数据量
+				"checkInVal": 100, //签入坐席
+				"inLineVal": 332, //排队中
+				"inService": 355 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+		]
+	},
+	
 	"lines": [
 		{
 			"id": 22,
