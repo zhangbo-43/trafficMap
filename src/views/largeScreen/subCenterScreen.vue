@@ -123,6 +123,7 @@
             </div> -->
             </div>
             <!-- 话务总量头部结束  -->
+            
             <!--看板大屏主图部分  -->
             <div class="map-line-content">
               <svg
@@ -156,6 +157,7 @@
               </svg>
             </div>
             <!--看板大屏主图部分结束  -->
+            
           </div>
           <!-- 异常挂断情况 -->
           <div class="map-right-top">
@@ -169,17 +171,7 @@
       </div>
     </div>
     <!--    服务量趋势图页面-->
-    <service-chart
-      :chartVisible="chartVisible"
-      @closeDialog="handleClose"
-      :optionData="optionData"
-    ></service-chart>
-    <!--    异常接口弹窗-->
-    <abNormal-dia
-      :data="dialogTableData"
-      :dialogVisible="dialogVisible"
-      @closeDialogtable="closeDialogtable"
-    ></abNormal-dia>
+    <service-chart :chartVisible="chartVisible" @closeDialog="handleClose" :optionData="optionData" ></service-chart>
   </div>
 </template>
 
@@ -197,7 +189,6 @@ import Progress from "./progress.vue";
 import Histograms from "./histograms.vue";
 import serviceChart from "../../components/trendChart/serviceChart";
 import searchsetflexible from "../../components/searchSetFlexible.vue";
-import abNormalDia from "../../components/dialogtable.vue";
 // import * as d3 from 'd3'
 export default {
   name: "wholeNetworkScreen",
@@ -300,7 +291,6 @@ export default {
     Histograms,
     serviceChart,
     searchsetflexible,
-    abNormalDia,
   },
   mounted() {
     // this.svgZoom()
