@@ -317,6 +317,14 @@ export default {
 };
 </script>
 <style>
+dialong-table .el-dialog__body .table .el-table td.el-table__cell, .dialong-table .el-dialog__body .table .el-table th.el-table__cell.is-leaf{
+  border: 0;
+  border:none;
+  height: 60px;
+}
+.el-dialog__headerbtn .el-dialog__close {
+  color: #3eb6f5;
+}
 .flexible .flex-box .select input {
   padding: 1px;
   padding-left: 3px;
