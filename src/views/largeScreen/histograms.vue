@@ -200,6 +200,7 @@ export default {
       beginX: d3Data.dataset.quantity.x + 125,
       beginY: d3Data.dataset.quantity.y + 50,
       quantityData: d3Data.dataset.quantity.data,
+      showQuantityData:[],
       showValue: false,
 
       // 柱子宽度
@@ -213,8 +214,16 @@ export default {
       el.bgHeight = 140 - el.height;
       el.x = this.beginX + index * 85;
       el.y = this.beginY;
+
+      //每次渲染要循环20次原数据,若原数据过大可能造成卡顿，记录下次优化
+      d3Data.dataset.quantity.data.forEach(item => {
+        if(item.id==el.id){
+          item.x = el.x + 15
+          item.y = el.y
+        }
+      });
+      
     });
-    console.log(window.innerWidth);
   },
 };
 </script>
