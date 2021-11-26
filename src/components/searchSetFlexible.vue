@@ -16,11 +16,11 @@
           :popper-append-to-body="false"
           clearable
         >
-          <el-button slot="append">搜索</el-button>
+          <el-button slot="append" v-on:click="setSearch">搜索</el-button>
         </el-autocomplete>
         <!-- <span>搜索</span> -->
       </div>
-      <span><i class="el-icon-sort"></i></span>
+      <span v-on:click="setSort"><i class="el-icon-sort"></i></span>
       <span @click="showDialogtable = true">
         <i class="el-icon-setting"></i
       ></span>
@@ -40,6 +40,7 @@ export default {
     return {
       showDialogtable: false,
       showSetSearch: false,
+      searchValue:'',
       dialogTableData: {
         dialongTitle: "大屏技能队列首屏显示设置",
         tableTitle: false,
@@ -261,12 +262,45 @@ export default {
           value: "1南拳妈妈龙虾盖浇饭",
           address: "普陀区金沙江路1699号鑫乐惠美食广场A13",
         },
+        {
+          value: "2新旺角茶餐厅",
+          address: "上海市普陀区真北路988号创邑金沙谷6号楼113",
+        },
       ];
     },
     handleSelect(item) {
       console.log(item);
+      this.searchValue = item.value
+      console.log(this.searchValue)
     },
-
+    //搜索
+    setSearch(){
+       let arr1 = this.restaurants;
+       let arr2 = [];
+       let searchValue = this.searchValue;
+       arr1.forEach((v)=>{
+         if(v.value==searchValue){
+           console.log('包含该元素',searchValue)
+           arr2.push(v)
+         }
+       })
+       console.log(arr2) 
+    },
+    //排序
+    setSort(){
+       this.$message({
+          message: '排序了',
+          type: 'success'
+        });
+        let arr1 = [3,7,9,2,5,1];
+        let arr2 = [];
+        console.log(arr1);
+        console.log('排序了');
+        for(var i=0;i<arr1.length;i++){
+           arr2.unshift(arr1[i]);
+        }
+         console.log(arr2)   
+    },
     //关闭设置弹窗 
     closeDialogtable(data) {
       this.multipleSelection = data;
@@ -286,6 +320,7 @@ export default {
 .flexible .flex-box .select input {
   padding: 1px;
   padding-left: 3px;
+  padding-right: 30px;
   color: #fefefe;
   border: none;
   background-color: unset;
@@ -296,6 +331,9 @@ export default {
   color: #ffffff;
   border: none;
   border-radius: unset;
+}
+.flexible .flex-box .select .el-input-group__append button.el-button{
+  margin: -10px -10px;
 }
 .flexible .flex-box .select .el-autocomplete-suggestion {
   background-color: #16388d;
@@ -308,6 +346,9 @@ export default {
 .flexible .flex-box .el-autocomplete-suggestion li:hover {
   background-color: #486c8c;
   color: #37dc94;
+}
+.flexible .flex-box .el-autocomplete-suggestion .el-autocomplete-suggestion__wrap {
+  max-height: 240px;
 }
 </style>
 <style lang="scss" scoped>
