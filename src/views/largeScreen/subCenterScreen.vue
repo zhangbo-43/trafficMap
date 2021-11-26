@@ -61,32 +61,50 @@
             <div style="position: absolute; left: 10px; top: 310px">
               <mainSelect />
             </div>
-           <div style="position: absolute; right: 0; top: 620px">
+            <div style="position: absolute; right: 0; top: 620px">
               <searchsetflexible />
             </div>
             <div style="position: absolute; right: 10px; top: 310px">
-             <div class="zoom-in-out">
-                 <div class="zoom-line">
-                    <span class="zoom-start-value">0</span>
-                    <el-slider
-                      v-model="zoomValue"
-                      :step="10"
-                      :marks="remarks"
-                      >
-                    </el-slider>
-                    <span class="zoom-start-value">100</span>
+              <div class="zoom-in-out">
+                <div class="zoom-line">
+                  <span class="zoom-start-value">0</span>
+                  <el-slider v-model="zoomValue" :step="10" :marks="remarks">
+                  </el-slider>
+                  <span class="zoom-start-value">100</span>
                 </div>
-             </div>
-             <div class="nodes-point">
+              </div>
+              <div class="nodes-point">
                 <div class="node-total">
-                  <span>正常节点<i class="el-icon-phone" style="color:#09F0F5"></i></span>
-                  <span>异常节点<i class="el-icon-phone" style="color:#ED1858"></i></span>
-                  <span>异常挂断<i class="icon iconfont icon-duankaiyichang" style="color:#C77E3E"></i></span>
-                  <span>接口异常<i class="icon iconfont icon-jiekouyichang" style="color:#C33DC7"></i></span>
+                  <span
+                    >正常节点<i class="el-icon-phone" style="color: #09f0f5"></i
+                  ></span>
+                  <span
+                    >异常节点<i class="el-icon-phone" style="color: #ed1858"></i
+                  ></span>
+                  <span
+                    >异常挂断<i
+                      class="icon iconfont icon-duankaiyichang"
+                      style="color: #c77e3e"
+                    ></i
+                  ></span>
+                  <span
+                    >接口异常<i
+                      class="icon iconfont icon-jiekouyichang"
+                      style="color: #c33dc7"
+                    ></i
+                  ></span>
                 </div>
-                <div class="num-total"><span><i class="icon iconfont icon-jiekouyichang" style="color:#C33DC7"></i>接口异常总量：{{Number(1568954).toLocaleString()}}</span></div>
-             </div>
-          </div>
+                <div class="num-total">
+                  <span
+                    ><i
+                      class="icon iconfont icon-jiekouyichang"
+                      style="color: #c33dc7"
+                    ></i
+                    >接口异常总量：{{ Number(1568954).toLocaleString() }}</span
+                  >
+                </div>
+              </div>
+            </div>
             <!-- 话务总量头部  -->
             <div class="total-traffic">
               <div class="traffic">
@@ -115,11 +133,23 @@
                 width="1920"
                 height="1080"
               >
-                <g class="topolog">
-                  <traffice datasource="[]"></traffice>
-                  <skillChart></skillChart>
-                  <Progress datasource="[]" @openDialog="openDialog" @openTable="openTable"></Progress>
-                </g>
+                <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1920"
+                  height="70vh"
+                >
+                  <g class="topolog">
+                    <traffice datasource="[]"></traffice>
+                    <skillChart></skillChart>
+                    <Progress
+                      datasource="[]"
+                      @openDialog="openDialog"
+                      @openTable="openTable"
+                    ></Progress>
+                  </g>
+                </svg>
+
                 <g class="quantity">
                   <Histograms></Histograms>
                 </g>
@@ -166,7 +196,7 @@ export default {
   data() {
     return {
       remarks: {},
-      zoomValue:50,
+      zoomValue: 50,
       // marks: {
       //     0: '0',
       //     50: {
@@ -227,7 +257,7 @@ export default {
       fullscreen: false,
       chartVisible: false,
       optionData: {},
-      dialogVisible:false,
+      dialogVisible: false,
       dialogTableData: {
         dialongTitle: "异常接口明细",
         tableTitle: true,
@@ -236,19 +266,18 @@ export default {
         tableColumn: {
           intTabCol: {
             name: "异常接口名称",
-            count:"异常次数",
-            offer:"接口提供方",
-            CSFCode:"CSF编码"
-          },csfCol: {
-            name: "异常接口名称",
-            count:"异常次数",
-            offer:"接口提供方",
-            CSFCode:"CSF编码"
-          }
+            count: "异常次数",
+            offer: "接口提供方",
+            CSFCode: "CSF编码",
           },
-        tableData: {
-
+          csfCol: {
+            name: "异常接口名称",
+            count: "异常次数",
+            offer: "接口提供方",
+            CSFCode: "CSF编码",
+          },
         },
+        tableData: {},
       },
     };
   },
@@ -286,29 +315,43 @@ export default {
     closeDialogtable(data) {
       this.multipleSelection = data;
       this.dialogTableData = false;
-      console.log(data)
+      console.log(data);
     },
     openDialog(params) {
-      this.chartVisible = true
-      if(params == 'nodeTrend') {
+      this.chartVisible = true;
+      if (params == "nodeTrend") {
         this.optionData = {
-          echartTitle : "节点服务量趋势图",
+          echartTitle: "节点服务量趋势图",
           options: {
             tooltip: {
-              trigger: 'axis',
+              trigger: "axis",
               axisPointer: {
-                type: 'cross'
-              }
+                type: "cross",
+              },
             },
-            color: ["rgb(101, 158, 178)","rgb(167, 3, 30)"],
+            color: ["rgb(101, 158, 178)", "rgb(167, 3, 30)"],
             legend: {},
             toolbox: {
               show: true,
             },
             xAxis: {
-              type: 'category',
+              type: "category",
               boundaryGap: false,
-              data: ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00', '24:00', ]
+              data: [
+                "00:00",
+                "02:00",
+                "04:00",
+                "06:00",
+                "08:00",
+                "10:00",
+                "12:00",
+                "14:00",
+                "16:00",
+                "18:00",
+                "20:00",
+                "22:00",
+                "24:00",
+              ],
             },
             // xAxis: {
             //   type:"time",
@@ -321,23 +364,23 @@ export default {
             //   }
             // },
             yAxis: {
-              type: 'value',
-              axisLine : {
+              type: "value",
+              axisLine: {
                 show: false,
               },
-              splitLine : {
+              splitLine: {
                 show: true,
                 lineStyle: {
-                  type: 'solid',
-                  color: '#191D39'
-                }
+                  type: "solid",
+                  color: "#191D39",
+                },
               },
               // axisLabel: {
               //   formatter: '{value} W'
               // },
               axisPointer: {
-                snap: true
-              }
+                snap: true,
+              },
             },
             // visualMap: {
             //   show: false,
@@ -370,8 +413,8 @@ export default {
             // },
             series: [
               {
-                name: '节点服务量',
-                type: 'line',
+                name: "节点服务量",
+                type: "line",
                 // lineStyle: {
                 //   normal: {
                 //     color: "rgb(101, 158, 178)"
@@ -409,8 +452,8 @@ export default {
                 // }
               },
               {
-                name: '节点异常挂断量',
-                type: 'line',
+                name: "节点异常挂断量",
+                type: "line",
                 smooth: true,
                 showSymbol: false,
                 symbol: "circle",
@@ -424,51 +467,68 @@ export default {
                 //     }
                 //   }
                 // },
-                data: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 350, 390, 400, 500, 600, 750, 800, 389, 290, 500],
+                data: [
+                  100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 350, 390,
+                  400, 500, 600, 750, 800, 389, 290, 500,
+                ],
               },
-            ]
-          }
-        }
-      }else {
+            ],
+          },
+        };
+      } else {
         this.optionData = {
-          echartTitle : "技能队列服务排队趋势图",
+          echartTitle: "技能队列服务排队趋势图",
           options: {
             tooltip: {
-              trigger: 'axis',
+              trigger: "axis",
               axisPointer: {
-                type: 'cross'
-              }
+                type: "cross",
+              },
             },
-            color: ["rgb(101, 158, 178)","rgb(167, 3, 30)"],
+            color: ["rgb(101, 158, 178)", "rgb(167, 3, 30)"],
             legend: {},
             toolbox: {
               show: true,
             },
             xAxis: {
-              type: 'category',
+              type: "category",
               boundaryGap: false,
-              data: ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00', '24:00', ]
+              data: [
+                "00:00",
+                "02:00",
+                "04:00",
+                "06:00",
+                "08:00",
+                "10:00",
+                "12:00",
+                "14:00",
+                "16:00",
+                "18:00",
+                "20:00",
+                "22:00",
+                "24:00",
+              ],
             },
             yAxis: {
-              type: 'value',
-              axisLine : {
+              type: "value",
+              axisLine: {
                 show: false,
               },
-              splitLine : {
+              splitLine: {
                 show: true,
                 lineStyle: {
-                  type: 'solid',
-                  color: '#191D39'
-                }
+                  type: "solid",
+                  color: "#191D39",
+                },
               },
               axisPointer: {
-                snap: true
-              }
+                snap: true,
+              },
             },
             series: [
               {
-                name: '排队量趋势图',
-                type: 'line',
+                name: "排队量趋势图",
+                type: "line",
                 smooth: true,
                 showSymbol: false,
                 symbol: "circle",
@@ -482,11 +542,14 @@ export default {
                 //     }
                 //   }
                 // },
-                data: [120,220,320,420,520,620,720,140,160,180,200,220,240,260],
+                data: [
+                  120, 220, 320, 420, 520, 620, 720, 140, 160, 180, 200, 220,
+                  240, 260,
+                ],
               },
               {
-                name: '服务量趋势图',
-                type: 'line',
+                name: "服务量趋势图",
+                type: "line",
                 smooth: true,
                 showSymbol: false,
                 symbol: "circle",
@@ -495,20 +558,23 @@ export default {
                     lineStyle: {
                       type: "dashed",
                       normal: {
-                        color: "rgb(103, 160, 180)"
-                      }
-                    }
-                  }
+                        color: "rgb(103, 160, 180)",
+                      },
+                    },
+                  },
                 },
-                data: [240,280,320,360,400,440,480,140,160,180,200,220,240,260,180],
+                data: [
+                  240, 280, 320, 360, 400, 440, 480, 140, 160, 180, 200, 220,
+                  240, 260, 180,
+                ],
               },
-            ]
-          }
-        }
+            ],
+          },
+        };
       }
     },
     openTable() {
-      this.dialogVisible = true
+      this.dialogVisible = true;
     },
     // svgZoom() {
     //   let zoom = d3.behavior.zoom().scaleExtent([0.5, 2]).on('zoom', this.redraw);
@@ -566,8 +632,8 @@ export default {
       Bus.$emit("fullScreen", this.fullscreen);
     },
     handleClose(status) {
-      this.chartVisible = status
-      console.log(status)
+      this.chartVisible = status;
+      console.log(status);
     },
   },
 };
@@ -674,62 +740,62 @@ export default {
     top: 10px;
   }
   .map-main {
-      .zoom-in-out{
-        padding: 29px 29px 0 0;
-        overflow: hidden;
-        .zoom-line{
-          width:266px;
-          float: right;
-          .el-slider{
-              width:200px;
-              display: inline-grid;
-              margin: 0 12px;
-               ::v-deep .el-slider__runway{
-                  height: 2px;
-                  background: #001A44;
-                  border-radius: 1px;
-              }
-             ::v-deep .el-slider__bar{
-                 display: none;
-              }
-             ::v-deep .el-slider__button{
-                  width: 9px;
-                  height: 9px;
-                  background: #0E2ECC;
-                  border: 2px solid #0071FE;
-                  // opacity: 0.31;
-                  border-radius: 50%;
-             }
-             ::v-deep .el-slider__stop{
-                  display: none;
-             }
+    .zoom-in-out {
+      padding: 29px 29px 0 0;
+      overflow: hidden;
+      .zoom-line {
+        width: 266px;
+        float: right;
+        .el-slider {
+          width: 200px;
+          display: inline-grid;
+          margin: 0 12px;
+          ::v-deep .el-slider__runway {
+            height: 2px;
+            background: #001a44;
+            border-radius: 1px;
           }
-          .zoom-start-value{
-            font-size: 18px;
-            opacity: 0.5;
+          ::v-deep .el-slider__bar {
+            display: none;
+          }
+          ::v-deep .el-slider__button {
+            width: 9px;
+            height: 9px;
+            background: #0e2ecc;
+            border: 2px solid #0071fe;
+            // opacity: 0.31;
+            border-radius: 50%;
+          }
+          ::v-deep .el-slider__stop {
+            display: none;
           }
         }
-     }
-     .nodes-point{
-       .node-total{
-         margin-bottom: 17px;
-         span{
-           margin-right:15px;
-           i{
-             margin-left: 4px;
-           }
-         }
-       }
-       .num-total{
-         text-align: right;
-          span{
-           margin-right:15px;
-           i{
-             margin-right: 4px;
-           }
-         }
-       }
-     }
+        .zoom-start-value {
+          font-size: 18px;
+          opacity: 0.5;
+        }
+      }
+    }
+    .nodes-point {
+      .node-total {
+        margin-bottom: 17px;
+        span {
+          margin-right: 15px;
+          i {
+            margin-left: 4px;
+          }
+        }
+      }
+      .num-total {
+        text-align: right;
+        span {
+          margin-right: 15px;
+          i {
+            margin-right: 4px;
+          }
+        }
+      }
+    }
   }
   .map-right-top {
     // border: 1px solid #001aff;
@@ -784,6 +850,7 @@ export default {
 }
 .map-line-content {
   text-align: center;
+
   //padding: 10px;
 }
 .right-box {
