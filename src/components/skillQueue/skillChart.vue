@@ -1,147 +1,185 @@
 <template>
   <g class="centerBox">
-    <g>
-      <line
-        v-for="item in this.d3Data.dataset.nodes.children"
-        :key="item.id"
-        x1="962"
-        y1="90"
-        :x2="item.x2"
-        :y2="item.y2"
-        style="stroke: rgb(20, 81, 248); stroke-width: 2"
+    <g class="lines">
+      <g class="line" v-for="item in this.d3Data.dataset.nodes.children" :key="item.id">
+        <line
+        :x1="startX"
+        :y1="startY"
+        :x2="endX(item.x, item.size)"
+        :y2="endY(item.y, item.size)"
       />
+      <image class="cursor"
+        :x="cursor(startX)"
+        :y="cursor(startY)"
+        width="20"
+        height="20"
+        :href="light"
+      ></image>
+      </g>
     </g>
-    <g>
+    <g class="center">
       <image
-        opacity="1"
-        stroke-width="1"
-        stroke-opacity="1"
-        fill-opacity="1"
-        :x="this.d3Data.dataset.nodes.x"
-        :y="this.d3Data.dataset.nodes.y"
-        width="242"
-        height="194"
+        :x="centerX"
+        :y="centerY"
+        :width="centerWidth"
+        :height="centerHeight"
         :href="centerUrl"
       ></image>
     </g>
-    <g v-for="item in this.d3Data.dataset.nodes.children" :key="item.id">
-      <image
-        opacity="1"
-        stroke-width="1"
-        stroke-opacity="1"
-        fill-opacity="1"
-        :x="item.x"
-        :y="item.y"
-        :width="item.width"
-        :height="item.width"
-        :href="imgUrl"
-        style="display: block"
-        @click="click(item)"
-      ></image>
-      <text fill="#fff" :x="item.textX" :y="item.textY" text-anchor="start">{{
-        item.name
-      }}</text>
-      <text
-        fill="rgba(6, 202, 195)"
-        :x="item.valueX"
-        :y="item.valueY"
-        text-anchor="start"
-        >{{ item.value }}</text
+    <g class="nodes">
+      <g
+        class="node"
+        v-for="item in this.d3Data.dataset.nodes.children"
+        :key="item.id"
       >
-      <image
-        opacity="1"
-        stroke-width="1"
-        stroke-opacity="1"
-        fill-opacity="1"
-        :x="item.bottomX"
-        :y="item.bottomY"
-        width="15"
-        height="15"
-        :href="arrowUrl"
-      ></image>
-      <image :x="item.pointX" :y="item.pointY" :href="item.pointUrl"></image>
-      <image
-        :x="item.patchX"
-        :y="item.patchY"
-        width="23"
-        height="23"
-        :href="item.patchUrl"
-      ></image>
+        <image
+          class="node-image"
+          :x="positionX(item.x, item.size)"
+          :y="positionY(item.y, item.size)"
+          :width="size(item.size)"
+          :height="size(item.size)"
+          :href="imgUrl"
+          @click="click(item)"
+        ></image>
+        <text
+          class="node-text"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          :x="textX(item.x, item.size)"
+          :y="textY(item.y, item.size)"
+          >{{ item.name }}</text
+        >
+        <text
+          class="node-count"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          :x="countX(item.x, item.size)"
+          :y="countY(item.y, item.size)"
+          >{{ item.value }}</text
+        >
+        <image
+          :x="arrowX(item.x, item.size)"
+          :y="arrowY(item.y, item.size)"
+          width="15"
+          height="15"
+          :href="arrowUrl"
+        ></image>
+      </g>
     </g>
   </g>
 </template>
 
 <script>
-// import * as d3 from 'd3'
+
 import d3Data from "../../views/largeScreen/d3Data";
+
 export default {
-  name: "skillChart",
+  computed: {
+    cursor:function(){
+        return function (x) {
+        return x - 10;
+      }; 
+    },
+    startX: function () {
+      return this.centerX + this.centerWidth / 2;
+    },
+    startY: function () {
+      return this.centerY + this.centerHeight / 2;
+    },
+    endX: function () {
+      return function (x, size) {
+        return x + (size === "default" ? 50 : 30);
+      };
+    },
+    endY: function () {
+      return function (y, size) {
+        return y + (size === "default" ? 50 : 30);
+      };
+    },
+    positionX: function () {
+      return function (x, size) {
+        return x + (size === "default" ? 20 : 30);
+      };
+    },
+    positionY: function () {
+      return function (y, size) {
+        return y + (size === "default" ? 20 : 30);
+      };
+    },
+    size: function () {
+      return function (size) {
+        return size === "default" ? 60 : 100;
+      };
+    },
+    textX: function () {
+      return function (x, size) {
+        return x + (size === "default" ? 50 : 100);
+      };
+    },
+    textY: function () {
+      return function (y, size) {
+        return y + (size === "default" ? 95 : 100);
+      };
+    },
+    countX: function () {
+      return function (x, size) {
+        return x + (size === "default" ? 50 : 100);
+      };
+    },
+    countY: function () {
+      return function (y, size) {
+        return y + (size === "default" ? 5 : 100);
+      };
+    },
+    arrowX: function () {
+      return function (x, size) {
+        return x + (size === "default" ? 42 : 100);
+      };
+    },
+    arrowY: function () {
+      return function (y, size) {
+        return y + (size === "default" ? 105 : 100);
+      };
+    },
+  },
   data() {
     return {
       d3Data: d3Data,
-      pointX: 400,
-      pointY: 100,
-      height: 100,
+      centerX: 835,
+      centerY: 0,
+      centerWidth: 242,
+      centerHeight: 194,
+      light: require("../../assets/images/light1.png"),
       pointUrl: require("../../assets/images/abnormal.svg"),
       imgUrl: require("../../assets/images/little.svg"),
       centerUrl: require("../../assets/images/person.png"),
       arrowUrl: require("../../assets/images/arrow.svg"),
       slides: [],
-
     };
   },
   methods: {
     click(data) {
-      console.log(data)
-    }
+      console.log(data);
+    },
   },
   mounted() {
-    // this.getPoint()
-    console.log(this.d3Data);
+ 
   },
   created() {
-    this.d3Data.dataset.nodes.width = 80;
-    this.d3Data.dataset.nodes.height = 80;
-    if (this.d3Data.dataset.nodes.children.length == 1) {
-      this.d3Data.dataset.nodes.children[0].width = 70;
-      this.d3Data.dataset.nodes.children[0].height = 70;
-    } else if (this.d3Data.dataset.nodes.children.length == 2) {
-      this.d3Data.dataset.nodes.children[0].width = 50;
-      this.d3Data.dataset.nodes.children[0].height = 50;
-      this.d3Data.dataset.nodes.children[1].width == 50;
-      this.d3Data.dataset.nodes.children[1].height == 50;
-    } else if (this.d3Data.dataset.nodes.children.length == 3) {
-      this.d3Data.dataset.nodes.children[0].width = 50;
-      this.d3Data.dataset.nodes.children[0].height = 50;
-      this.d3Data.dataset.nodes.children[1].width = 70;
-      this.d3Data.dataset.nodes.children[1].height = 70;
-      this.d3Data.dataset.nodes.children[2].width = 50;
-      this.d3Data.dataset.nodes.children[2].height = 50;
-    } else if (this.d3Data.dataset.nodes.children.length == 4) {
-      this.d3Data.dataset.nodes.children[0].width = 50;
-      this.d3Data.dataset.nodes.children[0].height = 50;
-      this.d3Data.dataset.nodes.children[1].width = 60;
-      this.d3Data.dataset.nodes.children[1].height = 60;
-      this.d3Data.dataset.nodes.children[2].width = 60;
-      this.d3Data.dataset.nodes.children[2].height = 60;
-      this.d3Data.dataset.nodes.children[3].width = 50;
-      this.d3Data.dataset.nodes.children[3].height = 50;
-    } else {
-      this.d3Data.dataset.nodes.children[0].width = 50;
-      this.d3Data.dataset.nodes.children[0].height = 50;
-      this.d3Data.dataset.nodes.children[1].width = 60;
-      this.d3Data.dataset.nodes.children[1].height = 60;
-      this.d3Data.dataset.nodes.children[1].width = 60;
-      this.d3Data.dataset.nodes.children[1].height = 60;
-      this.d3Data.dataset.nodes.children[2].width = 70;
-      this.d3Data.dataset.nodes.children[2].height = 70;
-      this.d3Data.dataset.nodes.children[3].width = 60;
-      this.d3Data.dataset.nodes.children[3].height = 60;
-      this.d3Data.dataset.nodes.children[4].width = 50;
-      this.d3Data.dataset.nodes.children[4].height = 50
-    }
+    
   },
 };
 </script>
 <style lang="scss" scoped>
+.node-text {
+  font-size: 18px;
+  fill: white;
+}
+.line line{
+  stroke: rgb(20, 81, 248);
+  stroke-width: 2px;
+}
+.node-count {
+  fill: rgba(6, 202, 195);
+}
 </style>
