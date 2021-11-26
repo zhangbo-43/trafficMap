@@ -105,6 +105,7 @@
             </div> -->
             </div>
             <!-- 话务总量头部结束  -->
+            
             <!--看板大屏主图部分  -->
             <div class="map-line-content">
               <svg
@@ -126,6 +127,7 @@
               </svg>
             </div>
             <!--看板大屏主图部分结束  -->
+            
           </div>
           <!-- 异常挂断情况 -->
           <div class="map-right-top">
