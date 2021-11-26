@@ -1,7 +1,7 @@
 <template>
   <g class="traffice">
     <g class="nodes">
-     
+
       <!-- <g class="lines">
         <line
           x1="20"

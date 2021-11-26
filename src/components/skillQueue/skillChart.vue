@@ -1,69 +1,32 @@
 <template>
   <g class="centerBox">
     <g class="lines">
-      <g class="line" v-for="item in this.d3Data.dataset.nodes.children" :key="item.id">
-        <line
-        :x1="startX"
-        :y1="startY"
-        :x2="endX(item.x, item.size)"
-        :y2="endY(item.y, item.size)"
-      />
-      <image class="cursor"
-        :x="cursor(startX)"
-        :y="cursor(startY)"
-        width="20"
-        height="20"
-        :href="light"
-      ></image>
+      <g class="line" v-for="item in this.d3Data.dataset.nodes.children"
+        :key="item.id">
+        <line :x1="startX" :y1="startY" :x2="endX(item.x, item.size)"
+          :y2="endY(item.y, item.size)" />
+        <image class="cursor" :x="cursor(startX)" :y="cursor(startY)" width="20"
+          height="20" :href="light"></image>
       </g>
     </g>
-    <g class="center">
-      <image
-        :x="centerX"
-        :y="centerY"
-        :width="centerWidth"
-        :height="centerHeight"
-        :href="centerUrl"
-      ></image>
-    </g>
+    <!-- <g class="center">
+      <image :x="centerX" :y="centerY" :width="centerWidth"
+        :height="centerHeight" :href="centerUrl"></image>\  
+    </g> -->
     <g class="nodes">
-      <g
-        class="node"
-        v-for="item in this.d3Data.dataset.nodes.children"
-        :key="item.id"
-      >
-        <image
-          class="node-image"
-          :x="positionX(item.x, item.size)"
-          :y="positionY(item.y, item.size)"
-          :width="size(item.size)"
-          :height="size(item.size)"
-          :href="imgUrl"
-          @click="click(item)"
-        ></image>
-        <text
-          class="node-text"
-          text-anchor="middle"
-          dominant-baseline="middle"
+      <g class="node" v-for="item in this.d3Data.dataset.nodes.children"
+        :key="item.id">
+        <image class="node-image" :x="positionX(item.x, item.size)"
+          :y="positionY(item.y, item.size)" :width="size(item.size)"
+          :height="size(item.size)" :href="imgUrl" @click="click(item)"></image>
+        <text class="node-text" text-anchor="middle" dominant-baseline="middle"
           :x="textX(item.x, item.size)"
-          :y="textY(item.y, item.size)"
-          >{{ item.name }}</text
-        >
-        <text
-          class="node-count"
-          text-anchor="middle"
-          dominant-baseline="middle"
+          :y="textY(item.y, item.size)">{{ item.name }}</text>
+        <text class="node-count" text-anchor="middle" dominant-baseline="middle"
           :x="countX(item.x, item.size)"
-          :y="countY(item.y, item.size)"
-          >{{ item.value }}</text
-        >
-        <image
-          :x="arrowX(item.x, item.size)"
-          :y="arrowY(item.y, item.size)"
-          width="15"
-          height="15"
-          :href="arrowUrl"
-        ></image>
+          :y="countY(item.y, item.size)">{{ item.value }}</text>
+        <image :x="arrowX(item.x, item.size)" :y="arrowY(item.y, item.size)"
+          width="15" height="15" :href="arrowUrl"></image>
       </g>
     </g>
   </g>
@@ -75,10 +38,10 @@ import d3Data from "../../views/largeScreen/d3Data";
 
 export default {
   computed: {
-    cursor:function(){
-        return function (x) {
+    cursor: function () {
+      return function (x) {
         return x - 10;
-      }; 
+      };
     },
     startX: function () {
       return this.centerX + this.centerWidth / 2;
@@ -163,10 +126,10 @@ export default {
     },
   },
   mounted() {
- 
+    // d3.selectAll("")
   },
   created() {
-    
+
   },
 };
 </script>
@@ -175,7 +138,7 @@ export default {
   font-size: 18px;
   fill: white;
 }
-.line line{
+.line line {
   stroke: rgb(20, 81, 248);
   stroke-width: 2px;
 }
