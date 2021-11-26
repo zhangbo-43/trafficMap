@@ -14,24 +14,24 @@ const dataset = {
 		"children": [
 			{
 				id: "2232",
-				x: 640,
-				y: 60,
-				size: "default",  //default large mini
+				x: 600,
+				y: 50,
+				size: "mini",  //default large mini
 				value: 1500,
 				name: "互联网话务"
 			},
 			{
 				id: "2323",
 				x: 1210,
-				y: 60,
-				size: "default",  //default large mini
+				y: 50,
+				size: "mini",  //default large mini
 				value: 900,
 				name: "跨网支撑"
 			},
 			{
 				id: "2845",
-				x: 740,
-				y: 160,
+				x: 710,
+				y: 150,
 				size: "default",  //default large mini
 				value: 2000,
 				name: "语音话务",
@@ -43,8 +43,8 @@ const dataset = {
 						"isFold": true, //是否展开节点 默认true 展开
 						"id": 1,
 						"img": "",
-						"x": 690,
-						"y": 550,
+						"x": 740,
+						"y": 300,
 						"imgX": 720, //大图标位移
 						"imgY": 300,
 						"spreadX": 770,//加号减号坐标
@@ -57,7 +57,7 @@ const dataset = {
 						"trendImgY": 400,
 						bottomX: 765,
 						bottomY: 430,
-						"pathD": "M767 250 L 769 320",//曲线位置
+						"pathD": "M788 278 L 769 320",//曲线位置
 						"totalVal": 700, //节点总量
 						"abnormalVal": 300, //异常挂断量
 						"interfaceVal": 200, //接口异常量
@@ -70,7 +70,7 @@ const dataset = {
 								"id": 1,
 								"img": "",
 								"x": 460,
-								"y": 620,
+								"y": 480,
 								bottomX: 506,
 								bottomY: 584,
 								"imgX": 465, //大图标位移
@@ -97,8 +97,8 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 1,
 										"img": "",
-										"x": 460,
-										"y": 620,
+										"x": 100,
+										"y": 700,
 										"spreadX": 150,//加号减号坐标
 										"spreadY": 700,
 										"imgX": 100, //大图标位移
@@ -131,8 +131,8 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 2,
 										"img": "",
-										"x": 460,
-										"y": 620,
+										"x": 300,
+										"y": 700,
 										"spreadX": 350,//加号减号坐标
 										"spreadY": 700,
 										"imgX": 300, //大图标位移
@@ -165,8 +165,8 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 3,
 										"img": "",
-										"x": 460,
-										"y": 620,
+										"x": 500,
+										"y": 700,
 										"spreadX": 550,//加号减号坐标
 										"spreadY": 700,
 										"imgX": 500, //大图标位移
@@ -200,8 +200,8 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 4,
 										"img": "",
-										"x": 460,
-										"y": 620,
+										"x": 700,
+										"y": 700,
 										"spreadX": 750,//加号减号坐标
 										"spreadY": 700,
 										"imgX": 700, //大图标位移
@@ -233,8 +233,8 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 5,
 										"img": "",
-										"x": 460,
-										"y": 620,
+										"x": 900,
+										"y": 700,
 										"spreadX": 950,//加号减号坐标
 										"spreadY": 700,
 										"imgX": 900, //大图标位移
@@ -267,8 +267,8 @@ const dataset = {
 										"isFold": true, //是否展开节点 默认true 展开
 										"id": 1,
 										"img": "",
-										"x": 460,
-										"y": 620,
+										"x": 1100,
+										"y": 700,
 										"spreadX": 1150,//加号减号坐标
 										"spreadY": 700,
 										"imgX": 1100, //大图标位移
@@ -458,8 +458,8 @@ const dataset = {
 								"type": 2, //类型
 								"isFold": false, //是否展开节点 默认true 展开
 								"id": 1,
-								"x": 700,
-								"y": 540,
+								"x": 725,
+								"y": 480,
 								"imgX": 728, //大图标位移
 								"imgY": 460,
 								"spreadX": 773,//加号减号坐标
@@ -486,8 +486,8 @@ const dataset = {
 								"isFold": false, //是否展开节点 默认true 展开
 								"id": 1,
 								"img": "",
-								"x": 840,
-								"y": 580,
+								"x": 960,
+								"y": 480,
 								"imgX": 965, //大图标位移
 								"imgY": 460,
 								"spreadX": 1010,//加号减号坐标
@@ -511,16 +511,16 @@ const dataset = {
 			},
 			{
 				id: "5254",
-				x: 925,
+				x: 910,
 				y: 170,
-				size: "default",  //default large mini
+				size: "large",  //default large mini
 				value: 1200,
 				name: "溢出流程"
 			},
 			{
 				id: "8745",
-				x: 1120,
-				y: 160,
+				x: 1100,
+				y: 150,
 				size: "default",  //default large mini
 				value: 1000,
 				name: "视频话务",
@@ -532,8 +532,8 @@ const dataset = {
 						"isFold": true, //是否展开节点 默认true 展开
 						"id": 2,
 						"img": "",
-						"x": 1290,
-						"y": 550,
+						"x": 1100,
+						"y": 300,
 						"imgX": 1103, //大图标位移
 						"imgY": 300,
 						"spreadX": 1154,//加号减号坐标
@@ -557,8 +557,8 @@ const dataset = {
 								"type": 4, //类型
 								"isFold": true, //是否展开节点 默认true 展开
 								"id": 1,
-								"x": 840,
-								"y": 580,
+								"x": 1360,
+								"y": 480,
 								"imgX": 1365, //大图标位移
 								"imgY": 460,
 								"spreadX": 1414,//加号减号坐标
@@ -583,52 +583,192 @@ const dataset = {
 		]
 	}
 	,
-	"quantity": [
-		{
-			"name": "三星级用户级技能队",
-			"id": 1,
-			"x": 1500,
-			"y": 520,
-			"totalVal": 1200, //总量
-			"value": 700, //数据量
-			"checkInVal": 108, //签入坐席
-			"inLineVal": 203, //排队中
-			"inService": 300 //服务中
-		},
-		{
-			"name": "四星级用户级技能队",
-			"id": 2,
-			"x": 1600,
-			"y": 520,
-			"totalVal": 1200, //总量
-			"value": 800, //数据量
-			"checkInVal": 333, //签入坐席
-			"inLineVal": 555, //排队中
-			"inService": 888 //服务中
-		},
-		{
-			"name": "八星级用户级技能队",
-			"id": 1,
-			"x": 1700,
-			"y": 520,
-			"totalVal": 1200, //总量
-			"value": 300, //数据量
-			"checkInVal": 100, //签入坐席
-			"inLineVal": 332, //排队中
-			"inService": 355 //服务中
-		},
-		{
-			"name": "十星级用户级技能队",
-			"id": 2,
-			"x": 1800,
-			"y": 520,
-			"totalVal": 1200, //总量
-			"value": 488, //数据量
-			"checkInVal": 444, //签入坐席
-			"inLineVal": 888, //排队中
-			"inService": 33 //服务中
-		}
-	],
+	"quantity": {
+		'x': 0,
+		'y': 530,
+		'data': [
+			{
+				"name": "三星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 700, //数据量
+				"checkInVal": 108, //签入坐席
+				"inLineVal": 203, //排队中
+				"inService": 300 //服务中
+			},
+			{
+				"name": "四星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 800, //数据量
+				"checkInVal": 333, //签入坐席
+				"inLineVal": 555, //排队中
+				"inService": 888 //服务中
+			},
+			{
+				"name": "八星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 300, //数据量
+				"checkInVal": 100, //签入坐席
+				"inLineVal": 332, //排队中
+				"inService": 355 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+			{
+				"name": "三星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 700, //数据量
+				"checkInVal": 108, //签入坐席
+				"inLineVal": 203, //排队中
+				"inService": 300 //服务中
+			},
+			{
+				"name": "四星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 800, //数据量
+				"checkInVal": 333, //签入坐席
+				"inLineVal": 555, //排队中
+				"inService": 888 //服务中
+			},
+			{
+				"name": "八星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 300, //数据量
+				"checkInVal": 100, //签入坐席
+				"inLineVal": 332, //排队中
+				"inService": 355 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+			{
+				"name": "三星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 700, //数据量
+				"checkInVal": 108, //签入坐席
+				"inLineVal": 203, //排队中
+				"inService": 300 //服务中
+			},
+			{
+				"name": "四星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 800, //数据量
+				"checkInVal": 333, //签入坐席
+				"inLineVal": 555, //排队中
+				"inService": 888 //服务中
+			},
+			{
+				"name": "八星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 300, //数据量
+				"checkInVal": 100, //签入坐席
+				"inLineVal": 332, //排队中
+				"inService": 355 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+			{
+				"name": "三星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 700, //数据量
+				"checkInVal": 108, //签入坐席
+				"inLineVal": 203, //排队中
+				"inService": 300 //服务中
+			},
+			{
+				"name": "四星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 800, //数据量
+				"checkInVal": 333, //签入坐席
+				"inLineVal": 555, //排队中
+				"inService": 888 //服务中
+			},
+			{
+				"name": "八星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 300, //数据量
+				"checkInVal": 100, //签入坐席
+				"inLineVal": 332, //排队中
+				"inService": 355 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+			{
+				"name": "三星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 700, //数据量
+				"checkInVal": 108, //签入坐席
+				"inLineVal": 203, //排队中
+				"inService": 300 //服务中
+			},
+			{
+				"name": "四星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 800, //数据量
+				"checkInVal": 333, //签入坐席
+				"inLineVal": 555, //排队中
+				"inService": 888 //服务中
+			},
+			{
+				"name": "八星级用户级技能队",
+				"id": 1,
+				"totalVal": 1200, //总量
+				"value": 300, //数据量
+				"checkInVal": 100, //签入坐席
+				"inLineVal": 332, //排队中
+				"inService": 355 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 2,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+		]
+	},
 	"lines": [
 		{
 			"id": 22,

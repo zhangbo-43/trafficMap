@@ -4,7 +4,8 @@
       <g class="nodes" v-for="(item1, index1) in item.children" :key="index1">
         <!-- 联线 -->
         <g>
-          <path :d="item1.pathD" stroke="#a09eff" fill="none" />
+          <path :d="drawPathL(item.x,item.y,item1.x,item1.y)" stroke="#a09eff"
+            fill="none" />
         </g>
         <!-- 第一级 -->
         <g class="node" width="200" height="200">
@@ -41,7 +42,11 @@
           v-for="(item2, index2) in item1.children" :key="index2">
           <!-- 联线 -->
           <g>
-            <path :d="item2.pathD" stroke="#a09eff" fill="none" />
+            <!-- 
+            <path d="M740 650 C510 660,550 660,550 700" stroke="#a09eff"
+              fill="none" /> -->
+            <path :d="drawPath(item1.x,item1.y,item2.x,item2.y)"
+              stroke="#a09eff" fill="none" />
           </g>
           <circle :cx="item2.spreadX" :cy="item2.spreadY" r="6" stroke="#fff">
           </circle>
@@ -89,7 +94,8 @@
             v-for="(item3, index3) in item2.children" :key="index3">
             <!-- 联线 -->
             <g>
-              <path :d="item3.pathD" stroke="#a09eff" fill="none" />
+              <path :d="drawPath(item2.x,item2.y,item3.x,item3.y)"
+                stroke="#a09eff" fill="none" />
             </g>
             <!-- 展开折叠 -->
             <circle :cx="item3.spreadX" :cy="item3.spreadY" r="6" stroke="#fff">
@@ -178,6 +184,37 @@ export default {
       optionData: {},
     };
   },
+  computed: {
+    drawPathL: function () {
+      return function (x1, y1, x2, y2) {
+        var pathMX1 = x1 + 50;
+        var pathMY1 = y1 + 120;
+        var pathMX2 = x2 + 50;
+        var pathMY2 = y2 + 20;
+        // "pathD": "M788 278 L 769 320"
+        var pathD = "M" + pathMX1 + " " + pathMY1 + " " + "L" + pathMX2 + " " + pathMY2
+        console.log(pathD)
+        return pathD;
+      };
+    },
+    drawPath: function () {
+      return function (x1, y1, x2, y2) {
+        var pathMX1 = x1 + 50;
+        var pathMY1 = y1 + 150;
+        var pathMX2 = x2 + 50;
+        var pathMY2 = y2 + 0;
+        var pathCX1 = pathMX1 - (pathMX1 - pathMX2) * 0.1;
+        var pathCY1 = pathMY1 + (pathMY2 - pathMY1) * 0.1 + 50;
+        var pathCX2 = pathMX1 - (pathMX1 - pathMX2) * 0.95;
+        var pathCY2 = pathMY1 + (pathMY2 - pathMY1) * 0.9 - 50;
+        console.log(pathCX2)
+        var pathD = "M" + pathMX1 + " " + pathMY1 + " " + "C" + pathCX1 + " " + pathCY1 + " " + pathCX2 + " " + pathCY2 + "," + pathMX2 + " " + pathMY2
+        // console.log(pathD)
+        //"pathD": "M765 440 C 710 470 490 430,515 480",
+        return pathD;
+      };
+    }
+  },
   methods: {
     nodeOpen(params) {
       console.log(params)
@@ -231,7 +268,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .progress {
-  width: 800px;
   cursor: pointer;
 }
 .pro-text {
