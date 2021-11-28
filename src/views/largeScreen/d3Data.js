@@ -43,7 +43,7 @@ const dataset = {
 						"isFold": true, //是否展开节点 默认true 展开
 						"id": 31,
 						"img": "",
-						"x": 740,
+						"x": 733,
 						"y": 300,
 						"imgX": 720, //大图标位移
 						"imgY": 300,
@@ -55,8 +55,8 @@ const dataset = {
 						"totalNodeY": 415,
 						"trendImgX": 800,//趋势图表位移
 						"trendImgY": 400,
-						bottomX: 765,
-						bottomY: 430,
+						'bottomX': 765,
+						'bottomY': 430,
 						"pathD": "M788 278 L 769 320",//曲线位置
 						"totalVal": 700, //节点总量
 						"abnormalVal": 300, //异常挂断量
@@ -586,6 +586,7 @@ const dataset = {
 	"quantity": {
 		'x': 0,
 		'y': 530,
+		
 		'data': [
 
 			{

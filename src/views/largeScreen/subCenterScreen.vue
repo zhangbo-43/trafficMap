@@ -137,7 +137,7 @@
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
                   width="1920"
-                  height="70vh"
+                  height="170vh"
                 >
                   <g class="topolog">
                     <traffice datasource="[]"></traffice>
@@ -150,7 +150,7 @@
                   </g>
                 </svg>
 
-                <g class="quantity">
+                <g class="quantity" v-if="false">
                   <Histograms></Histograms>
                 </g>
                 <g class="lines"></g>
