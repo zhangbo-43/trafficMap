@@ -586,7 +586,7 @@ const dataset = {
 	"quantity": {
 		'x': 0,
 		'y': 530,
-		
+
 		'data': [
 
 			{
@@ -1418,6 +1418,50 @@ const dataset = {
 			"targetid": 20,
 			"value": 200 //节点数量
 		},
+
+
+		//点击柱状图连接节点  模拟数据
+		{
+			"id": 65,
+			"sourceid": 21,
+			"targetid": 20,
+			x1: 600,
+			y1: 50,
+			"value": 200 //节点数量
+		},{
+			"id": 66,
+			"sourceid": 22,
+			"targetid": 20,
+			x1: 1210,
+			y1: 50,
+			"value": 200 //节点数量
+		},
+		{
+			"id": 67,
+			x1: 710,
+			y1: 150,
+			"sourceid": 23,
+			"targetid": 20,
+			"value": 200 //节点数量
+		},
+		{
+			"id": 68,
+			"sourceid": 24,
+			"targetid": 20,
+			x1: 910,
+			y1: 170,
+			"value": 200 //节点数量
+		},
+		{
+			"id": 69,
+			"sourceid": 25,
+			"targetid": 20,
+			x1: 1100,
+			y1: 150,
+			"value": 200 //节点数量
+		},
+
+
 	]
 }
 export default {

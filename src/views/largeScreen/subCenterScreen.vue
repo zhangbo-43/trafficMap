@@ -96,12 +96,12 @@
             <!--看板大屏主图部分  -->
             <div class="map-line-content">
               <svg id="traffice" version="1.1"
-                xmlns="http://www.w3.org/2000/svg" width="100vw" height="100vh">
+                xmlns="http://www.w3.org/2000/svg" width="1920" height="100vh">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                   width="100vw" height="60vh">
                   <g class="topolog">
                     <traffice datasource="[]"></traffice>
-                    <center-chart @getLineVisible="getLineVisible">
+                    <center-chart>
                     </center-chart>
                     <Progress datasource="[]" @openDialog="openDialog"
                       @openTable="openTable"></Progress>
@@ -266,8 +266,6 @@ export default {
     this.$store.commit('changeD3Datas', this.d3Data.dataset)
   },
   mounted() {
-    // this.getLineVisible()
-    // this.svgZoom()
     console.log(this.d3Data.dataset.nodes);
     this.timeFn();
     this.cancelLoading();
@@ -285,9 +283,6 @@ export default {
     clearInterval(this.timing);
   },
   methods: {
-    getLineVisible(params) {
-      console.log(params)
-    },
     //关闭设置弹窗
     closeDialogtable(data) {
       this.multipleSelection = data;
