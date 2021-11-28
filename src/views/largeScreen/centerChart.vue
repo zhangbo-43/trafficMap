@@ -130,7 +130,6 @@ export default {
   },
   methods: {
     click(data) {
-      console.log(this.$store.state.d3DataList)
       if (this.flag) {
         this.$emit("getLineVisible", true)
         this.flag = false
@@ -138,7 +137,6 @@ export default {
         this.$emit("getLineVisible", false)
         this.flag = true
       }
-
       Bus.$emit("nodeMessage", { id: data.id, arrowX: this.arrowX(data.x) + 7, arrowY: this.arrowY(data.y) + 7 })
     },
   },

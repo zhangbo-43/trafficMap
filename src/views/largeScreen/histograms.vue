@@ -191,7 +191,6 @@
 </template>
 
 <script>
-import Bus from "@/utils/eventBus.js";
 import d3Data from "./d3Data";
 export default {
   data() {
@@ -219,15 +218,17 @@ export default {
       //每次渲染要循环20次原数据,若原数据过大可能造成卡顿，记录下次优化
       d3Data.dataset.quantity.data.forEach(item => {
         if(item.id==el.id){
-          item.x = el.x + 15
+          item.x = el.x
           item.y = el.y
         }
       });
 
     });
+    this.$store.commit('changeBarDatas', d3Data.dataset.quantity.data)
+    console.log(this.$store.state.barChartList)
   },
   mounted() {
-    Bus.$emit("quantityData",this.quantityData)
+
   },
 };
 </script>

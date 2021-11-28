@@ -768,6 +768,33 @@ const dataset = {
 				"inLineVal": 888, //排队中
 				"inService": 33 //服务中
 			},
+			// {
+			// 	"name": "十星级用户级技能队",
+			// 	"id": 21,
+			// 	"totalVal": 1200, //总量
+			// 	"value": 488, //数据量
+			// 	"checkInVal": 444, //签入坐席
+			// 	"inLineVal": 888, //排队中
+			// 	"inService": 33 //服务中
+			// },
+			// {
+			// 	"name": "十星级用户级技能队",
+			// 	"id": 22,
+			// 	"totalVal": 1200, //总量
+			// 	"value": 488, //数据量
+			// 	"checkInVal": 444, //签入坐席
+			// 	"inLineVal": 888, //排队中
+			// 	"inService": 33 //服务中
+			// },
+			// {
+			// 	"name": "十星级用户级技能队",
+			// 	"id": 23,
+			// 	"totalVal": 1200, //总量
+			// 	"value": 488, //数据量
+			// 	"checkInVal": 444, //签入坐席
+			// 	"inLineVal": 888, //排队中
+			// 	"inService": 33 //服务中
+			// },
 		],
 		'queuingData': [
 
@@ -945,6 +972,33 @@ const dataset = {
 			{
 				"name": "十星级用户级技能队",
 				"id": 20,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 21,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 22,
+				"totalVal": 1200, //总量
+				"value": 488, //数据量
+				"checkInVal": 444, //签入坐席
+				"inLineVal": 888, //排队中
+				"inService": 33 //服务中
+			},
+			{
+				"name": "十星级用户级技能队",
+				"id": 23,
 				"totalVal": 1200, //总量
 				"value": 488, //数据量
 				"checkInVal": 444, //签入坐席
@@ -1140,146 +1194,229 @@ const dataset = {
 		"id": 22,
 		"sourceid": 21,
 		"targetid": 1,
-		"x1": 600,
-		"y1": 50,
 		"value": 200 //节点数量
 	},
 	{
 		"id": 23,
 		"sourceid": 21,
 		"targetid": 2,
-		"x1": 600,
-		"y1": 50,
 		"value": 200 //节点数量
 	},
 	{
 		"id": 24,
 		"sourceid": 21,
 		"targetid": 3,
-		"x1": 600,
-		"y1": 50,
 		"value": 200 //节点数量
 	},
 	{
 		"id": 25,
 		"sourceid": 21,
 		"targetid": 4,
-		"x1": 600,
-		"y1": 50,
 		"value": 200 //节点数量
 	}, {
-		"id": 25,
+		"id": 26,
 		"sourceid": 21,
 		"targetid": 5,
-		"x1": 600,
-		"y1": 50,
 		"value": 200 //节点数量
 	}, {
-		"id": 25,
+		"id": 27,
 		"sourceid": 21,
 		"targetid": 6,
-		"x1": 600,
-		"y1": 50,
 		"value": 200 //节点数量
 	}, {
-		"id": 25,
+		"id": 28,
 		"sourceid": 21,
 		"targetid": 7,
-		"x1": 600,
-		"y1": 50,
-		"value": 200 //节点数量
-	}, {
-		"id": 25,
-		"sourceid": 21,
-		"targetid": 8,
-		"x1": 600,
-		"y1": 50,
-		"value": 200 //节点数量
-	}, {
-		"id": 25,
-		"sourceid": 21,
-		"targetid": 9,
-		"x1": 600,
-		"y1": 50,
-		"value": 200 //节点数量
-	}, {
-		"id": 25,
-		"sourceid": 21,
-		"targetid": 10,
-		"x1": 600,
-		"y1": 50,
-		"value": 200 //节点数量
-	}, {
-		"id": 25,
-		"sourceid": 21,
-		"targetid": 11,
-		"x1": 600,
-		"y1": 50,
-		"value": 200 //节点数量
-	}, {
-		"id": 25,
-		"sourceid": 21,
-		"targetid": 12,
-		"x1": 600,
-		"y1": 50,
-		"value": 200 //节点数量
-	}, {
-		"id": 25,
-		"sourceid": 21,
-		"targetid": 13,
-		"x1": 600,
-		"y1": 50,
-		"value": 200 //节点数量
-	}, {
-		"id": 25,
-		"sourceid": 21,
-		"targetid": 14,
-		"x1": 600,
-		"y1": 50,
-		"value": 200 //节点数量
-	}, {
-		"id": 25,
-		"sourceid": 21,
-		"targetid": 15,
-		"x1": 600,
-		"y1": 50,
-		"value": 200 //节点数量
-	}, {
-		"id": 25,
-		"sourceid": 21,
-		"targetid": 16,
-		"x1": 600,
-		"y1": 50,
-		"value": 200 //节点数量
-	}, {
-		"id": 25,
-		"sourceid": 21,
-		"targetid": 17,
-		"x1": 600,
-		"y1": 50,
-		"value": 200 //节点数量
-	}, {
-		"id": 25,
-		"sourceid": 21,
-		"targetid": 18,
-		"x1": 600,
-		"y1": 50,
-		"value": 200 //节点数量
-	}, {
-		"id": 25,
-		"sourceid": 21,
-		"targetid": 19,
-		"x1": 600,
-		"y1": 50,
-		"value": 200 //节点数量
-	}, {
-		"id": 25,
-		"sourceid": 21,
-		"targetid": 20,
-		"x1": 600,
-		"y1": 50,
 		"value": 200 //节点数量
 	},
+		{
+		"id": 29,
+		"sourceid": 21,
+		"targetid": 8,
+		"value": 200 //节点数量
+	}, {
+		"id": 30,
+		"sourceid": 21,
+		"targetid": 9,
+		"value": 200 //节点数量
+	}, {
+		"id": 31,
+		"sourceid": 21,
+		"targetid": 10,
+		"value": 200 //节点数量
+	}, {
+		"id": 32,
+		"sourceid": 21,
+		"targetid": 11,
+		"value": 200 //节点数量
+	}, {
+		"id": 33,
+		"sourceid": 21,
+		"targetid": 12,
+		"value": 200 //节点数量
+	}, {
+		"id": 34,
+		"sourceid": 21,
+		"targetid": 13,
+		"value": 200 //节点数量
+	}, {
+		"id": 35,
+		"sourceid": 21,
+		"targetid": 14,
+		"value": 200 //节点数量
+	}, {
+		"id": 36,
+		"sourceid": 21,
+		"targetid": 15,
+		"value": 200 //节点数量
+	}, {
+		"id": 37,
+		"sourceid": 21,
+		"targetid": 16,
+		"value": 200 //节点数量
+	}, {
+		"id": 38,
+		"sourceid": 21,
+		"targetid": 17,
+		"value": 200 //节点数量
+	}, {
+		"id": 39,
+		"sourceid": 21,
+		"targetid": 18,
+		"value": 200 //节点数量
+	}, {
+		"id": 40,
+		"sourceid": 21,
+		"targetid": 19,
+		"value": 200 //节点数量
+	}, {
+		"id": 41,
+		"sourceid": 21,
+		"targetid": 20,
+		"value": 200 //节点数量
+	},
+		{
+			"id": 42,
+			"sourceid": 22,
+			"targetid": 1,
+			"value": 200 //节点数量
+		},
+		{
+			"id": 43,
+			"sourceid": 22,
+			"targetid": 2,
+			"value": 200 //节点数量
+		},
+		{
+			"id": 44,
+			"sourceid": 22,
+			"targetid": 3,
+			"value": 200 //节点数量
+		},
+		{
+			"id": 45,
+			"sourceid": 22,
+			"targetid": 4,
+			"value": 200 //节点数量
+		}, {
+			"id": 46,
+			"sourceid": 22,
+			"targetid": 5,
+			"value": 200 //节点数量
+		}, {
+			"id": 47,
+			"sourceid": 22,
+			"targetid": 6,
+			"value": 200 //节点数量
+		}, {
+			"id": 48,
+			"sourceid": 22,
+			"targetid": 7,
+			"value": 200 //节点数量
+		}, {
+			"id": 49,
+			"sourceid": 22,
+			"targetid": 8,
+			"value": 200 //节点数量
+		}, {
+			"id": 50,
+			"sourceid": 22,
+			"targetid": 9,
+			"value": 200 //节点数量
+		}, {
+			"id": 51,
+			"sourceid": 22,
+			"targetid": 10,
+			"value": 200 //节点数量
+		}, {
+			"id": 52,
+			"sourceid": 22,
+			"targetid": 11,
+			"value": 200 //节点数量
+		}, {
+			"id": 53,
+			"sourceid": 22,
+			"targetid": 12,
+			"value": 200 //节点数量
+		}, {
+			"id": 54,
+			"sourceid": 22,
+			"targetid": 13,
+			"value": 200 //节点数量
+		}, {
+			"id": 55,
+			"sourceid": 22,
+			"targetid": 14,
+			"value": 200 //节点数量
+		}, {
+			"id": 56,
+			"sourceid": 22,
+			"targetid": 15,
+			"value": 200 //节点数量
+		}, {
+			"id": 57,
+			"sourceid": 22,
+			"targetid": 16,
+			"value": 200 //节点数量
+		}, {
+			"id": 58,
+			"sourceid": 22,
+			"targetid": 17,
+			"value": 200 //节点数量
+		}, {
+			"id": 59,
+			"sourceid": 22,
+			"targetid": 18,
+			"value": 200 //节点数量
+		}, {
+			"id": 60,
+			"sourceid": 22,
+			"targetid": 19,
+			"value": 200 //节点数量
+		}, {
+			"id": 61,
+			"sourceid": 22,
+			"targetid": 20,
+			"value": 200 //节点数量
+		},
+		{
+			"id": 62,
+			"sourceid": 21,
+			"targetid": 21,
+			"value": 200 //节点数量
+		},
+		{
+			"id": 63,
+			"sourceid": 22,
+			"targetid": 20,
+			"value": 200 //节点数量
+		},
+		{
+			"id": 64,
+			"sourceid": 23,
+			"targetid": 20,
+			"value": 200 //节点数量
+		},
 	]
 }
 export default {
