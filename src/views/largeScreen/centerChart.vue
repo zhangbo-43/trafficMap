@@ -74,7 +74,7 @@
 <script>
 import * as d3 from 'd3'
 import d3Data from "../../views/largeScreen/d3Data";
-
+import Bus from "@/utils/eventBus.js";
 export default {
   computed: {
     cursor: function () {
@@ -146,6 +146,7 @@ export default {
   },
   data() {
     return {
+      flag: true,
       d3Data: d3Data,
       centerX: 835,
       centerY: 0,
@@ -161,9 +162,15 @@ export default {
   },
   methods: {
     click(data) {
-      alert("1111")
-      console.log(this.arrowX(data.x));
-      console.log(this.arrowY(data.y));
+      if(this.flag) {
+        this.$emit("getLineVisible",true)
+        this.flag = false
+      } else {
+        this.$emit("getLineVisible",false)
+        this.flag = true
+      }
+
+      Bus.$emit("nodeMessage", {id:data.id,arrowX:this.arrowX(data.x) + 7 ,arrowY:this.arrowY(data.y)+ 7})
     },
   },
   mounted() {
@@ -207,7 +214,7 @@ export default {
         // })
   },
   created() {
-
+    this.$emit("getLineVisible",false)
   },
 };
 </script>

@@ -191,6 +191,7 @@
 </template>
 
 <script>
+import Bus from "@/utils/eventBus.js";
 import d3Data from "./d3Data";
 export default {
   data() {
@@ -222,8 +223,11 @@ export default {
           item.y = el.y
         }
       });
-      
+
     });
+  },
+  mounted() {
+    Bus.$emit("quantityData",this.quantityData)
   },
 };
 </script>
