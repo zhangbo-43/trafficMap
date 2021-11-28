@@ -1,7 +1,17 @@
 <template>
 <g>
-  <line class="node_line" :x1=startX :y1=startY :x2=endX :y2=endY stroke="red" stroke-width="5"
-  ></line>
+ <g v-if="nodeLineData.length !==0">
+   <g v-for="item in nodeLineData" :key="item.id">
+<!--     <line class="node_line" :x1=item.startX :y1=item.startY :x2=item.endX :y2=item.endY stroke="rgba(185, 153, 67)" stroke-width="5" marker-end='url(#markerArrow)'-->
+<!--     ></line>-->
+     <path :d=item.pathD stroke="rgba(185, 153, 67)" stroke-width="2"  />
+   </g>
+   <defs>
+     <marker id='markerArrow' markerWidth='13' markerHeight='13' refx='2' refy='6' orient='auto'>
+       <path d='M2,2 L2,11 L10,6 L2,2' style='fill:red' />
+     </marker>
+   </defs>
+ </g>
 </g>
 </template>
 
@@ -15,7 +25,6 @@ export default {
     return {
       d3Data: d3Data,
       quantityData: [],
-      allLineData: [],
       nodeLineData: [],
       nodeId: "",
       startX : 0,
@@ -23,6 +32,12 @@ export default {
       endX: 0,
       endY: 0
     }
+  },
+  watch: {
+    nodeId(newValue,oldValue) {
+      console.log(newValue)
+      console.log(oldValue)
+    },
   },
   computed: {
     arrowX: function () {
@@ -37,24 +52,45 @@ export default {
     },
   },
   mounted() {
-    console.log(this.d3Data.dataset.lines);
-    this.allLineData = this.d3Data.dataset.lines
+
+  },
+  created() {
     Bus.$on("nodeMessage", (message) => {
+      console.log(message)
       this.nodeId = message.id
       this.startX = message.arrowX
       this.startY = message.arrowY
-      this.allLineData.map((item) => {
+      const allLineData = this.$store.state.d3DataList.lines
+      this.nodeLineData = []
+      allLineData.map(item => {
         if(item.sourceid == this.nodeId) {
+          item.startX = message.arrowX
+          item.startY = message.arrowY
           this.nodeLineData.push(item)
         }
       })
+      const endPositionList = this.$store.state.barChartList
+      console.log(endPositionList)
+      endPositionList.map((item) => {
+        this.nodeLineData.map((item1) => {
+          if(item.id == item1.targetid) {
+            if(item.x && item.y) {
+              item1.endX = item.x + 15
+              item1.endY = item.y
+              item1.pathD = "M" + item1.startX + " " + item1.startY + " " + "L" + item1.endX  + " " + item1.endY
+            } else {
+              item1.endX = 1920
+              item1.endY = 580
+              item1.pathD = "M" + item1.startX + " " + item1.startY + " " + "L" + item1.endX  + " " + item1.endY
+            }
+
+          }
+        })
+      })
+      console.log(this.nodeLineData)
+      console.log(this.$store.state.barChartList)
     });
-    console.log(this.nodeLineData)
-  },
-  created() {
-    Bus.$on("quantityData",(message) => {
-      this.quantityData = message
-    })
+    console.log()
   }
 }
 </script>

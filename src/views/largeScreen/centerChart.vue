@@ -125,7 +125,6 @@ export default {
   },
   methods: {
     click(data) {
-      console.log(this.$store.state.d3DataList)
       if (this.flag) {
         this.$emit("getLineVisible", true)
         this.flag = false

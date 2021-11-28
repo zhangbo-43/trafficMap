@@ -262,11 +262,13 @@ export default {
     searchsetflexible,
     nodeLines
   },
+  created() {
+    this.$store.commit('changeD3Datas', this.d3Data.dataset)
+  },
   mounted() {
     // this.getLineVisible()
     // this.svgZoom()
     console.log(this.d3Data.dataset.nodes);
-    this.$store.commit('changeD3Datas', this.d3Data.dataset)
     this.timeFn();
     this.cancelLoading();
     //监听键盘按键事件
