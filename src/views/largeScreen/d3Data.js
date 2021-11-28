@@ -1136,7 +1136,152 @@ const dataset = {
 				"inService": 33 //服务中
 			},
 		]
-	}
+	},
+	"lines": [{
+		"id": 22,
+		"sourceid": 21,
+		"targetid": 1,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	},
+	{
+		"id": 23,
+		"sourceid": 21,
+		"targetid": 2,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	},
+	{
+		"id": 24,
+		"sourceid": 21,
+		"targetid": 3,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	},
+	{
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 4,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 5,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 6,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 7,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 8,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 9,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 10,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 11,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 12,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 13,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 14,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 15,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 16,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 17,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 18,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 19,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	}, {
+		"id": 25,
+		"sourceid": 21,
+		"targetid": 20,
+		"x1": 600,
+		"y1": 50,
+		"value": 200 //节点数量
+	},
+	]
 }
 export default {
 	dataset
