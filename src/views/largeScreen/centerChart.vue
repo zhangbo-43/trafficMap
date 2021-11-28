@@ -174,44 +174,16 @@ export default {
     },
   },
   mounted() {
-      var cursorSvg = d3.select(".cursor")
-          .attr("x",this.startX)
-          .attr("y",this.startY)
-    let run = () => {
-      cursorSvg.transition()
-          .duration(1500)
-          .attr("x", this.endX(this.d3Data.dataset.nodes.children[0].x, this.d3Data.dataset.nodes.children[0].size))
-          .attr("y", this.endY(this.d3Data.dataset.nodes.children[0].y, this.d3Data.dataset.nodes.children[0].size))
-      .on("end",run)
-    }
-    run()
-
-
-
-
-
-    // cursorSvg.attr('cx', this.startX)
-    //     .attr('cy', this.startY)
-    //     .transition()
-    //     .duration(5000)
-    //     .attr('cx', 920)
-    //     .transition()
-    //     .duration(2000)
-    //     .attr('cx', 40)
-
-
-    //将颜色从绿色变为红色
-    //将半径从45变成25
-    //过渡方式采用bounce（在终点处弹跳几次）
-//启动过渡
-
-
-        // .attr("x", function(d){
-        //   return this.endX(d.x, d.size)
-        // })
-        // .attr("y", function(d){
-        //   return this.endY(d.y, d.size)
-        // })
+    var cursorSvg = d3.selectAll(".cursor")
+    var datas = this.d3Data.dataset.nodes.children;
+    cursorSvg.data(datas).transition('position')
+        .attr('x', function (d) {
+          return d.x + ((!d.size || d.size === "default") ? 20 : d.size === "large" ? 15 : 25) + 10
+        })
+        .attr('y', function (d) {
+          return d.y + ((!d.size || d.size === "default") ? 53 : d.size === "large" ? 35 : 40)
+        })
+        .duration(1500)
   },
   created() {
     this.$emit("getLineVisible",false)
