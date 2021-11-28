@@ -5,18 +5,13 @@
         :key="item.id">
         <line :x1="startX" :y1="startY" :x2="endX(item.x, item.size)"
           :y2="endY(item.y, item.size)" />
-        <image class="cursor" :x="cursor(startX)" :y="cursor(startY)" width="30"
-          height="30" :href="light"></image>
+        <image class="cursor " :x="cursor(startX)" :y="cursor(startY)"
+          width="30" height="30" :href="light"></image>
       </g>
     </g>
     <g class="center">
-      <!--      <image-->
-      <!--          :x="centerX"-->
-      <!--          :y="centerY"-->
-      <!--          :width="centerWidth"-->
-      <!--          :height="centerHeight"-->
-      <!--          :href="centerUrl"-->
-      <!--      ></image>-->
+      <image :x="centerX" :y="centerY" :width="centerWidth"
+        :height="centerHeight" :href="centerUrl"></image>
     </g>
     <g class="nodes">
       <g class="node" v-for="item in this.d3Data.dataset.nodes.children"
@@ -138,22 +133,32 @@ export default {
         this.$emit("getLineVisible", false)
         this.flag = true
       }
-
       Bus.$emit("nodeMessage", { id: data.id, arrowX: this.arrowX(data.x) + 7, arrowY: this.arrowY(data.y) + 7 })
     },
+    imgTransition() {
+      let run = () => {
+        var cursorSvg = d3.selectAll(".cursor")
+        var datas = this.d3Data.dataset.nodes.children;
+        cursorSvg.attr('x', () => {
+          return this.centerX + this.centerWidth / 2
+        }).attr('y', () => {
+          return this.centerY + this.centerHeight / 2 + 10;
+        })
+        cursorSvg.data(datas).transition('position')
+          .attr('x', function (d) {
+            return d.x + ((!d.size || d.size === "default") ? 20 : d.size === "large" ? 15 : 25) + 10
+          })
+          .attr('y', function (d) {
+            return d.y + ((!d.size || d.size === "default") ? 53 : d.size === "large" ? 35 : 40)
+          })
+          .duration(1500)
+          .on("end", run)
+      }
+      run()
+    }
   },
   mounted() {
-
-    var cursorSvg = d3.selectAll(".cursor")
-    var datas = this.d3Data.dataset.nodes.children;
-    cursorSvg.data(datas).transition('position')
-      .attr('x', function (d) {
-        return d.x + ((!d.size || d.size === "default") ? 20 : d.size === "large" ? 15 : 25) + 10
-      })
-      .attr('y', function (d) {
-        return d.y + ((!d.size || d.size === "default") ? 53 : d.size === "large" ? 35 : 40)
-      })
-      .duration(1500)
+    this.imgTransition()
   },
   created() {
     this.$emit("getLineVisible", false)
@@ -178,5 +183,38 @@ export default {
 
 .node-count {
   fill: rgba(6, 202, 195);
+}
+
+/* 动态线（移动线）样式 */
+.animation {
+  stroke-dasharray: 5, 30;
+  stroke-dashoffset: 8;
+  animation: ani-line 3s linear 1s infinite alternate;
+}
+
+.rev-animation {
+  stroke-dasharray: 5, 30;
+  stroke-dashoffset: 8;
+  animation: ani-rev-line 3s linear 1s infinite alternate;
+}
+
+@keyframes ani-line {
+  from {
+    stroke-dashoffset: 150;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ani-rev-line {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: 150;
+  }
 }
 </style>
