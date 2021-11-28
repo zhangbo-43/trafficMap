@@ -98,7 +98,7 @@
               <svg id="traffice" version="1.1"
                 xmlns="http://www.w3.org/2000/svg" width="1920" height="100vh">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                  width="100vw" height="60vh">
+                  width="100vw" height="100vh">
                   <g class="topolog">
                     <traffice datasource="[]"></traffice>
                     <center-chart>
@@ -108,7 +108,7 @@
                   </g>
                 </svg>
 
-                <svg>
+                <svg v-if="false">
                   <g class="quantity">
                     <Histograms></Histograms>
                   </g>
