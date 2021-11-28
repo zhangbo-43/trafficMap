@@ -8,9 +8,8 @@
           <div class="title-times">
             <div class="title">云南话务地图看板大屏</div>
             <div class="times">
-              <span class="text"
-                >{{ dateYear }} {{ dateWeek }} {{ dateDay }}</span
-              >
+              <span class="text">{{ dateYear }} {{ dateWeek }}
+                {{ dateDay }}</span>
               <span>数据时间: 12:00</span>
             </div>
           </div>
@@ -19,32 +18,17 @@
             <span class="text-cut-1"> 云南省</span>
             <i class="el-icon-caret-bottom el-icon--right"></i>
           </div> -->
-            <el-select
-              v-model="provinceVal"
-              :popper-append-to-body="false"
-              placeholder="请选择"
-              popper-class="select-info"
-            >
-              <el-option
-                v-for="item in provinceList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              >
+            <el-select v-model="provinceVal" :popper-append-to-body="false"
+              placeholder="请选择" popper-class="select-info">
+              <el-option v-for="item in provinceList" :key="item.value"
+                :label="item.label" :value="item.value">
               </el-option>
             </el-select>
-            <img
-              v-show="!fullscreen"
-              class="fullscreen-btn"
-              src="../../assets/images/fullscreen.png"
-              @click="fullScreen"
-            />
-            <img
-              v-show="fullscreen"
-              class="fullscreen-btn"
+            <img v-show="!fullscreen" class="fullscreen-btn"
+              src="../../assets/images/fullscreen.png" @click="fullScreen" />
+            <img v-show="fullscreen" class="fullscreen-btn"
               src="../../assets/images/unfullscreen.png"
-              @click="unFullScreen"
-            />
+              @click="unFullScreen" />
           </div>
         </div>
         <!-- 看板大屏头部结束 -->
@@ -75,33 +59,18 @@
               </div>
               <div class="nodes-point">
                 <div class="node-total">
-                  <span
-                    >正常节点<i class="el-icon-phone" style="color: #09f0f5"></i
-                  ></span>
-                  <span
-                    >异常节点<i class="el-icon-phone" style="color: #ed1858"></i
-                  ></span>
-                  <span
-                    >异常挂断<i
-                      class="icon iconfont icon-duankaiyichang"
-                      style="color: #c77e3e"
-                    ></i
-                  ></span>
-                  <span
-                    >接口异常<i
-                      class="icon iconfont icon-jiekouyichang"
-                      style="color: #c33dc7"
-                    ></i
-                  ></span>
+                  <span>正常节点<i class="el-icon-phone"
+                      style="color: #09f0f5"></i></span>
+                  <span>异常节点<i class="el-icon-phone"
+                      style="color: #ed1858"></i></span>
+                  <span>异常挂断<i class="icon iconfont icon-duankaiyichang"
+                      style="color: #c77e3e"></i></span>
+                  <span>接口异常<i class="icon iconfont icon-jiekouyichang"
+                      style="color: #c33dc7"></i></span>
                 </div>
                 <div class="num-total">
-                  <span
-                    ><i
-                      class="icon iconfont icon-jiekouyichang"
-                      style="color: #c33dc7"
-                    ></i
-                    >接口异常总量：{{ Number(1568954).toLocaleString() }}</span
-                  >
+                  <span><i class="icon iconfont icon-jiekouyichang"
+                      style="color: #c33dc7"></i>接口异常总量：{{ Number(1568954).toLocaleString() }}</span>
                 </div>
               </div>
             </div>
@@ -126,27 +95,16 @@
 
             <!--看板大屏主图部分  -->
             <div class="map-line-content">
-              <svg
-                id="traffice"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                width="100vw"
-                height="100vh"
-              >
-                <svg
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="100vw"
-                  height="60vh"
-                >
+              <svg id="traffice" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" width="100vw" height="100vh">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                  width="100vw" height="60vh">
                   <g class="topolog">
                     <traffice datasource="[]"></traffice>
-                    <center-chart @getLineVisible="getLineVisible"></center-chart>
-                    <Progress
-                      datasource="[]"
-                      @openDialog="openDialog"
-                      @openTable="openTable"
-                    ></Progress>
+                    <center-chart @getLineVisible="getLineVisible">
+                    </center-chart>
+                    <Progress datasource="[]" @openDialog="openDialog"
+                      @openTable="openTable"></Progress>
                   </g>
                 </svg>
 
@@ -177,7 +135,8 @@
       </div>
     </div>
     <!--    服务量趋势图页面-->
-    <service-chart :chartVisible="chartVisible" @closeDialog="handleClose" :optionData="optionData" ></service-chart>
+    <service-chart :chartVisible="chartVisible" @closeDialog="handleClose"
+      :optionData="optionData"></service-chart>
   </div>
 </template>
 
@@ -307,11 +266,12 @@ export default {
     // this.getLineVisible()
     // this.svgZoom()
     console.log(this.d3Data.dataset.nodes);
+    this.$store.commit('changeD3Datas', this.d3Data.dataset)
     this.timeFn();
     this.cancelLoading();
     //监听键盘按键事件
     let self = this;
-    this.$nextTick(function () {});
+    this.$nextTick(function () { });
     document.addEventListener("keyup", function (e) {
       // console.log(e);
       if (e.keyCode == 27) {
