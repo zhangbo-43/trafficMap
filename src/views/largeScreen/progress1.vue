@@ -3,11 +3,6 @@
     <g v-for="(item, index) in d3Data.dataset.nodes.children" :key="index">
       <g class="nodes" v-for="(item1, index1) in item.children" :key="index1">
         <!-- 联线 -->
-        <defs>  
-          <marker id='markerArrow' markerWidth='13' markerHeight='13' refx='2' refy='6' orient='auto'>
-              <path d='M2,2 L2,11 L10,6 L2,2' style='fill:#00ff00' />
-          </marker>
-        </defs>  
         <g>
           <path :d="drawPathL(item.x, item.y, item1.x, item1.y)"
             stroke="#a09eff" fill="none" />
@@ -48,135 +43,7 @@
         </g>
         <!-- 第二级 -->
         <g class="node" v-for="(item2, index2) in item1.children" :key="index2">
-          <!-- 联线 -->
-          <g>
-            <!-- 
-            <path d="M740 650 C510 660,550 660,550 700" stroke="#a09eff"
-              fill="none" /> -->
-            <path :d="drawPath(item1.x, item1.y, item2.x, item2.y)"
-              stroke="#a09eff" fill="none" style="marker-mid: url(#markerArrow)"/>
-          </g>
-          <circle :cx="spreadX(item2.x)" :cy="spreadY(item2.y)" r="6"
-            stroke="#fff">
-          </circle>
-          <image opacity="1" stroke-width="1" stroke-opacity="1"
-            fill-opacity="1" width="100" height="100" :x="imgX(item2.x)"
-            :y="imgY(item2.y)" :href="
-              item2.type == 1
-                ? voiceIVRImg
-                : item2.type == 2
-                ? voiceNavigationImg
-                : navigationToIVRImg
-            " @click="nodeClick(item2)">
-          </image>
-          <text dy="4" dx="-4" :x="spreadX(item2.x)" :y="spreadY(item2.y)"
-            fill="#fff" font-size="13" v-if="item2.isFold"
-            style="display: block; cursor: pointer"
-            @click="nodeOpen(item2)">+</text>
-          <text dy="3" dx="-2" :x="spreadX(item2.x)" :y="spreadY(item2.y)"
-            font-size="13" fill="#fff" v-else
-            style="display: block; cursor: pointer"
-            @click="nodeOpen(item2)">-</text>
-          <g>
-            <text class="pro-text" text-anchor="middle"
-              dominant-baseline="middle" :x="nameX(item2.x)" :y="nameY(item2.y)"
-              fill="#fff">{{ item2.name }}</text>
-            <!-- <image
-                opacity="1"
-                stroke-width="1"
-                stroke-opacity="1"
-                fill-opacity="1"
-                width="16"
-                height="16"
-                :x="item2.imgX"
-                :y="item2.imgY"
-                :href="InterfaceImg"
-              ></image> -->
-          </g>
-          <g>
-            <text class="pro-num" text-anchor="middle"
-              dominant-baseline="middle" :x="totalNodeX(item2.x)"
-              :y="totalNodeY(item2.y)" fill="#fff" font="12">节点总量
-              {{ item2.totalVal }}</text>
-            <image opacity="1" stroke-width="1" stroke-opacity="1"
-              fill-opacity="1" :x="trendImgX(item2.x)" :y="trendImgY(item2.y)"
-              width="18" height="18" :href="trendImg"></image>
-          </g>
-          <image opacity="1" stroke-width="1" stroke-opacity="1"
-            fill-opacity="1" :x="bottomX(item2.x)" :y="bottomY(item2.y)"
-            width="15" height="15" :href="arrowUrl"></image>
-          <!-- 第三级 -->
-          <g class="node" width="200" height="200"
-            v-for="(item3, index3) in item2.children" :key="index3">
-            <!-- 联线 -->
-            <g>
-              <path :d="drawPath(item2.x, item2.y, item3.x, item3.y)"
-                stroke="#a09eff" fill="none" />
-            </g>
-            <!-- 展开折叠 -->
-            <circle :cx="spreadX(item3.x)" :cy="spreadY(item3.y)" r="6"
-              stroke="#fff">
-            </circle>
-            <text dy="4" dx="-4" :x="spreadX(item3.x)" :y="spreadY(item3.y)"
-              fill="#fff" font-size="13" v-if="item3.isFold">+</text>
-            <text dy="3" dx="-2" :x="item3.x" :y="item3.y" font-size="13"
-              fill="#fff" v-else>-</text>
-
-            <image opacity="1" stroke-width="1" stroke-opacity="1"
-              fill-opacity="1" width="100" height="100" :x="imgX(item3.x)"
-              :y="imgY(item3.y)" :href="
-                item3.type == 1
-                  ? toLaborImg
-                  : item3.type == 2
-                  ? toTelNormalImg
-                  : toTelAbnormallImg
-              ">
-            </image>
-
-            <g>
-              <!-- <foreignObject
-                width="80"
-                height="20"
-                :x="nameX(item3.x)"
-                :y="nameY(item3.y)"
-              >
-                <p class="pro-text">{{ item3.name }}</p>
-              </foreignObject> -->
-              <!-- <text class="pro-text" :x="item3.nameX"
-                :y="item3.nameY" fill="#fff">{{ item3.name }}</text> -->
-              <text class="pro-text" text-anchor="middle"
-                dominant-baseline="middle" :x="nameX(item3.x)"
-                :y="nameY(item3.y)" fill="#fff">{{ item3.name }}</text>
-              <image opacity="1" stroke-width="1" stroke-opacity="1"
-                fill-opacity="1" width="16" height="16"
-                :x="InterfaceImgX(item3.x)" :y="InterfaceImgY(item3.y)"
-                :href="InterfaceImg"></image>
-            </g>
-            <g>
-              <text class="pro-num" text-anchor="middle"
-                dominant-baseline="middle" :x="totalNodeX(item3.x)"
-                :y="totalNodeY(item3.y)" fill="#fff" font="12">节点总量
-                {{ item3.totalVal }}</text>
-            </g>
-            <g>
-              <text class="pro-text" :x="nodeX(item3.x)" :y="nodeY(item3.y)"
-                fill="#fff">节点量{{ item3.value }}</text>
-              <image opacity="1" stroke-width="1" stroke-opacity="1"
-                fill-opacity="1" :x="trendImgX(item3.x)" :y="trendImgY(item3.y)"
-                width="18" height="18" :href="trendImg"></image>
-              <text class="pro-text" :x="breakOffX(item3.x)"
-                :y="breakOffY(item3.y)"
-                fill="#fff">{{ item3.abnormalVal }}</text>
-              <image opacity="1" stroke-width="1" stroke-opacity="1"
-                fill-opacity="1" width="16" height="16"
-                :x="breakOffImgX(item3.x)" :y="breakOffImgY(item3.y)"
-                :href="breakOffImg"></image>
-            </g>
-            <image opacity="1" stroke-width="1" stroke-opacity="1"
-              fill-opacity="1" :x="bottomX(item3.x)" :y="bottomY(item3.y)"
-              width="15" height="15" :href="arrowUrl"></image>
-          </g>
-          <!-- 第三级 -->
+          <progressTree></progressTree>
         </g>
         <!-- 第三级 -->
       </g>
@@ -187,7 +54,7 @@
 <script>
 import * as d3 from "d3";
 import d3Data from "./d3Data";
-import Bus from "@/utils/eventBus.js";
+import progressTree from "./progressTree";
 export default {
   props: ["datasource"],
   data() {
@@ -210,6 +77,9 @@ export default {
       chartVisible: false,
       optionData: {},
     };
+  },
+  components: {
+    progressTree
   },
   computed: {
     drawPathL: function () {
@@ -257,7 +127,6 @@ export default {
           pathMY2;
         // console.log(pathD)
         //"pathD": "M765 440 C 710 470 490 430,515 480",
-        // var pathD = "M" + pathMX1 + " " + pathMY1 + " " + "Q" + pathCX1 + " " + pathCY1 + " " + (pathMX1+pathMX2)/2 + " " + (pathMY1+pathMY2)/2 + " " + "T" + pathMX2 + " " + pathMY2
         return pathD;
       };
     },
@@ -362,16 +231,6 @@ export default {
         return y + 110;
       };
     },
-    arrowX: function () {
-      return function (x, size) {
-        return x + ((!size || size === "default") ? 45 : size === "large" ? 45 : 45)
-      };
-    },
-    arrowY: function () {
-      return function (y, size) {
-        return y + ((!size || size === "default") ? 105 : size === "large" ? 110 : 100);
-      };
-    },
   },
   methods: {
     nodeOpen(params) {
@@ -415,9 +274,6 @@ export default {
     show(i) {
       console.log(i);
     },
-    nodeClick(data) {
-      Bus.$emit("nodeMessage", { type: "node", id: data.id, arrowX: this.arrowX(data.x) + 7, arrowY: this.arrowY(data.y) + 7 })
-    }
   },
   mounted() {
     console.log(d3.selectAll("circle"));
