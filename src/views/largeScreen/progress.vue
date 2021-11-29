@@ -3,6 +3,11 @@
     <g v-for="(item, index) in d3Data.dataset.nodes.children" :key="index">
       <g class="nodes" v-for="(item1, index1) in item.children" :key="index1">
         <!-- 联线 -->
+        <defs>  
+          <marker id='markerArrow' markerWidth='13' markerHeight='13' refx='2' refy='6' orient='auto'>
+              <path d='M2,2 L2,11 L10,6 L2,2' style='fill:#00ff00' />
+          </marker>
+        </defs>  
         <g>
           <path :d="drawPathL(item.x,item.y,item1.x,item1.y)" stroke="#a09eff"
             fill="none" />
@@ -45,8 +50,8 @@
             <!-- 
             <path d="M740 650 C510 660,550 660,550 700" stroke="#a09eff"
               fill="none" /> -->
-            <path :d="drawPath(item1.x,item1.y,item2.x,item2.y)"
-              stroke="#a09eff" fill="none" />
+            <path :d="drawPath(item1.x,item1.y,item2.x,item2.y)" 
+              stroke="#a09eff" fill="none" style="marker-mid: url(#markerArrow);"/>
           </g>
           <circle :cx="item2.spreadX" :cy="item2.spreadY" r="6" stroke="#fff">
           </circle>
@@ -204,6 +209,7 @@ export default {
         var pathD = "M" + pathMX1 + " " + pathMY1 + " " + "C" + pathCX1 + " " + pathCY1 + " " + pathCX2 + " " + pathCY2 + "," + pathMX2 + " " + pathMY2
         // console.log(pathD)
         //"pathD": "M765 440 C 710 470 490 430,515 480",
+        // var pathD = "M" + pathMX1 + " " + pathMY1 + " " + "Q" + pathCX1 + " " + pathCY1 + " " + (pathMX1+pathMX2)/2 + " " + (pathMY1+pathMY2)/2 + " " + "T" + pathMX2 + " " + pathMY2
         return pathD;
       };
     }

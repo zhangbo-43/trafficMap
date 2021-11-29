@@ -139,7 +139,11 @@
                   width="1920"
                   height="70vh"
                 >
-                  <g class="topolog">
+                  <g class="topolog" style="transform:translate(10px,10px)"
+                  @mousedown = "mousedown(event)"
+                  @mousemove = "mousemove(event)"
+                  @mouseup = "mouseup(event)"
+                  >
                     <traffice datasource="[]"></traffice>
                     <skillChart></skillChart>
                     <Progress
@@ -311,6 +315,9 @@ export default {
     clearInterval(this.timing);
   },
   methods: {
+    mousedown(){
+     alert('qqq')
+    },
     //关闭设置弹窗
     closeDialogtable(data) {
       this.multipleSelection = data;
