@@ -5,7 +5,7 @@
          :key="item.id">
         <line :x1="startX" :y1="startY" :x2="endX(item.x, item.size)"
               :y2="endY(item.y, item.size)"/>
-        <image class="cursor " :x="cursor(startX)" :y="cursor(startY)"
+        <image class="cursor " :x="startX" :y="startY"
                width="20" height="20" :href="light"></image>
       </g>
     </g>
@@ -41,11 +41,11 @@ import Bus from "@/utils/eventBus.js";
 
 export default {
   computed: {
-    cursor: function () {
-      return function (x) {
-        return x - 10;
-      };
-    },
+    // cursor: function () {
+    //   return function (x) {
+    //     return x - 10;
+    //   };
+    // },
     startX: function () {
       return this.centerX + this.centerWidth / 2;
     },
@@ -110,96 +110,45 @@ export default {
   },
   data() {
     return {
-      width : 1720, //总宽度
-      nodeWidth : 100, //节点宽度
-      nodeDistance : 100, //节点与节点距离
-      lineHeight : 100, //每层数据高度
+      width: 1920, //总宽度
+      nodeWidth: 100, //节点宽度
+      nodeDistance: 50, //节点与节点距离
+      lineHeight: 100, //每层数据高度
       centerData: [
-            {
-              id: "21",
-              size: "mini",  //default large mini
-              value: 1500,
-              name: "互联网话务",
-            },
-            {
-              id: "23",
-              size: "default",  //default large mini
-              value: 2000,
-              name: "语音话务",
-            },
-            {
-              id: "24",
-              size: "large",  //default large mini
-              value: 1200,
-              name: "溢出流程"
-            },
-            {
-              id: "25",
-              size: "default",  //default large mini
-              value: 1000,
-              name: "视频话务",
-            },
-            {
-              id: "22",
-              size: "mini",  //default large mini
-              value: 900,
-              name: "跨网支撑"
-            },
+        {
+          id: "21",
+          size: "mini",  //default large mini
+          value: 1500,
+          name: "互联网话务",
+        },
+        {
+          id: "23",
+          size: "default",  //default large mini
+          value: 2000,
+          name: "语音话务",
+        },
+        {
+          id: "24",
+          size: "large",  //default large mini
+          value: 1200,
+          name: "溢出流程"
+        },
+        {
+          id: "25",
+          size: "default",  //default large mini
+          value: 1000,
+          name: "视频话务",
+        },
+        {
+          id: "22",
+          size: "mini",  //default large mini
+          value: 900,
+          name: "跨网支撑"
+        },
       ],
-      // centerData: [
-      //   {
-      //     "name": "话务",
-      //     "value": 100, //节点量
-      //     // x: 835,
-      //     // y: 0,
-      //     id: 1,
-      //     "children": [
-      //       {
-      //         id: "21",
-      //         // x: 600,
-      //         // y: 50,
-      //         // size: "mini",  //default large mini
-      //         value: 1500,
-      //         name: "互联网话务",
-      //       },
-      //       {
-      //         id: "23",
-      //         // x: 710,
-      //         // y: 150,
-      //         // size: "default",  //default large mini
-      //         value: 2000,
-      //         name: "语音话务",
-      //       },
-      //       {
-      //         id: "24",
-      //         // x: 910,
-      //         // y: 170,
-      //         // size: "large",  //default large mini
-      //         value: 1200,
-      //         name: "溢出流程"
-      //       },
-      //       {
-      //         id: "25",
-      //         // x: 1100,
-      //         // y: 150,
-      //         // size: "default",  //default large mini
-      //         value: 1000,
-      //         name: "视频话务",
-      //       },
-      //       {
-      //         id: "22",
-      //         // x: 1210,
-      //         // y: 50,
-      //         // size: "mini",  //default large mini
-      //         value: 900,
-      //         name: "跨网支撑"
-      //       },
-      //     ]
-      //   }
-      // ],
       flag: false,
       d3Data: d3Data,
-      centerX: 835,
+      centerX: 0,
       centerY: 0,
       centerWidth: 242,
       centerHeight: 194,
@@ -218,47 +167,41 @@ export default {
      * @param {中心位置} center
      * @returns
      */
-    getStartX(len , center){
+    getStartX(len, center) {
       let startX = 0;
       console.log(center)
-      if(len % 2 === 0){ //如果是偶数个数
+      if (len % 2 === 0) { //如果是偶数个数
         //减去一半节点宽度，减去一半间距宽度 ，加上1/2间距宽度
         startX = center - (len / 2) * this.nodeWidth - (len / 2) * this.nodeDistance + this.nodeDistance / 2;
-      }else{
-        //减去一半节点宽度，减去一半间距宽度 ，加上1/2节点宽度
-        startX = center - (len / 2) * this.nodeWidth - (len / 2) * this.nodeDistance + this.nodeWidth / 2;
+      } else {
+        //减去一半节点宽度，减去一半间距宽度 ，加上1/2节点宽度      -20是为了让中间图标居中
+        startX = center - (len / 2) * this.nodeWidth - (len / 2) * this.nodeDistance + this.nodeWidth / 2 - 20;
       }
       return startX;
     },
-    /**
-     *
-     * @param {节点项} item
-     * @param {节点项下标索引} index
-     * @param {级别} level
-     * @param {开始位置} startX
-     */
-    addCoordinate(item, index, level, startX) {
-      //开始位置=(节点宽度+间距宽度) * 第几个
-      item.x = startX + index * (this.nodeWidth + this.nodeDistance);
-      //第几层 * 每层高度
-      item.y = level * this.lineHeight;
-
-      if(item.children && item.children.length > 0){
-        //子节点中心位置
-        const center = this.nodeWidth / 2 + item.x;
-        //子节点开始位置
-        const childStartX =  this.getStartX(item.children.length , center);
-        for(let i = 0 ; i < item.children.length ; i++){
-          this.addCoordinate(item.children[i] , i ,level + 1, childStartX);
-        }
-      }
-    },
     forRoot(dataSet) {
-      console.log(dataSet.length)
-      const startX = this.getStartX(dataSet.length, this.centerX + this.centerWidth / 2);
-      console.log(startX)
+      this.centerX = this.width / 2 - this.centerWidth / 2
+      const startX = this.getStartX(dataSet.length, this.width / 2);
       for (let i = 0; i < dataSet.length; i++) {
-        this.addCoordinate(dataSet[i], i, 1, startX);
+        let level = 0
+        //item.x = startX + index * (this.nodeWidth + this.nodeDistance);
+        if (i == 0 || i == 4) {
+          level = 0.5
+          dataSet[i].x = startX + i * (this.nodeWidth + this.nodeDistance);
+          dataSet[i].y = level * this.lineHeight;
+        } else if (i == 1) {
+          level = 1.5
+          dataSet[i].x = startX + i * (this.nodeWidth / 2 + this.nodeDistance);
+          dataSet[i].y = level * this.lineHeight;
+        } else if (i == 3) {
+          level = 1.5
+          dataSet[i].x = startX + i * (this.nodeWidth + this.nodeDistance) + this.nodeWidth / 2;
+          dataSet[i].y = level * this.lineHeight;
+        }else {
+          level = 1.7
+          dataSet[i].x = startX + i * (this.nodeWidth + this.nodeDistance);
+          dataSet[i].y = level * this.lineHeight;
+        }
       }
     },
     click(data) {
@@ -275,7 +218,7 @@ export default {
     imgTransition() {
       let run = () => {
         var cursorSvg = d3.selectAll(".cursor")
-        var datas = this.d3Data.dataset.nodes.children;
+        var datas = this.centerData
         cursorSvg.attr('x', () => {
           return this.centerX + this.centerWidth / 2
         }).attr('y', () => {
@@ -298,9 +241,7 @@ export default {
     this.imgTransition()
   },
   created() {
-    // console.log(this.centerData[0].children)
     this.forRoot(this.centerData)
-    console.log(this.centerData)
   },
 };
 </script>
