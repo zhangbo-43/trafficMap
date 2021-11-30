@@ -1,7 +1,7 @@
 <template>
   <g class="centerBox">
     <g class="lines">
-      <g class="line" v-for="item in this.d3Data.dataset.nodes.children"
+      <g class="line" v-for="item in this.centerData"
          :key="item.id">
         <line :x1="startX" :y1="startY" :x2="endX(item.x, item.size)"
               :y2="endY(item.y, item.size)"/>
@@ -14,7 +14,7 @@
              :height="centerHeight" :href="centerUrl"></image>
     </g>
     <g class="nodes">
-      <g class="node" v-for="item in this.d3Data.dataset.nodes.children"
+      <g class="node" v-for="item in this.centerData"
          :key="item.id">
         <image class="node-image" :x="positionX(item.x, item.size)"
                :y="positionY(item.y, item.size)" :width="size(item.size)"
@@ -110,6 +110,93 @@ export default {
   },
   data() {
     return {
+      width : 1720, //总宽度
+      nodeWidth : 100, //节点宽度
+      nodeDistance : 100, //节点与节点距离
+      lineHeight : 100, //每层数据高度
+      centerData: [
+            {
+              id: "21",
+              size: "mini",  //default large mini
+              value: 1500,
+              name: "互联网话务",
+            },
+            {
+              id: "23",
+              size: "default",  //default large mini
+              value: 2000,
+              name: "语音话务",
+            },
+            {
+              id: "24",
+              size: "large",  //default large mini
+              value: 1200,
+              name: "溢出流程"
+            },
+            {
+              id: "25",
+              size: "default",  //default large mini
+              value: 1000,
+              name: "视频话务",
+            },
+            {
+              id: "22",
+              size: "mini",  //default large mini
+              value: 900,
+              name: "跨网支撑"
+            },
+      ],
+      // centerData: [
+      //   {
+      //     "name": "话务",
+      //     "value": 100, //节点量
+      //     // x: 835,
+      //     // y: 0,
+      //     id: 1,
+      //     "children": [
+      //       {
+      //         id: "21",
+      //         // x: 600,
+      //         // y: 50,
+      //         // size: "mini",  //default large mini
+      //         value: 1500,
+      //         name: "互联网话务",
+      //       },
+      //       {
+      //         id: "23",
+      //         // x: 710,
+      //         // y: 150,
+      //         // size: "default",  //default large mini
+      //         value: 2000,
+      //         name: "语音话务",
+      //       },
+      //       {
+      //         id: "24",
+      //         // x: 910,
+      //         // y: 170,
+      //         // size: "large",  //default large mini
+      //         value: 1200,
+      //         name: "溢出流程"
+      //       },
+      //       {
+      //         id: "25",
+      //         // x: 1100,
+      //         // y: 150,
+      //         // size: "default",  //default large mini
+      //         value: 1000,
+      //         name: "视频话务",
+      //       },
+      //       {
+      //         id: "22",
+      //         // x: 1210,
+      //         // y: 50,
+      //         // size: "mini",  //default large mini
+      //         value: 900,
+      //         name: "跨网支撑"
+      //       },
+      //     ]
+      //   }
+      // ],
       flag: false,
       d3Data: d3Data,
       centerX: 835,
@@ -125,6 +212,55 @@ export default {
     };
   },
   methods: {
+    /**
+     * 获取开始节点x坐标
+     * @param {同级数据长度} len
+     * @param {中心位置} center
+     * @returns
+     */
+    getStartX(len , center){
+      let startX = 0;
+      console.log(center)
+      if(len % 2 === 0){ //如果是偶数个数
+        //减去一半节点宽度，减去一半间距宽度 ，加上1/2间距宽度
+        startX = center - (len / 2) * this.nodeWidth - (len / 2) * this.nodeDistance + this.nodeDistance / 2;
+      }else{
+        //减去一半节点宽度，减去一半间距宽度 ，加上1/2节点宽度
+        startX = center - (len / 2) * this.nodeWidth - (len / 2) * this.nodeDistance + this.nodeWidth / 2;
+      }
+      return startX;
+    },
+    /**
+     *
+     * @param {节点项} item
+     * @param {节点项下标索引} index
+     * @param {级别} level
+     * @param {开始位置} startX
+     */
+    addCoordinate(item, index, level, startX) {
+      //开始位置=(节点宽度+间距宽度) * 第几个
+      item.x = startX + index * (this.nodeWidth + this.nodeDistance);
+      //第几层 * 每层高度
+      item.y = level * this.lineHeight;
+
+      if(item.children && item.children.length > 0){
+        //子节点中心位置
+        const center = this.nodeWidth / 2 + item.x;
+        //子节点开始位置
+        const childStartX =  this.getStartX(item.children.length , center);
+        for(let i = 0 ; i < item.children.length ; i++){
+          this.addCoordinate(item.children[i] , i ,level + 1, childStartX);
+        }
+      }
+    },
+    forRoot(dataSet) {
+      console.log(dataSet.length)
+      const startX = this.getStartX(dataSet.length, this.centerX + this.centerWidth / 2);
+      console.log(startX)
+      for (let i = 0; i < dataSet.length; i++) {
+        this.addCoordinate(dataSet[i], i, 1, startX);
+      }
+    },
     click(data) {
       // this.flag = !this.flag
       // console.log(this.flag)
@@ -162,7 +298,9 @@ export default {
     this.imgTransition()
   },
   created() {
-    this.$emit("getLineVisible", false)
+    // console.log(this.centerData[0].children)
+    this.forRoot(this.centerData)
+    console.log(this.centerData)
   },
 };
 </script>
