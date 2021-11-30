@@ -125,14 +125,7 @@ export default {
   },
   methods: {
     click(data) {
-      if (this.flag) {
-        this.$emit("getLineVisible", true)
-        this.flag = false
-      } else {
-        this.$emit("getLineVisible", false)
-        this.flag = true
-      }
-      Bus.$emit("nodeMessage", { id: data.id, arrowX: this.arrowX(data.x) + 7, arrowY: this.arrowY(data.y) + 7 })
+      Bus.$emit("nodeMessage", { type:"node", id: data.id, arrowX: this.arrowX(data.x) + 7, arrowY: this.arrowY(data.y) + 7 })
     },
     imgTransition() {
       let run = () => {
