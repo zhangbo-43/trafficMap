@@ -12,6 +12,12 @@
     <g class="center">
       <image :x="centerX" :y="centerY" :width="centerWidth"
              :height="centerHeight" :href="centerUrl"></image>
+      <image :x="patchX1(centerX,centerWidth)" :y="patchY1(centerY,centerHeight)" width="20"
+             height="20" :href="patchL"></image>
+      <image :x="patchX2(centerX,centerWidth)" :y="patchY2(centerY,centerHeight)" width="20"
+             height="20" :href="patchC"></image>
+      <image :x="patchX3(centerX,centerWidth)" :y="patchY3(centerY,centerHeight)" width="20"
+             height="20" :href="patchR"></image>
     </g>
     <g class="nodes">
       <g class="node" v-for="item in this.centerData"
@@ -107,6 +113,37 @@ export default {
         return y + ((!size || size === "default") ? 105 : size === "large" ? 110 : 100);
       };
     },
+    //计算贴片位置
+    patchX1:function() {
+      return function (x, width) {
+        return x + width / 4 - 5
+      };
+    },
+    patchY1:function() {
+      return function (y, height) {
+        return y - 6 + height / 1.5
+      };
+    },
+    patchX2:function() {
+      return function (x, width) {
+        return x + width / 2 - 8
+      };
+    },
+    patchY2:function() {
+      return function (y, height) {
+        return y + height / 1.5 + 7
+      };
+    },
+    patchX3:function() {
+      return function (x, width) {
+        return x + width / 1.5 + 6
+      };
+    },
+    patchY3:function() {
+      return function (y, height) {
+        return y - 6 + height / 1.5
+      };
+    },
   },
   data() {
     return {
@@ -157,7 +194,9 @@ export default {
       imgUrl: require("../../assets/images/little.svg"),
       centerUrl: require("../../assets/images/person.png"),
       arrowUrl: require("../../assets/images/arrow.svg"),
-      // patchL: require("../../assets/images/patch1.png"),
+      patchL: require("../../assets/images/patch1.png"),
+      patchC: require("../../assets/images/patch2.png"),
+      patchR: require("../../assets/images/patch3.png"),
       slides: [],
     };
   },
