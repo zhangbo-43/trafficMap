@@ -45,9 +45,9 @@
             <div style="position: absolute; left: 10px; top: 310px">
               <mainSelect />
             </div>
-            <div style="position: absolute; right: 0; top: 620px">
+            <!-- <div style="position: absolute; right: 0; top: 580px">
               <searchsetflexible />
-            </div>
+            </div> -->
             <div style="position: absolute; right: 10px; top: 310px">
               <div class="zoom-in-out">
                 <div class="zoom-line">
@@ -94,11 +94,15 @@
             <!-- 话务总量头部结束  -->
 
             <!--看板大屏主图部分  -->
-            <div class="map-line-content">
+            <div class="map-line-content"
+                  @mousedown = "mousedown($event)"
+                  @mousemove = "mousemove($event)"
+                  @mouseup = "mouseup($event)"
+            >
               <svg id="traffice" version="1.1"
                 xmlns="http://www.w3.org/2000/svg" width="1920" height="100vh">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                  width="100vw" height="60vh">
+                  width="100vw" height="70vh">
                   <g class="topolog">
                     <traffice datasource="[]"></traffice>
                     <center-chart>
@@ -153,7 +157,7 @@ import traffice from "./traffice";
 import Progress from "./progress.vue";
 import Histograms from "./histograms.vue";
 import serviceChart from "../../components/trendChart/serviceChart";
-import searchsetflexible from "../../components/searchSetFlexible.vue";
+// import searchsetflexible from "../../components/searchSetFlexible.vue";
 import nodeLines from "./nodeLines";
 import CenterChart from "./centerChart";
 // import * as d3 from 'd3'
@@ -165,6 +169,17 @@ export default {
       nodeVisible: true,
       remarks: {},
       zoomValue: 50,
+      boxX:0,
+      boxY:0,
+      boxW:1920,
+      boxH:720,
+      startX:0,
+      startY:0,
+      removeFlag:false,
+      moveX:0,
+      moveY:0,
+      endX:0,
+      endY:0,
       // marks: {
       //     0: '0',
       //     50: {
@@ -259,14 +274,12 @@ export default {
     centerChart,
     Histograms,
     serviceChart,
-    searchsetflexible,
+    // searchsetflexible,
     nodeLines
-  },
-  created() {
-    this.$store.commit('changeD3Datas', this.d3Data.dataset)
   },
   mounted() {
     console.log(this.d3Data.dataset.nodes);
+    this.$store.commit('changeD3Datas', this.d3Data.dataset)
     this.timeFn();
     this.cancelLoading();
     //监听键盘按键事件
@@ -283,6 +296,35 @@ export default {
     clearInterval(this.timing);
   },
   methods: {
+    mousedown(e){
+     this.startX = e.x               //获取鼠标的X坐标（鼠标与屏幕左侧的距离，单位为px）
+     this.startY = e.y               //获取鼠标的Y坐标（鼠标与屏幕顶部的距离，单位为px）
+     this.removeFlag = true
+    //  alert(e.x+':'+e.y+','+'qqq')
+    },
+    mousemove(evt){
+      if (this.removeFlag) {
+        this.moveX = parseInt(evt.clientX) - this.startX // 当前点-原始点=移动量
+        this.moveY = parseInt(evt.clientY) - this.startY // 当前点-原始点=移动量
+        console.log(this.moveX,this.moveY,'000')
+        this.endX =  this.moveX    
+        this.endY =  this.moveY 
+        // vbCX = endX - moveX
+        // vbCY = endY - moveY
+        // vbCW = parseFloat(oDiv.viewBox.animVal.width)//刷新获取viewBox的高和宽
+        // vbCH = parseFloat(oDiv.viewBox.animVal.height)//刷新获取viewBox的高和宽
+        // 刷新当前viewBox展示的视图位置
+      }
+    },
+    mouseup(){
+      //  console.log(this.endX)
+          this.removeFlag = false
+    },
+    movestyle(){
+      // if(this.removeFlag){
+      return { transform: "translate(" + this.endX + "px," + this.endY + "px)" }
+      // }
+    },
     //关闭设置弹窗
     closeDialogtable(data) {
       this.multipleSelection = data;

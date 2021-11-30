@@ -128,7 +128,7 @@ export default {
       pageSize: 10,
       multipleSelection: [],
       returnData: [],
-      idKey: "ID",
+      idKey: "id",
     };
   },
   props: {
@@ -183,7 +183,7 @@ export default {
       this.handleCurrentChange();
     },
 
-    // 选择要选的表格项，不传数据时清空表格
+    // 切换所传数据项的选中状态，不传数据时清空表格
     toggleSelection(rows) {
       if (rows) {
         rows.forEach((row) => {
@@ -196,19 +196,20 @@ export default {
 
     // 获取表格每一行的id以便记录多选的数据
     getRowKey(row) {
-      return row.ID;
+      return row.id;
     },
 
     // 选择改变时
     handleSelectionChange(val) {
+     
       this.multipleSelection = val;
+      console.log(val)
+
     },
   },
   mounted() {
-    console.log(this.data)
     this.tableColumn = this.data.tableColumn[this.data.defCol];
     this.columns = Object.keys(this.tableColumn);
-    console.log(this.columns)
     this.tableData = this.data.tableData[this.data.defData];
     this.handleCurrentChange();
   },
