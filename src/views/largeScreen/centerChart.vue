@@ -157,6 +157,7 @@ export default {
       imgUrl: require("../../assets/images/little.svg"),
       centerUrl: require("../../assets/images/person.png"),
       arrowUrl: require("../../assets/images/arrow.svg"),
+      // patchL: require("../../assets/images/patch1.png"),
       slides: [],
     };
   },

@@ -19,16 +19,16 @@
             <i class="el-icon-caret-bottom el-icon--right"></i>
           </div> -->
             <el-select v-model="provinceVal" :popper-append-to-body="false"
-              placeholder="请选择" popper-class="select-info">
+                       placeholder="请选择" popper-class="select-info">
               <el-option v-for="item in provinceList" :key="item.value"
-                :label="item.label" :value="item.value">
+                         :label="item.label" :value="item.value">
               </el-option>
             </el-select>
             <img v-show="!fullscreen" class="fullscreen-btn"
-              src="../../assets/images/fullscreen.png" @click="fullScreen" />
+                 src="../../assets/images/fullscreen.png" @click="fullScreen"/>
             <img v-show="fullscreen" class="fullscreen-btn"
-              src="../../assets/images/unfullscreen.png"
-              @click="unFullScreen" />
+                 src="../../assets/images/unfullscreen.png"
+                 @click="unFullScreen"/>
           </div>
         </div>
         <!-- 看板大屏头部结束 -->
@@ -37,13 +37,13 @@
           <!-- 热线话务历史趋势 -->
           <div class="map-left-top">
             <dv-border-box-7 :color="['#070D43', '#2773FF']">
-              <topLeft />
+              <topLeft/>
             </dv-border-box-7>
           </div>
           <!-- 热线话务历史趋势结束 -->
           <div class="map-main">
             <div style="position: absolute; left: 10px; top: 310px">
-              <mainSelect />
+              <mainSelect/>
             </div>
             <!-- <div style="position: absolute; right: 0; top: 580px">
               <searchsetflexible />
@@ -60,17 +60,17 @@
               <div class="nodes-point">
                 <div class="node-total">
                   <span>正常节点<i class="el-icon-phone"
-                      style="color: #09f0f5"></i></span>
+                               style="color: #09f0f5"></i></span>
                   <span>异常节点<i class="el-icon-phone"
-                      style="color: #ed1858"></i></span>
+                               style="color: #ed1858"></i></span>
                   <span>异常挂断<i class="icon iconfont icon-duankaiyichang"
-                      style="color: #c77e3e"></i></span>
+                               style="color: #c77e3e"></i></span>
                   <span>接口异常<i class="icon iconfont icon-jiekouyichang"
-                      style="color: #c33dc7"></i></span>
+                               style="color: #c33dc7"></i></span>
                 </div>
                 <div class="num-total">
                   <span><i class="icon iconfont icon-jiekouyichang"
-                      style="color: #c33dc7"></i>接口异常总量：{{ Number(1568954).toLocaleString() }}</span>
+                           style="color: #c33dc7"></i>接口异常总量：{{ Number(1568954).toLocaleString() }}</span>
                 </div>
               </div>
             </div>
@@ -95,26 +95,26 @@
 
             <!--看板大屏主图部分  -->
             <div class="map-line-content"
-                  @mousedown = "mousedown($event)"
-                  @mousemove = "mousemove($event)"
-                  @mouseup = "mouseup($event)"
-                  @touchstart = "event.preventDefault()"
-                  unselectable="on"
-                  onselectstart="return false" 
-                  style="-moz-user-select: none;
+                 @mousedown="mousedown($event)"
+                 @mousemove="mousemove($event)"
+                 @mouseup="mouseup($event)"
+                 @touchstart="event.preventDefault()"
+                 unselectable="on"
+                 onselectstart="return false"
+                 style="-moz-user-select: none;
                  -webkit-user-select: none;
                 -ms-user-select: none;"
             >
               <svg id="traffice" version="1.1"
-                xmlns="http://www.w3.org/2000/svg" width="1920" height="100vh">
+                   xmlns="http://www.w3.org/2000/svg" width="1920" height="100vh">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                  width="100vw" height="70vh">
+                     width="100vw" height="70vh">
                   <g class="topolog" :style="this.movestyle()">
                     <traffice datasource="[]"></traffice>
                     <center-chart>
                     </center-chart>
                     <Progress datasource="[]" @openDialog="openDialog"
-                      @openTable="openTable"></Progress>
+                              @openTable="openTable"></Progress>
                   </g>
                 </svg>
 
@@ -136,7 +136,7 @@
           <!-- 异常挂断情况 -->
           <div class="map-right-top">
             <dv-border-box-7 :color="['#070D43', '#2773FF']">
-              <topRight />
+              <topRight/>
             </dv-border-box-7>
           </div>
           <!-- 异常挂断情况结束 -->
@@ -146,7 +146,7 @@
     </div>
     <!--    服务量趋势图页面-->
     <service-chart :chartVisible="chartVisible" @closeDialog="handleClose"
-      :optionData="optionData"></service-chart>
+                   :optionData="optionData"></service-chart>
   </div>
 </template>
 
@@ -154,7 +154,7 @@
 import d3Data from "./d3Data";
 import centerChart from "./centerChart.vue";
 import drawMixin from "../../utils/drawMixin";
-import { formatTime } from "../../utils/index.js";
+import {formatTime} from "../../utils/index.js";
 import Bus from "@/utils/eventBus.js";
 import topLeft from "../topLeft";
 import topRight from "../topRight";
@@ -175,22 +175,22 @@ export default {
       nodeVisible: true,
       remarks: {},
       zoomValue: 50,
-      setTransform:'',
-      scaleX:1,
-      scaleY:1,
-      boxX:0,
-      boxY:0,
-      boxW:1920,
-      boxH:520,
-      startX:0,
-      startY:0,
-      removeFlag:false,
-      moveX:0,
-      moveY:0,
-      endX:0,
-      endY:0,
-      vbCX:0,
-      vbCY:0,
+      setTransform: '',
+      scaleX: 1,
+      scaleY: 1,
+      boxX: 0,
+      boxY: 0,
+      boxW: 1920,
+      boxH: 520,
+      startX: 0,
+      startY: 0,
+      removeFlag: false,
+      moveX: 0,
+      moveY: 0,
+      endX: 0,
+      endY: 0,
+      vbCX: 0,
+      vbCY: 0,
       // marks: {
       //     0: '0',
       //     50: {
@@ -295,7 +295,8 @@ export default {
     this.cancelLoading();
     //监听键盘按键事件
     let self = this;
-    this.$nextTick(function () { });
+    this.$nextTick(function () {
+    });
     document.addEventListener("keyup", function (e) {
       // console.log(e);
       if (e.keyCode == 27) {
@@ -307,19 +308,19 @@ export default {
     clearInterval(this.timing);
   },
   methods: {
-    mousedown(e){
-     this.startX = e.x               //X坐标
-     this.startY = e.y               //Y坐标
-     this.removeFlag = true
-    //  alert(e.x+':'+e.y+','+'qqq')
+    mousedown(e) {
+      this.startX = e.x               //X坐标
+      this.startY = e.y               //Y坐标
+      this.removeFlag = true
+      //  alert(e.x+':'+e.y+','+'qqq')
     },
-    mousemove(evt){
+    mousemove(evt) {
       if (this.removeFlag) {
         let moveX = parseInt(evt.clientX) - this.startX // 移动量
         let moveY = parseInt(evt.clientY) - this.startY // 移动量
         this.moveX = moveX;
         this.moveY = moveY;
-        this.endX = this.vbCX + moveX;    
+        this.endX = this.vbCX + moveX;
         this.endY = this.vbCY + moveY;
         // vbCX = endX - moveX
         // vbCY = endY - moveY
@@ -328,22 +329,22 @@ export default {
         // 刷新当前viewBox展示的视图位置
       }
     },
-    mouseup(){
+    mouseup() {
       //  console.log(this.endX)
-        this.vbCX = this.endX;
-        this.vbCY = this.endY;
-        this.removeFlag = false
+      this.vbCX = this.endX;
+      this.vbCY = this.endY;
+      this.removeFlag = false
     },
-    movestyle(){
-       let zoomValue = this.zoomValue;
-       let endX = this.endX;
-       let endY = this.endY;
-       let  scaleX = zoomValue/50;
-       let  scaleY = zoomValue/50;
+    movestyle() {
+      let zoomValue = this.zoomValue;
+      let endX = this.endX;
+      let endY = this.endY;
+      let scaleX = zoomValue / 50;
+      let scaleY = zoomValue / 50;
       //  this.setTransform = "scale(" + scaleX +','+ scaleY+")"+' '+ "translate(" + endX + "px," + endY + "px)"
       //  console.log(this.setTransform,'0002233')
       // if(this.removeFlag){
-      return { transform: "scale(" + scaleX +','+ scaleY+")"+' '+ "translate(" + endX/scaleX + "px," + endY/scaleY + "px)" }
+      return {transform: "scale(" + scaleX + ',' + scaleY + ")" + ' ' + "translate(" + endX / scaleX + "px," + endY / scaleY + "px)"}
       // }
     },
     //关闭设置弹窗
@@ -686,6 +687,7 @@ export default {
   transform-origin: left top;
   overflow: hidden;
 }
+
 .whole-Screen {
   width: 100%;
   height: 100%;
@@ -693,11 +695,14 @@ export default {
   background-size: cover;
   background-position: center center;
 }
+
 .whole-Screen-body {
   height: 100%;
 }
+
 .title-top {
   position: relative;
+
   .title-times {
     background: url("../../assets/images/title_bg.png") no-repeat center center;
     background-size: 100% auto;
@@ -706,23 +711,28 @@ export default {
     width: 70%;
     margin: 0 auto;
     height: 90px;
+
     .title {
       font-size: 24px;
       padding-top: 20px;
     }
+
     .times {
       font-size: 14px;
       font-weight: normal;
       margin-top: 20px;
+
       span {
         margin-right: 10px;
       }
     }
   }
+
   .right-box {
     position: absolute;
     right: 10px;
     top: 10px;
+
     .province-box {
       width: 78px;
       height: 36px;
@@ -738,32 +748,39 @@ export default {
       align-items: center;
       float: left;
       margin-right: 10px;
+
       span {
         width: 60px;
         color: #3eb6f5;
         display: inline-block;
         font-size: 12px;
       }
+
       .el-icon-caret-bottom {
         position: relative;
       }
+
       .el-icon-caret-bottom:before {
         color: #3eb6f5;
         top: 50%;
       }
     }
+
     .fullscreen-btn {
       width: 24px;
       float: right;
       margin-top: 6px;
     }
+
     .el-select {
       margin-right: 10px;
     }
   }
 }
+
 .map-main-content {
   position: relative;
+
   .map-left-top {
     // border: 1px solid #001aff;
     // width: calc((100%-200px)/3.5);
@@ -774,25 +791,31 @@ export default {
     left: 10px;
     top: 10px;
   }
+
   .map-main {
     .zoom-in-out {
       padding: 29px 29px 0 0;
       overflow: hidden;
+
       .zoom-line {
         width: 266px;
         float: right;
+
         .el-slider {
           width: 200px;
           display: inline-grid;
           margin: 0 12px;
+
           ::v-deep .el-slider__runway {
             height: 2px;
             background: #001a44;
             border-radius: 1px;
           }
+
           ::v-deep .el-slider__bar {
             display: none;
           }
+
           ::v-deep .el-slider__button {
             width: 9px;
             height: 9px;
@@ -801,30 +824,38 @@ export default {
             // opacity: 0.31;
             border-radius: 50%;
           }
+
           ::v-deep .el-slider__stop {
             display: none;
           }
         }
+
         .zoom-start-value {
           font-size: 18px;
           opacity: 0.5;
         }
       }
     }
+
     .nodes-point {
       .node-total {
         margin-bottom: 17px;
+
         span {
           margin-right: 15px;
+
           i {
             margin-left: 4px;
           }
         }
       }
+
       .num-total {
         text-align: right;
+
         span {
           margin-right: 15px;
+
           i {
             margin-right: 4px;
           }
@@ -832,6 +863,7 @@ export default {
       }
     }
   }
+
   .map-right-top {
     // border: 1px solid #001aff;
     width: 540px;
@@ -841,28 +873,34 @@ export default {
     top: 10px;
   }
 }
+
 .total-traffic {
   margin-top: 10px;
   text-align: center;
+
   .traffic {
     padding-top: 6px;
     margin-bottom: 10px;
+
     label {
       font-size: 18px;
       color: #ffffff;
       opacity: 0.6;
       margin-right: 6px;
     }
+
     .second {
       font-size: 14px;
       padding-left: 10px;
     }
+
     span {
       font-family: "allcount";
       color: #06ebdf;
       font-size: 30px;
       border-bottom: 2px solid #3a3c56;
     }
+
     em {
       font-family: "allcount";
       color: #06ebdf;
@@ -870,6 +908,7 @@ export default {
       font-size: 18px;
     }
   }
+
   .traffic-percent {
     label {
       font-size: 12px;
@@ -877,20 +916,24 @@ export default {
       opacity: 0.6;
       margin-right: 6px;
     }
+
     span {
       color: #06ebdf;
       font-size: 12px;
     }
   }
 }
+
 .map-line-content {
   text-align: center;
-
+  cursor: pointer;
   //padding: 10px;
 }
-.topolog,.lines{
-  transform-origin:center center;
+
+.topolog, .lines {
+  transform-origin: center center;
 }
+
 .right-box {
   ::v-deep .el-input--suffix .el-input__inner {
     width: 78px;
@@ -903,55 +946,69 @@ export default {
     padding: 0 8px;
     color: #3eb6f5;
   }
+
   ::v-deep .el-icon-arrow-up:before {
     content: "\e790";
   }
+
   ::v-deep.el-input__icon {
     line-height: 36px;
   }
+
   ::v-deep .el-input--suffix .el-input__inner::-webkit-input-placeholder {
     color: #3eb6f5;
     font-size: 12px;
   }
+
   ::v-deep .el-select .el-input .el-select__caret {
     color: #3eb6f5;
   }
 }
+
 ::v-deep .select-info {
   background-color: #00284d !important;
   box-shadow: none !important;
   border: none !important;
   float: left;
   margin-right: 10px;
-  >>> .el-scrollbar__wrap {
+
+  > > > .el-scrollbar__wrap {
     background: #00284d;
   }
-  >>> .el-select-dropdown__list {
+
+  > > > .el-select-dropdown__list {
     background: #00284d;
   }
+
   .el-select-dropdown__item {
     background: #00284d;
     color: #fff;
     font-size: 12px;
     padding: 0 14px;
   }
+
   .el-select-dropdown__item:hover {
     // background: #070c49;
     color: #ccc;
   }
+
   .el-select-dropdown__item.selected {
     color: #409eff;
   }
 }
+
 ::v-deep .el-popper[x-placement^="bottom"] .popper__arrow {
   border-bottom-color: #00284d !important;
 }
+
 ::v-deep .el-popper[x-placement^="bottom"] .popper__arrow::after {
   border-bottom-color: #00284d !important;
 }
+
 ::v-deep.el-select-dropdown__list {
   padding: 0 !important;
 }
+
 #traffice {
   margin: 0 auto;
 }
