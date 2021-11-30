@@ -45,9 +45,9 @@
             <div style="position: absolute; left: 10px; top: 310px">
               <mainSelect />
             </div>
-            <div style="position: absolute; right: 0; top: 620px">
+            <!-- <div style="position: absolute; right: 0; top: 580px">
               <searchsetflexible />
-            </div>
+            </div> -->
             <div style="position: absolute; right: 10px; top: 310px">
               <div class="zoom-in-out">
                 <div class="zoom-line">
@@ -96,9 +96,9 @@
             <!--看板大屏主图部分  -->
             <div class="map-line-content">
               <svg id="traffice" version="1.1"
-                xmlns="http://www.w3.org/2000/svg" width="100vw" height="100vh">
+                xmlns="http://www.w3.org/2000/svg" width="1920" height="1080">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                  width="100vw" height="60vh">
+                  width="100vw" height="70vh">
                   <g class="topolog">
                     <traffice datasource="[]"></traffice>
                     <center-chart @getLineVisible="getLineVisible">
@@ -153,7 +153,7 @@ import traffice from "./traffice";
 import Progress from "./progress.vue";
 import Histograms from "./histograms.vue";
 import serviceChart from "../../components/trendChart/serviceChart";
-import searchsetflexible from "../../components/searchSetFlexible.vue";
+// import searchsetflexible from "../../components/searchSetFlexible.vue";
 import nodeLines from "./nodeLines";
 import CenterChart from "./centerChart";
 // import * as d3 from 'd3'
@@ -259,16 +259,14 @@ export default {
     centerChart,
     Histograms,
     serviceChart,
-    searchsetflexible,
+    // searchsetflexible,
     nodeLines
-  },
-  created() {
-    this.$store.commit('changeD3Datas', this.d3Data.dataset)
   },
   mounted() {
     // this.getLineVisible()
     // this.svgZoom()
     console.log(this.d3Data.dataset.nodes);
+    this.$store.commit('changeD3Datas', this.d3Data.dataset)
     this.timeFn();
     this.cancelLoading();
     //监听键盘按键事件
