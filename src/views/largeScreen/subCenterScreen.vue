@@ -307,8 +307,8 @@ export default {
         this.moveX = parseInt(evt.clientX) - this.startX // 当前点-原始点=移动量
         this.moveY = parseInt(evt.clientY) - this.startY // 当前点-原始点=移动量
         console.log(this.moveX,this.moveY,'000')
-        this.endX =  this.moveX    
-        this.endY =  this.moveY 
+        this.endX =  this.moveX
+        this.endY =  this.moveY
         // vbCX = endX - moveX
         // vbCY = endY - moveY
         // vbCW = parseFloat(oDiv.viewBox.animVal.width)//刷新获取viewBox的高和宽
@@ -686,13 +686,13 @@ export default {
     margin: 0 auto;
     height: 90px;
     .title {
-      font-size: 20px;
+      font-size: 24px;
       padding-top: 20px;
     }
     .times {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: normal;
-      margin-top: 6px;
+      margin-top: 20px;
       span {
         margin-right: 10px;
       }
