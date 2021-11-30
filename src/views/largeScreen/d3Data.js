@@ -226,6 +226,7 @@ const dataset = {
 			'leftHaveData': true,
 			'rightHaveData': true,
 			'data': [],
+			'target':'queuingData'
 		},
 		'queuingData': [
 
