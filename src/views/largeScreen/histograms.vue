@@ -3,110 +3,116 @@
   <g id="histogram">
     <!-- 柱状图上部分割线 -->
     <line
-        :x1="x + 20"
-        :y1="y"
-        :x2="1920 - 40"
-        :y2="y"
-        style="stroke: #001a44; stroke-width: 5"
+      :x1="x + 20"
+      :y1="y"
+      :x2="1920 - 40"
+      :y2="y"
+      style="stroke: #001a44; stroke-width: 5"
     />
 
     <!-- 柱子加字体总高度270 -->
     <g id="pillar" v-for="item in showData" :key="item.id">
-      <g class="pillar-rect">
+      <g
+        class="pillar-rect"
+        @mouseover="showValue($event)"
+        @mouseleave="hiddenValue($event)"
+      >
         <!-- 柱子宽度30 总高度为150 -->
         <rect
-            :width="pillarWidth"
-            :x="item.x"
-            :y="item.y"
-            :height="item.bgHeight"
-            fill="url(#bg-rects)"
+          :width="pillarWidth"
+          :x="item.x"
+          :y="item.y"
+          :height="item.bgHeight"
+          fill="url(#bg-rects)"
         />
         <rect
-            :width="pillarWidth"
-            :x="item.x"
-            :y="item.y + item.bgHeight"
-            :height="item.height"
-            fill="url(#data-rects)"
+          :width="pillarWidth"
+          :x="item.x"
+          :y="item.y + item.bgHeight"
+          :height="item.height"
+          fill="url(#data-rects)"
         />
 
         <pattern
-            id="bg-rects"
-            x="0"
-            y="0"
-            :width="pillarWidth"
-            height="10"
-            patternUnits="userSpaceOnUse"
+          id="bg-rects"
+          x="0"
+          y="0"
+          :width="pillarWidth"
+          height="10"
+          patternUnits="userSpaceOnUse"
         >
           <rect
-              class="bg-rect"
-              x="0"
-              y="5"
-              :width="pillarWidth"
-              height="5"
-              style="fill: #032154"
+            class="bg-rect"
+            x="0"
+            y="5"
+            :width="pillarWidth"
+            height="5"
+            style="fill: #032154"
           />
         </pattern>
 
         <pattern
-            id="data-rects"
-            x="0"
-            y="0"
-            :width="pillarWidth"
-            height="10"
-            patternUnits="userSpaceOnUse"
+          id="data-rects"
+          x="0"
+          y="0"
+          :width="pillarWidth"
+          height="10"
+          patternUnits="userSpaceOnUse"
         >
           <rect
-              x="0"
-              y="5"
-              :width="pillarWidth"
-              height="5"
-              style="fill: #007aff"
+            x="0"
+            y="5"
+            :width="pillarWidth"
+            height="5"
+            style="fill: #007aff"
           />
         </pattern>
       </g>
 
-      <!-- 柱子右上角显示数据量 -->
-      <foreignObject
-          width="40"
-          height="25"
-          :x="item.x + pillarWidth + 5"
-          :y="item.y + pillarWidth + 10"
-          requiredExtensions="http://www.w3.org/1999/xhtml"
-          v-if="showValue"
-      >
-        <body class="value-text" xmlns="http://www.w3.org/1999/xhtml">
-        <p>
-          <span> {{ item.value }} </span>
-        </p>
-        </body>
-      </foreignObject>
-
       <!-- 字体总高度为120，横轴坐标应为柱子横轴坐标减25，纵轴坐标应为柱子最上面的坐标加150 -->
       <foreignObject
-          :x="item.x - 25"
-          :y="item.y + 140"
-          width="80"
-          height="120"
-          fill="null"
+        :x="item.x - 25"
+        :y="item.y + 140"
+        width="80"
+        height="120"
+        fill="null"
       >
         <body class="txt-body" xmlns="http://www.w3.org/1999/xhtml">
-        <p class="pillar-text">
-          <span class="pillar-name">三星级用户技能队列</span>
-          <span
-          ><span class="icon iconfont icon-daoru1"></span>
+          <p class="pillar-text">
+            <span class="pillar-name">三星级用户技能队列</span>
+            <span
+              ><span class="icon iconfont icon-daoru1"></span>
               {{ item.checkInVal }}
             </span>
-          <span
-          ><span class="icon iconfont icon-paiduizhong"></span>
+            <span
+              ><span class="icon iconfont icon-paiduizhong"></span>
               {{ item.inLineVal }}
             </span>
-          <span>
+            <span>
               <span class="icon iconfont icon-yonghuming"></span>
               {{ item.inService }}
             </span>
-        </p>
+          </p>
         </body>
       </foreignObject>
+
+      
+      <!-- 柱子右上角显示数据量 -->
+      <foreignObject
+        class="hidden value"
+        width="40"
+        height="25"
+        :x="item.x + pillarWidth + 5"
+        :y="item.y + 10"
+        requiredExtensions="http://www.w3.org/1999/xhtml"
+      >
+        <body class="value-text" xmlns="http://www.w3.org/1999/xhtml">
+          <p>
+            <span> {{ item.value }} </span>
+          </p>
+        </body>
+      </foreignObject>
+
     </g>
 
     <!-- 底部图标 -->
@@ -118,25 +124,25 @@
       fill="null"
     >
       <body class="logotype" xmlns="http://www.w3.org/1999/xhtml">
-      <p class="logo-text">
+        <p class="logo-text">
           <span>
             <span class="icon iconfont icon-daoru1"></span>
             签入坐席
           </span>
-        <span>
+          <span>
             <span class="icon iconfont icon-paiduizhong"></span>
             排队中
           </span>
-        <span>
+          <span>
             <span class="icon iconfont icon-yonghuming"></span>
             服务中
           </span>
-      </p>
+        </p>
       </body>
     </foreignObject>
 
     <!-- 柱状图右上角搜索排序选择 -->
-    <foreignObject
+    <!-- <foreignObject
       width="100%"
       height="100%"
       x="0"
@@ -146,7 +152,7 @@
       <div style="position: absolute; right: 20px; top: 540px">
         <searchsetflexible />
       </div>
-    </foreignObject>
+    </foreignObject> -->
 
     <!-- 排队量服务量选择按钮 -->
     <foreignObject
@@ -203,7 +209,7 @@
 
 <script>
 import d3Data from "./d3Data";
-import searchsetflexible from "../../components/searchSetFlexible.vue";
+// import searchsetflexible from "../../components/searchSetFlexible.vue";
 export default {
   data() {
     return {
@@ -211,7 +217,6 @@ export default {
       y: d3Data.dataset.quantity.y,
       beginX: d3Data.dataset.quantity.x + 125,
       beginY: d3Data.dataset.quantity.y + 50,
-      showValue: false,
 
       showData: [],
       showQueuingData: {
@@ -229,7 +234,7 @@ export default {
       towRightsvg: require("../../assets/images/towRightsvg.svg"),
     };
   },
-  components: { searchsetflexible },
+  // components: { searchsetflexible },
   methods: {
     // 选择排队量或排队量
     handleSelectShowTable(e, show) {
@@ -292,6 +297,18 @@ export default {
         d3Data.dataset.quantity.showData.rightHaveData = false;
       }
     },
+
+    // 显示柱子右上角数据量
+    showValue(event) {
+      let target = event.target.parentNode.parentNode.lastChild
+      target.classList.remove("hidden");
+      target.classList.add("show");
+    },
+    hiddenValue(event) {
+      let target = event.target.parentNode.lastChild
+      target.classList.remove("show");
+      target.classList.add("hidden");
+    },
   },
   beforeMount() {
     this.initData("showQueuingData", d3Data.dataset.quantity.queuingData);
@@ -310,51 +327,55 @@ export default {
       d3Data.dataset.quantity.showData.data = this.showData;
     },
 
-    D3ShowData(){
+    D3ShowData() {
       this.D3ShowData.forEach((el, index) => {
-          el.height = Math.round((el.value / el.totalVal) * 14) * 10;
-          el.bgHeight = 140 - el.height;
-          el.x = this.beginX + index * 85;
-          el.y = this.beginY;
-        });
-      this.showData = this.D3ShowData
-    }
+        el.height = Math.round((el.value / el.totalVal) * 14) * 10;
+        el.bgHeight = 140 - el.height;
+        el.x = this.beginX + index * 85;
+        el.y = this.beginY;
+      });
+      this.showData = this.D3ShowData;
+    },
   },
 };
 </script>
 
 <style scope lang="scss">
+.pillar-rect {
+  display: block;
+}
+
 .txt-body {
   background-color: rgba(0, 0, 0, 0);
   margin: 0;
   padding: 0;
   padding-top: 10px;
 
-    .pillar-text {
-      display: flex;
-      flex-direction: column;
-      font-size: 15px;
-      text-align: left;
+  .pillar-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    text-align: left;
 
-      .pillar-name {
-        -webkit-line-clamp: 2;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        color: #00a698;
-      }
-
-      .icon {
-        color: #00a698;
-        opacity: 0.84;
-      }
+    .pillar-name {
+      -webkit-line-clamp: 2;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #00a698;
     }
+
+    .icon {
+      color: #00a698;
+      opacity: 0.84;
+    }
+  }
 }
 
 .value-text {
   background-color: rgba(0, 0, 0, 0);
-  display: none;
+  // display: none;
 
   p {
     width: 100%;
@@ -407,5 +428,12 @@ export default {
       opacity: 0.84;
     }
   }
+}
+
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
 }
 </style>
