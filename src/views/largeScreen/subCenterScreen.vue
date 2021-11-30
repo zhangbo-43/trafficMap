@@ -98,12 +98,18 @@
                   @mousedown = "mousedown($event)"
                   @mousemove = "mousemove($event)"
                   @mouseup = "mouseup($event)"
+                  @touchstart = "event.preventDefault()"
+                  unselectable="on"
+                  onselectstart="return false" 
+                  style="-moz-user-select: none;
+                 -webkit-user-select: none;
+                -ms-user-select: none;"
             >
               <svg id="traffice" version="1.1"
                 xmlns="http://www.w3.org/2000/svg" width="1920" height="100vh">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                   width="100vw" height="70vh">
-                  <g class="topolog">
+                  <g class="topolog" :style="this.movestyle()">
                     <traffice datasource="[]"></traffice>
                     <center-chart>
                     </center-chart>
@@ -169,10 +175,13 @@ export default {
       nodeVisible: true,
       remarks: {},
       zoomValue: 50,
+      setTransform:'',
+      scaleX:1,
+      scaleY:1,
       boxX:0,
       boxY:0,
       boxW:1920,
-      boxH:720,
+      boxH:520,
       startX:0,
       startY:0,
       removeFlag:false,
@@ -180,6 +189,8 @@ export default {
       moveY:0,
       endX:0,
       endY:0,
+      vbCX:0,
+      vbCY:0,
       // marks: {
       //     0: '0',
       //     50: {
@@ -297,18 +308,19 @@ export default {
   },
   methods: {
     mousedown(e){
-     this.startX = e.x               //获取鼠标的X坐标（鼠标与屏幕左侧的距离，单位为px）
-     this.startY = e.y               //获取鼠标的Y坐标（鼠标与屏幕顶部的距离，单位为px）
+     this.startX = e.x               //X坐标
+     this.startY = e.y               //Y坐标
      this.removeFlag = true
     //  alert(e.x+':'+e.y+','+'qqq')
     },
     mousemove(evt){
       if (this.removeFlag) {
-        this.moveX = parseInt(evt.clientX) - this.startX // 当前点-原始点=移动量
-        this.moveY = parseInt(evt.clientY) - this.startY // 当前点-原始点=移动量
-        console.log(this.moveX,this.moveY,'000')
-        this.endX =  this.moveX    
-        this.endY =  this.moveY 
+        let moveX = parseInt(evt.clientX) - this.startX // 移动量
+        let moveY = parseInt(evt.clientY) - this.startY // 移动量
+        this.moveX = moveX;
+        this.moveY = moveY;
+        this.endX = this.vbCX + moveX;    
+        this.endY = this.vbCY + moveY;
         // vbCX = endX - moveX
         // vbCY = endY - moveY
         // vbCW = parseFloat(oDiv.viewBox.animVal.width)//刷新获取viewBox的高和宽
@@ -318,11 +330,20 @@ export default {
     },
     mouseup(){
       //  console.log(this.endX)
-          this.removeFlag = false
+        this.vbCX = this.endX;
+        this.vbCY = this.endY;
+        this.removeFlag = false
     },
     movestyle(){
+       let zoomValue = this.zoomValue;
+       let endX = this.endX;
+       let endY = this.endY;
+       let  scaleX = zoomValue/50;
+       let  scaleY = zoomValue/50;
+      //  this.setTransform = "scale(" + scaleX +','+ scaleY+")"+' '+ "translate(" + endX + "px," + endY + "px)"
+      //  console.log(this.setTransform,'0002233')
       // if(this.removeFlag){
-      return { transform: "translate(" + this.endX + "px," + this.endY + "px)" }
+      return { transform: "scale(" + scaleX +','+ scaleY+")"+' '+ "translate(" + endX/scaleX + "px," + endY/scaleY + "px)" }
       // }
     },
     //关闭设置弹窗
@@ -686,13 +707,13 @@ export default {
     margin: 0 auto;
     height: 90px;
     .title {
-      font-size: 20px;
+      font-size: 24px;
       padding-top: 20px;
     }
     .times {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: normal;
-      margin-top: 6px;
+      margin-top: 20px;
       span {
         margin-right: 10px;
       }
@@ -866,6 +887,9 @@ export default {
   text-align: center;
 
   //padding: 10px;
+}
+.topolog,.lines{
+  transform-origin:center center;
 }
 .right-box {
   ::v-deep .el-input--suffix .el-input__inner {

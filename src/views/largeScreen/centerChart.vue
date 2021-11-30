@@ -2,33 +2,33 @@
   <g class="centerBox">
     <g class="lines">
       <g class="line" v-for="item in this.d3Data.dataset.nodes.children"
-        :key="item.id">
+         :key="item.id">
         <line :x1="startX" :y1="startY" :x2="endX(item.x, item.size)"
-          :y2="endY(item.y, item.size)" />
+              :y2="endY(item.y, item.size)"/>
         <image class="cursor " :x="cursor(startX)" :y="cursor(startY)"
-          width="30" height="30" :href="light"></image>
+               width="20" height="20" :href="light"></image>
       </g>
     </g>
     <g class="center">
       <image :x="centerX" :y="centerY" :width="centerWidth"
-        :height="centerHeight" :href="centerUrl"></image>
+             :height="centerHeight" :href="centerUrl"></image>
     </g>
     <g class="nodes">
       <g class="node" v-for="item in this.d3Data.dataset.nodes.children"
-        :key="item.id">
+         :key="item.id">
         <image class="node-image" :x="positionX(item.x, item.size)"
-          :y="positionY(item.y, item.size)" :width="size(item.size)"
-          :height="size(item.size)" :href="imgUrl" @click="click(item)"></image>
+               :y="positionY(item.y, item.size)" :width="size(item.size)"
+               :height="size(item.size)" :href="imgUrl" @click="click(item)"></image>
         <text class="node-text" text-anchor="middle" dominant-baseline="middle"
-          :x="textX(item.x, item.size)"
-          :y="textY(item.y, item.size)">{{ item.name }}
+              :x="textX(item.x, item.size)"
+              :y="textY(item.y, item.size)">{{ item.name }}
         </text>
         <text class="node-count" text-anchor="middle" dominant-baseline="middle"
-          :x="countX(item.x, item.size)"
-          :y="countY(item.y, item.size)">{{ item.value }}
+              :x="countX(item.x, item.size)"
+              :y="countY(item.y, item.size)">{{ item.value }}
         </text>
         <image :x="arrowX(item.x, item.size)" :y="arrowY(item.y, item.size)"
-          width="15" height="15" :href="arrowUrl"></image>
+               width="15" height="15" :href="arrowUrl"></image>
       </g>
     </g>
   </g>
@@ -38,6 +38,7 @@
 import * as d3 from 'd3'
 import d3Data from "../../views/largeScreen/d3Data";
 import Bus from "@/utils/eventBus.js";
+
 export default {
   computed: {
     cursor: function () {
@@ -109,7 +110,7 @@ export default {
   },
   data() {
     return {
-      flag: true,
+      flag: false,
       d3Data: d3Data,
       centerX: 835,
       centerY: 0,
@@ -125,7 +126,15 @@ export default {
   },
   methods: {
     click(data) {
-      Bus.$emit("nodeMessage", { type:"node", id: data.id, arrowX: this.arrowX(data.x) + 7, arrowY: this.arrowY(data.y) + 7 })
+      // this.flag = !this.flag
+      // console.log(this.flag)
+      Bus.$emit("nodeMessage", {
+        type: "node",
+        // show: this.flag,
+        id: data.id,
+        arrowX: this.arrowX(data.x) + 7,
+        arrowY: this.arrowY(data.y) + 7
+      })
     },
     imgTransition() {
       let run = () => {
@@ -137,14 +146,14 @@ export default {
           return this.centerY + this.centerHeight / 2 + 10;
         })
         cursorSvg.data(datas).transition('position')
-          .attr('x', function (d) {
-            return d.x + ((!d.size || d.size === "default") ? 20 : d.size === "large" ? 15 : 25) + 10
-          })
-          .attr('y', function (d) {
-            return d.y + ((!d.size || d.size === "default") ? 53 : d.size === "large" ? 35 : 40)
-          })
-          .duration(1500)
-          .on("end", run)
+            .attr('x', function (d) {
+              return d.x + ((!d.size || d.size === "default") ? 22 : d.size === "large" ? 17 : 27) + 12
+            })
+            .attr('y', function (d) {
+              return d.y + ((!d.size || d.size === "default") ? 55 : d.size === "large" ? 37 : 42)
+            })
+            .duration(1500)
+            .on("end", run)
       }
       run()
     }
@@ -161,13 +170,16 @@ export default {
 .centerBox {
   cursor: pointer;
 }
+
 .node-text {
   font-size: 18px;
   fill: white;
 }
+
 .node-image {
   display: block;
 }
+
 .line line {
   stroke: rgb(20, 81, 248);
   stroke-width: 2px;
