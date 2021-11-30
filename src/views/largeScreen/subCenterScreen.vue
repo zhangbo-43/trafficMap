@@ -94,21 +94,25 @@
             <!-- 话务总量头部结束  -->
 
             <!--看板大屏主图部分  -->
-            <div class="map-line-content">
+            <div class="map-line-content"
+                  @mousedown = "mousedown($event)"
+                  @mousemove = "mousemove($event)"
+                  @mouseup = "mouseup($event)"
+            >
               <svg id="traffice" version="1.1"
                 xmlns="http://www.w3.org/2000/svg" width="1920" height="100vh">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                  width="100vw" height="100vh">
+                  width="100vw" height="60vh">
                   <g class="topolog">
                     <traffice datasource="[]"></traffice>
-                    <center-chart @getLineVisible="getLineVisible">
+                    <center-chart>
                     </center-chart>
                     <Progress datasource="[]" @openDialog="openDialog"
                       @openTable="openTable"></Progress>
                   </g>
                 </svg>
 
-                <svg v-if="false">
+                <svg>
                   <g class="quantity">
                     <Histograms></Histograms>
                   </g>
@@ -165,6 +169,17 @@ export default {
       nodeVisible: true,
       remarks: {},
       zoomValue: 50,
+      boxX:0,
+      boxY:0,
+      boxW:1920,
+      boxH:720,
+      startX:0,
+      startY:0,
+      removeFlag:false,
+      moveX:0,
+      moveY:0,
+      endX:0,
+      endY:0,
       // marks: {
       //     0: '0',
       //     50: {
@@ -266,8 +281,6 @@ export default {
     this.$store.commit('changeD3Datas', this.d3Data.dataset)
   },
   mounted() {
-    // this.getLineVisible()
-    // this.svgZoom()
     console.log(this.d3Data.dataset.nodes);
     this.timeFn();
     this.cancelLoading();
@@ -285,8 +298,34 @@ export default {
     clearInterval(this.timing);
   },
   methods: {
-    getLineVisible(params) {
-      console.log(params)
+    mousedown(e){
+     this.startX = e.x               //获取鼠标的X坐标（鼠标与屏幕左侧的距离，单位为px）
+     this.startY = e.y               //获取鼠标的Y坐标（鼠标与屏幕顶部的距离，单位为px）
+     this.removeFlag = true
+    //  alert(e.x+':'+e.y+','+'qqq')
+    },
+    mousemove(evt){
+      if (this.removeFlag) {
+        this.moveX = parseInt(evt.clientX) - this.startX // 当前点-原始点=移动量
+        this.moveY = parseInt(evt.clientY) - this.startY // 当前点-原始点=移动量
+        console.log(this.moveX,this.moveY,'000')
+        this.endX =  this.moveX    
+        this.endY =  this.moveY 
+        // vbCX = endX - moveX
+        // vbCY = endY - moveY
+        // vbCW = parseFloat(oDiv.viewBox.animVal.width)//刷新获取viewBox的高和宽
+        // vbCH = parseFloat(oDiv.viewBox.animVal.height)//刷新获取viewBox的高和宽
+        // 刷新当前viewBox展示的视图位置
+      }
+    },
+    mouseup(){
+      //  console.log(this.endX)
+          this.removeFlag = false
+    },
+    movestyle(){
+      // if(this.removeFlag){
+      return { transform: "translate(" + this.endX + "px," + this.endY + "px)" }
+      // }
     },
     //关闭设置弹窗
     closeDialogtable(data) {
