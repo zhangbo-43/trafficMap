@@ -225,10 +225,10 @@ const dataset = {
 		'showData': {
 			'leftHaveData': true,
 			'rightHaveData': true,
-			'target': 'queuingData',
 			'data': [],
 		},
 		'queuingData': [
+
 			{
 				"name": "三星级用户级技能队",
 				"id": 1,
@@ -236,10 +236,7 @@ const dataset = {
 				"value": 1200, //数据量
 				"checkInVal": 108, //签入坐席
 				"inLineVal": 203, //排队中
-				"inService": 300, //服务中
-				'phoType': "应急", //话物类型
-				'skillListType': "普通",//技能队列类型
-				'passageType': "语音",//通道类型
+				"inService": 300 //服务中
 			},
 			{
 				"name": "四星级用户级技能队",
@@ -248,10 +245,7 @@ const dataset = {
 				"value": 800, //数据量
 				"checkInVal": 333, //签入坐席
 				"inLineVal": 555, //排队中
-				"inService": 300, //服务中
-				'phoType': "应急", //话物类型
-				'skillListType': "普通",//技能队列类型
-				'passageType': "语音",//通道类型
+				"inService": 888 //服务中
 			},
 			{
 				"name": "八星级用户级技能队",
@@ -260,10 +254,7 @@ const dataset = {
 				"value": 300, //数据量
 				"checkInVal": 100, //签入坐席
 				"inLineVal": 332, //排队中
-				"inService": 300, //服务中
-				'phoType': "应急", //话物类型
-				'skillListType': "普通",//技能队列类型
-				'passageType': "语音",//通道类型
+				"inService": 355 //服务中
 			},
 			{
 				"name": "十星级用户级技能队",
