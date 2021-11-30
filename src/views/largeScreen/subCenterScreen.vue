@@ -45,9 +45,9 @@
             <div style="position: absolute; left: 10px; top: 310px">
               <mainSelect />
             </div>
-            <div style="position: absolute; right: 0; top: 620px">
+            <!-- <div style="position: absolute; right: 0; top: 580px">
               <searchsetflexible />
-            </div>
+            </div> -->
             <div style="position: absolute; right: 10px; top: 310px">
               <div class="zoom-in-out">
                 <div class="zoom-line">
@@ -108,7 +108,7 @@
               <svg id="traffice" version="1.1"
                 xmlns="http://www.w3.org/2000/svg" width="1920" height="100vh">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                  width="100vw" height="60vh">
+                  width="100vw" height="70vh">
                   <g class="topolog" :style="this.movestyle()">
                     <traffice datasource="[]"></traffice>
                     <center-chart>
@@ -163,7 +163,7 @@ import traffice from "./traffice";
 import Progress from "./progress.vue";
 import Histograms from "./histograms.vue";
 import serviceChart from "../../components/trendChart/serviceChart";
-import searchsetflexible from "../../components/searchSetFlexible.vue";
+// import searchsetflexible from "../../components/searchSetFlexible.vue";
 import nodeLines from "./nodeLines";
 import CenterChart from "./centerChart";
 // import * as d3 from 'd3'
@@ -285,14 +285,12 @@ export default {
     centerChart,
     Histograms,
     serviceChart,
-    searchsetflexible,
+    // searchsetflexible,
     nodeLines
-  },
-  created() {
-    this.$store.commit('changeD3Datas', this.d3Data.dataset)
   },
   mounted() {
     console.log(this.d3Data.dataset.nodes);
+    this.$store.commit('changeD3Datas', this.d3Data.dataset)
     this.timeFn();
     this.cancelLoading();
     //监听键盘按键事件
@@ -709,13 +707,13 @@ export default {
     margin: 0 auto;
     height: 90px;
     .title {
-      font-size: 20px;
+      font-size: 24px;
       padding-top: 20px;
     }
     .times {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: normal;
-      margin-top: 6px;
+      margin-top: 20px;
       span {
         margin-right: 10px;
       }

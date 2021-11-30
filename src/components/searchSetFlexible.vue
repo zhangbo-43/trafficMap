@@ -1,6 +1,6 @@
 <template>
   <div class="flexible">
-    <span class="control-flex" @click="showSetSearch=!showSetSearch">
+    <span class="control-flex" @click="showSetSearch = !showSetSearch">
       <i class="el-icon-arrow-left" v-show="!showSetSearch"></i>
       <i class="el-icon-arrow-right" v-show="showSetSearch"></i>
     </span>
@@ -34,13 +34,14 @@
 </template>
 
 <script>
+import d3Data from "../views/largeScreen/d3Data";
 import Settable from "./dialogtable.vue";
 export default {
   data() {
     return {
       showDialogtable: false,
       showSetSearch: false,
-      searchValue:'',
+      searchValue: "",
       dialogTableData: {
         dialongTitle: "大屏技能队列首屏显示设置",
         tableTitle: false,
@@ -49,7 +50,7 @@ export default {
         tableColumn: {
           setTabCol: {
             name: "技能队列名称",
-            ID: "队列ID",
+            id: "队列ID",
             phoType: "话务类型",
             skillListType: "技能队列类型",
             passageType: "通道类型",
@@ -59,147 +60,147 @@ export default {
           setTabData: [
             {
               name: "五星",
-              ID: "1000",
+              id: "1000",
               phoType: "应急",
               skillListType: "普通",
               passageType: "语音",
             },
             {
               name: "五星砖",
-              ID: "1001",
+              id: "1001",
               phoType: "普通",
               skillListType: "专席",
               passageType: "视频",
             },
             {
               name: "五星金",
-              ID: "1002",
+              id: "1002",
               phoType: "应急",
               skillListType: "普通",
               passageType: "视频",
             },
             {
               name: "五星",
-              ID: "1003",
+              id: "1003",
               phoType: "应急",
               skillListType: "普通",
               passageType: "语音",
             },
             {
               name: "五星砖",
-              ID: "1004",
+              id: "1004",
               phoType: "普通",
               skillListType: "专席",
               passageType: "视频",
             },
             {
               name: "五星金",
-              ID: "1005",
+              id: "1005",
               phoType: "应急",
               skillListType: "普通",
               passageType: "视频",
             },
             {
               name: "五星",
-              ID: "1006",
+              id: "1006",
               phoType: "应急",
               skillListType: "普通",
               passageType: "语音",
             },
             {
               name: "五星砖",
-              ID: "1007",
+              id: "1007",
               phoType: "普通",
               skillListType: "专席",
               passageType: "视频",
             },
             {
               name: "五星金",
-              ID: "1008",
+              id: "1008",
               phoType: "应急",
               skillListType: "普通",
               passageType: "视频",
             },
             {
               name: "五星",
-              ID: "1009",
+              id: "1009",
               phoType: "应急",
               skillListType: "普通",
               passageType: "语音",
             },
             {
               name: "五星砖",
-              ID: "1010",
+              id: "1010",
               phoType: "普通",
               skillListType: "专席",
               passageType: "视频",
             },
             {
               name: "五星金",
-              ID: "1012",
+              id: "1012",
               phoType: "应急",
               skillListType: "普通",
               passageType: "视频",
             },
             {
               name: "五星",
-              ID: "1013",
+              id: "1013",
               phoType: "应急",
               skillListType: "普通",
               passageType: "语音",
             },
             {
               name: "五星砖",
-              ID: "1014",
+              id: "1014",
               phoType: "普通",
               skillListType: "专席",
               passageType: "视频",
             },
             {
               name: "五星金",
-              ID: "1015",
+              id: "1015",
               phoType: "应急",
               skillListType: "普通",
               passageType: "视频",
             },
             {
               name: "五星",
-              ID: "1017",
+              id: "1017",
               phoType: "应急",
               skillListType: "普通",
               passageType: "语音",
             },
             {
               name: "五星砖",
-              ID: "1018",
+              id: "1018",
               phoType: "普通",
               skillListType: "专席",
               passageType: "视频",
             },
             {
               name: "五星金",
-              ID: "1019",
+              id: "1019",
               phoType: "应急",
               skillListType: "普通",
               passageType: "视频",
             },
             {
               name: "五星",
-              ID: "1020",
+              id: "1020",
               phoType: "应急",
               skillListType: "普通",
               passageType: "语音",
             },
             {
               name: "五星砖",
-              ID: "1021",
+              id: "1021",
               phoType: "普通",
               skillListType: "专席",
               passageType: "视频",
             },
             {
               name: "五星金",
-              ID: "1022",
+              id: "1022",
               phoType: "应急",
               skillListType: "普通",
               passageType: "视频",
@@ -209,7 +210,7 @@ export default {
       },
       restaurants: [],
       state1: "",
-      multipleSelection:[]
+      multipleSelection: [],
     };
   },
   methods: {
@@ -269,57 +270,72 @@ export default {
       ];
     },
     handleSelect(item) {
-      console.log(item);
-      this.searchValue = item.value
-      console.log(this.searchValue)
+      this.searchValue = item.value;
+      console.log(this.searchValue);
     },
     //搜索
-    setSearch(){
-       let arr1 = this.restaurants;
-       let arr2 = [];
-       let searchValue = this.searchValue;
-       arr1.forEach((v)=>{
-         if(v.value==searchValue){
-           console.log('包含该元素',searchValue)
-           arr2.push(v)
-         }
-       })
-       console.log(arr2) 
+    setSearch() {
+      let arr1 = this.restaurants;
+      let arr2 = [];
+      let searchValue = this.searchValue;
+      arr1.forEach((v) => {
+        if (v.value == searchValue) {
+          console.log("包含该元素", searchValue);
+          arr2.push(v);
+        }
+      });
+      console.log(arr2);
     },
     //排序
-    setSort(){
-       this.$message({
-          message: '排序了',
-          type: 'success'
-        });
-        let arr1 = [3,7,9,2,5,1];
-        let arr2 = [];
-        console.log(arr1);
-        console.log('排序了');
-        for(var i=0;i<arr1.length;i++){
-           arr2.unshift(arr1[i]);
-        }
-         console.log(arr2)   
+    setSort() {
+      this.$message({
+        message: "排序了",
+        type: "success",
+      });
+      let arr1 = [3, 7, 9, 2, 5, 1];
+      let arr2 = [];
+      console.log(arr1);
+      console.log("排序了");
+      for (var i = 0; i < arr1.length; i++) {
+        arr2.unshift(arr1[i]);
+      }
+      console.log(arr2);
     },
-    //关闭设置弹窗 
+    //关闭设置弹窗
     closeDialogtable(data) {
       this.multipleSelection = data;
       this.showDialogtable = false;
-      console.log(data)
+      console.log(data);
+    },
+
+    initTableData() {
+      let target = d3Data.dataset.quantity.showData.target;
+      this.dialogTableData.tableData.setTabData =
+        d3Data.dataset.quantity[target];
     },
   },
   components: {
     Settable,
   },
+  beforeMount() {
+    this.initTableData();
+  },
   mounted() {
     this.restaurants = this.loadAll();
+  },
+  watch: {
+    multipleSelection() {
+      if(this.multipleSelection.length>20){this.multipleSelection.splice(0,19)}
+      d3Data.dataset.quantity.showData.data = this.multipleSelection;
+    },
   },
 };
 </script>
 <style>
-dialong-table .el-dialog__body .table .el-table td.el-table__cell, .dialong-table .el-dialog__body .table .el-table th.el-table__cell.is-leaf{
+dialong-table .el-dialog__body .table .el-table td.el-table__cell,
+.dialong-table .el-dialog__body .table .el-table th.el-table__cell.is-leaf {
   border: 0;
-  border:none;
+  border: none;
   height: 60px;
 }
 .el-dialog__headerbtn .el-dialog__close {
@@ -340,7 +356,7 @@ dialong-table .el-dialog__body .table .el-table td.el-table__cell, .dialong-tabl
   border: none;
   border-radius: unset;
 }
-.flexible .flex-box .select .el-input-group__append button.el-button{
+.flexible .flex-box .select .el-input-group__append button.el-button {
   margin: -10px -10px;
 }
 .flexible .flex-box .select .el-autocomplete-suggestion {
@@ -355,7 +371,10 @@ dialong-table .el-dialog__body .table .el-table td.el-table__cell, .dialong-tabl
   background-color: #486c8c;
   color: #37dc94;
 }
-.flexible .flex-box .el-autocomplete-suggestion .el-autocomplete-suggestion__wrap {
+.flexible
+  .flex-box
+  .el-autocomplete-suggestion
+  .el-autocomplete-suggestion__wrap {
   max-height: 240px;
 }
 </style>
@@ -377,8 +396,8 @@ dialong-table .el-dialog__body .table .el-table td.el-table__cell, .dialong-tabl
     display: flex;
     justify-content: center;
     align-items: center;
-    i{
-      color:#fff;
+    i {
+      color: #fff;
     }
   }
   .flex-box {
